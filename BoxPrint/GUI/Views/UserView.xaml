@@ -1,0 +1,118 @@
+﻿<Page x:Class="BoxPrint.GUI.Views.UserView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BoxPrint.GUI.Views"
+      xmlns:ex="clr-namespace:TranslationByMarkupExtension"
+      mc:Ignorable="d" 
+      d:DesignHeight="820" d:DesignWidth="1160"
+      Title="User">
+
+    <Page.Resources>
+        <Style TargetType="Button" x:Key="BtnStyle1">
+            <Setter Property="Background" Value="#FFCDCBCB"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FFCDCBCB"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+    
+    <Grid x:Name="grdViewMain" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <DockPanel>
+                <TextBlock Text="{ex:Translate Admin >}" FontFamily="{StaticResource BoldFont}" Margin="10,0,0,0" FontSize="18" />
+                <TextBlock x:Name="UserPagetxb" Text="{ex:Translate User}" FontFamily="{StaticResource BoldFont}" Margin="10,0,0,0" FontSize="18" />
+            </DockPanel>
+        </Grid>
+
+        <Grid x:Name="grdView" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="0" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Border BorderThickness="1" BorderBrush="Black" Background="#FFF4F4F4">
+                    <StackPanel>
+                        <Border BorderThickness="0, 0, 0, 1" BorderBrush="Black">
+                            <Button Name="Userbtn" Height="70" Foreground="{Binding ElementName=colorBuffer_UserClickForeground, Path=Fill}" Click="AccountManagement_Click" Tag="UserPage" >
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="Background" Value="{Binding ElementName=colorBuffer_UserClickBackground, Path=Fill}"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type Button}">
+                                                    <Border Background="{TemplateBinding Background}">
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </Border>
+                                                </ControlTemplate>
+
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="{StaticResource SK_MouseOverGray}"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                                <TextBlock Text="{ex:Translate User}" FontFamily="{StaticResource BoldFont}" FontSize="{Binding UIFontSize_Large}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Button>
+                        </Border>
+
+                        <Border BorderThickness="0, 0, 0, 1" BorderBrush="Black">
+                            <Button Name="Groupbtn" Height="70" Foreground="{Binding ElementName=colorBuffer_GroupClickForeground, Path=Fill}" Click="AccountManagement_Click" Tag="GroupPage" >
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="Background" Value="{Binding ElementName=colorBuffer_GroupClickBackground, Path=Fill}"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type Button}">
+                                                    <Border Background="{TemplateBinding Background}">
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </Border>
+                                                </ControlTemplate>
+
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="{StaticResource SK_MouseOverGray}"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                                <TextBlock Text="{ex:Translate Group}" FontFamily="{StaticResource BoldFont}" FontSize="{Binding UIFontSize_Large}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Button>
+                        </Border>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <Grid Grid.Column="2">
+                <Border BorderThickness="0" BorderBrush="Black">
+                    <Frame  x:Name="frameUser"/>
+                </Border>
+            </Grid>
+
+        </Grid>
+
+        <DockPanel Visibility="Hidden">
+            <Ellipse x:Name="colorBuffer_UserClickBackground"            Width="30" Height="30" Margin="5,0,0,0" IsHitTestVisible="False" Fill="#FFF47725"/>
+            <Ellipse x:Name="colorBuffer_UserClickForeground"          Width="30" Height="30" Margin="5,0,0,0" IsHitTestVisible="False" Fill="White"/>
+            <Ellipse x:Name="colorBuffer_GroupClickForeground"       Width="30" Height="30" Margin="5,0,0,0" IsHitTestVisible="False" Fill="#FF4B4B4B"/>
+            <Ellipse x:Name="colorBuffer_GroupClickBackground"                Width="30" Height="30" Margin="5,0,0,0" IsHitTestVisible="False" Fill="#FFF4F4F4"/>
+        </DockPanel>
+    </Grid>
+
+
+</Page>

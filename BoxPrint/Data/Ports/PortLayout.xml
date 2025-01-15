@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PortLayout AutoRecovery="False" Change="false">
+  <CVLine1 ModuleName="T0POC01_CV01" LineType="AutoOut" Bank="1" Bay="0" Level="1" LineFloor="1F" Rotate="False" CVWay="LeftToRight">
+    <Conveyor1 ModuleName="T0POC01_CV01" USE="True" CVType="Print" TrackGroup="13" TrackNum="003" PortTableID="1" PortSize="Both" Direction="OUTPUT" PLCNum="0">
+      <!--<UNIT1 ModuleName="PRINT_CV01" RFIDType="INK_SQUID" CommunicationType="TCP_IP" IP="192.168.100.50" Port="4000" />-->
+    </Conveyor1>
+  </CVLine1>
+  <!--<CVLine2 ModuleName="M0STK011_P06" LineType="AutoOut" Bank="1" Bay="2" Level="1" LineFloor="1F" Rotate="False" CVWay="BottomToTop">
+    <Conveyor1 ModuleName="M0STK011_P06" USE="True" CVType="RobotIF" TrackGroup="13" TrackNum="004" PortTableID="2" PortSize="Short" Direction="INPUT" PLCNum="0">
+      <RFID1 ModuleName="RFID_P06" RFIDType="BCR_SICK" CommunicationType="TCP_IP" IP="192.168.100.111" Port="9007" />
+    </Conveyor1>
+  </CVLine2>-->
+</PortLayout>

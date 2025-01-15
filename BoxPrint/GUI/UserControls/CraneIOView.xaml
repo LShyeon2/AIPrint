@@ -1,0 +1,763 @@
+﻿<UserControl x:Class="BoxPrint.GUI.UserControls.CraneIOView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BoxPrint.GUI.UserControls"
+             mc:Ignorable="d" 
+             
+             FontFamily="{StaticResource LightFont}"
+             xmlns:vm="clr-namespace:BoxPrint.GUI.ViewModels"
+             d:DataContext="{d:DesignInstance vm:CraneIODetailViewModel}"
+             FontSize="12" Background="White" Width="450">
+    <UserControl.Resources>
+        <Style x:Key="BoldTextBlock" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontFamily" Value="{StaticResource ExtraBoldFont}"/>
+        </Style>
+
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Margin="10" IsHitTestVisible="False">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <TextBlock Text="PLC Data" FontSize="15" Style="{StaticResource BoldTextBlock}"/>
+            <Border BorderBrush="Black" BorderThickness="1" Margin="2" CornerRadius="5">
+                <Grid Margin="5">
+                    <Grid.Resources>
+                        <Style TargetType="{x:Type Grid}">
+                            <Setter Property="Margin" Value="1"/>
+                        </Style>
+                    </Grid.Resources>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="130"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="1" Text="Fork1CarrierID" Margin="5,0,5,0"/>
+                        <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                            <TextBlock Text="{Binding PLCtoPC_0_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="1" Margin="0" Grid.RowSpan="5" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="130"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Column="0" Grid.Row="0" Grid.RowSpan="5" Text="Fork1JobInfo" Margin="5,0,5,0"
+                                   VerticalAlignment="Center"/>
+
+                        <Grid Grid.Column="1" Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="CommandNum" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PLCtoPC_43_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+
+                        <Grid Grid.Column="1" Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="SourcePlace" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PLCtoPC_47_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="SourceBank" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PLCtoPC_44_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="SourceBay" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PLCtoPC_45_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="SourceLevel" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PLCtoPC_46_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+
+                        <Grid Grid.Column="2" Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="DestPlace" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PLCtoPC_51_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="DestBank" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PLCtoPC_48_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="DestBay" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PLCtoPC_49_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="DestLevel" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PLCtoPC_50_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                    </Grid>
+
+                    
+                    <Grid Grid.Column="0" Grid.Row="12" Margin="0" Grid.RowSpan="7" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="130"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Column="0" Grid.Row="0" Grid.RowSpan="7" Text="CurrentPosition" Margin="5,0,5,0"
+                                   VerticalAlignment="Center"/>
+
+                        <Grid Grid.Column="1" Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0" Text="Bank" Margin="5,0,5,0"/>
+                            <Border Grid.Column="1" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PLCtoPC_84_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0" Text="Bay" Margin="5,0,5,0"/>
+                            <Border Grid.Column="1" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PLCtoPC_85_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0" Text="Level" Margin="5,0,5,0"/>
+                            <Border Grid.Column="1" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PLCtoPC_86_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0" Text="Place" Margin="5,0,5,0"/>
+                            <Border Grid.Column="1" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PLCtoPC_87_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0" Text="XAxis" Margin="5,0,5,0"/>
+                            <Border Grid.Column="1" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PLCtoPC_77_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0" Text="ZAxis" Margin="5,0,5,0"/>
+                            <Border Grid.Column="1" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PLCtoPC_80_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="6">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0" Text="FAxis" Margin="5,0,5,0"/>
+                            <Border Grid.Column="1" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PLCtoPC_82_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                    </Grid>
+                    
+                    <Grid Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="130"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="1" Text="Fork2Carrier" Margin="5,0,5,0"/>
+                        <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                            <TextBlock Text="{Binding PLCtoPC_20_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="7" Margin="0" Grid.RowSpan="5" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="130"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Column="0" Grid.Row="0" Grid.RowSpan="5" Text="Fork2JobInfo" Margin="5,0,5,0"
+                                   VerticalAlignment="Center"/>
+
+                        <Grid Grid.Column="1" Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="CommandNum" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PLCtoPC_53_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+
+                        <Grid Grid.Column="1" Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="SourcePlace" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PLCtoPC_57_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="SourceBank" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PLCtoPC_54_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="SourceBay" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PLCtoPC_55_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="SourceLevel" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PLCtoPC_56_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+
+                        <Grid Grid.Column="2" Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="DestPlace" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PLCtoPC_61_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="DestBank" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PLCtoPC_58_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="DestBay" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PLCtoPC_59_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="DestLevel" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PLCtoPC_60_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Border>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="SCS Data" FontSize="15" Style="{StaticResource BoldTextBlock}"/>
+            <Border BorderBrush="Black" BorderThickness="1" Margin="2" CornerRadius="5">
+                <Grid Margin="5">
+                    <Grid.Resources>
+                        <Style TargetType="{x:Type Grid}">
+                            <Setter Property="Margin" Value="1"/>
+                        </Style>
+                    </Grid.Resources>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="130"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="1" Text="Fork1CarrierID" Margin="5,0,5,0"/>
+                        <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                            <TextBlock Text="{Binding PCtoPLC_0_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="1" Margin="0" Grid.RowSpan="5" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="130"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Column="0" Grid.Row="0" Grid.RowSpan="5" Text="Fork1JobInfo" Margin="5,0,5,0"
+                                   VerticalAlignment="Center"/>
+
+                        <Grid Grid.Column="1" Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="CommandNum" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PCtoPLC_43_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+
+                        <Grid Grid.Column="1" Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="SourcePlace" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PCtoPLC_47_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="SourceBank" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PCtoPLC_44_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="SourceBay" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PCtoPLC_45_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="SourceLevel" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PCtoPLC_46_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+
+                        <Grid Grid.Column="2" Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="DestPlace" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PCtoPLC_51_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="DestBank" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PCtoPLC_48_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="DestBay" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PCtoPLC_49_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="DestLevel" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PCtoPLC_50_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                    </Grid>
+
+                    <Grid Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="130"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="1" Text="Fork2CarrierID" Margin="5,0,5,0"/>
+                        <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                            <TextBlock Text="{Binding PCtoPLC_20_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="7" Margin="0" Grid.RowSpan="5" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="130"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Column="0" Grid.Row="0" Grid.RowSpan="5" Text="Fork2JobInfo" Margin="5,0,5,0"
+                                   VerticalAlignment="Center"/>
+
+                        <Grid Grid.Column="1" Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="CommandNum" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PCtoPLC_53_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+
+                        <Grid Grid.Column="1" Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="SourcePlace" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PCtoPLC_57_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="SourceBank" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PCtoPLC_54_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="SourceBay" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PCtoPLC_55_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="SourceLevel" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PCtoPLC_56_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+
+                        <Grid Grid.Column="2" Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="DestPlace" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PCtoPLC_61_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="DestBank" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PCtoPLC_58_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="DestBay" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PCtoPLC_59_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" Text="DestLevel" Margin="5,0,5,0"/>
+                            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock Text="{Binding PCtoPLC_60_0, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Border>
+        </StackPanel>
+    </Grid>
+</UserControl>

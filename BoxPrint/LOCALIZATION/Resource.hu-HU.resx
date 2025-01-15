@@ -1,0 +1,2756 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="1층 선택" xml:space="preserve">
+    <value>Válassza Első Emelet</value>
+  </data>
+  <data name="2층 선택" xml:space="preserve">
+    <value>Válassza Második Emelet</value>
+  </data>
+  <data name="A user without user rights. Are you sure you want to login again?" xml:space="preserve">
+    <value>Felhasználói jogokkal nem rendelkező felhasználó. Biztos, hogy újra bejelentkezik?</value>
+  </data>
+  <data name="AccessAGV" xml:space="preserve">
+    <value>Hozzáférés AGV</value>
+  </data>
+  <data name="AccessOPER" xml:space="preserve">
+    <value>Hozzáférés OPER</value>
+  </data>
+  <data name="Ack Code" xml:space="preserve">
+    <value>Ack Kód</value>
+  </data>
+  <data name="ACTION" xml:space="preserve">
+    <value>AKCIÓ</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Aktív</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Hozzáad</value>
+  </data>
+  <data name="ADDRESS" xml:space="preserve">
+    <value>CÍM</value>
+  </data>
+  <data name="AddressOffset" xml:space="preserve">
+    <value>Cím Ofszet</value>
+  </data>
+  <data name="Admin &gt;" xml:space="preserve">
+    <value>Admin &gt;</value>
+  </data>
+  <data name="Alarm" xml:space="preserve">
+    <value>Riadó</value>
+  </data>
+  <data name="Alarm Log" xml:space="preserve">
+    <value>EQP Hiba Napló</value>
+  </data>
+  <data name="AlarmClear" xml:space="preserve">
+    <value>RiadóTörlés</value>
+  </data>
+  <data name="AlarmLog" xml:space="preserve">
+    <value>EQPHibaNapló</value>
+  </data>
+  <data name="AlarmManager" xml:space="preserve">
+    <value>RiadóKezelő</value>
+  </data>
+  <data name="AlarmTest" xml:space="preserve">
+    <value>RiadóTeszt</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Összes</value>
+  </data>
+  <data name="Already have a Carrier" xml:space="preserve">
+    <value>Már van Hordozó.</value>
+  </data>
+  <data name="AnodeReel" xml:space="preserve">
+    <value>AnódOrsó</value>
+  </data>
+  <data name="Are you sure you want to" xml:space="preserve">
+    <value>Biztos vagy benne, hogy</value>
+  </data>
+  <data name="as a reason" xml:space="preserve">
+    <value>mint ok</value>
+  </data>
+  <data name="AUTO" xml:space="preserve">
+    <value>AUTO</value>
+  </data>
+  <data name="AUTOACTION" xml:space="preserve">
+    <value>AutoAkció</value>
+  </data>
+  <data name="AutoLogoutTime" xml:space="preserve">
+    <value>Auto Kijelentkezés(perc)</value>
+  </data>
+  <data name="AutoRun" xml:space="preserve">
+    <value>Auto Működik</value>
+  </data>
+  <data name="Axis Number" xml:space="preserve">
+    <value>Tengely Sz</value>
+  </data>
+  <data name="Axis State" xml:space="preserve">
+    <value>Tengely Állapot</value>
+  </data>
+  <data name="AxisState" xml:space="preserve">
+    <value>TengelyÁllapot</value>
+  </data>
+  <data name="B" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="Bank" xml:space="preserve">
+    <value>Bank</value>
+  </data>
+  <data name="BANK Tag" xml:space="preserve">
+    <value>BANK{0}</value>
+  </data>
+  <data name="Bank 선택" xml:space="preserve">
+    <value>Bank {0} Válassza</value>
+  </data>
+  <data name="Bay" xml:space="preserve">
+    <value>Rekesz</value>
+  </data>
+  <data name="Bay 끝지점" xml:space="preserve">
+    <value>Rekesz Vége</value>
+  </data>
+  <data name="Bay 또는 Level의 시작 값이 끝 값보다 작아야 합니다." xml:space="preserve">
+    <value>Az rekesz vagy szint kezdőértékének
+kisebbnek kell lennie a végértéknél.</value>
+  </data>
+  <data name="Bay 시작지점" xml:space="preserve">
+    <value>Rekesz Indul</value>
+  </data>
+  <data name="BCR" xml:space="preserve">
+    <value>BCR</value>
+  </data>
+  <data name="BCR Log" xml:space="preserve">
+    <value>BCR Napló</value>
+  </data>
+  <data name="BCR NO" xml:space="preserve">
+    <value>BCR SZ</value>
+  </data>
+  <data name="BCR Not Exist" xml:space="preserve">
+    <value>BCR nics</value>
+  </data>
+  <data name="BCR Read" xml:space="preserve">
+    <value>BCR Olvasás</value>
+  </data>
+  <data name="BCR ReadTest" xml:space="preserve">
+    <value>BCR Olvasási Teszt</value>
+  </data>
+  <data name="BCR Result" xml:space="preserve">
+    <value>BCR Eredmény</value>
+  </data>
+  <data name="BCR TestMode : [0] Normal" xml:space="preserve">
+    <value>BCR Tesztmód : [0] Normál</value>
+  </data>
+  <data name="BCR TestMode : [1] Read Fail" xml:space="preserve">
+    <value>BCR Tesztmód : [1] Olvasás Sikertelen</value>
+  </data>
+  <data name="BCR TestMode : [2] Read Duplicate" xml:space="preserve">
+    <value>BCR Tesztmód : [2] Olvasás Duplikátum</value>
+  </data>
+  <data name="BCRLog" xml:space="preserve">
+    <value>BCRNapló</value>
+  </data>
+  <data name="BitOffset" xml:space="preserve">
+    <value>Bit Ofszet</value>
+  </data>
+  <data name="BOARD" xml:space="preserve">
+    <value>TÁBLA</value>
+  </data>
+  <data name="Booth" xml:space="preserve">
+    <value>Stand</value>
+  </data>
+  <data name="BoothState 변경 메시지" xml:space="preserve">
+    <value>Változás FülkéÁllapot {0}-ról {1}-re?</value>
+  </data>
+  <data name="Both" xml:space="preserve">
+    <value>Mindkét</value>
+  </data>
+  <data name="BothMode" xml:space="preserve">
+    <value>Típus Változás</value>
+  </data>
+  <data name="BottomMenu" xml:space="preserve">
+    <value>AlsóMenü</value>
+  </data>
+  <data name="BP" xml:space="preserve">
+    <value>PP</value>
+  </data>
+  <data name="BUTTON" xml:space="preserve">
+    <value>GOMB</value>
+  </data>
+  <data name="C/V BACKWARD" xml:space="preserve">
+    <value>Szállítószalag Hátrafelé</value>
+  </data>
+  <data name="C/V FORWARD" xml:space="preserve">
+    <value>Szállítószalag Előre</value>
+  </data>
+  <data name="Can't Change" xml:space="preserve">
+    <value>Nem változhat</value>
+  </data>
+  <data name="CANCEL" xml:space="preserve">
+    <value>TÖRLÉS</value>
+  </data>
+  <data name="Carrier" xml:space="preserve">
+    <value>Hordozó</value>
+  </data>
+  <data name="Carrier Exist" xml:space="preserve">
+    <value>Hordozó létezik</value>
+  </data>
+  <data name="Carrier ID" xml:space="preserve">
+    <value>CARRIER ID</value>
+  </data>
+  <data name="Carrier List" xml:space="preserve">
+    <value>Hordozó Lista</value>
+  </data>
+  <data name="Carrier Loc" xml:space="preserve">
+    <value>Hordozó Hely</value>
+  </data>
+  <data name="CARRIER LOCATION" xml:space="preserve">
+    <value>HORDOZÓ HELY</value>
+  </data>
+  <data name="Carrier Not Exist" xml:space="preserve">
+    <value>Hordozó nics</value>
+  </data>
+  <data name="Carrier Search and Transfer" xml:space="preserve">
+    <value>Hordozó Keresés és Transzfer</value>
+  </data>
+  <data name="Carrier Size" xml:space="preserve">
+    <value>Hordozó Méret</value>
+  </data>
+  <data name="Carrier size is mismatched" xml:space="preserve">
+    <value>Hordozó mérete nem egyezik</value>
+  </data>
+  <data name="Carrier 조회 및 반송" xml:space="preserve">
+    <value>Hordozó Keresés és Transzfer</value>
+  </data>
+  <data name="CarrierID" xml:space="preserve">
+    <value>HordozóAzonosító</value>
+  </data>
+  <data name="CarrierID is Empty" xml:space="preserve">
+    <value>HordozóAzonosító Üres.</value>
+  </data>
+  <data name="CarrierID is Empty or PalletSize is None." xml:space="preserve">
+    <value>HordozóAzonosító Üres vagy nincs RaklapMéret.</value>
+  </data>
+  <data name="CarrierSearch" xml:space="preserve">
+    <value>HordozóKeresés</value>
+  </data>
+  <data name="CarrierSize" xml:space="preserve">
+    <value>HordozóMéret</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Kategória</value>
+  </data>
+  <data name="CathodeReel" xml:space="preserve">
+    <value>KatódOrsó</value>
+  </data>
+  <data name="CEID" xml:space="preserve">
+    <value>CEID</value>
+  </data>
+  <data name="Cell Packing" xml:space="preserve">
+    <value>Cella Csomagolás</value>
+  </data>
+  <data name="CELL 완제품 창고 (남) #1" xml:space="preserve">
+    <value>Cella Termék Raktár (Dél) #1</value>
+  </data>
+  <data name="CELL 완제품 창고 (남) #2" xml:space="preserve">
+    <value>Cella Termék Raktár (Dél) #2</value>
+  </data>
+  <data name="CELL 완제품 창고 (남) #3" xml:space="preserve">
+    <value>Cella Termék Raktár (Dél) #3</value>
+  </data>
+  <data name="CELL 완제품 창고 (남) #4" xml:space="preserve">
+    <value>Cella Termék Raktár (Dél) #4</value>
+  </data>
+  <data name="CELL 완제품 창고 (남) #5" xml:space="preserve">
+    <value>Cella Termék Raktár (Dél) #5</value>
+  </data>
+  <data name="CELL 완제품 창고 (남) #6" xml:space="preserve">
+    <value>Cella Termék Raktár (Dél) #6</value>
+  </data>
+  <data name="CELL 완제품 창고 (남) #7" xml:space="preserve">
+    <value>Cella Termék Raktár (Dél) #7</value>
+  </data>
+  <data name="CELL 완제품 창고 (남) #8" xml:space="preserve">
+    <value>Cella Termék Raktár (Dél) #8</value>
+  </data>
+  <data name="CELL 완제품 창고 (북) #1" xml:space="preserve">
+    <value>Cella Termék Raktár (Észak) #1</value>
+  </data>
+  <data name="CELL 완제품 창고 (북) #2" xml:space="preserve">
+    <value>Cella Termék Raktár (Észak) #2</value>
+  </data>
+  <data name="CELL 완제품 창고 (북) #3" xml:space="preserve">
+    <value>Cella Termék Raktár (Észak) #3</value>
+  </data>
+  <data name="CELL 완제품 창고 (북) #4" xml:space="preserve">
+    <value>Cella Termék Raktár (Észak) #4</value>
+  </data>
+  <data name="CELL 완제품 창고 (북) #5" xml:space="preserve">
+    <value>Cella Termék Raktár (Észak) #5</value>
+  </data>
+  <data name="CELL 완제품 창고 (북) #6" xml:space="preserve">
+    <value>Cella Termék Raktár (Észak) #6</value>
+  </data>
+  <data name="CELL 완제품 창고 (북) #7" xml:space="preserve">
+    <value>Cella Termék Raktár (Észak) #7</value>
+  </data>
+  <data name="CELL 완제품 창고 (북) #8" xml:space="preserve">
+    <value>Cella Termék Raktár (Észak) #8</value>
+  </data>
+  <data name="CellPacking" xml:space="preserve">
+    <value>CellaCsomagolás</value>
+  </data>
+  <data name="CellProduct_Long" xml:space="preserve">
+    <value>CellaTermék_Hosszú</value>
+  </data>
+  <data name="CellProduct_Short" xml:space="preserve">
+    <value>CellaTermék_Rövid</value>
+  </data>
+  <data name="Cell_Long" xml:space="preserve">
+    <value>Cella_Hosszú</value>
+  </data>
+  <data name="Cell_Short" xml:space="preserve">
+    <value>Cella_Rövid</value>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>Változás</value>
+  </data>
+  <data name="Check" xml:space="preserve">
+    <value>Ellenőrizze</value>
+  </data>
+  <data name="Check Select Value" xml:space="preserve">
+    <value>Jelölje be az Érték kiválasztása</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Üres </value>
+  </data>
+  <data name="CLICK" xml:space="preserve">
+    <value>KATTINTOTT</value>
+  </data>
+  <data name="CLOSE" xml:space="preserve">
+    <value>BEZÁR</value>
+  </data>
+  <data name="CMD" xml:space="preserve">
+    <value>Cd</value>
+  </data>
+  <data name="CN" xml:space="preserve">
+    <value>Kínai</value>
+  </data>
+  <data name="Command" xml:space="preserve">
+    <value>Parancs</value>
+  </data>
+  <data name="Command Error" xml:space="preserve">
+    <value>Parancs hiba</value>
+  </data>
+  <data name="COMMAND ID" xml:space="preserve">
+    <value>PARANCS Azonosító</value>
+  </data>
+  <data name="Comment입력 메시지" xml:space="preserve">
+    <value>Szeretné írni a megjegyzést {0} {1}-re?</value>
+  </data>
+  <data name="Complete" xml:space="preserve">
+    <value>Befejez</value>
+  </data>
+  <data name="Config" xml:space="preserve">
+    <value>Konfig</value>
+  </data>
+  <data name="CONFIRM" xml:space="preserve">
+    <value>MEGERŐSÍTÉS</value>
+  </data>
+  <data name="Confirmation" xml:space="preserve">
+    <value>Megerősítés</value>
+  </data>
+  <data name="Connect" xml:space="preserve">
+    <value>Csatlakozás</value>
+  </data>
+  <data name="Connection" xml:space="preserve">
+    <value>Kapcsolat</value>
+  </data>
+  <data name="Connection Info" xml:space="preserve">
+    <value>Kapcsolat Info</value>
+  </data>
+  <data name="Consumable" xml:space="preserve">
+    <value>Felhasználható</value>
+  </data>
+  <data name="Contain" xml:space="preserve">
+    <value>Tartalmaz</value>
+  </data>
+  <data name="CONVERTER" xml:space="preserve">
+    <value>ÁTALAKÍTÓ</value>
+  </data>
+  <data name="Conveyor" xml:space="preserve">
+    <value>Szállítószalag</value>
+  </data>
+  <data name="Conveyor Line" xml:space="preserve">
+    <value>Szállítószalag</value>
+  </data>
+  <data name="Core Type" xml:space="preserve">
+    <value>Mag Típusa</value>
+  </data>
+  <data name="CPS Reset" xml:space="preserve">
+    <value>CPS Visszaállítás</value>
+  </data>
+  <data name="CPS Start" xml:space="preserve">
+    <value>CPS Indul</value>
+  </data>
+  <data name="Crane" xml:space="preserve">
+    <value>Daru</value>
+  </data>
+  <data name="Crane is Busy" xml:space="preserve">
+    <value>Daru Foglalt</value>
+  </data>
+  <data name="CRANE NUMBER" xml:space="preserve">
+    <value>SC_NO</value>
+  </data>
+  <data name="Crane Speed Setting" xml:space="preserve">
+    <value>Daru Sebesség Beállítás</value>
+  </data>
+  <data name="Crane Task" xml:space="preserve">
+    <value>Daru Feladat</value>
+  </data>
+  <data name="Crane1" xml:space="preserve">
+    <value>Daru1</value>
+  </data>
+  <data name="Crane2" xml:space="preserve">
+    <value>Daru2</value>
+  </data>
+  <data name="CraneAble" xml:space="preserve">
+    <value>DaruTud</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Teremt</value>
+  </data>
+  <data name="Current" xml:space="preserve">
+    <value>Jelenlegi</value>
+  </data>
+  <data name="Current Language" xml:space="preserve">
+    <value>Jelenlegi Nyelv</value>
+  </data>
+  <data name="Current Location" xml:space="preserve">
+    <value>Jelenlegi Hely</value>
+  </data>
+  <data name="Current Speed mm/s" xml:space="preserve">
+    <value>Jelenlegi sebesség mm/s</value>
+  </data>
+  <data name="Current State" xml:space="preserve">
+    <value>Jelenlegi Állapot</value>
+  </data>
+  <data name="Current User cannot Create/Delete User. (Manager Only)" xml:space="preserve">
+    <value>Jelenlegi Felhasználó nem tud Felhasználót Teremt/Törölni. (Csak menedzser)</value>
+  </data>
+  <data name="CV" xml:space="preserve">
+    <value>Szállítószalag</value>
+  </data>
+  <data name="CV Error Reset" xml:space="preserve">
+    <value>Szállítószalag Hiba Visszaállítás</value>
+  </data>
+  <data name="Cycle" xml:space="preserve">
+    <value>Ciklus</value>
+  </data>
+  <data name="Data Type" xml:space="preserve">
+    <value>Adat Típusa</value>
+  </data>
+  <data name="Db Get1" xml:space="preserve">
+    <value>Adatbázis Kap1</value>
+  </data>
+  <data name="Db Get2" xml:space="preserve">
+    <value>Adatbázis Kap2</value>
+  </data>
+  <data name="Db Get3" xml:space="preserve">
+    <value>Adatbázis Kap3</value>
+  </data>
+  <data name="DB Open Failed" xml:space="preserve">
+    <value>Adatbázis Megnyitása Sikertelen! Megszüntet a Program.</value>
+  </data>
+  <data name="DB Set Fail" xml:space="preserve">
+    <value>DB készlet sikertelen</value>
+  </data>
+  <data name="DeadZone" xml:space="preserve">
+    <value>HoltZóna</value>
+  </data>
+  <data name="DeadZone설정 메시지" xml:space="preserve">
+    <value>HoltZónát {0} értékre szeretné beállítani?</value>
+  </data>
+  <data name="Default Value" xml:space="preserve">
+    <value>Alapérték</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Törlés</value>
+  </data>
+  <data name="Delete User is Null" xml:space="preserve">
+    <value>Nincs törlendő felhasználó</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Leírás</value>
+  </data>
+  <data name="Dest" xml:space="preserve">
+    <value>Úticél</value>
+  </data>
+  <data name="Destination" xml:space="preserve">
+    <value>Célállomás</value>
+  </data>
+  <data name="DESTINATION LOCATION" xml:space="preserve">
+    <value>CÉLÁLLOMÁS HELY</value>
+  </data>
+  <data name="Detail" xml:space="preserve">
+    <value>Részlet</value>
+  </data>
+  <data name="Detect" xml:space="preserve">
+    <value>Érzékel</value>
+  </data>
+  <data name="Device Map" xml:space="preserve">
+    <value>Eszköz Térkép</value>
+  </data>
+  <data name="Device Map(PLC) Monitoring" xml:space="preserve">
+    <value>Eszköz Térkép(PLC) Megfigyelés</value>
+  </data>
+  <data name="Direction" xml:space="preserve">
+    <value>Irány</value>
+  </data>
+  <data name="DirectionBothMode" xml:space="preserve">
+    <value>IrányMindkétMód</value>
+  </data>
+  <data name="DirectionInMode" xml:space="preserve">
+    <value>IrányBanMód</value>
+  </data>
+  <data name="DirectionOutMode" xml:space="preserve">
+    <value>IrányKifeléMód</value>
+  </data>
+  <data name="Disable" xml:space="preserve">
+    <value>Nem Használ</value>
+  </data>
+  <data name="Disconnect" xml:space="preserve">
+    <value>Szétkapcsol</value>
+  </data>
+  <data name="Do You Want to Change?" xml:space="preserve">
+    <value>Változni akarsz?</value>
+  </data>
+  <data name="Do you want to Create User?" xml:space="preserve">
+    <value>Szeretnél Teremt Felhasználó?</value>
+  </data>
+  <data name="Do you want to Delete User?" xml:space="preserve">
+    <value>Szeretnél törölni Felhasználó?</value>
+  </data>
+  <data name="Do you want to Edit User?" xml:space="preserve">
+    <value>Szeretnél szerkeszteni Felhasználó?</value>
+  </data>
+  <data name="Do you want to reconnect a Crane?" xml:space="preserve">
+    <value>Szeretne újra csatlakoztatni a Daru?</value>
+  </data>
+  <data name="Do you want to write the Comment" xml:space="preserve">
+    <value>Szeretne írni a Hozzászólást</value>
+  </data>
+  <data name="Door Open" xml:space="preserve">
+    <value>Ajtó Nyit</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Szerkeszteni</value>
+  </data>
+  <data name="Emergency Stop" xml:space="preserve">
+    <value>Vészleállító</value>
+  </data>
+  <data name="EmergencyStop" xml:space="preserve">
+    <value>Vészleállító</value>
+  </data>
+  <data name="EMPTY" xml:space="preserve">
+    <value>Üres</value>
+  </data>
+  <data name="Enable" xml:space="preserve">
+    <value>Használ</value>
+  </data>
+  <data name="End Status" xml:space="preserve">
+    <value>Vég Állapot</value>
+  </data>
+  <data name="Enter Priority to Change" xml:space="preserve">
+    <value>Adja meg a Megváltoztatandó prioritást</value>
+  </data>
+  <data name="EQP ID" xml:space="preserve">
+    <value>EQP Azonosító</value>
+  </data>
+  <data name="EQPType" xml:space="preserve">
+    <value>EQPTípus</value>
+  </data>
+  <data name="Error Code" xml:space="preserve">
+    <value>Hiba Kód</value>
+  </data>
+  <data name="Error Name" xml:space="preserve">
+    <value>Hiba Név</value>
+  </data>
+  <data name="Error Reset" xml:space="preserve">
+    <value>Hiba Visszaállítás</value>
+  </data>
+  <data name="Error Type" xml:space="preserve">
+    <value>Hiba Típus</value>
+  </data>
+  <data name="ERRORHANDLING" xml:space="preserve">
+    <value>HibaKezelés</value>
+  </data>
+  <data name="ErrorReset" xml:space="preserve">
+    <value>HibaVisszaállítás</value>
+  </data>
+  <data name="Event Info" xml:space="preserve">
+    <value>Esemény Info</value>
+  </data>
+  <data name="Event Time" xml:space="preserve">
+    <value>Esemény Idő</value>
+  </data>
+  <data name="EventType" xml:space="preserve">
+    <value>EseményTípus</value>
+  </data>
+  <data name="Exception" xml:space="preserve">
+    <value>Kivétel</value>
+  </data>
+  <data name="EXIST" xml:space="preserve">
+    <value>Létezik</value>
+  </data>
+  <data name="EXIT" xml:space="preserve">
+    <value>VÉGE</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="Fail" xml:space="preserve">
+    <value>Nem sikerült</value>
+  </data>
+  <data name="False" xml:space="preserve">
+    <value>Hamis</value>
+  </data>
+  <data name="FILE 잠김" xml:space="preserve">
+    <value>FÁJLZÁR</value>
+  </data>
+  <data name="Filtering Text" xml:space="preserve">
+    <value>Szűrése Szöveg</value>
+  </data>
+  <data name="Final Location" xml:space="preserve">
+    <value>Végső Hely</value>
+  </data>
+  <data name="Find" xml:space="preserve">
+    <value>Talál</value>
+  </data>
+  <data name="Fire State" xml:space="preserve">
+    <value>Tűz Állapot</value>
+  </data>
+  <data name="Fire1" xml:space="preserve">
+    <value>Tűz1</value>
+  </data>
+  <data name="Fire2" xml:space="preserve">
+    <value>Tűz2</value>
+  </data>
+  <data name="FireWaterPool" xml:space="preserve">
+    <value>TűzoltóVíztároló</value>
+  </data>
+  <data name="FirmwareLog" xml:space="preserve">
+    <value>Firmware Napló</value>
+  </data>
+  <data name="FIRST FLOOR" xml:space="preserve">
+    <value>ELSŐ EMELET</value>
+  </data>
+  <data name="Fork" xml:space="preserve">
+    <value>Fork</value>
+  </data>
+  <data name="Front Bank" xml:space="preserve">
+    <value>Elülső Bank</value>
+  </data>
+  <data name="Front Shelf" xml:space="preserve">
+    <value>Elülső Polc</value>
+  </data>
+  <data name="Front Teaching 데이터를 PMAC으로 부터 읽어 옵니다." xml:space="preserve">
+    <value>Olvassa el elülső tanítási adatokat a PMAC.</value>
+  </data>
+  <data name="GROUND FLOOR" xml:space="preserve">
+    <value>FENÉK EMELET</value>
+  </data>
+  <data name="Group" xml:space="preserve">
+    <value>Csoport</value>
+  </data>
+  <data name="G층 선택" xml:space="preserve">
+    <value>Válassza FENÉK EMELET</value>
+  </data>
+  <data name="HandOver Counter :" xml:space="preserve">
+    <value>Átadás Számláló :</value>
+  </data>
+  <data name="Heavy Alarm" xml:space="preserve">
+    <value>Nehéz Riadó</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Segítség</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Kezdőlap</value>
+  </data>
+  <data name="HSMS Log" xml:space="preserve">
+    <value>HSMS Napló</value>
+  </data>
+  <data name="HSMSLog" xml:space="preserve">
+    <value>HSMSNapló</value>
+  </data>
+  <data name="HU" xml:space="preserve">
+    <value>Magyar</value>
+  </data>
+  <data name="I/O DESCRIPTION" xml:space="preserve">
+    <value>I/O Leírás</value>
+  </data>
+  <data name="I/O Input" xml:space="preserve">
+    <value>I/O Bemenet</value>
+  </data>
+  <data name="I/O Num" xml:space="preserve">
+    <value>I/O Sz</value>
+  </data>
+  <data name="I/O Output" xml:space="preserve">
+    <value>I/O Kimenet</value>
+  </data>
+  <data name="I/O 조회" xml:space="preserve">
+    <value>Keresés I/O</value>
+  </data>
+  <data name="I/OMonitorRM" xml:space="preserve">
+    <value>I/OMegfigyelésRM</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>Azonosító</value>
+  </data>
+  <data name="In" xml:space="preserve">
+    <value>Ban</value>
+  </data>
+  <data name="IN/OUT" xml:space="preserve">
+    <value>Ban/Kifelé</value>
+  </data>
+  <data name="Info Message" xml:space="preserve">
+    <value>Info Üzenet</value>
+  </data>
+  <data name="Inform" xml:space="preserve">
+    <value>Inform</value>
+  </data>
+  <data name="Inform Log" xml:space="preserve">
+    <value>Inform Napló</value>
+  </data>
+  <data name="INIT" xml:space="preserve">
+    <value>INIC</value>
+  </data>
+  <data name="INITIALIZE" xml:space="preserve">
+    <value>Inicializálás</value>
+  </data>
+  <data name="Inner Tray Type" xml:space="preserve">
+    <value>Belső Tálca Típusa</value>
+  </data>
+  <data name="InOut" xml:space="preserve">
+    <value>BanKifelé</value>
+  </data>
+  <data name="InOutMode" xml:space="preserve">
+    <value>BanKifeléMód</value>
+  </data>
+  <data name="INPUT" xml:space="preserve">
+    <value>Ban</value>
+  </data>
+  <data name="Input Data is Abnormal" xml:space="preserve">
+    <value>Bemeneti adatok rendellenes</value>
+  </data>
+  <data name="Install" xml:space="preserve">
+    <value>Telepítés</value>
+  </data>
+  <data name="Invalid Target" xml:space="preserve">
+    <value>Érvénytelen Cél</value>
+  </data>
+  <data name="IOMonitor" xml:space="preserve">
+    <value>IOMegfigyelés</value>
+  </data>
+  <data name="IP 주소" xml:space="preserve">
+    <value>IP CÍM</value>
+  </data>
+  <data name="is Add Complete" xml:space="preserve">
+    <value>a Teremtés befejeződött</value>
+  </data>
+  <data name="is Current User" xml:space="preserve">
+    <value>a jelenlegi felhasználó</value>
+  </data>
+  <data name="is no Result" xml:space="preserve">
+    <value>nincs eredménye</value>
+  </data>
+  <data name="is Not Exist" xml:space="preserve">
+    <value>a Nem Létez</value>
+  </data>
+  <data name="is Overlap" xml:space="preserve">
+    <value>az Átfedés</value>
+  </data>
+  <data name="is Remove Complete" xml:space="preserve">
+    <value>az Eltávolítás befejeződött</value>
+  </data>
+  <data name="is Remove Fail" xml:space="preserve">
+    <value>az Eltávolítás sikertelen</value>
+  </data>
+  <data name="is Update Complete" xml:space="preserve">
+    <value>a Frissítés befejeződött</value>
+  </data>
+  <data name="ITEM" xml:space="preserve">
+    <value>TÉTEL</value>
+  </data>
+  <data name="Item Name" xml:space="preserve">
+    <value>Tétel Név</value>
+  </data>
+  <data name="ItemType" xml:space="preserve">
+    <value>Tételtípus</value>
+  </data>
+  <data name="Job" xml:space="preserve">
+    <value>Munka</value>
+  </data>
+  <data name="Job creating failed. Check source or destination state." xml:space="preserve">
+    <value>Munka teremtés nem sikerült. Ellenőrizze forrás vagy célállomás állapot.</value>
+  </data>
+  <data name="Job has been created successfully." xml:space="preserve">
+    <value>Munka sikeresen létrejött.</value>
+  </data>
+  <data name="Job has been Sent successfully." xml:space="preserve">
+    <value>Munkát sikeresen elküldtük.</value>
+  </data>
+  <data name="Job is not selected for changing priority." xml:space="preserve">
+    <value>Munka nincs kiválasztva a prioritás megváltoztatására.</value>
+  </data>
+  <data name="Job is not selected for removing." xml:space="preserve">
+    <value>Munka nincs kiválasztva eltávolításra.</value>
+  </data>
+  <data name="KEY IN" xml:space="preserve">
+    <value>KULCS BE</value>
+  </data>
+  <data name="Key Send 메시지" xml:space="preserve">
+    <value>Kulcs küldése a kérésben Szállítószalag [{0}] a kiszolgálónak?</value>
+  </data>
+  <data name="KEYIN" xml:space="preserve">
+    <value>KULCSBE</value>
+  </data>
+  <data name="Kiosk" xml:space="preserve">
+    <value>Kioszk</value>
+  </data>
+  <data name="Kiosk Setting" xml:space="preserve">
+    <value>Kioszk Beállítás</value>
+  </data>
+  <data name="Kiosk 선택 메시지" xml:space="preserve">
+    <value>Szeretné jelenlegi kioszkját {0} cserélni?</value>
+  </data>
+  <data name="KR" xml:space="preserve">
+    <value>Koreai</value>
+  </data>
+  <data name="L Req" xml:space="preserve">
+    <value>Be Kér</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Nyelv</value>
+  </data>
+  <data name="Language Setting" xml:space="preserve">
+    <value>Nyelv Beállítás</value>
+  </data>
+  <data name="Language State Change" xml:space="preserve">
+    <value>Nyelv Állapot Változás</value>
+  </data>
+  <data name="LeftMenu" xml:space="preserve">
+    <value>BalMenü</value>
+  </data>
+  <data name="Legend" xml:space="preserve">
+    <value>Legenda</value>
+  </data>
+  <data name="Level" xml:space="preserve">
+    <value>Szint</value>
+  </data>
+  <data name="Level 끝지점" xml:space="preserve">
+    <value>Szint Vége</value>
+  </data>
+  <data name="Level 시작지점" xml:space="preserve">
+    <value>Szint Indul</value>
+  </data>
+  <data name="Level1" xml:space="preserve">
+    <value>Szint</value>
+  </data>
+  <data name="Light Alarm" xml:space="preserve">
+    <value>Könnyű Riadó</value>
+  </data>
+  <data name="Light/Heavy Alarm" xml:space="preserve">
+    <value>Nehéz/Könnyű Riadó</value>
+  </data>
+  <data name="List" xml:space="preserve">
+    <value>Lista</value>
+  </data>
+  <data name="Load Rate :" xml:space="preserve">
+    <value>Rakodás Ráta :</value>
+  </data>
+  <data name="Loading..." xml:space="preserve">
+    <value>Betöltés…</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Hely</value>
+  </data>
+  <data name="Log" xml:space="preserve">
+    <value>Napló</value>
+  </data>
+  <data name="Log &gt; Alarm Log" xml:space="preserve">
+    <value>Napló &gt; Riadó Napló</value>
+  </data>
+  <data name="Log &gt; BCR Log" xml:space="preserve">
+    <value>Napló &gt; BCR Napló</value>
+  </data>
+  <data name="Log &gt; HSMS Log" xml:space="preserve">
+    <value>Napló &gt; HSMS Napló</value>
+  </data>
+  <data name="Log &gt; Inform Log" xml:space="preserve">
+    <value>Napló &gt; Inform Napló</value>
+  </data>
+  <data name="Log &gt; Operator Log" xml:space="preserve">
+    <value>Napló &gt; Operátor Napló</value>
+  </data>
+  <data name="Log &gt; Transfer Log" xml:space="preserve">
+    <value>Napló &gt; Transzfer Napló</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Bejelentkezés</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Kijelentkezés</value>
+  </data>
+  <data name="Long" xml:space="preserve">
+    <value>Hosszú</value>
+  </data>
+  <data name="LongMode" xml:space="preserve">
+    <value>Típus Változás</value>
+  </data>
+  <data name="LP" xml:space="preserve">
+    <value>RP</value>
+  </data>
+  <data name="Macro Dest" xml:space="preserve">
+    <value>Macro Úticél</value>
+  </data>
+  <data name="Macro Source" xml:space="preserve">
+    <value>Macro forrás</value>
+  </data>
+  <data name="Main" xml:space="preserve">
+    <value>Main</value>
+  </data>
+  <data name="MainPage" xml:space="preserve">
+    <value>Főoldal</value>
+  </data>
+  <data name="Manual" xml:space="preserve">
+    <value>Kézi</value>
+  </data>
+  <data name="Manual Command" xml:space="preserve">
+    <value>Kézi Parancs</value>
+  </data>
+  <data name="Manual Port" xml:space="preserve">
+    <value>Kéz Port</value>
+  </data>
+  <data name="ManualRun" xml:space="preserve">
+    <value>Kézi Működik</value>
+  </data>
+  <data name="Map 관리" xml:space="preserve">
+    <value>Térkép Menedzsment</value>
+  </data>
+  <data name="Map 관리 권한" xml:space="preserve">
+    <value>Térkép Menedzsment Hatóság</value>
+  </data>
+  <data name="MapViewer" xml:space="preserve">
+    <value>TérképNéző</value>
+  </data>
+  <data name="MCS" xml:space="preserve">
+    <value>MCS</value>
+  </data>
+  <data name="MCS On/Offline State Change" xml:space="preserve">
+    <value>MCS On/Offline Állapotváltozás</value>
+  </data>
+  <data name="MCS State Change" xml:space="preserve">
+    <value>MCS Állapotváltozás</value>
+  </data>
+  <data name="Member Login" xml:space="preserve">
+    <value>Tag Bejelentkezés</value>
+  </data>
+  <data name="Memo" xml:space="preserve">
+    <value>Memo</value>
+  </data>
+  <data name="MENU" xml:space="preserve">
+    <value>MENÜ</value>
+  </data>
+  <data name="Menu Close" xml:space="preserve">
+    <value>Menü Bezár</value>
+  </data>
+  <data name="Menu Open" xml:space="preserve">
+    <value>Menü Nyit</value>
+  </data>
+  <data name="MenuID" xml:space="preserve">
+    <value>MenüAzonosító</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Üzenet</value>
+  </data>
+  <data name="Mode" xml:space="preserve">
+    <value>Mód</value>
+  </data>
+  <data name="Modify" xml:space="preserve">
+    <value>Módosít</value>
+  </data>
+  <data name="Module" xml:space="preserve">
+    <value>MODUL</value>
+  </data>
+  <data name="Module Name" xml:space="preserve">
+    <value>Modul Név</value>
+  </data>
+  <data name="Module State Monitoring" xml:space="preserve">
+    <value>Modul Állapot Megfigyelés</value>
+  </data>
+  <data name="Module Type" xml:space="preserve">
+    <value>Modul Típusa</value>
+  </data>
+  <data name="ModuleProduct_Long" xml:space="preserve">
+    <value>ModulTermék_Hosszú</value>
+  </data>
+  <data name="ModuleProduct_Short" xml:space="preserve">
+    <value>ModulTermék_Rövid</value>
+  </data>
+  <data name="Monitoring" xml:space="preserve">
+    <value>Megfigyelés</value>
+  </data>
+  <data name="Move" xml:space="preserve">
+    <value>Mozgás</value>
+  </data>
+  <data name="Move Home" xml:space="preserve">
+    <value>Költözz haza</value>
+  </data>
+  <data name="Move Only" xml:space="preserve">
+    <value>Mozgás</value>
+  </data>
+  <data name="MSG NM" xml:space="preserve">
+    <value>Üzenet Sz</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Név</value>
+  </data>
+  <data name="Navigation Tab" xml:space="preserve">
+    <value>Alsó Lap</value>
+  </data>
+  <data name="NO" xml:space="preserve">
+    <value>NEM</value>
+  </data>
+  <data name="No Select RM" xml:space="preserve">
+    <value>Nincs RM kiválasztva</value>
+  </data>
+  <data name="NONE" xml:space="preserve">
+    <value>SEMMI</value>
+  </data>
+  <data name="Not Use User" xml:space="preserve">
+    <value>Nem használt felhasználó</value>
+  </data>
+  <data name="NumberOrder" xml:space="preserve">
+    <value>NO.</value>
+  </data>
+  <data name="Occur" xml:space="preserve">
+    <value>Előfordul</value>
+  </data>
+  <data name="OFF" xml:space="preserve">
+    <value>KI</value>
+  </data>
+  <data name="Offline" xml:space="preserve">
+    <value>Offline</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OKÉ</value>
+  </data>
+  <data name="ON" xml:space="preserve">
+    <value>BE</value>
+  </data>
+  <data name="Online" xml:space="preserve">
+    <value>Online</value>
+  </data>
+  <data name="Only numbers can be entered" xml:space="preserve">
+    <value>Csak számok adhatók be.</value>
+  </data>
+  <data name="OP" xml:space="preserve">
+    <value>MP</value>
+  </data>
+  <data name="Operator Log" xml:space="preserve">
+    <value>Operátor Napló</value>
+  </data>
+  <data name="OperatorLog" xml:space="preserve">
+    <value>OperátorNapló</value>
+  </data>
+  <data name="Out" xml:space="preserve">
+    <value>Kifelé</value>
+  </data>
+  <data name="OUTPUT" xml:space="preserve">
+    <value>Kifelé</value>
+  </data>
+  <data name="Pallet Size" xml:space="preserve">
+    <value>Raklap Méret</value>
+  </data>
+  <data name="Pallet 정보" xml:space="preserve">
+    <value>Raklap Adat</value>
+  </data>
+  <data name="PalletSize" xml:space="preserve">
+    <value>RaklapMéret</value>
+  </data>
+  <data name="Parameter" xml:space="preserve">
+    <value>Paraméter</value>
+  </data>
+  <data name="Parameter Name" xml:space="preserve">
+    <value>Paraméter Név</value>
+  </data>
+  <data name="Parameter 변경 메시지" xml:space="preserve">
+    <value>Szeretné a {0} paramétert {1}-ről {2}-re módosítani?</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Jelszó</value>
+  </data>
+  <data name="Password is Wrong" xml:space="preserve">
+    <value>Jelszó rossz</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="PAUSED" xml:space="preserve">
+    <value>SZÜNETELÉS</value>
+  </data>
+  <data name="PAUSING" xml:space="preserve">
+    <value>SZÜNETELTETÉS</value>
+  </data>
+  <data name="PC LOC" xml:space="preserve">
+    <value>PC HELY</value>
+  </data>
+  <data name="PC NAME" xml:space="preserve">
+    <value>PC NÉV</value>
+  </data>
+  <data name="PC_CarrierID" xml:space="preserve">
+    <value>PC_HordozóAzonosító</value>
+  </data>
+  <data name="PC_CommandWriteComplete" xml:space="preserve">
+    <value>PC_ParancsÍrjBefejez</value>
+  </data>
+  <data name="PC_InnerTrayType" xml:space="preserve">
+    <value>PC_BelsőTálcaTípusa</value>
+  </data>
+  <data name="PC_PalletSize" xml:space="preserve">
+    <value>PC_RaklapMéret</value>
+  </data>
+  <data name="PC_Polarity" xml:space="preserve">
+    <value>PC_Polaritás</value>
+  </data>
+  <data name="PC_ProductEmpty" xml:space="preserve">
+    <value>PC_TermékÜres</value>
+  </data>
+  <data name="PC_TrayType" xml:space="preserve">
+    <value>PC_TálcaTípus</value>
+  </data>
+  <data name="PC_WinderDirection" xml:space="preserve">
+    <value>PC_TekercselőIrány</value>
+  </data>
+  <data name="Pick" xml:space="preserve">
+    <value>Felvesz</value>
+  </data>
+  <data name="Play Back" xml:space="preserve">
+    <value>Lejátszás</value>
+  </data>
+  <data name="Play Back &gt; Play Back" xml:space="preserve">
+    <value>Lejátszás &gt; Lejátszás</value>
+  </data>
+  <data name="PlayBack" xml:space="preserve">
+    <value>Lejátszás</value>
+  </data>
+  <data name="PlayBack List" xml:space="preserve">
+    <value>Lejátszás Lista</value>
+  </data>
+  <data name="PlayBack을 종료 하시겠습니까?" xml:space="preserve">
+    <value>Kilép a Lejátszást?</value>
+  </data>
+  <data name="PLC" xml:space="preserve">
+    <value>PLC</value>
+  </data>
+  <data name="PLC State" xml:space="preserve">
+    <value>PLC Állapot</value>
+  </data>
+  <data name="PLC Write Data" xml:space="preserve">
+    <value>PLC Írj Adat</value>
+  </data>
+  <data name="PLC 시뮬창 오픈" xml:space="preserve">
+    <value>Nyit PLC Szimuláció lap</value>
+  </data>
+  <data name="PLC_PortType" xml:space="preserve">
+    <value>PC_PortTípus</value>
+  </data>
+  <data name="Please Enter Your Password" xml:space="preserve">
+    <value>Kérjük, Adja Meg Jelszavát</value>
+  </data>
+  <data name="Please Enter Your User ID" xml:space="preserve">
+    <value>Kérjük, Adja Meg Felhasználó Azonosító</value>
+  </data>
+  <data name="Please Enter Your User ID and Password" xml:space="preserve">
+    <value>Kérjük, Adja Meg Felhasználó Azonosító és Jelszavát</value>
+  </data>
+  <data name="Please Select Mode" xml:space="preserve">
+    <value>Kérjük, Válasszon Módot</value>
+  </data>
+  <data name="PMAC Reload 메시지" xml:space="preserve">
+    <value>Újra szeretné tölteni a {1} a {0} PMAC-ból</value>
+  </data>
+  <data name="PMAC Teaching Comp 메시지" xml:space="preserve">
+    <value>Befejeződött a Tanítás Adat olvasása a {0} PMAC-ból</value>
+  </data>
+  <data name="PMAC Teaching Fail 메시지" xml:space="preserve">
+    <value>Nem sikerült beolvasni a Tanítás Adat a {0} PMAC-ból</value>
+  </data>
+  <data name="Polarity" xml:space="preserve">
+    <value>Polaritás</value>
+  </data>
+  <data name="POPUP" xml:space="preserve">
+    <value>FELUGRÓ</value>
+  </data>
+  <data name="POPUPMENU" xml:space="preserve">
+    <value>FELUGRÓMENÜ</value>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>Port</value>
+  </data>
+  <data name="Port Get 작업을 시작 하시겠습니까?" xml:space="preserve">
+    <value>Kezdeni a Port Szerzés Munkát?</value>
+  </data>
+  <data name="Port Get 작업을 중단 하시겠습니까?" xml:space="preserve">
+    <value>Állítsa le a Port Szerzés Munkát?</value>
+  </data>
+  <data name="Port Teaching 데이터를 PMAC으로 부터 읽어 옵니다." xml:space="preserve">
+    <value>Olvassa be port tanítási adatokat a PMAC.</value>
+  </data>
+  <data name="Port Type" xml:space="preserve">
+    <value>Port Típus</value>
+  </data>
+  <data name="PortSize" xml:space="preserve">
+    <value>PortMéret</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Prioritás</value>
+  </data>
+  <data name="Priority Change" xml:space="preserve">
+    <value>Prioritás Változás</value>
+  </data>
+  <data name="ProcessState" xml:space="preserve">
+    <value>Folyamatállapot</value>
+  </data>
+  <data name="Product Empty" xml:space="preserve">
+    <value>Termék Üres</value>
+  </data>
+  <data name="Product End" xml:space="preserve">
+    <value>Termék Vége</value>
+  </data>
+  <data name="Product Quantity" xml:space="preserve">
+    <value>Termék Mennyiség</value>
+  </data>
+  <data name="Push Counter :" xml:space="preserve">
+    <value>Nyomó Számláló :</value>
+  </data>
+  <data name="Rack Master" xml:space="preserve">
+    <value>Állvány Mester</value>
+  </data>
+  <data name="Rack Type" xml:space="preserve">
+    <value>Állvány Típus</value>
+  </data>
+  <data name="RackMaster" xml:space="preserve">
+    <value>ÁllványMester</value>
+  </data>
+  <data name="Raw_Material" xml:space="preserve">
+    <value>Nyers_Anyag</value>
+  </data>
+  <data name="RCMD" xml:space="preserve">
+    <value>RCMD</value>
+  </data>
+  <data name="Read" xml:space="preserve">
+    <value>Olvas</value>
+  </data>
+  <data name="READ DATA" xml:space="preserve">
+    <value>OLVAS ADAT</value>
+  </data>
+  <data name="READ DATA NONE" xml:space="preserve">
+    <value>Nincs OLVAS ADAT. Folytassa a Polc Beállítását.</value>
+  </data>
+  <data name="READ DATA가 없습니다." xml:space="preserve">
+    <value>Nincs Olvasott adat.</value>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>Kész</value>
+  </data>
+  <data name="Rear Bank" xml:space="preserve">
+    <value>Hátulsó Bank</value>
+  </data>
+  <data name="Rear Shelf" xml:space="preserve">
+    <value>Hátulsó Polc</value>
+  </data>
+  <data name="Rear Teaching 데이터를 PMAC으로 부터 읽어 옵니다." xml:space="preserve">
+    <value>Olvassa el hátsó tanítási adatokat a PMAC.</value>
+  </data>
+  <data name="RECEIVECARRIEIR" xml:space="preserve">
+    <value>FogadniHordozó</value>
+  </data>
+  <data name="RECEIVECARRIER" xml:space="preserve">
+    <value>FOGADNIHORDOZÓ</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Frissítés</value>
+  </data>
+  <data name="REGULATOR" xml:space="preserve">
+    <value>SZABÁLYOZÓ</value>
+  </data>
+  <data name="Remote" xml:space="preserve">
+    <value>Távoli</value>
+  </data>
+  <data name="Remote Collecting" xml:space="preserve">
+    <value>Távoli Gyűjtése</value>
+  </data>
+  <data name="Request" xml:space="preserve">
+    <value>Kérés</value>
+  </data>
+  <data name="Resume" xml:space="preserve">
+    <value>Folytatás</value>
+  </data>
+  <data name="RFID CP" xml:space="preserve">
+    <value>RFID CP</value>
+  </data>
+  <data name="RFID RD" xml:space="preserve">
+    <value>RFID RD</value>
+  </data>
+  <data name="RFID Read" xml:space="preserve">
+    <value>RFID Olvas</value>
+  </data>
+  <data name="RIGHTCLICK" xml:space="preserve">
+    <value>JOBBKATTINTITT</value>
+  </data>
+  <data name="RM Fork 화재감지 텍스트" xml:space="preserve">
+    <value>Szeretné folytatni az RM Fork tűzérzékelését?</value>
+  </data>
+  <data name="RM Name" xml:space="preserve">
+    <value>RM Név</value>
+  </data>
+  <data name="RM P-val" xml:space="preserve">
+    <value>RM P-ár</value>
+  </data>
+  <data name="RM Parameter 설정" xml:space="preserve">
+    <value>RM Paraméter Beállítást</value>
+  </data>
+  <data name="RM Remove Carrier Exist Flag" xml:space="preserve">
+    <value>RM Távolítsa el Hordozó Létezik Megjelöl</value>
+  </data>
+  <data name="RM 선택" xml:space="preserve">
+    <value>RM Válassza</value>
+  </data>
+  <data name="RM 선택 메시지" xml:space="preserve">
+    <value>Szeretne lépni a kiválasztott ÁllványMester{0}?</value>
+  </data>
+  <data name="RM1 Active" xml:space="preserve">
+    <value>RM1 Aktív</value>
+  </data>
+  <data name="RM2 Active" xml:space="preserve">
+    <value>RM2 Aktív</value>
+  </data>
+  <data name="RMParameter" xml:space="preserve">
+    <value>RM Paraméter</value>
+  </data>
+  <data name="RMPval" xml:space="preserve">
+    <value>RMPÉrték</value>
+  </data>
+  <data name="RobotSpeed 변경 메시지" xml:space="preserve">
+    <value>{0} sebességet {1} szeretné módosítani?</value>
+  </data>
+  <data name="RPTID" xml:space="preserve">
+    <value>RPTID</value>
+  </data>
+  <data name="Run" xml:space="preserve">
+    <value>Működik</value>
+  </data>
+  <data name="S" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="S/F" xml:space="preserve">
+    <value>F/F</value>
+  </data>
+  <data name="SAVE" xml:space="preserve">
+    <value>MENTÉS</value>
+  </data>
+  <data name="SAVE DTTM" xml:space="preserve">
+    <value>SAVE DTTM</value>
+  </data>
+  <data name="SC" xml:space="preserve">
+    <value>Daru</value>
+  </data>
+  <data name="ScaleReset" xml:space="preserve">
+    <value>SkálaVisszaállítás</value>
+  </data>
+  <data name="SCS" xml:space="preserve">
+    <value>SCS</value>
+  </data>
+  <data name="SCS Config" xml:space="preserve">
+    <value>SCS Konfig</value>
+  </data>
+  <data name="SCS State Change" xml:space="preserve">
+    <value>SCS Állapot Változás</value>
+  </data>
+  <data name="SCS Write Data" xml:space="preserve">
+    <value>SCS Írj Adat</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Keresés</value>
+  </data>
+  <data name="SearchText" xml:space="preserve">
+    <value>Keresés Szöveg</value>
+  </data>
+  <data name="Search_Init" xml:space="preserve">
+    <value>Keresés_INIC</value>
+  </data>
+  <data name="SECOND FLOOR" xml:space="preserve">
+    <value>MÁSODIK EMELET</value>
+  </data>
+  <data name="SECS2 Log" xml:space="preserve">
+    <value>SECS2 Napló</value>
+  </data>
+  <data name="Select Level is Abnormal" xml:space="preserve">
+    <value>Szint kiválasztása rendellenes</value>
+  </data>
+  <data name="Select Use is Abnormal" xml:space="preserve">
+    <value>Használat kiválasztása rendellenes</value>
+  </data>
+  <data name="Send Counter :" xml:space="preserve">
+    <value>Küld Számláló :</value>
+  </data>
+  <data name="SENDCARRIER" xml:space="preserve">
+    <value>KüldHordozó</value>
+  </data>
+  <data name="Sensor Error" xml:space="preserve">
+    <value>Érzékelő Hiba</value>
+  </data>
+  <data name="Sensor View Switching" xml:space="preserve">
+    <value>Érzékelő Nézet Váltás</value>
+  </data>
+  <data name="Set RM Speed Change" xml:space="preserve">
+    <value>Állítsa be RM Sebesség Változás</value>
+  </data>
+  <data name="Set SCS mode to Pause for operation." xml:space="preserve">
+    <value>Állítsa az SCS módot Szünet a működéshez.</value>
+  </data>
+  <data name="Set SCS State" xml:space="preserve">
+    <value>Állítsa be SCS Állapot</value>
+  </data>
+  <data name="SetGrid" xml:space="preserve">
+    <value>Állítsa be Rács</value>
+  </data>
+  <data name="Setup" xml:space="preserve">
+    <value>Beállítás</value>
+  </data>
+  <data name="Shelf" xml:space="preserve">
+    <value>Polc</value>
+  </data>
+  <data name="Shelf Both Type" xml:space="preserve">
+    <value>Polc Mindkét Típus</value>
+  </data>
+  <data name="Shelf Disable" xml:space="preserve">
+    <value>Polc Nem Használ</value>
+  </data>
+  <data name="Shelf Empty" xml:space="preserve">
+    <value>Polc Üres</value>
+  </data>
+  <data name="Shelf Error" xml:space="preserve">
+    <value>Polc Hiba</value>
+  </data>
+  <data name="Shelf Exist" xml:space="preserve">
+    <value>Polc Létezik</value>
+  </data>
+  <data name="Shelf FireWaterPool Type" xml:space="preserve">
+    <value>Polc Tűzoltó Víztároló Típus</value>
+  </data>
+  <data name="Shelf ID" xml:space="preserve">
+    <value>Polc Azonosító</value>
+  </data>
+  <data name="Shelf is already job scheduled." xml:space="preserve">
+    <value>Polc már munkára van ütemezve.</value>
+  </data>
+  <data name="Shelf level" xml:space="preserve">
+    <value>Polc Szint</value>
+  </data>
+  <data name="Shelf LoadRate :" xml:space="preserve">
+    <value>Polc RakodásRáta :</value>
+  </data>
+  <data name="Shelf Long Type" xml:space="preserve">
+    <value>Polc Hosszú Típus</value>
+  </data>
+  <data name="Shelf Priority" xml:space="preserve">
+    <value>Polc Prioritás</value>
+  </data>
+  <data name="Shelf Short Type" xml:space="preserve">
+    <value>Polc Rövid Típus</value>
+  </data>
+  <data name="Shelf Size" xml:space="preserve">
+    <value>Polc Méret</value>
+  </data>
+  <data name="Shelf State" xml:space="preserve">
+    <value>Polc Állapot</value>
+  </data>
+  <data name="Shelf Status" xml:space="preserve">
+    <value>Polc Állapot</value>
+  </data>
+  <data name="Shelf Type" xml:space="preserve">
+    <value>Polc Típus</value>
+  </data>
+  <data name="Shelf UNKID Count :" xml:space="preserve">
+    <value>Polc UNKID Számol :</value>
+  </data>
+  <data name="Shelf 상태 설정" xml:space="preserve">
+    <value>Beállítása Polc állapotát</value>
+  </data>
+  <data name="ShelfStatus" xml:space="preserve">
+    <value>PolcÁllapot</value>
+  </data>
+  <data name="ShelfType" xml:space="preserve">
+    <value>PolcTípus</value>
+  </data>
+  <data name="Short" xml:space="preserve">
+    <value>Rövid</value>
+  </data>
+  <data name="ShortMode" xml:space="preserve">
+    <value>Típus Változás</value>
+  </data>
+  <data name="SIGNIN" xml:space="preserve">
+    <value>BEJELENTKEZÉS</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Mérete</value>
+  </data>
+  <data name="Smoke" xml:space="preserve">
+    <value>Füst</value>
+  </data>
+  <data name="Smoke Detect 조회" xml:space="preserve">
+    <value>Keresés Füst Észlelés</value>
+  </data>
+  <data name="SmokeDetect" xml:space="preserve">
+    <value>FüstÉszlelés</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Forrás</value>
+  </data>
+  <data name="SOURCE LOCATION" xml:space="preserve">
+    <value>FORRÁS HELY</value>
+  </data>
+  <data name="Speed" xml:space="preserve">
+    <value>Sebesség</value>
+  </data>
+  <data name="SRC" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="SRC Pause" xml:space="preserve">
+    <value>Pause SRC</value>
+  </data>
+  <data name="SRC Resume" xml:space="preserve">
+    <value>Resume SRC</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Kezd</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>Állapot</value>
+  </data>
+  <data name="State is Error" xml:space="preserve">
+    <value>Állapot Hiba</value>
+  </data>
+  <data name="State is Not Error" xml:space="preserve">
+    <value>Állapot nem hiba</value>
+  </data>
+  <data name="StateChangeTime" xml:space="preserve">
+    <value>ÁllapotVáltozásIdő</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Állapot</value>
+  </data>
+  <data name="Step" xml:space="preserve">
+    <value>Lépés</value>
+  </data>
+  <data name="Stocker Alarm 관리" xml:space="preserve">
+    <value>Raktárgép Riadó Menedzsment</value>
+  </data>
+  <data name="Stocker Alarm 관리 권한" xml:space="preserve">
+    <value>Raktárgép Riadó Menedzsment Hatóság</value>
+  </data>
+  <data name="Stocker Config 관리" xml:space="preserve">
+    <value>Raktárgép Konfig Menedzsment</value>
+  </data>
+  <data name="Stocker Config 관리 권한" xml:space="preserve">
+    <value>Raktárgép Konfig Menedzsment Hatóság</value>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>Megáll</value>
+  </data>
+  <data name="Stopper B" xml:space="preserve">
+    <value>Dugó B</value>
+  </data>
+  <data name="Stopper F" xml:space="preserve">
+    <value>Dugó F</value>
+  </data>
+  <data name="Stored In" xml:space="preserve">
+    <value>Tárolva</value>
+  </data>
+  <data name="Stream/Function" xml:space="preserve">
+    <value>Folyam/Funkció</value>
+  </data>
+  <data name="Success Login" xml:space="preserve">
+    <value>Siker Belépés</value>
+  </data>
+  <data name="Success Logout" xml:space="preserve">
+    <value>Siker Kijelentkezés</value>
+  </data>
+  <data name="SVID" xml:space="preserve">
+    <value>SVID</value>
+  </data>
+  <data name="Switch" xml:space="preserve">
+    <value>Váltás</value>
+  </data>
+  <data name="Switching CPS Views" xml:space="preserve">
+    <value>Váltás CPS Nézet</value>
+  </data>
+  <data name="SysByte" xml:space="preserve">
+    <value>RendszerByte</value>
+  </data>
+  <data name="SYSTEM STATE" xml:space="preserve">
+    <value>RENDSZER ÁLLAPOT</value>
+  </data>
+  <data name="Tab" xml:space="preserve">
+    <value>Lap</value>
+  </data>
+  <data name="Teaching Data" xml:space="preserve">
+    <value>Tanítás Adat</value>
+  </data>
+  <data name="Temperature" xml:space="preserve">
+    <value>Hőmérséklet</value>
+  </data>
+  <data name="Terminal Message" xml:space="preserve">
+    <value>Terminál Üzenet</value>
+  </data>
+  <data name="TerminalMessage" xml:space="preserve">
+    <value>TerminálÜzenet</value>
+  </data>
+  <data name="TEST" xml:space="preserve">
+    <value>TESZT</value>
+  </data>
+  <data name="TestMode" xml:space="preserve">
+    <value>TesztMód</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Idő</value>
+  </data>
+  <data name="TimeStamp" xml:space="preserve">
+    <value>Időbélyeg</value>
+  </data>
+  <data name="Track ID" xml:space="preserve">
+    <value>Pálya Azonosító</value>
+  </data>
+  <data name="Track Name" xml:space="preserve">
+    <value>Pálya Név</value>
+  </data>
+  <data name="Track NO" xml:space="preserve">
+    <value>Pálya Sz</value>
+  </data>
+  <data name="Tracking Data" xml:space="preserve">
+    <value>Követés Adat</value>
+  </data>
+  <data name="TrackPause" xml:space="preserve">
+    <value>PályaSzünet</value>
+  </data>
+  <data name="TrackResume" xml:space="preserve">
+    <value>PályaFolytatás</value>
+  </data>
+  <data name="Transaction ID" xml:space="preserve">
+    <value>Tranzakció Azonosító</value>
+  </data>
+  <data name="Transfer List" xml:space="preserve">
+    <value>Transzfer Lista</value>
+  </data>
+  <data name="Transfer Log" xml:space="preserve">
+    <value>Transzfer Napló</value>
+  </data>
+  <data name="TransferLog" xml:space="preserve">
+    <value>TranszferNapló</value>
+  </data>
+  <data name="Tray Size" xml:space="preserve">
+    <value>Tálca Méret</value>
+  </data>
+  <data name="Tray Slot Quantity" xml:space="preserve">
+    <value>Tálca Slot Mennyiség</value>
+  </data>
+  <data name="Tray Type" xml:space="preserve">
+    <value>Tálca Típus</value>
+  </data>
+  <data name="True" xml:space="preserve">
+    <value>Igaz</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Típus</value>
+  </data>
+  <data name="Uncoordinated Direction" xml:space="preserve">
+    <value>Koordinálatlan Irány</value>
+  </data>
+  <data name="Unit" xml:space="preserve">
+    <value>Egység</value>
+  </data>
+  <data name="Unit ID" xml:space="preserve">
+    <value>EGYSÉG Azonosító</value>
+  </data>
+  <data name="Unit Image" xml:space="preserve">
+    <value>Egység Kép</value>
+  </data>
+  <data name="UnitID" xml:space="preserve">
+    <value>EGYSÉG Azonosító</value>
+  </data>
+  <data name="UNK ID Count :" xml:space="preserve">
+    <value>ISMERETLEN Azonosító Számol :</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>Ismeretlen</value>
+  </data>
+  <data name="UNKSHELF" xml:space="preserve">
+    <value>Ismeretlen Állvány</value>
+  </data>
+  <data name="Unload" xml:space="preserve">
+    <value>Kirakodás</value>
+  </data>
+  <data name="Unuse" xml:space="preserve">
+    <value>Nem Használ</value>
+  </data>
+  <data name="Update User is Null" xml:space="preserve">
+    <value>Nincs frissítendő felhasználó</value>
+  </data>
+  <data name="US" xml:space="preserve">
+    <value>Angol</value>
+  </data>
+  <data name="Use" xml:space="preserve">
+    <value>Használ</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Felhasználó</value>
+  </data>
+  <data name="User Create" xml:space="preserve">
+    <value>Felhasználó Teremt</value>
+  </data>
+  <data name="User Delete" xml:space="preserve">
+    <value>Felhasználó Törölni</value>
+  </data>
+  <data name="User Edit" xml:space="preserve">
+    <value>Felhasználó Szerkeszteni</value>
+  </data>
+  <data name="User ID" xml:space="preserve">
+    <value>Felhasználó Azonosító</value>
+  </data>
+  <data name="User편집 메시지" xml:space="preserve">
+    <value>Szeretné {0} {1} Felhasználót?</value>
+  </data>
+  <data name="Validation NG" xml:space="preserve">
+    <value>Érvényesítés NG</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Érték</value>
+  </data>
+  <data name="Value :" xml:space="preserve">
+    <value>Érték :</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>Nézet</value>
+  </data>
+  <data name="WAITCARRIERLOAD" xml:space="preserve">
+    <value>HordozóRakodásVárj</value>
+  </data>
+  <data name="WAITCARRIERREMOVE" xml:space="preserve">
+    <value>HordozóKirakodásVárj</value>
+  </data>
+  <data name="WAITCRANEGET" xml:space="preserve">
+    <value>DaruFelveszVárj</value>
+  </data>
+  <data name="WAITCRANEPUT" xml:space="preserve">
+    <value>DaruKirakodásVárj</value>
+  </data>
+  <data name="Warning Code" xml:space="preserve">
+    <value>Figyelmeztetés Kód</value>
+  </data>
+  <data name="WARNING!" xml:space="preserve">
+    <value>FIGYELMEZTETÉS!</value>
+  </data>
+  <data name="Water Tank" xml:space="preserve">
+    <value>Víztartály</value>
+  </data>
+  <data name="Winder Direction" xml:space="preserve">
+    <value>Tekercselő Irány</value>
+  </data>
+  <data name="WRITE" xml:space="preserve">
+    <value>ÍRJ</value>
+  </data>
+  <data name="XML 불러오기" xml:space="preserve">
+    <value>XML Import</value>
+  </data>
+  <data name="XML_Load" xml:space="preserve">
+    <value>XML_Betöltés</value>
+  </data>
+  <data name="YES" xml:space="preserve">
+    <value>IGEN</value>
+  </data>
+  <data name="Yield Action Counter :" xml:space="preserve">
+    <value>Engedmény Akció Számláló :</value>
+  </data>
+  <data name="Zone ID" xml:space="preserve">
+    <value>Zóna Azonosító</value>
+  </data>
+  <data name="값 선택" xml:space="preserve">
+    <value>Válassza Érték</value>
+  </data>
+  <data name="검색" xml:space="preserve">
+    <value>Keresés</value>
+  </data>
+  <data name="검색 아이템" xml:space="preserve">
+    <value>Keresés TÉTEL</value>
+  </data>
+  <data name="검색 종료일시가 시작일시와 같거나 작습니다. 다시 설정하세요." xml:space="preserve">
+    <value>Keresés Vége dátum és idő korább vagy egyenlő a Kezdeti dátum és idő. Kérjük, ellenőrizze.</value>
+  </data>
+  <data name="검색값이 없습니다." xml:space="preserve">
+    <value>Nincs Keresési Találat.</value>
+  </data>
+  <data name="경고 온도" xml:space="preserve">
+    <value>Figyelmeztetés Hőmérséklet</value>
+  </data>
+  <data name="계정관리" xml:space="preserve">
+    <value>Fiókot Menedzsment</value>
+  </data>
+  <data name="공출고" xml:space="preserve">
+    <value>Üres Visszahoz</value>
+  </data>
+  <data name="공출고 테스트 모드 : [OFF]" xml:space="preserve">
+    <value>Üres Visszahoz Tesztmód : [Ki]</value>
+  </data>
+  <data name="구분" xml:space="preserve">
+    <value>Osztály</value>
+  </data>
+  <data name="그룹관리" xml:space="preserve">
+    <value>Csoport Menedzsment</value>
+  </data>
+  <data name="기간 설정이 올바르지 않습니다." xml:space="preserve">
+    <value>Az időszak beállítása helytelen.</value>
+  </data>
+  <data name="기상반 Active" xml:space="preserve">
+    <value>SCC  Aktív</value>
+  </data>
+  <data name="기상반 동작모드" xml:space="preserve">
+    <value>SCC  Aktív Mód</value>
+  </data>
+  <data name="기상반 상태" xml:space="preserve">
+    <value>SCC Állapot</value>
+  </data>
+  <data name="기존 위치" xml:space="preserve">
+    <value>Régi helyszín</value>
+  </data>
+  <data name="기준 정보 관리" xml:space="preserve">
+    <value>Szabvány Adat Menedzsment</value>
+  </data>
+  <data name="기준 정보 관리 &gt; SCS 구성 관리" xml:space="preserve">
+    <value>Szabvány Adat Menedzsment &gt; SCS Konfig Menedzsment</value>
+  </data>
+  <data name="기준 정보 관리 &gt; SCS 알람 관리" xml:space="preserve">
+    <value>Szabvány Adat Menedzsment &gt; SCS Riadó Menedzsment</value>
+  </data>
+  <data name="기준값" xml:space="preserve">
+    <value>Referencia Érték</value>
+  </data>
+  <data name="긴급정지 테스트" xml:space="preserve">
+    <value>Vészleállító Teszt</value>
+  </data>
+  <data name="끝으로" xml:space="preserve">
+    <value>Vége</value>
+  </data>
+  <data name="남_모듈단폭창고04" xml:space="preserve">
+    <value>Déli_oldal_Modul_Hosszú_termék_raktár04</value>
+  </data>
+  <data name="남_모듈단폭창고05" xml:space="preserve">
+    <value>Déli_oldal_Modul_Hosszú_termék_raktár05</value>
+  </data>
+  <data name="남_모듈원자재창고05" xml:space="preserve">
+    <value>Déli_oldal_Modul_alapanyag_raktár05</value>
+  </data>
+  <data name="남_모듈원자재창고06" xml:space="preserve">
+    <value>Déli_oldal_Modul_alapanyag_raktár06</value>
+  </data>
+  <data name="남_모듈원자재창고07" xml:space="preserve">
+    <value>Déli_oldal_Modul_alapanyag_raktár07</value>
+  </data>
+  <data name="남_모듈원자재창고08" xml:space="preserve">
+    <value>Déli_oldal_Modul_alapanyag_raktár08</value>
+  </data>
+  <data name="남_모듈장폭창고01" xml:space="preserve">
+    <value>Déli_oldal_Modul_Hosszú_termék_raktár01</value>
+  </data>
+  <data name="남_셀완제품창고01" xml:space="preserve">
+    <value>Déli_oldal_Cella_késztermék_raktár01</value>
+  </data>
+  <data name="남_셀완제품창고02" xml:space="preserve">
+    <value>Déli_oldal_Cella_késztermék_raktár02</value>
+  </data>
+  <data name="다음 페이지" xml:space="preserve">
+    <value>Következő Oldal</value>
+  </data>
+  <data name="단폭모듈완제품창고#1" xml:space="preserve">
+    <value>RövidModulTermékRaktár#1</value>
+  </data>
+  <data name="단폭모듈완제품창고#2" xml:space="preserve">
+    <value>RövidModulTermékRaktár#2</value>
+  </data>
+  <data name="단폭모듈완제품창고#3" xml:space="preserve">
+    <value>RövidModulTermékRaktár#3</value>
+  </data>
+  <data name="단폭모듈완제품창고#4" xml:space="preserve">
+    <value>RövidModulTermékRaktár#4</value>
+  </data>
+  <data name="단폭모듈완제품창고#5" xml:space="preserve">
+    <value>RövidModulTermékRaktár#5</value>
+  </data>
+  <data name="단폭전용" xml:space="preserve">
+    <value>Rövid Csupán</value>
+  </data>
+  <data name="대기" xml:space="preserve">
+    <value>Várj</value>
+  </data>
+  <data name="더블 스토리지 테스트 모드 : [OFF]" xml:space="preserve">
+    <value>Kettős Tárolás Tesztmód : [Ki]</value>
+  </data>
+  <data name="더블에러" xml:space="preserve">
+    <value>Kettős Hiba</value>
+  </data>
+  <data name="데이터 수집" xml:space="preserve">
+    <value>Adat Gyűjtése</value>
+  </data>
+  <data name="데이터가 비어 있습니다. 확인해 주세요" xml:space="preserve">
+    <value>Adat Üres.
+Kérjük, Ellenőrizze.</value>
+  </data>
+  <data name="동작 상태" xml:space="preserve">
+    <value>Működik Állapot</value>
+  </data>
+  <data name="동작모드" xml:space="preserve">
+    <value>Működik Mód</value>
+  </data>
+  <data name="랙투랙" xml:space="preserve">
+    <value>Állványről Állvány</value>
+  </data>
+  <data name="로그 메뉴" xml:space="preserve">
+    <value>Napló Menü</value>
+  </data>
+  <data name="로컬수집" xml:space="preserve">
+    <value>Helyi Gyűjt</value>
+  </data>
+  <data name="모니터링 메뉴" xml:space="preserve">
+    <value>Megfigyelés Menü</value>
+  </data>
+  <data name="모듈 조립 Line" xml:space="preserve">
+    <value>Modul Szerelőszalag</value>
+  </data>
+  <data name="모듈타입이 비어 있습니다." xml:space="preserve">
+    <value>Modul Típusa Üres.</value>
+  </data>
+  <data name="반송 커맨드를 실행하시겠습니까?" xml:space="preserve">
+    <value>Szeretné végrehajtani a Transzfer parancsot?</value>
+  </data>
+  <data name="방화수조" xml:space="preserve">
+    <value>Víztartály</value>
+  </data>
+  <data name="범례" xml:space="preserve">
+    <value>Legenda</value>
+  </data>
+  <data name="변경값" xml:space="preserve">
+    <value>Változott Érték</value>
+  </data>
+  <data name="변경사항을 적용 시키겠습니까?" xml:space="preserve">
+    <value>Alkalmazni elem megváltozott?</value>
+  </data>
+  <data name="보관된 캐리어 조회" xml:space="preserve">
+    <value>Tárolt szolgáltató keresése</value>
+  </data>
+  <data name="북_모듈단폭창고01" xml:space="preserve">
+    <value>Északi_oldal_Modul_Rövid_termék_raktár01</value>
+  </data>
+  <data name="북_모듈단폭창고02" xml:space="preserve">
+    <value>Északi_oldal_Modul_Rövid_termék_raktár02</value>
+  </data>
+  <data name="북_모듈단폭창고03" xml:space="preserve">
+    <value>Északi_oldal_Modul_Rövid_termék_raktár03</value>
+  </data>
+  <data name="북_모듈원자재창고01" xml:space="preserve">
+    <value>Északi_oldal_Modul_alapanyag_raktár01</value>
+  </data>
+  <data name="북_모듈원자재창고02" xml:space="preserve">
+    <value>Északi_oldal_Modul_alapanyag_raktár02</value>
+  </data>
+  <data name="북_모듈원자재창고03" xml:space="preserve">
+    <value>Északi_oldal_Modul_alapanyag_raktár03</value>
+  </data>
+  <data name="북_모듈원자재창고04" xml:space="preserve">
+    <value>Északi_oldal_Modul_alapanyag_raktár04</value>
+  </data>
+  <data name="사용 PC IP" xml:space="preserve">
+    <value>PC IP Használatban</value>
+  </data>
+  <data name="사용 PC명" xml:space="preserve">
+    <value>PC Azonosító Használatban</value>
+  </data>
+  <data name="사용권한없음" xml:space="preserve">
+    <value>Nincs Engedélye</value>
+  </data>
+  <data name="사용금지" xml:space="preserve">
+    <value>Tilalom</value>
+  </data>
+  <data name="사용자 검색" xml:space="preserve">
+    <value>Keresés Felhasználó</value>
+  </data>
+  <data name="사용자 관리" xml:space="preserve">
+    <value>Felhasználó Menedzsment</value>
+  </data>
+  <data name="사용자 관리 권한" xml:space="preserve">
+    <value>Felhasználó Menedzsment Hatóság</value>
+  </data>
+  <data name="사용자 관리 설정" xml:space="preserve">
+    <value>Felhasználó Beállítást</value>
+  </data>
+  <data name="사용자 로그아웃" xml:space="preserve">
+    <value>Kijelentkezés</value>
+  </data>
+  <data name="사용자 로그인" xml:space="preserve">
+    <value>Bejelentkezés</value>
+  </data>
+  <data name="사이클 작업 시작" xml:space="preserve">
+    <value>Kezdeni Ciklus Munkát</value>
+  </data>
+  <data name="사이클 작업 정지" xml:space="preserve">
+    <value>Állítsa le Ciklus Munkát</value>
+  </data>
+  <data name="사이클 작업을 시작 하시겠습니까?" xml:space="preserve">
+    <value>Kezdeni a Ciklus Munkát?</value>
+  </data>
+  <data name="사이클 작업을 정지 하시겠습니까?" xml:space="preserve">
+    <value>Állítsa le a Ciklus Munkát?</value>
+  </data>
+  <data name="삭제 시 복구할 수 없습니다." xml:space="preserve">
+    <value>Ha törli, Nem állítható vissza</value>
+  </data>
+  <data name="삭제할 유저 정보를 선택해주세요." xml:space="preserve">
+    <value>Kérjük, Válasszon
+a Felhasználót a törléshez</value>
+  </data>
+  <data name="삭제할 정보가 없습니다." xml:space="preserve">
+    <value>Nincs törlendő adat</value>
+  </data>
+  <data name="상단모듈원자재창고#1" xml:space="preserve">
+    <value>FelsőModulNyersanyagRaktár#1</value>
+  </data>
+  <data name="상단모듈원자재창고#2" xml:space="preserve">
+    <value>FelsőModulNyersanyagRaktár#2</value>
+  </data>
+  <data name="상단모듈원자재창고#3" xml:space="preserve">
+    <value>FelsőModulNyersanyagRaktár#3</value>
+  </data>
+  <data name="상단모듈원자재창고#4" xml:space="preserve">
+    <value>FelsőModulNyersanyagRaktár#4</value>
+  </data>
+  <data name="상태 설정" xml:space="preserve">
+    <value>Állapot Beállítása</value>
+  </data>
+  <data name="새 위치" xml:space="preserve">
+    <value>Új helyszín</value>
+  </data>
+  <data name="선택 PLC 시작" xml:space="preserve">
+    <value>Kezdeni Kiválasztott PLC</value>
+  </data>
+  <data name="선택 PLC 중지" xml:space="preserve">
+    <value>Állítsa le Kiválasztott PLC</value>
+  </data>
+  <data name="선택된 Alarm Data가 없습니다." xml:space="preserve">
+    <value>Nincs kiválasztott Riadó Adat</value>
+  </data>
+  <data name="선택한 잡 삭제" xml:space="preserve">
+    <value>Kijelölt munka törlese</value>
+  </data>
+  <data name="선택한 잡 우선순위 변경" xml:space="preserve">
+    <value>Kijelölt munka prioritásának módosítása</value>
+  </data>
+  <data name="설비 정지상태 일때만 변경 가능 합니다." xml:space="preserve">
+    <value>Csak az EQP Szünetelés alatt Megváltoztatható.</value>
+  </data>
+  <data name="설정" xml:space="preserve">
+    <value>Beállítás</value>
+  </data>
+  <data name="설정 초기화" xml:space="preserve">
+    <value>Inicializálás Beállítás</value>
+  </data>
+  <data name="센서상태이상" xml:space="preserve">
+    <value>Érzékelő Abnormális</value>
+  </data>
+  <data name="셀버퍼 우상단 창고#2" xml:space="preserve">
+    <value>Cella Puffer Jobb Felső Raktár#2</value>
+  </data>
+  <data name="셀버퍼 우하단 창고#4" xml:space="preserve">
+    <value>Cella Puffer Jobb Alsó Raktár#4</value>
+  </data>
+  <data name="셀버퍼 좌상단 창고#1" xml:space="preserve">
+    <value>Cella Puffer Bal Felső Raktár#1</value>
+  </data>
+  <data name="셀버퍼 좌하단 창고#3" xml:space="preserve">
+    <value>Cella Puffer Bal Alsó Raktár#3</value>
+  </data>
+  <data name="셀버퍼창고01" xml:space="preserve">
+    <value>Cell_Buffer_Raktár01</value>
+  </data>
+  <data name="셀버퍼창고02" xml:space="preserve">
+    <value>Cell_Buffer_Raktár02</value>
+  </data>
+  <data name="셀버퍼창고03" xml:space="preserve">
+    <value>Cell_Buffer_Raktár03</value>
+  </data>
+  <data name="셀버퍼창고04" xml:space="preserve">
+    <value>Cell_Buffer_Raktár04</value>
+  </data>
+  <data name="셀완제품창고#1" xml:space="preserve">
+    <value>CellaTermékRaktár#1</value>
+  </data>
+  <data name="셀완제품창고#2" xml:space="preserve">
+    <value>CellaTermékRaktár#2</value>
+  </data>
+  <data name="셀프 트레이 뒤틀림 센서 [LR1]" xml:space="preserve">
+    <value>Polctálca Torzító Érzékelő [LR1]</value>
+  </data>
+  <data name="셀프 트레이 뒤틀림 센서 [LR2]" xml:space="preserve">
+    <value>Polctálca Torzító Érzékelő [LR2]</value>
+  </data>
+  <data name="셀프 트레이 뒤틀림 센서 [LR3]" xml:space="preserve">
+    <value>Polctálca Torzító Érzékelő [LR3]</value>
+  </data>
+  <data name="셀프 트레이 뒤틀림 센서 [LR4]" xml:space="preserve">
+    <value>Polctálca Torzító Érzékelő [LR4]</value>
+  </data>
+  <data name="수집된 플레이백 항목" xml:space="preserve">
+    <value>Gyűjtött Lejátszás Tétel</value>
+  </data>
+  <data name="수집중" xml:space="preserve">
+    <value>Gyűjtése</value>
+  </data>
+  <data name="순번" xml:space="preserve">
+    <value>Sz</value>
+  </data>
+  <data name="숫자코드" xml:space="preserve">
+    <value>Sz Kód</value>
+  </data>
+  <data name="쉘프 구간 데이터 변경 메시지" xml:space="preserve">
+    <value>Polc {0} ~ {1} {2} Típus Változás?</value>
+  </data>
+  <data name="쉘프 구간 데이터 변경완료 메시지" xml:space="preserve">
+    <value>Polc {0} ~ {1} {2} Típus Változás Befejez</value>
+  </data>
+  <data name="쉘프 데이터 변경 메시지" xml:space="preserve">
+    <value>Polc {0} {1}-&gt;{2} Változás?</value>
+  </data>
+  <data name="쉘프 데이터 변경완료 메시지" xml:space="preserve">
+    <value>Polc {0} {1}-&gt;{2} Változás Befejez</value>
+  </data>
+  <data name="쉘프 캐리어ID 메시지" xml:space="preserve">
+    <value>Polc {0} HordozóAzonosító {1} {2}?</value>
+  </data>
+  <data name="쉘프 캐리어ID삭제 메시지" xml:space="preserve">
+    <value>Polc {0} HordozóAzonosító {1} Törlés {2}</value>
+  </data>
+  <data name="쉘프 캐리어ID추가 메시지" xml:space="preserve">
+    <value>Polc {0} HordozóAzonosító {1} Telepítés {2}</value>
+  </data>
+  <data name="쉘프 트레이 스토리지 센서" xml:space="preserve">
+    <value>Polctálca tárolási érzékelő</value>
+  </data>
+  <data name="쉘프사용/미사용 메시지" xml:space="preserve">
+    <value>Szeretné {0} a {1}?</value>
+  </data>
+  <data name="스냅 검색 실패" xml:space="preserve">
+    <value>Snap nem kereshető.</value>
+  </data>
+  <data name="스케쥴러 비활성화 메시지" xml:space="preserve">
+    <value>Szeretné tiltani az Ütemező : {0}?</value>
+  </data>
+  <data name="스케쥴러 활성화 메시지" xml:space="preserve">
+    <value>Szeretné engedélyezni az Ütemező : {0}?</value>
+  </data>
+  <data name="승강 위치" xml:space="preserve">
+    <value>Emelő hely</value>
+  </data>
+  <data name="시운전 모드" xml:space="preserve">
+    <value>Teszt Működik Mód</value>
+  </data>
+  <data name="시작" xml:space="preserve">
+    <value>Kezd</value>
+  </data>
+  <data name="시작일시" xml:space="preserve">
+    <value>Kezd Dátum és Idő</value>
+  </data>
+  <data name="알람 클리어" xml:space="preserve">
+    <value>Riadó Törlés</value>
+  </data>
+  <data name="알림 메시지" xml:space="preserve">
+    <value>Értesítő üzenet</value>
+  </data>
+  <data name="에러" xml:space="preserve">
+    <value>Hiba</value>
+  </data>
+  <data name="에러 리스트" xml:space="preserve">
+    <value>Hiba Lista</value>
+  </data>
+  <data name="에러 리스트 내보내기" xml:space="preserve">
+    <value>Hiba Lista Export</value>
+  </data>
+  <data name="에러 리스트 수정" xml:space="preserve">
+    <value>Hiba Lista Módosít</value>
+  </data>
+  <data name="에러 리스트 제거" xml:space="preserve">
+    <value>Hiba Lista Törölni</value>
+  </data>
+  <data name="에러 리스트 추가" xml:space="preserve">
+    <value>Hiba Lista Teremt</value>
+  </data>
+  <data name="에러가 발생했습니다. 자세한 내용을 확인하시겠습니까?" xml:space="preserve">
+    <value>Hiba történt. Szeretné ellenőrizni a részleteket?</value>
+  </data>
+  <data name="에러레벨" xml:space="preserve">
+    <value>Hiba Szint</value>
+  </data>
+  <data name="에러레벨이 비어 있습니다." xml:space="preserve">
+    <value>Hiba Szint Üres.</value>
+  </data>
+  <data name="에러메시지" xml:space="preserve">
+    <value>Hiba Üzenet</value>
+  </data>
+  <data name="에러메시지가 비어 있습니다." xml:space="preserve">
+    <value>Hiba Üzenet Üres.</value>
+  </data>
+  <data name="에러이름" xml:space="preserve">
+    <value>Hiba Név</value>
+  </data>
+  <data name="에러이름이 비어 있습니다." xml:space="preserve">
+    <value>Hiba Név Üres.</value>
+  </data>
+  <data name="에러코드" xml:space="preserve">
+    <value>Hiba Kód</value>
+  </data>
+  <data name="에러코드가 비어 있습니다." xml:space="preserve">
+    <value>Hiba Kód Üres.</value>
+  </data>
+  <data name="에러현황" xml:space="preserve">
+    <value>Hiba Állapot</value>
+  </data>
+  <data name="연기 감지 감도" xml:space="preserve">
+    <value>Füst Észlelés Érzékenység</value>
+  </data>
+  <data name="연기감지" xml:space="preserve">
+    <value>Füst Észlelés</value>
+  </data>
+  <data name="연기미감지" xml:space="preserve">
+    <value>Füst Nem Észlelés</value>
+  </data>
+  <data name="영어" xml:space="preserve">
+    <value>Angol</value>
+  </data>
+  <data name="오프라인" xml:space="preserve">
+    <value>Offline</value>
+  </data>
+  <data name="온라인" xml:space="preserve">
+    <value>Online</value>
+  </data>
+  <data name="원격수집" xml:space="preserve">
+    <value>Távoli Gyűjtése</value>
+  </data>
+  <data name="위치변경" xml:space="preserve">
+    <value>Elhelyezkedés</value>
+  </data>
+  <data name="위험 온도" xml:space="preserve">
+    <value>Kritikai Hőmérséklet</value>
+  </data>
+  <data name="유닛 이름 선택" xml:space="preserve">
+    <value>Válassza Egységnevet</value>
+  </data>
+  <data name="을 삭제 하시겠습니까?" xml:space="preserve">
+    <value>Szeretné törölni {0}?</value>
+  </data>
+  <data name="이동" xml:space="preserve">
+    <value>Mozgás</value>
+  </data>
+  <data name="이동 중 RM 연기감지" xml:space="preserve">
+    <value>Mozgó RM füstérzékelés</value>
+  </data>
+  <data name="이미 SCS 실행중이거나 완전히 종료되지 않았습니다." xml:space="preserve">
+    <value>SCS már fut, vagy nem kapcsol ki teljesen.</value>
+  </data>
+  <data name="이전 크기로 복원" xml:space="preserve">
+    <value>Visszaállítás korábbi méretre</value>
+  </data>
+  <data name="이전 페이지" xml:space="preserve">
+    <value>Előző Oldal</value>
+  </data>
+  <data name="임의 쉘프 연기 감지" xml:space="preserve">
+    <value>Véletlenszerűen Polc Füst Észlelés</value>
+  </data>
+  <data name="임의 쉘프 연기 감지 텍스트" xml:space="preserve">
+    <value>Végrehajtja a Véletlenszerű Polc Füst Észlelés?
+(Végrehajtáskor, Riadó generálása véletlenszerű polcon)</value>
+  </data>
+  <data name="입고" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="입고금지" xml:space="preserve">
+    <value>Import Tilalom</value>
+  </data>
+  <data name="입고예약" xml:space="preserve">
+    <value>Import Fenntartva</value>
+  </data>
+  <data name="작업 구분" xml:space="preserve">
+    <value>Munka Osztály</value>
+  </data>
+  <data name="작업 내용" xml:space="preserve">
+    <value>Munka Tartalom</value>
+  </data>
+  <data name="작업 임시 생성" xml:space="preserve">
+    <value>Véletlenszerűen Teremt Munka</value>
+  </data>
+  <data name="작업 타입" xml:space="preserve">
+    <value>Munka Típus</value>
+  </data>
+  <data name="작업결과" xml:space="preserve">
+    <value>Munka Eredmény</value>
+  </data>
+  <data name="작업일시" xml:space="preserve">
+    <value>Munka Dátum és Idő</value>
+  </data>
+  <data name="장폭모듈완제품창고#1" xml:space="preserve">
+    <value>HosszúModulTermékRaktár#1</value>
+  </data>
+  <data name="장폭전용" xml:space="preserve">
+    <value>Hosszú Csupán</value>
+  </data>
+  <data name="재생" xml:space="preserve">
+    <value>Játék</value>
+  </data>
+  <data name="적재" xml:space="preserve">
+    <value>Rakodás</value>
+  </data>
+  <data name="전면 트레이 기울임 센서 [FB1]" xml:space="preserve">
+    <value>Elülső Tálca Dőlésérzékelő [FB1]</value>
+  </data>
+  <data name="전체 PLC 시작" xml:space="preserve">
+    <value>Kezdeni Összes PLC</value>
+  </data>
+  <data name="전체 PLC 중지" xml:space="preserve">
+    <value>Állítsa le Összes PLC</value>
+  </data>
+  <data name="전체 쉘프 언로드" xml:space="preserve">
+    <value>Kirakodás Összes Polc</value>
+  </data>
+  <data name="전체 쉘프 언로드 작업을 시작 하시겠습니까?" xml:space="preserve">
+    <value>Kezdeni a Összes Polc Kirakodási Munkát?</value>
+  </data>
+  <data name="전체 쉘프 언로드 작업을 정지 하시겠습니까?" xml:space="preserve">
+    <value>Állítsa le a Összes Polc Kirakodási Munkát?</value>
+  </data>
+  <data name="전체 쉘프 언로드 중단" xml:space="preserve">
+    <value>Állítsa le Kirakodási Összes Polc</value>
+  </data>
+  <data name="전체 작업 삭제" xml:space="preserve">
+    <value>Távolítsa el Összes Munkát</value>
+  </data>
+  <data name="전체 작업을 삭제 하시겠습니까?" xml:space="preserve">
+    <value>Távolítsa el a Összes Munkát?</value>
+  </data>
+  <data name="접속불가 메시지" xml:space="preserve">
+    <value>Nem lehet hozzáférni {0}.</value>
+  </data>
+  <data name="정렬" xml:space="preserve">
+    <value>Rendezés</value>
+  </data>
+  <data name="정보 관리 메뉴" xml:space="preserve">
+    <value>Adat Menedzsment Menü</value>
+  </data>
+  <data name="정위치 감지 센서 [PUT]" xml:space="preserve">
+    <value>Pozíció Érzékelő [PUT]</value>
+  </data>
+  <data name="정지" xml:space="preserve">
+    <value>Megáll</value>
+  </data>
+  <data name="조치 방법" xml:space="preserve">
+    <value>Megoldás</value>
+  </data>
+  <data name="조치방법이 비어 있습니다." xml:space="preserve">
+    <value>Megoldás Üres</value>
+  </data>
+  <data name="조치사항" xml:space="preserve">
+    <value>Akció Történelem</value>
+  </data>
+  <data name="조회 및 반송" xml:space="preserve">
+    <value>Keresés és Transzfer</value>
+  </data>
+  <data name="조회 및 반송 &gt; I/O 조회" xml:space="preserve">
+    <value>Keresés és Transzfer &gt; I/O Megfigyelés</value>
+  </data>
+  <data name="조회 및 반송 &gt; 연기감지" xml:space="preserve">
+    <value>Keresés és Transzfer &gt; Füst Észlelés</value>
+  </data>
+  <data name="조회 및 반송 &gt; 터미널 메시지" xml:space="preserve">
+    <value>Keresés és Transzfer &gt; Terminál Üzenet</value>
+  </data>
+  <data name="종료" xml:space="preserve">
+    <value>VÉGE</value>
+  </data>
+  <data name="종료일시" xml:space="preserve">
+    <value>Vég Dátum és Idő</value>
+  </data>
+  <data name="종료일시가 시작일시보다 이전입니다." xml:space="preserve">
+    <value>Vég Dátum és Idő korábbi, mint a Kezd Dátum és Idő.</value>
+  </data>
+  <data name="좌측 메뉴" xml:space="preserve">
+    <value>Bal Menü</value>
+  </data>
+  <data name="주행 위치" xml:space="preserve">
+    <value>Vezetés Hely</value>
+  </data>
+  <data name="중국어" xml:space="preserve">
+    <value>Kínai</value>
+  </data>
+  <data name="중복실행" xml:space="preserve">
+    <value>Duplikált futások</value>
+  </data>
+  <data name="지상반 동작모드" xml:space="preserve">
+    <value>SRC Működik Mód</value>
+  </data>
+  <data name="직출고" xml:space="preserve">
+    <value>Direkt</value>
+  </data>
+  <data name="처음으로" xml:space="preserve">
+    <value>Kezdet</value>
+  </data>
+  <data name="최근 동작 결과" xml:space="preserve">
+    <value>Legutóbbi Munka Rekord</value>
+  </data>
+  <data name="최대화" xml:space="preserve">
+    <value>Maximalizálás</value>
+  </data>
+  <data name="최소화" xml:space="preserve">
+    <value>Minimalizálás</value>
+  </data>
+  <data name="출고" xml:space="preserve">
+    <value>Exprot</value>
+  </data>
+  <data name="출고금지" xml:space="preserve">
+    <value>Export Tilalom</value>
+  </data>
+  <data name="출고예약" xml:space="preserve">
+    <value>Export Fenntartva</value>
+  </data>
+  <data name="측정값" xml:space="preserve">
+    <value>Mérve Érték</value>
+  </data>
+  <data name="캐리어 삭제" xml:space="preserve">
+    <value>Törlés Hordozó</value>
+  </data>
+  <data name="캐리어 생성" xml:space="preserve">
+    <value>hozzáadni Hordozó</value>
+  </data>
+  <data name="캐리어 위치가 해당 위치로 강제 설정 되었습니다." xml:space="preserve">
+    <value>A hordozó pozíciót erre a pozícióra kényszerítették.</value>
+  </data>
+  <data name="캐리어 위치를 강제 변경하시겠습니까?" xml:space="preserve">
+    <value>Kényszeríteni szeretné a szolgáltató helyének módosítását?</value>
+  </data>
+  <data name="캐리어설치/삭제 메시지" xml:space="preserve">
+    <value>Szeretné {0} a hordozót a {1}?</value>
+  </data>
+  <data name="커맨드를 실행하시겠습니까?" xml:space="preserve">
+    <value>Parancs elindítása?</value>
+  </data>
+  <data name="컨베이어 BCR완료 메시지" xml:space="preserve">
+    <value>Szállítószalag {0} {1} {2}</value>
+  </data>
+  <data name="컨베이어 BCR요청 메시지" xml:space="preserve">
+    <value>Szállítószalag {0} BCR Olvasás?</value>
+  </data>
+  <data name="컨베이어 IO 변경 메시지" xml:space="preserve">
+    <value>Szállítószalag {0} {1} {2} IO Változás?</value>
+  </data>
+  <data name="컨베이어 IO 변경완료 메시지" xml:space="preserve">
+    <value>Szállítószalag {0} {1} {2} IO Változás Befejez</value>
+  </data>
+  <data name="컨베이어 데이터 변경 메시지" xml:space="preserve">
+    <value>Szállítószalag {0} {1}-&gt;{2} Változás?</value>
+  </data>
+  <data name="컨베이어 데이터 변경완료 메시지" xml:space="preserve">
+    <value>Szállítószalag {0} {1}-&gt;{2} Változás Befejez</value>
+  </data>
+  <data name="컨베이어 캐리어ID 메시지" xml:space="preserve">
+    <value>Szállítószalag {0} HordozóAzonosító {1} {2}?</value>
+  </data>
+  <data name="컨베이어 캐리어ID삭제 메시지" xml:space="preserve">
+    <value>Szállítószalag {0} HordozóAzonosító {1} Törlés {2}</value>
+  </data>
+  <data name="컨베이어 캐리어ID추가 메시지" xml:space="preserve">
+    <value>Szállítószalag {0} HordozóAzonosító {1} Telepítés {2}</value>
+  </data>
+  <data name="크기 조정" xml:space="preserve">
+    <value>Átméretezés</value>
+  </data>
+  <data name="크레인 IO 변경 메시지" xml:space="preserve">
+    <value>Daru {0} {1} {2} IO Változás?</value>
+  </data>
+  <data name="크레인 IO 변경완료 메시지" xml:space="preserve">
+    <value>Daru {0} {1} {2} IO Változás Befejez</value>
+  </data>
+  <data name="크레인 데이터 변경 메시지" xml:space="preserve">
+    <value>Daru {0} {1} Parancs Folytassa?</value>
+  </data>
+  <data name="크레인 데이터 변경완료 메시지" xml:space="preserve">
+    <value>Daru {0} {1} {2} Folytassa</value>
+  </data>
+  <data name="크레인 캐리어ID 메시지" xml:space="preserve">
+    <value>Daru {0} HordozóAzonosító {1} {2}?</value>
+  </data>
+  <data name="크레인 캐리어ID삭제 메시지" xml:space="preserve">
+    <value>Daru {0} HordozóAzonosító {1} Törlés {2}</value>
+  </data>
+  <data name="크레인 캐리어ID추가 메시지" xml:space="preserve">
+    <value>Daru {0} HordozóAzonosító {1} Telepítés {2}</value>
+  </data>
+  <data name="클릭시 MCS 상태를 변경할수 있습니다." xml:space="preserve">
+    <value>Ha rákattint, az MCS állapota módosítható.</value>
+  </data>
+  <data name="클릭시 PLC 상태를 변경할수 있습니다." xml:space="preserve">
+    <value>Ha rákattint, az PLC állapota módosítható.</value>
+  </data>
+  <data name="클릭시 SCS 상태를 변경할수 있습니다." xml:space="preserve">
+    <value>Ha rákattint, az SCS állapota módosítható.</value>
+  </data>
+  <data name="클릭시 SYSTEM 상태를 변경할수 있습니다." xml:space="preserve">
+    <value>Ha rákattint, az RENDSZER állapota módosítható.</value>
+  </data>
+  <data name="테스트 메뉴" xml:space="preserve">
+    <value>Teszt Menü</value>
+  </data>
+  <data name="테스트 알람 생성" xml:space="preserve">
+    <value>Teremt Teszt Riadó</value>
+  </data>
+  <data name="통신 설정" xml:space="preserve">
+    <value>Kommunikáció Beállítás</value>
+  </data>
+  <data name="트레이 재하 감지 센서 [PLACE]" xml:space="preserve">
+    <value>Tálca Terhelés Érzékelő [HELY]</value>
+  </data>
+  <data name="포크 위치" xml:space="preserve">
+    <value>Fork Hely</value>
+  </data>
+  <data name="포크 작업 유무" xml:space="preserve">
+    <value>Fork Munkát Állapot</value>
+  </data>
+  <data name="포트 로드 시작" xml:space="preserve">
+    <value>Kezdeni a Port Rakodás</value>
+  </data>
+  <data name="포트 로드 중단" xml:space="preserve">
+    <value>Állítsa le a Port Rakodás</value>
+  </data>
+  <data name="프로그램을 종료 하시겠습니까?" xml:space="preserve">
+    <value>Biztosan bezárja a programot?</value>
+  </data>
+  <data name="플레이백 데이터 수신에 성공했습니다." xml:space="preserve">
+    <value>Lejátszási Adatok fogadni sikeresen.</value>
+  </data>
+  <data name="플레이백 데이터 수신에 실패했습니다." xml:space="preserve">
+    <value>Lejátszási Adatok fogadni sikertelen.</value>
+  </data>
+  <data name="플레이백 메뉴" xml:space="preserve">
+    <value>Lejátszás Menü</value>
+  </data>
+  <data name="플레이백 요청시간 지연 텍스트" xml:space="preserve">
+    <value>Lejátszási kérés ideje több mint {0}perc.
+Kérés késleltethető. Szeretné folytatni?</value>
+  </data>
+  <data name="플레이백 화면을 최대화합니다." xml:space="preserve">
+    <value>Maximálja a Lejátszási képernyőt.</value>
+  </data>
+  <data name="플레이백 화면을 최소화합니다." xml:space="preserve">
+    <value>Minimalizálja a Lejátszási képernyőt.</value>
+  </data>
+  <data name="하단 메뉴" xml:space="preserve">
+    <value>Alsó Menü</value>
+  </data>
+  <data name="하단모듈원자재창고#1" xml:space="preserve">
+    <value>AlsóModulNyersanyagRaktár#1</value>
+  </data>
+  <data name="하단모듈원자재창고#2" xml:space="preserve">
+    <value>AlsóModulNyersanyagRaktár#2</value>
+  </data>
+  <data name="하단모듈원자재창고#3" xml:space="preserve">
+    <value>AlsóModulNyersanyagRaktár#3</value>
+  </data>
+  <data name="하단모듈원자재창고#4" xml:space="preserve">
+    <value>AlsóModulNyersanyagRaktár#4</value>
+  </data>
+  <data name="하역" xml:space="preserve">
+    <value>Kirakodás</value>
+  </data>
+  <data name="한국어" xml:space="preserve">
+    <value>Koreai</value>
+  </data>
+  <data name="해당 로그 파일 로드에 실패하였습니다." xml:space="preserve">
+    <value>Nem sikerült betölteni ezt a naplófájlt.</value>
+  </data>
+  <data name="핸드 오프 작업 임시 생성" xml:space="preserve">
+    <value>HandOff-Munkát létrehozása ideiglenesen</value>
+  </data>
+  <data name="헝가리어" xml:space="preserve">
+    <value>Magyar</value>
+  </data>
+  <data name="현재 동작" xml:space="preserve">
+    <value>Jelenlegi Akció</value>
+  </data>
+  <data name="현재 로그인 아이디" xml:space="preserve">
+    <value>Jelenlegi Bejelentkezés Azonosító</value>
+  </data>
+  <data name="현재값" xml:space="preserve">
+    <value>Jelenlegi Érték</value>
+  </data>
+  <data name="혼합사용" xml:space="preserve">
+    <value>Használ Mindkét</value>
+  </data>
+  <data name="홈 복귀" xml:space="preserve">
+    <value>Vissza Haza</value>
+  </data>
+  <data name="화면 맞춤" xml:space="preserve">
+    <value>Képernyő illeszkedés</value>
+  </data>
+  <data name="화물" xml:space="preserve">
+    <value>Rakomány</value>
+  </data>
+  <data name="화물유무" xml:space="preserve">
+    <value>Rakomány Állapot</value>
+  </data>
+  <data name="화재" xml:space="preserve">
+    <value>Tűz</value>
+  </data>
+  <data name="화재 신호" xml:space="preserve">
+    <value>Tűzjel</value>
+  </data>
+  <data name="화재작업취소" xml:space="preserve">
+    <value>Törlés Tűz Export</value>
+  </data>
+  <data name="화재출고" xml:space="preserve">
+    <value>Tűz Export</value>
+  </data>
+  <data name="후면 트레이 기울임 센서 [FB2]" xml:space="preserve">
+    <value>Hátsó Tálca Dőlésérzékelő [FB2]</value>
+  </data>
+</root>

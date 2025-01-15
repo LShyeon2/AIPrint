@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PortLayout AutoRecovery="False" Change="false">
+  <CVLine1 ModuleName="M0STK011_W02" LineType="AutoOut" Bank="1" Bay="0" Level="1" LineFloor="1F" Rotate="false" CVWay="BottomToTop">
+    <Conveyor1 ModuleName="M0STK011_W02" USE="true" CVType="WaterPool" TrackGroup="13" TrackNum="003" PortTableID="1" PortSize="Both" Direction="OUTPUT" PLCNum="0" />
+  </CVLine1>
+  <CVLine2 ModuleName="M0STK011_P06" LineType="AutoOut" Bank="1" Bay="2" Level="1" LineFloor="1F" Rotate="false" CVWay="BottomToTop">
+    <Conveyor1 ModuleName="M0STK011_P06" USE="true" CVType="RobotIF" TrackGroup="13" TrackNum="004" PortTableID="2" PortSize="Short" Direction="INPUT" PLCNum="0">
+      <RFID1 ModuleName="RFID_P06" RFIDType="BCR_SICK" CommunicationType="TCP_IP" IP="192.168.100.111" Port="9007" />
+    </Conveyor1>
+  </CVLine2>
+  <CVLine3 ModuleName="M0STK011_P05" LineType="AutoOut" Bank="1" Bay="5" Level="1" LineFloor="1F" Rotate="false" CVWay="BottomToTop">
+    <Conveyor1 ModuleName="M0STK011_P05" USE="true" CVType="RobotIF" TrackGroup="13" TrackNum="005" PortTableID="3" PortSize="Short" Direction="OUTPUT" PLCNum="0">
+      <RFID1 ModuleName="RFID_P05" RFIDType="BCR_SICK" CommunicationType="TCP_IP" IP="192.168.100.112" Port="9007" />
+    </Conveyor1>
+  </CVLine3>
+  <CVLine4 ModuleName="M0STK011_P04" LineType="AutoOut" Bank="1" Bay="8" Level="1" LineFloor="1F" Rotate="false" CVWay="BottomToTop">
+    <Conveyor1 ModuleName="M0STK011_P04" USE="true" CVType="RobotIF" TrackGroup="13" TrackNum="006" PortTableID="4" PortSize="Long" Direction="INPUT" PLCNum="0">
+      <RFID1 ModuleName="RFID_P04" RFIDType="BCR_SICK" CommunicationType="TCP_IP" IP="192.168.100.113" Port="9007" />
+    </Conveyor1>
+  </CVLine4>
+  <CVLine5 ModuleName="M0STK011_P03" LineType="AutoOut" Bank="1" Bay="11" Level="1" LineFloor="1F" Rotate="false" CVWay="BottomToTop">
+    <Conveyor1 ModuleName="M0STK011_P03" USE="true" CVType="RobotIF" TrackGroup="13" TrackNum="007" PortTableID="5" PortSize="Long" Direction="OUTPUT" PLCNum="0">
+      <RFID1 ModuleName="RFID_P03" RFIDType="BCR_SICK" CommunicationType="TCP_IP" IP="192.168.100.114" Port="9007" />
+    </Conveyor1>
+  </CVLine5>
+  <CVLine6 ModuleName="M0STK011_P02" LineType="AutoOut" Bank="1" Bay="19" Level="1" LineFloor="1F" Rotate="false" CVWay="BottomToTop">
+    <Conveyor1 ModuleName="M0STK011_P02" USE="true" CVType="RobotIF" TrackGroup="13" TrackNum="008" PortTableID="6" PortSize="Long" Direction="INPUT" PLCNum="0">
+      <RFID1 ModuleName="RFID_P02" RFIDType="BCR_SICK" CommunicationType="TCP_IP" IP="192.168.100.115" Port="9007" />
+    </Conveyor1>
+  </CVLine6>
+  <CVLine7 ModuleName="M0STK011_P01" LineType="AutoOut" Bank="1" Bay="22" Level="1" LineFloor="1F" Rotate="false" CVWay="BottomToTop">
+    <Conveyor1 ModuleName="M0STK011_P01" USE="true" CVType="RobotIF" TrackGroup="13" TrackNum="009" PortTableID="7" PortSize="Long" Direction="OUTPUT" PLCNum="0">
+      <RFID1 ModuleName="RFID_P01" RFIDType="BCR_SICK" CommunicationType="TCP_IP" IP="192.168.100.116" Port="9007" />
+    </Conveyor1>
+  </CVLine7>
+  <CVLine8 ModuleName="M0STK011_W01" LineType="AutoOut" Bank="1" Bay="24" Level="1" LineFloor="1F" Rotate="false" CVWay="BottomToTop">
+    <Conveyor1 ModuleName="M0STK011_W01" USE="true" CVType="WaterPool" TrackGroup="13" TrackNum="010" PortTableID="8" PortSize="Short" Direction="OUTPUT" PLCNum="0" />
+  </CVLine8>
+  <!--Bank 2-->
+  <CVLine9 ModuleName="M0STK011_P07" LineType="AutoOut" Bank="2" Bay="22" Level="1" LineFloor="1F" Rotate="false" CVWay="TopToBottom">
+    <Conveyor1 ModuleName="M0STK011_P07" USE="true" CVType="RobotIF" TrackGroup="13" TrackNum="011" PortTableID="9" PortSize="Long" Direction="INPUT" PLCNum="0" />
+  </CVLine9>
+  <CVLine10 ModuleName="M0STK011_P08" LineType="AutoOut" Bank="2" Bay="19" Level="1" LineFloor="1F" Rotate="false" CVWay="TopToBottom">
+    <Conveyor1 ModuleName="M0STK011_P08" USE="true" CVType="RobotIF" TrackGroup="13" TrackNum="013" PortTableID="10" PortSize="Long" Direction="OUTPUT" PLCNum="0" />
+  </CVLine10>
+  <CVLine11 ModuleName="M0STK011_P09" LineType="AutoOut" Bank="2" Bay="11" Level="1" LineFloor="1F" Rotate="false" CVWay="TopToBottom">
+    <Conveyor1 ModuleName="M0STK011_P09" USE="true" CVType="RobotIF" TrackGroup="13" TrackNum="015" PortTableID="11" PortSize="Long" Direction="INPUT" PLCNum="0" />
+  </CVLine11>
+  <CVLine12 ModuleName="M0STK011_P10" LineType="AutoOut" Bank="2" Bay="8" Level="1" LineFloor="1F" Rotate="false" CVWay="TopToBottom">
+    <Conveyor1 ModuleName="M0STK011_P10" USE="true" CVType="RobotIF" TrackGroup="13" TrackNum="017" PortTableID="12" PortSize="Long" Direction="OUTPUT" PLCNum="0" />
+  </CVLine12>
+  <CVLine13 ModuleName="M0STK011_P11" LineType="AutoOut" Bank="2" Bay="5" Level="1" LineFloor="1F" Rotate="false" CVWay="TopToBottom">
+    <Conveyor1 ModuleName="M0STK011_P11" USE="true" CVType="RobotIF" TrackGroup="13" TrackNum="019" PortTableID="13" PortSize="Short" Direction="INPUT" PLCNum="0" />
+  </CVLine13>
+  <CVLine14 ModuleName="M0STK011_P12" LineType="AutoOut" Bank="2" Bay="2" Level="1" LineFloor="1F" Rotate="false" CVWay="TopToBottom">
+    <Conveyor1 ModuleName="M0STK011_P12" USE="true" CVType="RobotIF" TrackGroup="13" TrackNum="021" PortTableID="14" PortSize="Short" Direction="OUTPUT" PLCNum="0" />
+  </CVLine14>
+  <CVLine15 ModuleName="M0STK011_P13" LineType="AutoOut" Bank="2" Bay="0" Level="3" LineFloor="1F" Rotate="true" CVWay="RightToLeft">
+    <Conveyor1 ModuleName="M0STK011_P13_OP01" USE="true" CVType="RobotIF" TrackGroup="13" TrackNum="033" PortTableID="16" PortSize="Short" Direction="OUTPUT" PLCNum="0" />
+    <Conveyor2 ModuleName="M0STK011_P13_BP01" USE="true" CVType="Plain" TrackGroup="13" TrackNum="032" PortTableID="-1" PortSize="Short" Direction="OUTPUT" PLCNum="0">
+      <RFID1 ModuleName="RFID1_P13" RFIDType="BCR_SICK" CommunicationType="TCP_IP" IP="192.168.100.118" Port="9007" />
+    </Conveyor2>
+    <Conveyor3 ModuleName="M0STK011_P13_BP02" USE="true" CVType="Plain" TrackGroup="13" TrackNum="031" PortTableID="-1" PortSize="Short" Direction="OUTPUT" PLCNum="0" />
+    <Conveyor4 ModuleName="M0STK011_P13_BP03" USE="true" CVType="Plain" TrackGroup="13" TrackNum="030" PortTableID="-1" PortSize="Short" Direction="OUTPUT" PLCNum="0" />
+    <Conveyor5 ModuleName="M0STK011_P13_BP04" USE="true" CVType="Plain" TrackGroup="13" TrackNum="029" PortTableID="-1" PortSize="Short" Direction="OUTPUT" PLCNum="0" />
+    <Conveyor6 ModuleName="M0STK011_P13_BP05" USE="true" CVType="Plain" TrackGroup="13" TrackNum="028" PortTableID="-1" PortSize="Short" Direction="OUTPUT" PLCNum="0" />
+    <Conveyor7 ModuleName="M0STK011_P13_BP06" USE="true" CVType="Plain" TrackGroup="13" TrackNum="027" PortTableID="-1" PortSize="Short" Direction="OUTPUT" PLCNum="0" />
+    <Conveyor8 ModuleName="M0STK011_P13_BP07" USE="true" CVType="Plain" TrackGroup="13" TrackNum="026" PortTableID="-1" PortSize="Short" Direction="OUTPUT" PLCNum="0" />
+    <Conveyor8 ModuleName="M0STK011_P13_BP08" USE="true" CVType="Plain" TrackGroup="13" TrackNum="025" PortTableID="-1" PortSize="Short" Direction="OUTPUT" PLCNum="0" />
+    <Conveyor10 ModuleName="M0STK011_P13" USE="true" CVType="EQIF" TrackGroup="13" TrackNum="024" PortTableID="-1" PortSize="Short" Direction="OUTPUT" PLCNum="0">
+      <RFID1 ModuleName="RFID2_P13" RFIDType="BCR_SICK" CommunicationType="TCP_IP" IP="192.168.100.119" Port="9007" />
+    </Conveyor10>
+  </CVLine15>
+  <CVLine16 ModuleName="M0STK011_M01" LineType="MaunalIn" Bank="2" Bay="0" Level="1" LineFloor="1F" Rotate="true" CVWay="RightToLeft">
+    <Conveyor1 ModuleName="M0STK011_M01_OP01" USE="true" CVType="RobotIF" TrackGroup="13" TrackNum="036" PortTableID="15" PortSize="Long" Direction="INPUT" PLCNum="0" />
+    <Conveyor2 ModuleName="M0STK011_M01_BP01" USE="true" CVType="Plain" TrackGroup="13" TrackNum="035" PortTableID="-1" PortSize="Long" Direction="INPUT" PLCNum="0" />
+    <Conveyor3 ModuleName="M0STK011_M01" USE="true" CVType="Manual" TrackGroup="13" TrackNum="034" PortTableID="-1" PortSize="Long" Direction="INPUT" PLCNum="0">
+      <RFID1 ModuleName="RFID_M01" RFIDType="BCR_SICK" CommunicationType="TCP_IP" IP="192.168.100.117" Port="9007" />
+    </Conveyor3>
+  </CVLine16>
+  <CVLine17 ModuleName="M0STK011_M02" LineType="MaunalIn" Bank="2" Bay="0" Level="7" LineFloor="1F" Rotate="true" CVWay="RightToLeft">
+    <Conveyor1 ModuleName="M0STK011_M02_OP01" USE="true" CVType="RobotIF" TrackGroup="13" TrackNum="039" PortTableID="17" PortSize="Both" Direction="INPUT" PLCNum="0" />
+    <Conveyor2 ModuleName="M0STK011_M02_BP01" USE="true" CVType="Plain" TrackGroup="13" TrackNum="038" PortTableID="-1" PortSize="Both" Direction="INPUT" PLCNum="0">
+      <RFID1 ModuleName="RFID_M02" RFIDType="BCR_SICK" CommunicationType="TCP_IP" IP="192.168.100.117" Port="9007" />
+    </Conveyor2>
+    <Conveyor3 ModuleName="M0STK011_M02" USE="true" CVType="Manual" TrackGroup="13" TrackNum="037" PortTableID="-1" PortSize="Both" Direction="INPUT" PLCNum="0" />
+  </CVLine17>
+</PortLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<PMacDataListList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <PMacDataListItem number="0" TagName="ShelfTiltCheckHeight" Definition="ShelfTiltCheckHeight" Description="Shelf Tilt Sensor 사용 높이 기준" Note="2" DataType="String" />
+	
+  <PMacDataListItem number="0" TagName="RearXcount" Definition="RearXcount" Description="Rear Off Set x COUNT 수량" Note="25" DataType="String" />
+  <PMacDataListItem number="0" TagName="RearYcount" Definition="Rearycount" Description="Rear Off Set y COUNT 수량" Note="15" DataType="String" />
+  <PMacDataListItem number="0" TagName="RearTotal" Definition="RearTotal" Description="Rear Off Set Total COUNT 수량" Note="375" DataType="String" />
+
+  <PMacDataListItem number="0" TagName="FrontXcount" Definition="FrontXcount" Description="Front Off Set x COUNT 수량" Note="25" DataType="String" />
+  <PMacDataListItem number="0" TagName="FrontYcount" Definition="FrontYcount" Description="Front Off Set y COUNT 수량" Note="15" DataType="String" />
+  <PMacDataListItem number="0" TagName="FrontTotal" Definition="FrontTotal" Description="Front Off Set Total COUNT 수량" Note="375" DataType="String" />
+ 
+</PMacDataListList>

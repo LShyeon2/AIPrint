@@ -1,0 +1,40 @@
+﻿<Page x:Class="BoxPrint.GUI.Views.PrintPage.PrintCommandView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BoxPrint.GUI.Views.PrintPage"
+      xmlns:local2="clr-namespace:BoxPrint.GUI.Views"
+      xmlns:uidictionary="clr-namespace:BoxPrint.GUI.UIControls"
+      xmlns:ex="clr-namespace:TranslationByMarkupExtension"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="800"
+      Title="PrintCommandView">
+
+    <Page.Resources>
+        <Style TargetType="{x:Type ToolTip}" BasedOn="{StaticResource SK_ToolTipStyle}"/>
+    </Page.Resources>
+
+    <Grid Background="WhiteSmoke">
+        <Grid MinWidth="300">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="80"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="1">
+
+                <Border Grid.Column="0" Margin="5">
+
+                    <!--오른쪽마우스클릭 이벤트-->
+                    <!--<DataGrid x:Name="dgrdUser" Style="{StaticResource SK_DataGridStyle}" Grid.Column="1" BorderBrush="Black" Background="{x:Null}" CanUserSortColumns="True"
+                                          MouseRightButtonDown="DataGrid_MouseRightButtonDown">-->
+                    <DataGrid x:Name="dgrdCommand" Style="{StaticResource SK_DataGridStyle}" CanUserSortColumns="True" >
+                    </DataGrid>
+                </Border>
+                
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

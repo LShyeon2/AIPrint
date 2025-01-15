@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PortLayout AutoRecovery="False" Change="false">
+  <CVLine1 ModuleName="M0STK028_P02" LineType="AutoOut" Bank="2" Bay="20" Level="1" LineFloor="1F" Rotate="true" CVWay="TopToBottom">
+    <Conveyor1 ModuleName="M0STK028_P02" USE="true" CVType="RobotIF" TrackGroup="57" TrackNum="009" PortTableID="2" PortSize="Both" Direction="INPUT" PLCNum="1"></Conveyor1>
+  </CVLine1>
+  <CVLine2 ModuleName="M0STK028_P01" LineType="AutoOut" Bank="1" Bay="20" Level="1" LineFloor="1F" Rotate="true" CVWay="BottomToTop">
+    <Conveyor1 ModuleName="M0STK028_P01" USE="true" CVType="RobotIF" TrackGroup="57" TrackNum="012" PortTableID="1" PortSize="Both" Direction="OUTPUT" PLCNum="1"></Conveyor1>
+  </CVLine2>
+  <CVLine3 ModuleName="M0STK028_P12" LineType="AutoOut" Bank="2" Bay="20" Level="4" LineFloor="1F" Rotate="true" CVWay="TopToBottom">
+    <Conveyor1 ModuleName="M0STK028_P12" USE="true" CVType="RobotIF" TrackGroup="81" TrackNum="004" PortTableID="4" PortSize="Both" Direction="INPUT" PLCNum="2"></Conveyor1>
+  </CVLine3>
+  <CVLine4 ModuleName="M0STK028_P11" LineType="AutoOut" Bank="1" Bay="20" Level="4" LineFloor="1F" Rotate="true" CVWay="BottomToTop">
+    <Conveyor1 ModuleName="M0STK028_P11" USE="true" CVType="RobotIF" TrackGroup="81" TrackNum="007" PortTableID="3" PortSize="Both" Direction="OUTPUT" PLCNum="2"></Conveyor1>
+  </CVLine4>
+  <CVLine5 ModuleName="M0STK028_P22" LineType="AutoOut" Bank="2" Bay="20" Level="8" LineFloor="1F" Rotate="true" CVWay="TopToBottom">
+    <Conveyor1 ModuleName="M0STK028_P22" USE="true" CVType="RobotIF" TrackGroup="84" TrackNum="004" PortTableID="6" PortSize="Both" Direction="INPUT" PLCNum="3"></Conveyor1>
+  </CVLine5>
+  <CVLine6 ModuleName="M0STK028_P21" LineType="AutoOut" Bank="1" Bay="20" Level="8" LineFloor="1F" Rotate="true" CVWay="BottomToTop">
+    <Conveyor1 ModuleName="M0STK028_P21" USE="true" CVType="RobotIF" TrackGroup="84" TrackNum="007" PortTableID="5" PortSize="Both" Direction="OUTPUT" PLCNum="3"></Conveyor1>
+  </CVLine6>
+</PortLayout>

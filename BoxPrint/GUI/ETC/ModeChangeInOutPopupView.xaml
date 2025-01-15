@@ -1,0 +1,82 @@
+﻿<Window x:Class="BoxPrint.GUI.ETC.ModeChangeInOutPopupView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BoxPrint.GUI.ETC"
+        mc:Ignorable="d"
+        
+        xmlns:vm="clr-namespace:BoxPrint.GUI.ViewModels"
+        d:DataContext="{d:DesignInstance vm:ModeChangeInOutPopupViewModel}"
+        
+        FontFamily="{StaticResource BoldFont}"
+        xmlns:uidictionary="clr-namespace:BoxPrint.GUI.UIControls"
+        xmlns:ex="clr-namespace:TranslationByMarkupExtension"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ShowInTaskbar="False" Topmost="True"
+        ResizeMode="NoResize" SizeToContent="WidthAndHeight"
+        TextOptions.TextFormattingMode="Display" TextOptions.TextRenderingMode="ClearType"
+        UseLayoutRounding="True" AllowsTransparency="True">
+
+    <Window.Background>
+        <SolidColorBrush Opacity="0" Color="White"/>
+    </Window.Background>
+
+    <Window.Resources>
+        <Style TargetType="{x:Type RadioButton}">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="FontSize" Value="25"/>
+        </Style>
+    </Window.Resources>
+
+    <Border Name="MainBorder" Background="White" CornerRadius="5" Margin="30" Width="300">
+
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="30" Direction="280" Opacity="0.6" />
+        </Border.Effect>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="56" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Margin="50,20,50,20">
+                <RadioButton Content="{ex:Translate In}" GroupName="ShelfTypeGroup"
+                             IsChecked="{Binding PortModeIn, UpdateSourceTrigger=PropertyChanged}"/>
+                
+                <RadioButton Content="{ex:Translate Out}" GroupName="ShelfTypeGroup"
+                             IsChecked="{Binding PortModeOut, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <RadioButton x:Name="BothRadio" Content="{ex:Translate Both}" GroupName="ShelfTypeGroup"
+                             IsChecked="{Binding PortModeBoth, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+
+                <uidictionary:SK_ButtonControl Background="#FFB6BDCD"  MinWidth="70" 
+                                               FrameCornerRadius="0,0,0,5" Tag="OK"
+                                               Style="{StaticResource SK_TextButtonStyle2}" 
+                                               Content="{ex:Translate OK}" Foreground="White" 
+                                               TagName="Yes" Grid.Column="0"
+                                               Click="Button_Click"/>
+
+
+                <uidictionary:SK_ButtonControl Background="#FFFC716A" MinWidth="70" 
+                                               FrameCornerRadius="0,0,5,0"
+                                               Style="{StaticResource SK_TextButtonStyle2}" 
+                                               Content="{ex:Translate CANCEL}" Foreground="White" 
+                                               TagName="No" Grid.Column="1"
+                                               Click="Button_Click"/>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

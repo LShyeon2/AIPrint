@@ -1,0 +1,473 @@
+﻿<Page x:Class="BoxPrint.GUI.Views.ParaView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BoxPrint.GUI.Views"
+      xmlns:i="http://schemas.Microsoft.com/expression/2010/interactivity"
+      xmlns:ex="clr-namespace:TranslationByMarkupExtension"
+      mc:Ignorable="d" 
+      d:DesignHeight="899.7" d:DesignWidth="1800"
+      Title="ParaView">
+
+    <Page.Resources>
+        <!--Toggle Button Template-->
+        <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="ToggleButton">
+            <Grid x:Name="gd">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="25" />
+                </Grid.ColumnDefinitions>
+                <Border x:Name="Border" SnapsToDevicePixels="True" Grid.ColumnSpan="2" Background="#FFE5E5E5" BorderBrush="{x:Null}"/>
+                <Border x:Name="Boredr1" SnapsToDevicePixels="True" Grid.Column="1"  Margin="1.1,1,1,1" Background="#FFE5E5E5" BorderBrush="{x:Null}" BorderThickness="0" />
+                <Path x:Name="Arrow" SnapsToDevicePixels="True" Grid.Column="1" Fill="White" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M 0 0 L 6 6 L 12 0 Z" Margin="6,9" Height="9.5" Stretch="Fill" Width="12.667"/>
+                <ContentPresenter Grid.Column="0" TextElement.Foreground="Orange"></ContentPresenter>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="ToggleButton.IsMouseOver" Value="True">
+                    <Setter TargetName="Arrow" Property="Fill" Value="#FF2AA8DE"/>
+                </Trigger>
+                <Trigger Property="ToggleButton.IsChecked" Value="True">
+                    <Setter TargetName="Arrow" Property="Data" Value="M 0 0 L 5 5 L 10 0"/>
+                    <Setter TargetName="Arrow" Property="Fill" Value="White"/>
+                    <Setter TargetName="Arrow" Property="Stroke" Value="White"/>
+                    <Setter TargetName="Arrow" Property="StrokeThickness" Value="1.5"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter TargetName="gd" Property="Visibility" Value="Visible"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <!--TextBox Template-->
+        <ControlTemplate x:Key="ComboBoxTextBox" TargetType="TextBox">
+            <ScrollViewer x:Name="PART_ContentHost" Focusable="False" />
+        </ControlTemplate>
+
+        <!--combobox-->
+        <Style x:Key="combobox_style" TargetType="ComboBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate  TargetType="ComboBox">
+                        <Grid>
+                            <ToggleButton Name="ToggleButton" Foreground="Black" Template="{StaticResource ComboBoxToggleButton}" Focusable="false" IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}" ClickMode="Press">
+                            </ToggleButton>
+                            <ContentPresenter Name="ContentSite" IsHitTestVisible="False" Content="{TemplateBinding SelectionBoxItem}" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Margin="3,3,23,3"  VerticalAlignment="Center" HorizontalAlignment="Left" />
+                            <TextBox OverridesDefaultStyle="True" SelectionBrush="Gray" CaretBrush="Black" Margin="0,0,30,0" TextWrapping="NoWrap"   x:Name="PART_EditableTextBox" FontFamily="Segoe UI Dark"   Foreground="Black" Style="{x:Null}" Template="{StaticResource ComboBoxTextBox}" HorizontalAlignment="Left" Focusable="True"  VerticalAlignment="Center"  FontSize="15"   Visibility="Hidden" IsReadOnly="{TemplateBinding IsReadOnly}"/>
+                            <Popup Name="Popup"  Grid.ColumnSpan="2" Placement="Bottom"  IsOpen="{TemplateBinding IsDropDownOpen}" AllowsTransparency="True" Focusable="False" PopupAnimation="Slide" OpacityMask="{x:Null}">
+                                <Grid Name="DropDown"   SnapsToDevicePixels="True" MaxWidth="{TemplateBinding ActualWidth}" MinWidth="{TemplateBinding ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}" Background="White">
+                                    <Border Grid.ColumnSpan="2" Grid.RowSpan="2" x:Name="DropDownBorder" SnapsToDevicePixels="True" Background="Transparent" MaxWidth="{TemplateBinding ActualWidth}" BorderThickness="1" BorderBrush="#FFA3B2B8"/>
+                                    <ScrollViewer Grid.ColumnSpan="2" ScrollViewer.CanContentScroll="False" Grid.Row="1" SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True" Background="Transparent" Margin="1"/>
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEditable" Value="true">
+                                <Setter Property="IsTabStop" Value="false"/>
+                                <Setter  TargetName="PART_EditableTextBox" Property="Background" Value="White"/>
+                                <Setter TargetName="PART_EditableTextBox" Property="Visibility" Value="Visible"/>
+                                <Setter TargetName="PART_EditableTextBox" Property="Foreground" Value="Black"/>
+                                <Setter TargetName="ContentSite" Property="Visibility" Value="Hidden"/>
+                            </Trigger>
+                            <Trigger Property="HasItems" Value="false">
+                                <Setter TargetName="DropDownBorder" Property="MinHeight" Value="95"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="IsTabStop" Value="false"/>
+                                <Setter TargetName="PART_EditableTextBox" Property="Visibility" Value="Visible"/>
+                                <Setter TargetName="PART_EditableTextBox" Property="Foreground" Value="Black"/>
+                                <Setter  TargetName="PART_EditableTextBox" Property="IsEnabled" Value="False"/>
+                                <Setter  TargetName="PART_EditableTextBox" Property="Background" Value="White"/>
+                                <Setter TargetName="ContentSite" Property="Visibility" Value="Hidden"/>
+                            </Trigger>
+                            <Trigger Property="IsGrouping" Value="true">
+                                <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                            </Trigger>
+                            <Trigger SourceName="Popup" Property="Popup.AllowsTransparency" Value="true">
+                                <Setter TargetName="DropDownBorder" Property="Margin" Value="0,2,0,0"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <!--DataGrid Text 오른쪽 정렬-->
+        <Style x:Key="DataGridCellHorizontalAlignmentStyle" TargetType="TextBlock">
+
+            <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <!--<Setter Property="Margin" Value="10,0"></Setter>-->
+
+        </Style>
+        <!--DataGrid Text 가운데 정렬-->
+        <Style x:Key="DataGridCellCenterAlignmentStyle" TargetType="TextBlock">
+
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment"   Value="Center"></Setter>
+            <!--<Setter Property="Margin" Value="10,0"></Setter>-->
+        </Style>
+
+
+    </Page.Resources>
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+
+        <DockPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" >
+            <TextBlock Name="ParaviewTitleNametxt" Text="{ex:Translate Parameter}" Foreground="#FFEC685B" FontSize="35" FontFamily="{StaticResource ExtraBoldFont}"/>
+            <TextBlock Text="{ex:Translate View}" Foreground="#FF0D2636" Margin="10,0,0,0" FontSize="35" FontFamily="{StaticResource ExtraBoldFont}"/>
+        </DockPanel>
+
+        <Grid Grid.Row="1" Grid.Column="1" Margin="0,20,0,0">
+            <Border Background="white" BorderBrush="Black" BorderThickness="3"
+                    CornerRadius="5"/>
+        </Grid>
+
+        <Grid x:Name="grdRMView" Grid.Row="1" Grid.Column="1" Margin="5,20,5,15">
+            <Grid x:Name="grdMain" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="103"/>
+                    <RowDefinition Height="14"/>
+                    <RowDefinition Height="330*"/>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid x:Name="grdTop">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="85"/>
+                        <ColumnDefinition Width="85"/>
+                        <ColumnDefinition Width="95"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid x:Name="grdTopSearch" Height="60" VerticalAlignment="Bottom" Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="5" CornerRadius="20" Margin="0,-7,0,7">
+                            <TextBlock
+                            x:Name="txtSearchName" Text="{ex:Translate SearchText}" TextAlignment="Center"  FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="/Mproject;component/Fonts/#BM DoHyeon" Foreground="Black"/>
+                        </Border>
+                        <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="White" BorderThickness="1" CornerRadius="5" Margin="0,23,0,0" Grid.RowSpan="2" BorderBrush="#FFA3B2B8" />
+                    </Grid>
+
+                    <Grid x:Name="grdTopSort" Grid.Column="2" Height="60" VerticalAlignment="Bottom" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" BorderThickness="5" CornerRadius="20" Height="30" Margin="0,-7,0,7">
+                            <TextBlock
+                            x:Name="strSortName" Text="{ex:Translate 구분}" TextAlignment="Center"  FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="/Mproject;component/Fonts/#BM DoHyeon" Foreground="Black"/>
+                        </Border>
+                        <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2" CornerRadius="20" Margin="0,23,0,0" Grid.RowSpan="2" >
+                            <ComboBox x:Name="cbbSort" Margin="15,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15" FontFamily="/Mproject;component/Fonts/#BM HANNA Air" BorderThickness="1" BorderBrush="#FF333333" Background="{x:Null}" Foreground="{x:Null}" />
+                        </Border>
+                    </Grid>
+
+                    <Grid x:Name="grdTopDbGetData3" Height="60" VerticalAlignment="Bottom" Grid.Column="3">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" BorderThickness="5" CornerRadius="20" Height="30" Margin="0,-7,0,7">
+                            <TextBlock
+                            x:Name="DbGetName3" Text="{ex:Translate Db Get3}" TextAlignment="Center"  FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="/Mproject;component/Fonts/#BM DoHyeon" Foreground="Black"/>
+                        </Border>
+                        <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2" CornerRadius="20" Margin="0,23,0,0" Grid.RowSpan="2" >
+                            <ComboBox x:Name="cbbDbGet3" Grid.Row="1" Margin="15,0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15" FontFamily="/Mproject;component/Fonts/#BM HANNA Air" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="1"/>
+                        </Border>
+                    </Grid>
+
+                    <Grid x:Name="grdTopDbGetData2" Grid.Column="4" Height="60" VerticalAlignment="Bottom">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" BorderThickness="5" CornerRadius="20" Height="30" Margin="0,-7,0,7">
+                            <TextBlock
+                            x:Name="DbGetName2" Text="{ex:Translate Db Get2}" TextAlignment="Center"  FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="/Mproject;component/Fonts/#BM DoHyeon" Foreground="Black" />
+                        </Border>
+                        <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2" CornerRadius="20" Margin="0,23,0,0" Grid.RowSpan="2" >
+                            <ComboBox x:Name="cbbDbGet2" Grid.Row="1" Margin="15,0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15" FontFamily="/Mproject;component/Fonts/#BM HANNA Air" Background="{x:Null}" BorderBrush="Black" BorderThickness="1"/>
+                        </Border>
+                    </Grid>
+
+                    <Grid x:Name="grdTopDbGetData1" Grid.Column="5" Height="60" VerticalAlignment="Bottom" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" BorderThickness="5" CornerRadius="20" Height="30" Margin="0,-7,0,7">
+                            <TextBlock
+                            x:Name="DbGetName1" Text="{ex:Translate Db Get1}" TextAlignment="Center"  FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="/Mproject;component/Fonts/#BM DoHyeon" Foreground="Black" />
+                        </Border>
+                        <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2" CornerRadius="20" Margin="0,23,0,0" Grid.RowSpan="2" >
+                            <ComboBox x:Name="cbbDbGet1" Grid.Row="1" Margin="15,0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15" FontFamily="/Mproject;component/Fonts/#BM HANNA Air" Background="{x:Null}" BorderBrush="#FF333333" BorderThickness="1"/>
+                        </Border>
+                    </Grid>
+
+                    <Button x:Name="btnFind"   Click="Find_Click"
+                     Foreground="Blue"  Width="35" Height="35"  VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="6">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Name="border111" BorderThickness="0" Background="{TemplateBinding Background}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" TargetName="border111">
+                                                        <Setter.Value>
+                                                            <ImageBrush ImageSource="/image/Searchicon2.png"/>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Trigger>
+                                                <Trigger Property="IsMouseOver" Value="false">
+                                                    <Setter Property="Background" TargetName="border111">
+                                                        <Setter.Value>
+                                                            <ImageBrush ImageSource="/image/Searchicon1.png"/>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Trigger>
+                                                <Trigger Property="IsPressed" Value="true">
+                                                    <Setter Property="Background" TargetName="border111">
+                                                        <Setter.Value>
+                                                            <ImageBrush ImageSource="/image/Searchicon3.png"/>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Cursor" Value="Hand"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button  x:Name="btnFrontRead"  Grid.Column="7"  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" ToolTip="{ex:Translate Front Teaching 데이터를 PMAC으로 부터 읽어 옵니다.}"
+                     Foreground="Blue"   Height="80" VerticalAlignment="Bottom" Content="Teaching Data" Click="btnRead_Click" Tag="FrontTeachingData">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Name="border111" BorderThickness="0" Background="{TemplateBinding Background}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" TargetName="border111">
+                                                        <Setter.Value>
+                                                            <ImageBrush ImageSource="/image/Front_Teaching2.png"/>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Trigger>
+                                                <Trigger Property="IsMouseOver" Value="false">
+                                                    <Setter Property="Background" TargetName="border111">
+                                                        <Setter.Value>
+                                                            <ImageBrush ImageSource="/image/Front_Teaching1.png"/>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Trigger>
+                                                <Trigger Property="IsPressed" Value="true">
+                                                    <Setter Property="Background" TargetName="border111">
+                                                        <Setter.Value>
+                                                            <ImageBrush ImageSource="/image/Front_Teaching3.png"/>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Cursor" Value="Hand"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button  x:Name="btnRearRead" Grid.Column="8"  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" ToolTip="{ex:Translate Rear Teaching 데이터를 PMAC으로 부터 읽어 옵니다.}"
+                     Foreground="Blue"   Height="80" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Content="Teaching Data" Click="btnRead_Click" Tag="RearTeachingData">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Name="border111" BorderThickness="0" Background="{TemplateBinding Background}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" TargetName="border111">
+                                                        <Setter.Value>
+                                                            <ImageBrush ImageSource="/image/Rear_Teching2.png"/>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Trigger>
+                                                <Trigger Property="IsMouseOver" Value="false">
+                                                    <Setter Property="Background" TargetName="border111">
+                                                        <Setter.Value>
+                                                            <ImageBrush ImageSource="/image/Rear_Teching1.png"/>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Trigger>
+                                                <Trigger Property="IsPressed" Value="true">
+                                                    <Setter Property="Background" TargetName="border111">
+                                                        <Setter.Value>
+                                                            <ImageBrush ImageSource="/image/Rear_Teching3.png"/>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Cursor" Value="Hand"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button  x:Name="btnPortRead"  Grid.Column="9"  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" ToolTip="{ex:Translate Port Teaching 데이터를 PMAC으로 부터 읽어 옵니다.}"
+                     Foreground="Blue"  Height="80" VerticalAlignment="Bottom" HorizontalAlignment="Left" Content="Teaching Data"  Click="btnRead_Click" Width="85" Tag="PortTeachingData" >
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Name="border111" BorderThickness="0" Background="{TemplateBinding Background}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" TargetName="border111">
+                                                        <Setter.Value>
+                                                            <ImageBrush ImageSource="/image/Port_Teaching2.png"/>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Trigger>
+                                                <Trigger Property="IsMouseOver" Value="false">
+                                                    <Setter Property="Background" TargetName="border111">
+                                                        <Setter.Value>
+                                                            <ImageBrush ImageSource="/image/Port_Teaching1.png"/>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Trigger>
+                                                <Trigger Property="IsPressed" Value="true">
+                                                    <Setter Property="Background" TargetName="border111">
+                                                        <Setter.Value>
+                                                            <ImageBrush ImageSource="/image/Port_Teaching3.png"/>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Cursor" Value="Hand"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Grid>
+                <Grid Grid.Row="1" Grid.RowSpan="1" VerticalAlignment="Bottom" Height="2" Background="#FF637A82"/>
+
+                <DataGrid x:Name="sortGrid1" AutoGenerateColumns="False" Background="White" AlternationCount="2" Grid.Row="3" Grid.Column="0" FontSize="15" HorizontalContentAlignment="Stretch" 
+                      RowBackground = "White"  AlternatingRowBackground = "#FFE0EDF9" BorderBrush="#FFE2E2E2" BorderThickness="3,0,0,3" GridLinesVisibility="All" FontFamily="Yu Gothic UI" Foreground="#FF687276" 
+                      RowHeight="30" HorizontalGridLinesBrush="#FFE2E2E2" VerticalGridLinesBrush="#FFE2E2E2" HorizontalAlignment="Center">
+
+                    <DataGrid.Resources>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#FF2AA8DE"/>
+                    </DataGrid.Resources>
+                </DataGrid>
+
+            </Grid>
+        </Grid>
+        <DockPanel Grid.Row="3" VerticalAlignment="Bottom" Width="auto" Height="auto" Grid.Column="1" HorizontalAlignment="Right">
+            <Ellipse x:Name="colorBuffer_FirmwareLogViewMainBackground"                          Width="30" Height="30" Margin="5,0,0,0" IsHitTestVisible="False" Fill="#FF49596D"/>
+            <Ellipse x:Name="colorBuffer_FirmwareLogViewButtonBackground"             Width="30" Height="30" Margin="5,0,0,0" IsHitTestVisible="False">
+                <Ellipse.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF768AA2" Offset="0"/>
+                        <GradientStop Color="#FF24466E" Offset="1"/>
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Ellipse x:Name="colorBuffer_FirmwareLogViewForeground"                   Width="30" Height="30" Margin="5,0,0,0" IsHitTestVisible="False" Fill="White"/>
+            <Ellipse x:Name="colorBuffer_FirmwareLogViewBorderBrush"                  Width="30" Height="30" Margin="5,0,0,0" IsHitTestVisible="False" Fill="White"/>
+            <Ellipse x:Name="colorBuffer_FirmwareLogViewButtonBackground_Enter"       Width="30" Height="30" Margin="5,0,0,0" IsHitTestVisible="False">
+                <Ellipse.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="LightBlue"/>
+                        <GradientStop Color="#FF62768F" Offset="0.502"/>
+                        <GradientStop Color="LightBlue" Offset="1"/>
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Ellipse x:Name="colorBuffer_LifeTimeViewButtonBorderBrush"            Width="30" Height="30" Margin="5,0,0,0" IsHitTestVisible="False" Fill="DarkBlue"/>
+            <Ellipse x:Name="colorBuffer_IOMonitorViewDataGridRowBackground"            Width="30" Height="30" Margin="5,0,0,0" IsHitTestVisible="False" Fill="{x:Null}"/>
+        </DockPanel>
+    </Grid>
+</Page>

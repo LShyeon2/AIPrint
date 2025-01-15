@@ -1,0 +1,487 @@
+
+//211207 RGJ Booth 램프 전용 쓰레드 분리
+
+//211202 RGJ 소박스 SETUP
+
+//211126 RGJ 보고 이상점 조치.
+
+// 2021.10.25 RGJ
+-메인 루프 예외 발생시 로그 찍도록 추가.
+
+//211021 lsj 명령추가 start
+
+// 2021.10.21 RGJ
+-LCS 자동 재연결 기능 추가.
+
+// 2021.10.20 RGJ
+-스택커 강제 배출 모드 구현
+
+// 2021.10.18 RGJ
+-소박스 테스트 완료분 추가
+
+// 2021.10.13 RGJ
+-SESS 머지
+
+// 2021.10.01 RGJ
+-서보 동작 모듈 세분화 : AirCylinder,,Servo(B타입),ServoIO(A타입)
+
+// 2021.09.27 RGJ
+-Tray ReceiveStopDelay 하드 코딩 제거 XML에서 변경으로 수정
+
+// 2021.09.13 RGJ
+-Gantry 인터페이스 모듈 추가.
+-소박스 Stacker 추가.
+
+// 2021.08.13 RGJ 온양 노후화 셋업 머지
+
+// 2021.07.30 RGJ
+- Stacker 컨베이어모듈 추가.
+
+// 2021.07.14 RGJ
+- Tray 높이 인터락 설정 타이밍 변경
+- WCF 연결 실패시 스택 트레이스 Open 안하고 로그만 표시
+- 예전에 유지되던 Abort가 남아있을수 있기에 포트 Reset 시 초기화.
+- 콘솔 빠른입력 해제 추가.콘솔 입력에 의한 프로그램 무언정지 방지
+
+//2021.07.13 lim,
+- PMAC 변수 추가 Shelf Put 할때 TrayHeight 값에 따라 Tilte 센서 사용 개수 설정
+
+// 2021.07.12 RGJ
+- Booth 모듈 세분화 (PMAC,ARC,PLC)
+
+//2021.07.07 lim,
+- RMType="PLC_EHER" 일때 Simul 동작 가능 하도록 수정
+
+//2021.07.05 lim,
+- 투입 port 기울어짐 센서 관련 추가
+
+//2021.06.23 lim,
+- Booth IO 동작 추가
+
+//2021.06.22 LIM,
+- AGVRobot -> OHTRobot 변경 및 동작 수정
+
+//2021.06.21 lim,
+- AGVRobot Inverter 미사용, I/O simul 설정
+
+//2021.06.18 lim, 
+- Portable 미사용 수정
+                       
+//2021.06.10 lim, 
+- front 쪽에 위치한 in/out port 모두 방향을 맞추기 위해서 CVUserControl에서 방향 설정
+- front, Rear Port의 진행 방향이 반대이므로 트레이 진행 방향과 스톱퍼 위치를 bank로 구분
+
+//2021.05.28 lim, 
+- AGVRobot는 컨베이어가 없으므로 UI에서 제거 
+- CVUserControl에서 CVState, CVSpeed 표시 순서 변경 90 턴 시 가려서 보이지 않음
+
+//2021.05.25 lim, 
+- TurnOHT GetShttleStautsPara, SetTurnDevice 같이 사용 가능하도록 BaseModule에 추가
+- TurnOHT LCS 보고 추가, EMO 동작 추가
+- ShelfUserControl MinHeight 속성 추가 컨베이어 위치를 표시하기 위한 최소 크기 지정
+
+//2021.05.24 lim, 
+- AGV 포트는 컨베이어가 없음
+- TurnOHT UI 턴, 역회전, 후방 스톱퍼 사용 표시
+
+//2021.05.21 lim
+- TurnOHTIF, AGVRobot 추가
+- TurnOHTIFModule Turn 동작 추가
+
+//210503
+- Pmac 미사용시 필요 없는 부분 미사용 처리
+
+// 2021.04.22 RGJ
+- CV_EQRobotModule In/Out별 Load,Unload 추가.
+
+// 2021.04.19 Lim
+- UI 수정 천안5,7 호기 온양1 호기 DEAD Zone 4개로 CV와 Shelf 겹침 Margin 165 -> 135 변경
+- CV 2F 위치 RearYcount에 따라 Margin 변경
+- Bay Position 맞춤
+- UI 업데이트로 추가된 Parameter 각 Model에 적용
+
+// 2021.04.16 RGJ
+- 싸이클 스케쥴러 추가.
+- CPS 사용/비사용 전환 프로퍼티 config 추가.
+
+// 2021.04.15 RGJ
+- RFID 쓰기 로직 추가.(상위 LCS에서 TAG ID를 내려주면 해당 TAG ID 쓰기)
+
+// 2021.04.13 lim
+- LayOutView bridge side 추가
+- PortLayout Turn 각도 추가
+- PortUI Bank 추가
+
+// 2021.04.12 RGJ
+- 현장 라인 구분자추가(천안,아산,평택등)
+- 보조 타워램프 제어 추가.(온양용 적단색)
+
+// 2021.04.08 lim
+- UI 수정 BCR 사용 유무에 따라  RFID -> BCR로 교체, RFID Write 비활성
+- BCR ReTry 추가
+
+// 2021.04.07 RGJ
+- 포트 레이아웃 부분 하드 코딩 삭제(xml 좌표 지정으로 변경)
+- 브릿지 컨베이어 대응 TurnEQIF 모듈 추가.
+
+// 2021.04.06 lim
+-중국 SESS BCR 추가- <RFID ModuleName="BCR_AI2" RFIDType="BCR_SICK" CommunicationType ="TCP_IP" IP="100.100.100.51" Port="2112"/>
+-App.config  MainSection.UseBCR 추가
+-Tray ParseTagID 추가 - LCS 보고 형식 및 Barcode ReadData 형식에 따라 추후 변경
+
+// 2021.04.06 RGJ
+- 서보 시스템 추가
+
+// 2021.04.02 RGJ
+-김동엽 매니저 UI 머지
+
+
+// 2021.04.01 RGJ
+-현장본 머지
+-서보 초기 개발.
+
+// 2021.02.22 RGJ
+//소모품 관리 변수 업데이트
+-OHT Door 부스에서 관리
+-포트 ByPass동작 일부 수정.
+
+// 2021.02.18 RGJ
+-소모품 관리 기능 추가.
+
+// 2021.02.18 초기화 속도 RM 파라메터 처리 
+// 2021.02.18 RM 소모품 진단 관련 추가 
+
+// 2021.02.17 RGJ
+-T9 현장 셋업 내용  최종 반영.
+
+// 2021.02.09 RGJ
+-T9 현장 셋업 내용 반영.
+
+// 2021.02.01 Alarm발생 이후 리커버리 버그 수정
+// 2021.01.28 Port Move Command 시  RobotAccessAble Check 추가
+// 2021.01.29 RGJ
+-Turn 포트 초기화 동작 수정
+-Port 전용 로그 추가.
+
+// 2021.01.28 RGJ
+-Port 마지막 동작 결과값 UI 표시 추가.
+-Port 현재 동작 UI 표시 추가.
+
+// 2021.01.28 티칭포인트 기준 1 SCS 기준 0 Pmac 기준 추가 파라메터 추가 
+// 2021.01.28 설비 Type을 셋팅 
+
+// 2021.01.26 RGJ
+-Port Detail View GUI 보완.
+
+// 2021.01.25 RGJ
+-OHT PIO 전 Stopper 체크 로직 추가.
+-Port Detail View GUI 추가.
+
+// 2021.01.22 RGJ
+-Reset 버튼 동작 구현
+-포트 초기화 로직 보완.
+
+// 2021.01.20 RGJ
+-LCS IO_MORNITORING_REQUEST (View Firmware) 명령 구현
+
+// 2021.01.19 RGJ
+-포트 전송시 자동 복구 옵션 및 기능 추가.
+-일부 오타 수정.
+
+// 2021.01.18 RM 동작관련 추가 
+// 2021.01.15 Manual Cmd Stop 관련 수정 
+
+// 2021.01.12 RGJ
+-GUI 로그 필터링 기능 추가.
+
+// 2021.01.11 RGJ
+-턴 포트 동작 일부 수정 및 GUI 수정.
+
+// 2021.01.8 RGJ
+-포트 GUI 일부 수정.
+
+// 2021.01.07 RGJ
+-포트 초기화 리셋 추가.
+-포트 GUI 일부 수정.
+-포트 라이트 커튼 제어 시퀀스 추가.
+
+// 2021.01.06 RGJ
+-포트 로직 변경(멀티 트레이 투입 대응)
+
+ // 2020.01.05 ARC Type 혼용 할수 있도록 UI필요 없는 항목 삭제 추가
+ // 2021.01.05 Tower Lamp 순서 잘못된거 수정 
+
+// 2021.01.04 RGJ
+-I/O POINT 도면값 입력
+-포트에 로봇 엑세스 체크 비트 추가.
+-GUI Views 1280x1024 로 크기 적용. 
+-Port Door 체크 기능 추가.
+
+// 2020.12.30 RGJ
+-라이트 커튼 제어 Booth 모듈로 변경.
+
+
+// 2020.12.29 RGJ
+- 포트 라인 복구 로직 추가.
+- CV_EQRobotModule 추가 EQ컨베이어 + 로봇 엑세스 가능.(상부 단일 컨베이어로 변경)
+
+// 2020.12.24 GlobalSimulMode 동작 가능하도록 변경
+
+// 2020.12.24 RGJ
+- 포트 레이아웃 수정 (메뉴얼 포트 인버터 4개로변경)
+- 라이튼 커튼 입력 접점 2개로 변경. 뮤팅 램프 제어 추가.
+
+// 2020.12.23 RGJ
+-SafetyPLC UDP 불필요 코드 삭제 
+-SafetyPLC 클래스 위치 변경, Config 구성 및 적용
+
+// 2020.12.22 LDH
+-SafetyPLC UDP 통신 모듈 추가
+-SafetyPLC 모니터링 GUI 추가.
+
+// 2020.12.21 IKI
+- Auto상태에서 Manual Move의 선택금지 인터락
+
+// 2020.12.21 RGJ
+-컨베이어 도어체크 로직 추가.
+-불필요 using 및 코드 제거.
+
+// 2020.12.16 RGJ
+-WPS Monitoring 사양 갱신반영
+
+// 2020.12.15 IKI
+Manual Command 항목의 Fork축 기동 및 원점기동 추가
+Manual Command 항목의 Shelf ID 및 Front or Rear 인터락부분 Skip
+
+// 2020.12.15 RGJ
+-Booth 도어 On/Off Auto Key 연동 추가.
+-Port GUI Entry,Stop 시그널 모니터링 추가.
+
+// 2020.12.14 IKI
+Manual Command Button 기능 및 이미지변경
+
+// 2020.12.11 RGJ
+-App.config Configulation 추가.
+-RMModule Configulation 세팅
+-WPS Monitor Configulation 세팅
+
+// 2020.12.11 HandGrip 포지션 Display 추가
+// 2020.12.11 컨베어 Tool Tip 추가
+// 2020.12.11 RM Robot 동작 추가 P변수 String 변수 대응
+// 2020.12.11 RM Robot 동작 추가
+
+// LCS Robot 동작 테스트 수정 Crane Start, Crane Stop , Error Rest
+// RM Data Front / Rear Teaching Data 수정
+// 2020.12.10 RM 2 -> 1 수량 변경으로 추가
+// 2020.12.08 RM수량 변경에  따른 WCF Exception 수정
+
+// 2020.12.10 RGJ
+-인버터 I/O 원가절감 대응 비트 수정.
+
+
+// LCS Robot 동작 테스트 수정 Crane Start, Crane Stop , Error Reset
+// RM Data Front / Rear Teaching Data 수정
+// 2020.12.10 RM 2 -> 1 수량 변경으로 추가
+// 2020.12.08 RM 수량 변경에 따른 WCF Exception 수정
+
+
+// 2020.12.9 RGJ
+-RFID 클래스 구조 변경.
+-포트 컨베이어 RFID 상태 GUI 표시
+-WPS 모니터링 알람 항목 GUI 표시
+
+// 2020.12.8 RGJ
+-WCF 통신 직접주소 입력 대신  App.config 에 바인딩으로 변경.
+
+// 2020.12.7 RGJ
+-WPS 모니터링 모듈 구조 변경 및 알람 추가.
+-WPS GUI 모니터링 추가
+
+
+// 2020.12.4 RGJ
+-컨베이어 비정상 종료시 복구 기능 활성화
+-복구 로직 수정
+-WPS 모니터링 모듈 추가.
+
+// 2020.12.3 RGJ
+-Shelf Size 도면안으로 수정.
+-GUI 라이트 커튼 위치 수정.
+
+// 2020.12.03 RM 가상축 테스트 진행 수정
+
+// 2020.12.2 RGJ
+ -트레이 메뉴얼 포트 배출 로직 추가.
+ -RFID 제어 로직 추가.
+ -컨베이어 티칭레벨 왼쪽부터 순서대로 넘버링 21,22,23...
+ -OHT ARM 체크 및 도어 인터락 추가.
+
+// 2020.12.01 PMac 가상축 연결 테스트 중
+
+ // 2020.11.30 RGJ
+ -CV Tray Chuck,Door Open 수정.
+ -Shelf,Port 도면에 맞게 위치 변경.
+
+ // 2020.11.27 shelf Map 수정 
+
+ 
+ // 2020.11.26 RGJ
+ -OHT PORT Shuttle 로 보고타입 변경 
+ -CCLINK 멀티보드 대응하도록 변경
+ (IOPoint.xml 'board' 값으로 보드 구분 0,1,2...)
+
+// 2020.11.25 Alarm 테스트 등록및 테스트 작업 
+// 2020.11.20 PMac에서 => 펌웨어 로 티칭 포인트 다운로드 
+
+ // 2020.11.25 RGJ
+ -포트 컨베이어 1F,2F 층정보 추가 및 GUI 변경
+ -CV_EQIF 모듈 구현
+ -IO 모니터링 포트와 인버터 구분
+
+ // 2020.11.23 RGJ
+ -Inverter I/O 생성 방식 변경.포트별 인버터 I/O 개수가 너무 많아서 BaseAddress 기준 코드에서 자동생성으로 변경.
+
+ // 2020.11.20 RGJ
+ -컨베이어 알람 누락분 추가.  
+ 
+ // 2020.11.20 PMac에서 => 펌웨어 로 티칭 포인트 다운로드 
+// 2020.11. 19 RM IO 관련 수정
+
+// 2020.11.19 RGJ 
+-컨베이어 복구 기능 구현(검증시까지 미사용)
+-부스 알람 정합성 안맞는 부분 수정.
+
+
+// 2020.11.18 RGJ 컨베이어 개발중
+-복구 정보 디비 구성.
+-복구 정보 입출력 구현.
+
+// 2020.11.18 RM IO 관련 추가
+// 2020.11.18 WCF 접속 보고시 Hand 센서 확인 
+
+// 2020.11.16 RGJ 컨베이어 개발중
+-Tray 반송 시뮬레이션 테스트
+-Tray 정보 파싱 로직 추가.
+
+
+// 2020.11.13 Manual Command 인터락 추가
+// 2020.11.13 RGJ 컨베이어 개발중
+-Tray 컨베이어 투입 시퀀스 시뮬레이션 테스트 추가.
+
+// 2020.11.13 IKI 도움말 추가
+
+// 2020.11.13 Manual Command 인터락 추가
+// 2020.11.12 Manual cmd  상태 업데이트 추가
+// 2020.11.11 Manual Command 인터락 추가
+
+// 2020.11.11 IKI 알람리스트 추가
+
+// 2020.11.11 RGJ 컨베이어 개발중
+-트레이 로딩,언로딩 로직 추가.
+
+// 2020.11.11 RGJ MainWindow Tray 기능추가.
+
+// 2020.11.10 RGJ 컨베이어 개발중
+-Tray 컨베이어 배출 시퀀스 개발
+
+// 2020.11.09 RGJ 컨베이어 개발중
+-Tary 컨베이어 배출 시퀀스 시뮬레이션 테스트 추가.
+
+// 2020.11.09 Manual command CV 추가 
+// 2020.11.09 RGJ 모듈 Alarm 발생시 상위보고 추가.
+
+// 2020.11.06 강제알람발생 버튼 추가 
+// 2020.11.06 RGJ 컨베이어 개발중
+- 컨베이어,로봇 인터페이스 구현
+
+// 2020.11.06 RM상태 MainWindow 추가 작업중
+
+// 2020.11.02 Cv LayoutView 업데이트
+// 2020.11.02 RGJ 컨베이어 개발중
+- 컨베이어 및 UI 일부 수정.
+
+
+
+// 2020.10.30 Shelf ,RM 상태 업데이트 
+
+// 2020.10.28 RGJ BOOTH 개발
+- 부스 입출력 제어 구현
+
+
+// 2020.10.27 RGJ 컨베이어 개발중
+- CEYON RFID 모듈 구현 추가.
+- Port GUI 명령창 추가.
+
+
+// 20.10.29 CraneManual창 MainLayOut 추가
+// 20.10.27 RM Tag 추가
+
+// 2020.10.23 RGJ 컨베이어 개발중
+- CVUserControl 추가.
+
+// 2020.10.22 RGJ 컨베이어 개발중
+- CV 모듈별 전송 로직 구현.
+- CVLine 기능 구현
+
+// 2020.10.21 RGJ 컨베이어 개발중
+- OHT PIO Interface 구현
+- CV 간 PIO Normal 케이스 구현
+
+// 2020.10.20 RGJ 컨베이어 개발중
+- 모듈별 구조 설정
+- 레이아웃 구성
+- 컨베이어별 동작 정의
+
+
+// 20.20.19 RM 동작 화면 추가 
+
+// 20.20.14 RM 데모 테스트 추가 리소스 확인 
+// 2020.10.14 RM UserControl추가
+
+// 2020.10.05 RGJ
+// IOMonitorView 추가
+// CCLink I/O 입출력 인터페이스 수정.
+
+// 2020.09.29 MainWindow 테두리 정리
+
+// 2020.09.23 RGJ
+// LogView 추가
+
+//2020.09.23 LCS Cmd Job 관련 Display 
+
+//2020.09.17 treeView 추가
+
+// 2020.09.24 RGJ
+// Firmware DB 추가.
+// 알람 상태화면 및 알람 로그 추가 (알람 리스트는 임시로 바이오 프로젝트꺼 사용.)
+
+// 2020.09.16 RGJ
+// 로봇,포트,부스,모듈 구조 변경 최상위 ModuleBase 추가
+
+//2020.09.16  MainView 로딩
+//2020.09.15 ShelfUserControl 추가
+//2020.09.15 Main Layout 추가
+﻿//2020.09.11 UserControl => PangeView로 변경
+
+﻿
+//2020.09.11 RGJ
+// 메인 윈도우 X 버튼 삭제,Alt-F4 종료 이벤트 재정의
+
+//2020.09.10 RGJ
+// 중복 실행 방지 Mutex 추가.
+// 모니터링용 콘솔창 추가.
+
+//2020.09.08 RGJ WCF 통신 및 간이 시뮬레이터 추가.
+
+
+//2020.09.04 RGJ WCF 통신 모듈 추가(기본인터페이스완료)
+
+//2020.09.03 RGJ WCF 통신 모듈 추가(개발중)
+
+/// *** 2020.09.03 History 파일 생성 ***
+1. Base UI 추가
+2. Global 파일 추가
+3. 로그 파일 추가
+4. RM 및 Axis 인스턴스 생성
+5. Power Pmac 관련 추가 
+6. CCLink 파일 추가
+

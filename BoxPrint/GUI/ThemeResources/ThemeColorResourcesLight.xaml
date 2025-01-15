@@ -1,0 +1,87 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+                     xmlns:local="clr-namespace:BoxPrint.GUI.ThemeResources">
+
+    <LinearGradientBrush x:Key="MainMenuBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+        <LinearGradientBrush.RelativeTransform>
+            <TransformGroup>
+                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                <RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </LinearGradientBrush.RelativeTransform>
+        <GradientStop Color="#FFAAD9DE" Offset="0.99"/>
+        <GradientStop Color="#FF495A69" Offset="0.99"/>
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="MainMenuForeground" Color="#FF495A69"/>
+
+    <LinearGradientBrush x:Key="MainMenuHeaderBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="White"/>
+        <GradientStop Color="White" Offset="0.08"/>
+        <GradientStop Color="White" Offset="0.93"/>
+        <GradientStop Color="White" Offset="0.967"/>
+    </LinearGradientBrush>
+
+
+
+    <SolidColorBrush x:Key="MainPointLine"      Color="#FF495A69"/>
+    <SolidColorBrush x:Key="MainPointLine2"     Color="#FFEA6356"/>
+    <SolidColorBrush x:Key="MainBaseBackground" Color="#FFF5F5F5"/>
+
+    <LinearGradientBrush x:Key="MainMenuButtonBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="White" Offset="0.002"/>
+        <GradientStop Color="White" Offset="0.106"/>
+        <GradientStop Color="White" Offset="0.913"/>
+        <GradientStop Color="White" Offset="0.967"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="MainMenuButtonBackground_Enter" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FF8ACBDD" Offset="0.002"/>
+        <GradientStop Color="#FF8ACBDD" Offset="0.106"/>
+        <GradientStop Color="#FF8ACBDD" Offset="0.913"/>
+        <GradientStop Color="#FF8ACBDD" Offset="0.967"/>
+    </LinearGradientBrush>
+    <!--<LinearGradientBrush x:Key="MainMenuButtonBackground_Enter" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFFD9992" Offset="0.002"/>
+        <GradientStop Color="#FFFE8A81" Offset="0.106"/>
+        <GradientStop Color="#FFF66658" Offset="0.913"/>
+        <GradientStop Color="#FFE47268" Offset="0.967"/>
+    </LinearGradientBrush>-->
+
+    <SolidColorBrush x:Key="MainMenuButtonBorderBrush" Color="#FF495A69"/>
+    
+    <SolidColorBrush x:Key="NormalBorderBackground" Color="White"/>
+    <SolidColorBrush x:Key="NormalBorderBackground_Dark" Color="White"/>
+
+
+    <LinearGradientBrush x:Key="NormalButtonBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="White" Offset="0"/>
+        <GradientStop Color="White" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush  x:Key="NormalButtonBackground_Enter" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FF8ACBDD" Offset="0"/>
+        <GradientStop Color="#FF8ACBDD" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="NormalButtonBackground2" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="White" Offset="0"/>
+        <GradientStop Color="White" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush  x:Key="NormalButtonBackground2_Enter" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFFFB0A9" Offset="0"/>
+        <GradientStop Color="#FFFFB0A9" Offset="1"/>
+    </LinearGradientBrush>
+
+    <!--기본색상-->
+    <SolidColorBrush x:Key="NormalGreen"    Color="#FF44D3A6"/>
+    <SolidColorBrush x:Key="NormalRed"      Color="#FFEC685B"/>
+    <SolidColorBrush x:Key="NormalYellow"   Color="#FFFFEA80"/>
+    <SolidColorBrush x:Key="NormalGray"     Color="#FFB3BBC4"/>
+    <SolidColorBrush x:Key="NormalBlue"     Color="#FF57B7DB"/>
+    <SolidColorBrush x:Key="NormalMint"     Color="#FF42CBCB"/>
+    <SolidColorBrush x:Key="NormalUINavy"   Color="#FF6A8CBB"/>
+    
+</ResourceDictionary>

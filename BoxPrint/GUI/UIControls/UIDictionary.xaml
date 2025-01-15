@@ -1,0 +1,1755 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:uidictionary="clr-namespace:BoxPrint.GUI.UIControls"
+                    xmlns:ex="clr-namespace:TranslationByMarkupExtension"
+                    x:Class="BoxPrint.GUI.UIControls.UIDictionaryHelper">
+    
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="BrushesDictionary.xaml"/>
+        <ResourceDictionary Source="FontDictionary.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--자몰쇠 패스아이콘-->
+    <Style x:Key="pahtLockIcon" TargetType="{x:Type Path}">
+        <Setter Property="Data" Value="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z"/>
+        <Setter Property="Stretch" Value="Uniform"/>
+        <Setter Property="Fill" Value="#c5c7cc"/>
+        <Setter Property="Stroke" Value="White"/>
+        <Setter Property="StrokeThickness" Value="1"/>
+    </Style>
+     
+    <!--툴팁-->
+    <uidictionary:CenterToolTipConverter x:Key="CenterToolTipConverter" />
+    <Style x:Key="SK_ToolTipStyle" TargetType="{x:Type ToolTip}">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontFamily" Value="{StaticResource BoldFont}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToolTip}">
+                    <Grid x:Name="Grid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Rectangle MinWidth="40" Fill="{StaticResource SK_Orange}"  RadiusX="4" RadiusY="4" Grid.Row="1" />
+                        <Path Fill="{StaticResource SK_Orange}" Stretch="Fill"  HorizontalAlignment="Center" 
+                                  Margin="{TemplateBinding Tag}" Width="20" Grid.Row="0" Data="M9.35,297.45 L201.35,105.45 C213.85,92.95 234.1,92.95 246.6,105.45 L438.6,297.45" />
+                                                                                           
+                        <ContentPresenter Margin="20,15,20,15" Grid.Row="1" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="HorizontalOffset">
+            <Setter.Value>
+                <MultiBinding Converter="{StaticResource CenterToolTipConverter}">
+                    <Binding RelativeSource="{RelativeSource Self}" Path="PlacementTarget.ActualWidth"/>
+                    <Binding RelativeSource="{RelativeSource Self}" Path="ActualWidth"/>
+                </MultiBinding>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="Placement" Value="Bottom" />
+        <EventSetter Event="Opened" Handler="ToolTipOpenedHandler" />
+        <Style.Triggers>
+            <Trigger Property="Placement" Value="Top">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ToolTip}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="10" />
+                                </Grid.RowDefinitions>
+                                <Rectangle MinWidth="40" Fill="{StaticResource SK_Orange}" RadiusX="4" RadiusY="4" Grid.Row="0" />
+                                <Path Fill="{StaticResource SK_Orange}" Stretch="Fill" HorizontalAlignment="Center" Width="20" Grid.Row="1" 
+                                         Data="M0,0 L69.999998,0 38.689574,31.310425 C36.651134,33.348864 33.348863,33.348864 31.310425,31.310425 z" Margin="{TemplateBinding Tag}" />
+                                <ContentPresenter Margin="20,15,20,15" Grid.Row="0" />
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--GridSplitter-->
+    <Style x:Key="SK_RowGridSplitterStyle" TargetType="{x:Type GridSplitter}">
+        <Setter Property="Background" Value="{StaticResource SK_Yellow}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type GridSplitter}">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}"
+                            CornerRadius="5">
+                        <Canvas RenderOptions.EdgeMode="Aliased" UseLayoutRounding="True" Height="7" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Line X2="0" Y1="6" Stroke="White" StrokeThickness="3"/>
+                            <Line X2="0" Y1="6" Stroke="White" StrokeThickness="3" Canvas.Left="5"/>
+                            <Line X2="0" Y1="6" Stroke="White" StrokeThickness="3" Canvas.Left="10"/>
+
+                        </Canvas>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SK_RowGridSplitterStyle2" TargetType="{x:Type GridSplitter}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type GridSplitter}">
+                    <Grid Height="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="2,0,0,2"/>
+                        <DockPanel Grid.Column="1" HorizontalAlignment="Center" Background="Transparent">
+                            <Path Data="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512z"
+                                                  Stretch="Uniform" Height="3" Fill="{TemplateBinding Background}" HorizontalAlignment="Center" Margin="1,0"/>
+                            <Path Data="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512z"
+                                                  Stretch="Uniform" Height="3" Fill="{TemplateBinding Background}" HorizontalAlignment="Center" Margin="1,0"/>
+                            <Path Data="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512z"
+                                                  Stretch="Uniform" Height="3" Fill="{TemplateBinding Background}" HorizontalAlignment="Center" Margin="1,0"/>
+                        </DockPanel>
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="0,2,2,0" Grid.Column="2"/>
+
+                    </Grid>
+
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SK_ColumnGridSplitterStyle" TargetType="{x:Type GridSplitter}">
+        <Setter Property="Background" Value="{StaticResource SK_Yellow}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type GridSplitter}">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}"
+                            CornerRadius="5">
+                        <Canvas RenderOptions.EdgeMode="Aliased" UseLayoutRounding="True" Height="7" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="5">
+                            <Line Y2="0" X1="6" Stroke="White" StrokeThickness="3"/>
+                            <Line Y2="0" X1="6" Stroke="White" StrokeThickness="3" Canvas.Top="5"/>
+                            <Line Y2="0" X1="6" Stroke="White" StrokeThickness="3" Canvas.Top="10"/>
+
+                        </Canvas>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Datagrid-->
+    <Style x:Key="SK_DataGridCellStyle" TargetType="{x:Type DataGridCell}">
+        <Setter Property="FontFamily" Value="{StaticResource BoldFont}" />
+        <Setter Property="BorderBrush" Value="Black" />
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="TextBlock.TextAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DataGridCell}">
+                    <Border Name="border" Background="Transparent" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="SK_DataGridStyle" TargetType="DataGrid" >
+        <Setter Property="AutoGenerateColumns" Value="False"/>
+        <Setter Property="RowHeight" Value="25"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="HorizontalScrollBarVisibility" Value="Hidden"/>
+        <Setter Property="CanUserReorderColumns" Value="False"/>
+        <Setter Property="CanUserResizeColumns" Value="True"/>
+        <!--<Setter Property="CanUserSortColumns" Value="False"/>-->
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="HorizontalGridLinesBrush" Value="Black"/>
+        <Setter Property="VerticalGridLinesBrush" Value="Black"/>
+        <Setter Property="AlternatingRowBackground" Value="#FFF7F9FF"/>
+        <Style.Resources>
+            <Style TargetType="{x:Type Thumb}" x:Key="ThumbStyle">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Thumb}">
+                            <Rectangle Width="1" Stroke="Transparent" Cursor="SizeWE"/>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!--머리글-->
+            <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}" >
+                <Setter Property="SnapsToDevicePixels" Value="True"/>
+                <Setter Property="Background" Value="White"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="BorderThickness" Value="0 0 0 0"/>
+                <Setter Property="BorderBrush" Value="{StaticResource SK_LBlack}"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                <Setter Property="Foreground" Value="{StaticResource SK_LBlack}" />
+                <Setter Property="FontFamily" Value="{StaticResource BoldFont}"/>
+                <Setter Property="Height" Value="30" />
+                <Setter Property="FontSize" Value="11"/>
+                <Setter Property="ToolTip" Value="{ex:Translate 정렬}"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="DataGridColumnHeader">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Border x:Name="BackgroundBorder" BorderThickness="0,0,0,2" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" Grid.ColumnSpan="2"/>
+                                
+                                <ContentPresenter Margin="5" VerticalAlignment="Center" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+                                <Path Data="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z" 
+                                      x:Name="SortArrow" Visibility="Hidden" Stretch="Uniform"  Grid.Column="1" Width="10" Height="10" Fill="{StaticResource SK_LBlack}" Margin="0,0,8,0" VerticalAlignment="Center" RenderTransformOrigin="0.5, 0.5">
+                                    <Path.RenderTransform>
+                                        <RotateTransform Angle="0"/>
+                                    </Path.RenderTransform>
+                                </Path>
+                                <!--<Rectangle Width="1" Fill="Yellow" HorizontalAlignment="Right" Grid.ColumnSpan="2"/>-->
+                                <Rectangle Width="1" Margin="0,0,0,0" Fill="#7FBFBFBF" HorizontalAlignment="Right" Grid.ColumnSpan="2"/>
+                                <Thumb x:Name="PART_LeftHeaderGripper" HorizontalAlignment="Left" Style="{StaticResource ThumbStyle}"/>
+                                <Thumb x:Name="PART_RightHeaderGripper" Grid.Column="1" HorizontalAlignment="Right" Style="{StaticResource ThumbStyle}"/>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="BackgroundBorder"   Property="BorderBrush"  Value="{StaticResource SK_Red}"/>
+                                    <Setter TargetName="SortArrow"          Property="Fill"         Value="{StaticResource SK_Red}"/>
+                                    <Setter                                 Property="Foreground"   Value="{StaticResource SK_Red}"/>
+                                </Trigger>  
+                                <Trigger Property="SortDirection" Value="Ascending">
+                                    <Setter TargetName="SortArrow" Property="Visibility" Value="Visible"/>
+                                    <!--<Setter TargetName="SortArrow" Property="RenderTransform">
+                                        <Setter.Value>
+                                            <RotateTransform Angle="180"/>
+                                        </Setter.Value>
+                                    </Setter>-->
+
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard >
+                                                <DoubleAnimation Storyboard.TargetName="SortArrow" Storyboard.TargetProperty="(RenderTransform).(RotateTransform.Angle)" To="180" Duration="0:0:0.2" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard >
+                                                <DoubleAnimation Storyboard.TargetName="SortArrow" Storyboard.TargetProperty="(RenderTransform).(RotateTransform.Angle)" To="0" Duration="0:0:0.2" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+                                <Trigger Property="SortDirection" Value="Descending">
+                                    <Setter TargetName="SortArrow" Property="Visibility" Value="Visible"/>
+                                </Trigger>
+                                <Trigger Property="DisplayIndex" Value="0">
+                                    <Setter TargetName="PART_LeftHeaderGripper" Property="Visibility" Value="Collapsed"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        
+            <!--로우-->
+            <Style TargetType="{x:Type DataGridRow}">
+                <Setter Property="Foreground" Value="{StaticResource SK_LBlack}" />
+                <Setter Property="FontSize" Value="10"/>
+                <Style.Triggers>
+                    <MultiTrigger>
+                        <MultiTrigger.Conditions>
+                            <Condition Property="IsSelected" Value="False"/>
+                            <Condition Property="IsMouseOver" Value="True"/>
+                        </MultiTrigger.Conditions>
+                        <Setter Property="Background" Value="{StaticResource SK_Orange}"/>
+                        <Setter Property="Foreground" Value="White"/>
+                    </MultiTrigger>
+                    <MultiTrigger>
+                        <MultiTrigger.Conditions>
+                            <Condition Property="IsSelected" Value="True"/>
+                            <Condition Property="IsMouseOver" Value="False"/>
+                        </MultiTrigger.Conditions>
+                        <Setter Property="Background" Value="#FFCDCBCB"/>
+                        <Setter Property="Foreground" Value="{StaticResource SK_LBlack}" />
+                    </MultiTrigger>
+                    <MultiTrigger>
+                        <MultiTrigger.Conditions>
+                            <Condition Property="IsSelected" Value="True"/>
+                            <Condition Property="IsMouseOver" Value="True"/>
+                        </MultiTrigger.Conditions>
+                        <Setter Property="Background" Value="{StaticResource SK_Orange}"/>
+                        <Setter Property="Foreground" Value="{StaticResource SK_LBlack}" />
+                    </MultiTrigger>
+                </Style.Triggers>
+            </Style>
+
+            <!--셀-->
+            <Style TargetType="{x:Type DataGridCell}" BasedOn="{StaticResource SK_DataGridCellStyle}"/>
+        </Style.Resources>
+    </Style>
+    
+    <!--콤보 박스-->
+    <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
+        <Grid x:Name="gd" Background="{TemplateBinding Background}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="25" />
+            </Grid.ColumnDefinitions>
+            <Border x:Name="Border" SnapsToDevicePixels="True" Grid.ColumnSpan="2" Background="Transparent" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1"/>
+            <Path x:Name="Arrow" SnapsToDevicePixels="True" Grid.Column="1" Fill="{StaticResource SK_Red}" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M 0 0 L 6 6 L 12 0 Z" Margin="0" Height="9.5" Stretch="Fill" Width="12.667" RenderTransformOrigin="0.5,0.5" >
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="0"/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <ContentPresenter Grid.Column="0" TextElement.Foreground="Orange" />
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="Arrow" Property="Fill" Value="#FFEA002C"/>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard >
+                        <Storyboard>
+                            <DoubleAnimation  Storyboard.TargetName="Arrow" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)" To="180" Duration="0:0:0.3">
+                            </DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+
+                <Trigger.ExitActions>
+                    <BeginStoryboard >
+                        <Storyboard>
+                            <DoubleAnimation  Storyboard.TargetName="Arrow" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)" To="0" Duration="0:0:0.3">
+                            </DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="gd" Property="Visibility" Value="Visible"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    
+    <Style x:Key="comboBoxItem_style" TargetType="ComboBoxItem">
+        <Setter Property="FontFamily" Value="{StaticResource RegularFont}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+                    <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
+                        <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                          ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="TextElement.Foreground" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsSelected" Value="False"/>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                                <Condition Property="IsKeyboardFocused" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background" TargetName="Bd" Value="#FFDEDEDE"/>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsSelected" Value="True"/>
+                                <Condition Property="IsMouseOver" Value="False"/>
+                                <Condition Property="IsKeyboardFocused" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background" TargetName="Bd" Value="#FF26A0DA"/>
+                            <Setter Property="Foreground" Value="White"/>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsSelected" Value="True"/>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background" TargetName="Bd" Value="#FF5AB7E3"/>
+                            <Setter Property="Foreground" Value="White"/>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsSelected" Value="True"/>
+                                <Condition Property="IsMouseOver" Value="False"/>
+                                <Condition Property="IsKeyboardFocused" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background" TargetName="Bd" Value="#FF26A0DA"/>
+                            <Setter Property="Foreground" Value="White"/>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsSelected" Value="False"/>
+                                <Condition Property="IsMouseOver" Value="False"/>
+                                <Condition Property="IsKeyboardFocused" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="BorderBrush" TargetName="Bd" Value="#FFDEDEDE"/>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsSelected" Value="False"/>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                                <Condition Property="IsKeyboardFocused" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background" TargetName="Bd" Value="#FFDEDEDE"/>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SK_ComboBox_style" TargetType="{x:Type ComboBox}">
+        <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate  TargetType="{x:Type ComboBox}">
+                    <Grid>
+                        <ToggleButton x:Name="ToggleButton" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" Foreground="Black" Template="{StaticResource ComboBoxToggleButton}" Focusable="false" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" ClickMode="Press"/>
+                        <ContentPresenter x:Name="ContentSite" IsHitTestVisible="False" Content="{TemplateBinding SelectionBoxItem}" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Margin="6,3,23,3"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <Popup x:Name="Popup"  Grid.ColumnSpan="2" Placement="Bottom"  IsOpen="{TemplateBinding IsDropDownOpen}" AllowsTransparency="True" Focusable="False" PopupAnimation="Fade" OpacityMask="{x:Null}">
+                            <Grid x:Name="DropDown"   SnapsToDevicePixels="True" MaxWidth="{TemplateBinding ActualWidth}" MinWidth="{TemplateBinding ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}" Background="White">
+                                <Border Grid.ColumnSpan="2" Grid.RowSpan="2" x:Name="DropDownBorder" SnapsToDevicePixels="True" Background="Transparent" MaxWidth="{TemplateBinding ActualWidth}" BorderThickness="1" BorderBrush="#FFA3B2B8"/>
+                                <ScrollViewer Grid.ColumnSpan="2" ScrollViewer.CanContentScroll="False" Grid.Row="1" SnapsToDevicePixels="True">
+                                    <StackPanel IsItemsHost="True" Background="Transparent" Margin="1"/>
+                                </ScrollViewer>
+                            </Grid>
+                        </Popup>
+                        <Rectangle x:Name="rectangleTextLine" Stroke="{StaticResource SK_Orange}" StrokeThickness="2" IsHitTestVisible="False" Grid.Row="0" Fill="White" HorizontalAlignment="Stretch" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom">
+                            <Rectangle.RenderTransform>
+                                <ScaleTransform ScaleX="0"/>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsGrouping" Value="true">
+                            <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                        </Trigger>
+                        <Trigger SourceName="Popup" Property="AllowsTransparency" Value="true">
+                            <Setter TargetName="DropDownBorder" Property="Margin" Value="0,0,0,0"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="rectangleTextLine" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)" From="0" To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="rectangleTextLine" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)" From="1" To="0" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--텍스트 박스-->
+    <Style x:Key="SK_TextBox" TargetType="{x:Type TextBox}">
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Grid>
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" VerticalAlignment="Stretch" Background="{TemplateBinding Background}"/>
+                        <ScrollViewer Margin="0"  x:Name="PART_ContentHost" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                        <Rectangle x:Name="rectangleTextLine" Stroke="{StaticResource SK_Orange}" StrokeThickness="2" IsHitTestVisible="False" Grid.Row="0" Fill="White" HorizontalAlignment="Stretch" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom">
+                            <Rectangle.RenderTransform>
+                                <ScaleTransform ScaleX="0"/>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="rectangleTextLine" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)" From="0" To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="rectangleTextLine" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)" From="1" To="0" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--원형 버튼-->
+    <Style x:Key="SK_EllipseButtonStyle" TargetType="{x:Type uidictionary:SK_ButtonControl}">
+        <Setter Property="Tag" Value="{Binding Path=(uidictionary:SK_ButtonControl.TagName), RelativeSource={RelativeSource self} }"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type uidictionary:SK_ButtonControl}">
+                    <Border x:Name="buttonBorder" Background="{TemplateBinding Background}" CornerRadius="100">
+                        <Path x:Name="buttonPath" Margin="{Binding Path=(uidictionary:SK_ButtonControl.ImageMargin), RelativeSource={RelativeSource TemplatedParent}}" IsHitTestVisible="False" HorizontalAlignment="Stretch" Stretch="Uniform" Fill="White" 
+                                    Data="{Binding Path=(uidictionary:SK_ButtonControl.PathData), RelativeSource={RelativeSource TemplatedParent}}" RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="buttonPath" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)" From="1" To="1.2" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="buttonPath" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)" From="1" To="1.2" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="buttonPath" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"  To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="buttonPath" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"  To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Border.BorderThickness" TargetName="buttonBorder" Value="4"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--원형 버튼 - 텍스트 -->
+    <Style x:Key="SK_EllipseButtonStyle_Text" TargetType="{x:Type uidictionary:SK_ButtonControl}">
+        <Setter Property="Tag" Value="{Binding Path=(uidictionary:SK_ButtonControl.TagName), RelativeSource={RelativeSource self}}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type uidictionary:SK_ButtonControl}">
+                    <Border x:Name="buttonBorder" 
+                            Background="{TemplateBinding Background}" 
+                            CornerRadius="{Binding Path=(uidictionary:SK_ButtonControl.FrameCornerRadius), RelativeSource={RelativeSource TemplatedParent}}" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <TextBlock x:Name="buttonTextBlck" 
+                                   Text="{Binding Path=(uidictionary:SK_ButtonControl.DisplayName), RelativeSource={RelativeSource TemplatedParent}}"                                          
+                                   HorizontalAlignment="Center" FontFamily="{StaticResource ExtraBoldFont}" 
+                                   FontSize="{TemplateBinding FontSize}"                                          
+                                   Background="Transparent" 
+                                   VerticalAlignment="Center" 
+                                   IsHitTestVisible="False" 
+                                   Foreground="{Binding Path=(uidictionary:SK_ButtonControl.IconFill), RelativeSource={RelativeSource TemplatedParent}}"
+                                   RenderTransformOrigin="0.5,0.5">
+                            <TextBlock.RenderTransform>
+                                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="buttonBorder"   Property="Background" Value="{Binding Path=(uidictionary:SK_ButtonControl.MouseOverColor),      RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter TargetName="buttonTextBlck" Property="Foreground" Value="{Binding Path=(uidictionary:SK_ButtonControl.IconMouseOverColor),  RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="buttonTextBlck" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)" From="1" To="1.2" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="buttonTextBlck" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)" From="1" To="1.2" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="buttonTextBlck" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"  To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="buttonTextBlck" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"  To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--원형 버튼 - 텍스트(번역적용) -->
+    <Style x:Key="SK_EllipseButtonStyle_Text1" TargetType="{x:Type uidictionary:SK_ButtonControl}">
+        <Setter Property="Tag" Value="{Binding Path=(uidictionary:SK_ButtonControl.TagName), RelativeSource={RelativeSource self}}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type uidictionary:SK_ButtonControl}">
+                    <Border x:Name="buttonBorder" 
+                            Background="{TemplateBinding Background}" 
+                            CornerRadius="{Binding Path=(uidictionary:SK_ButtonControl.FrameCornerRadius), RelativeSource={RelativeSource TemplatedParent}}" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <TextBlock x:Name="buttonTextBlck" 
+                                   Text="{TemplateBinding Content}"                                          
+                                   HorizontalAlignment="Center" FontFamily="{StaticResource ExtraBoldFont}" 
+                                   FontSize="{TemplateBinding FontSize}"                                         
+                                   Background="Transparent" 
+                                   VerticalAlignment="Center" 
+                                   IsHitTestVisible="False" 
+                                   Foreground="{Binding Path=(uidictionary:SK_ButtonControl.IconFill), RelativeSource={RelativeSource TemplatedParent}}"
+                                   RenderTransformOrigin="0.5,0.5">
+                            <TextBlock.RenderTransform>
+                                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="buttonBorder"   Property="Background" Value="{Binding Path=(uidictionary:SK_ButtonControl.MouseOverColor),      RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter TargetName="buttonTextBlck" Property="Foreground" Value="{Binding Path=(uidictionary:SK_ButtonControl.IconMouseOverColor),  RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="buttonTextBlck" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)" From="1" To="1.2" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="buttonTextBlck" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)" From="1" To="1.2" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="buttonTextBlck" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"  To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="buttonTextBlck" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"  To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--원형 버튼_이미지텍스트 -->
+    <Style x:Key="SK_EllipseButtonStyle_ImageText" TargetType="{x:Type uidictionary:SK_ButtonControl}">
+        <Setter Property="Tag" Value="{Binding Path=(uidictionary:SK_ButtonControl.TagName), RelativeSource={RelativeSource self} }"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type uidictionary:SK_ButtonControl}">
+                    <Grid Background="{TemplateBinding Background}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Path  x:Name="buttonPath" Data="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512z"
+                              Stretch="Uniform" RenderTransformOrigin="0.5,0.5" IsHitTestVisible="False" Stroke="{StaticResource SK_MouseOverGray}" StrokeThickness="1"
+                              Margin="{Binding Path=(uidictionary:SK_ButtonControl.ImageMargin), RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Right" >
+                            <Path.RenderTransform>
+                                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                            </Path.RenderTransform>
+                            <Path.Fill>
+                                <ImageBrush ImageSource="{Binding Path=(uidictionary:SK_ButtonControl.ImagePath), RelativeSource={RelativeSource TemplatedParent}}" Stretch="UniformToFill"/>
+                            </Path.Fill>
+                        </Path>
+
+                        <TextBlock x:Name="buttonText" Grid.Column="1" Text="{Binding Path=(uidictionary:SK_ButtonControl.DisplayName), RelativeSource={RelativeSource TemplatedParent}}" Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="{StaticResource BoldFont}" Margin="10,0,0,0"/>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="buttonText" Property="Foreground" Value="{StaticResource SK_Orange}"/>
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="buttonPath" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)" From="1" To="1.2" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="buttonPath" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)" From="1" To="1.2" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="buttonPath" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"  To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="buttonPath" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"  To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Path.StrokeThickness" TargetName="buttonPath" Value="2"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--아이콘 버튼-->
+    <Style x:Key="SK_IconButtonStyle" TargetType="{x:Type uidictionary:SK_ButtonControl}">
+        <Setter Property="Tag" Value="{Binding Path=(uidictionary:SK_ButtonControl.TagName), RelativeSource={RelativeSource self}}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="ToolTipService.ShowOnDisabled" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type uidictionary:SK_ButtonControl}">
+                    <Border x:Name="buttonBorder" Background="Transparent" ToolTip="{TemplateBinding ToolTip}" ToolTipService.ShowOnDisabled="True">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="7*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="7*"/>
+                                <RowDefinition Height="3*"/>
+                            </Grid.RowDefinitions>
+                            <Path x:Name="buttonPath" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="{Binding Path=(uidictionary:SK_ButtonControl.ImageMargin), RelativeSource={RelativeSource TemplatedParent}}" IsHitTestVisible="False" HorizontalAlignment="Stretch" Stretch="Uniform" Fill="{TemplateBinding Background}"  Data="{Binding Path=(uidictionary:SK_ButtonControl.PathData), RelativeSource={RelativeSource TemplatedParent}}" RenderTransformOrigin="0.5,0.5">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="0"/>
+                                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                                <Path.Style>
+                                    <Style TargetType="Path">
+                                        <Style.Triggers>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding RelativeSource={RelativeSource AncestorType=Border,AncestorLevel=1}, Path=IsMouseOver}" Value="True" />
+                                                    <Condition Binding="{Binding Path=(uidictionary:SK_ButtonControl.TagName), RelativeSource={RelativeSource TemplatedParent}}" Value="Alarm" />
+                                                </MultiDataTrigger.Conditions>
+                                                <MultiDataTrigger.EnterActions>
+                                                    <BeginStoryboard>
+                                                        <Storyboard AutoReverse="True">
+                                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)">
+                                                                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="30"/>
+                                                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-30"/>
+                                                            </DoubleAnimationUsingKeyFrames>
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </MultiDataTrigger.EnterActions>
+                                            </MultiDataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Path.Style>
+                            </Path>
+
+                            <Path x:Name="LockPath" Style="{StaticResource pahtLockIcon}" Grid.Column="1" Grid.Row="1" Visibility="Hidden"/>
+                        </Grid>
+
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="buttonPath" Property="Fill" Value="{Binding Path=(uidictionary:SK_ButtonControl.MouseOverColor), RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="buttonPath" Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[1].(ScaleTransform.ScaleX)" From="1" To="1.2" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="buttonPath" Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[1].(ScaleTransform.ScaleY)" From="1" To="1.2" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="buttonPath" Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[1].(ScaleTransform.ScaleX)"  To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="buttonPath" Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[1].(ScaleTransform.ScaleY)"  To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Border.BorderThickness" TargetName="buttonBorder" Value="4"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="buttonBorder" Property="ToolTip" Value="{ex:Translate 사용권한없음}"/>
+                            <Setter TargetName="LockPath" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--아이콘 버튼 - 택스트-->
+    <Style x:Key="SK_IconButtonStyle_Text" TargetType="{x:Type uidictionary:SK_ButtonControl}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type uidictionary:SK_ButtonControl}">
+                    <Border x:Name="buttonBorder" Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(uidictionary:SK_ButtonControl.FrameCornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Path x:Name="buttonPath" Margin="{Binding Path=(uidictionary:SK_ButtonControl.ImageMargin), RelativeSource={RelativeSource TemplatedParent}}" IsHitTestVisible="False" HorizontalAlignment="Center" Stretch="Uniform" 
+                                  Fill="{Binding Path=(uidictionary:SK_ButtonControl.IconFill), RelativeSource={RelativeSource TemplatedParent}}"  Data="{Binding Path=(uidictionary:SK_ButtonControl.PathData), RelativeSource={RelativeSource TemplatedParent}}" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom" Grid.RowSpan="1">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="0"/>
+                                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                            <TextBlock x:Name="buttonTextBlck" Text="{Binding Path=(uidictionary:SK_ButtonControl.DisplayName), RelativeSource={RelativeSource TemplatedParent}}" Grid.Row="1"
+                                           HorizontalAlignment="Center" FontFamily="{StaticResource BoldFont}" FontSize="{TemplateBinding FontSize}"
+                                           Background="Transparent" VerticalAlignment="Top" IsHitTestVisible="False" Foreground="{TemplateBinding Foreground}" Margin="0,-10,0,0"/>
+                        </Grid>
+
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="buttonBorder"   Property="Background"   Value="{Binding Path=(uidictionary:SK_ButtonControl.MouseOverColor),     RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter TargetName="buttonPath"     Property="Fill"         Value="{Binding Path=(uidictionary:SK_ButtonControl.IconMouseOverColor), RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter TargetName="buttonTextBlck" Property="Foreground"   Value="{Binding Path=(uidictionary:SK_ButtonControl.IconMouseOverColor), RelativeSource={RelativeSource TemplatedParent}}"/>
+                            
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="buttonPath" Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[1].(ScaleTransform.ScaleX)" From="1" To="1.2" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="buttonPath" Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[1].(ScaleTransform.ScaleY)" From="1" To="1.2" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="buttonPath" Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[1].(ScaleTransform.ScaleX)"  To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="buttonPath" Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[1].(ScaleTransform.ScaleY)"  To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Border.BorderThickness" TargetName="buttonBorder" Value="4"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--아이콘 버튼 - 선택 시 박스 컬러 변경-->
+    <Style x:Key="SK_IconButtonStyle_Box" TargetType="{x:Type uidictionary:SK_ButtonControl}">
+        <Setter Property="Tag" Value="{Binding Path=(uidictionary:SK_ButtonControl.TagName), RelativeSource={RelativeSource self}}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="ToolTipService.ShowOnDisabled" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type uidictionary:SK_ButtonControl}">
+                    <Border x:Name="buttonBorder" Background="Transparent" ToolTip="{TemplateBinding ToolTip}" ToolTipService.ShowOnDisabled="True">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="7*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="7*"/>
+                                <RowDefinition Height="3*"/>
+                            </Grid.RowDefinitions>
+                            
+                            <Path x:Name="buttonPath" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="{Binding Path=(uidictionary:SK_ButtonControl.ImageMargin), RelativeSource={RelativeSource TemplatedParent}}" IsHitTestVisible="False" HorizontalAlignment="Stretch" Stretch="Uniform" Fill="{TemplateBinding Background}"  Data="{Binding Path=(uidictionary:SK_ButtonControl.PathData), RelativeSource={RelativeSource TemplatedParent}}" RenderTransformOrigin="0.5,0.5"/>
+
+                            <Path x:Name="LockPath" Style="{StaticResource pahtLockIcon}" Grid.Column="1" Grid.Row="1" Visibility="Hidden"/>
+                        </Grid>
+
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="buttonBorder" Property="Background" Value="{Binding Path=(uidictionary:SK_ButtonControl.MouseOverColor), RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter TargetName="buttonPath" Property="Fill" Value="{Binding Path=(uidictionary:SK_ButtonControl.IconMouseOverColor), RelativeSource={RelativeSource TemplatedParent}}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Border.BorderThickness" TargetName="buttonBorder" Value="4"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="buttonBorder" Property="ToolTip" Value="{ex:Translate 사용권한없음}"/>
+                            <Setter TargetName="LockPath" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--텍스트 버튼-->
+    <Style x:Key="SK_TextButtonStyle" TargetType="{x:Type uidictionary:SK_ButtonControl}">
+        <Setter Property="Tag" Value="{Binding Path=(uidictionary:SK_ButtonControl.TagName), RelativeSource={RelativeSource self}}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type uidictionary:SK_ButtonControl}">
+                    <Border x:Name="buttonBorder" VerticalAlignment="Stretch" Background="{TemplateBinding Background}" 
+                            CornerRadius="{Binding Path=(uidictionary:SK_ButtonControl.FrameCornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
+                        <TextBlock x:Name="buttonTextBlck" Text="{Binding Path=(uidictionary:SK_ButtonControl.DisplayName), RelativeSource={RelativeSource TemplatedParent}}"
+                                           HorizontalAlignment="Center" FontFamily="{StaticResource ExtraBoldFont}" FontSize="18"
+                                           Background="Transparent" VerticalAlignment="Center" IsHitTestVisible="False" Foreground="{TemplateBinding Foreground}" RenderTransformOrigin="0.5,0.5">
+                            <TextBlock.RenderTransform>
+                                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="buttonTextBlck" Property="Foreground" Value="{StaticResource SK_Red}"/>
+
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="buttonTextBlck" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)" From="1" To="1.3" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="buttonTextBlck" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)" From="1" To="1.3" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="buttonTextBlck" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"  To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="buttonTextBlck" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"  To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+
+                        <DataTrigger Binding="{Binding Path=(uidictionary:SK_ButtonControl.IsSelect), RelativeSource={RelativeSource self}}" Value="True">
+                            <Setter TargetName="buttonBorder" Property="Background" Value="{StaticResource SK_Red}"/>
+                            <Setter TargetName="buttonTextBlck" Property="Foreground" Value="White"/>
+                        </DataTrigger>
+                        
+                        
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Border.BorderThickness" TargetName="buttonBorder" Value="4"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--텍스트 버튼(번역 적용 수정)-->
+    <Style x:Key="SK_TextButtonStyle2" TargetType="{x:Type uidictionary:SK_ButtonControl}">
+        <Setter Property="Tag" Value="{Binding Path=(uidictionary:SK_ButtonControl.TagName), RelativeSource={RelativeSource self}}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="ToolTipService.ShowOnDisabled" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type uidictionary:SK_ButtonControl}">
+                    <Border x:Name="buttonBorder" VerticalAlignment="Stretch" Background="{TemplateBinding Background}" ToolTip="{TemplateBinding ToolTip}" ToolTipService.ShowOnDisabled="True"
+                            CornerRadius="{Binding Path=(uidictionary:SK_ButtonControl.FrameCornerRadius), RelativeSource={RelativeSource TemplatedParent}}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
+                        <TextBlock x:Name="buttonTextBlck" Text="{TemplateBinding Content}" TextWrapping="Wrap"
+                                           HorizontalAlignment="Center" FontFamily="{StaticResource ExtraBoldFont}" FontSize="{TemplateBinding FontSize}"
+                                           Background="Transparent" VerticalAlignment="Center" IsHitTestVisible="False" Foreground="{TemplateBinding Foreground}" RenderTransformOrigin="0.5,0.5" Margin="30,0">
+                            <TextBlock.RenderTransform>
+                                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="buttonTextBlck" Property="Foreground" Value="{Binding Path=(uidictionary:SK_ButtonControl.MouseOverColor), RelativeSource={RelativeSource TemplatedParent}}"/>
+
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="buttonTextBlck" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)" From="1" To="1.3" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="buttonTextBlck" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)" From="1" To="1.3" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="buttonTextBlck" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"  To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="buttonTextBlck" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"  To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+
+                        <DataTrigger Binding="{Binding Path=(uidictionary:SK_ButtonControl.IsSelect), RelativeSource={RelativeSource self}}" Value="True">
+
+                            <Setter TargetName="buttonTextBlck" Property="Foreground" Value="White"/>
+
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <ColorAnimation Storyboard.TargetName="buttonBorder" Storyboard.TargetProperty="Background.Color" To="{StaticResource SK_Red_Color}" Duration="0:0:0.1"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+                            <DataTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <ColorAnimation Storyboard.TargetName="buttonBorder" Storyboard.TargetProperty="Background.Color" To="White" Duration="0:0:0.1"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.ExitActions>
+                        </DataTrigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="buttonBorder" Property="ToolTip" Value="{ex:Translate 사용권한없음}"/>
+                            <Setter TargetName="buttonTextBlck" Property="Foreground" Value="#c5c7cc"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--20230403 정인길 SK_TextButtonStyle3 -->
+    <Style x:Key="SK_TextButtonStyle3" TargetType="{x:Type uidictionary:SK_ButtonControl}">
+        <Setter Property="Tag" Value="{Binding Path=(uidictionary:SK_ButtonControl.TagName), RelativeSource={RelativeSource self}}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type uidictionary:SK_ButtonControl}">
+                    <Border x:Name="buttonBorder" VerticalAlignment="Stretch" Background="{TemplateBinding Background}" 
+                            CornerRadius="{Binding Path=(uidictionary:SK_ButtonControl.FrameCornerRadius), RelativeSource={RelativeSource TemplatedParent}}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
+                        <TextBlock x:Name="buttonTextBlck" Text="{TemplateBinding Content}" TextWrapping="Wrap"
+                                           HorizontalAlignment="Center" FontFamily="/BoxPrint;component/Font/#NanumSquareRoundOTF ExtraBold" FontSize="{TemplateBinding FontSize}"
+                                           Background="Transparent" VerticalAlignment="Center" IsHitTestVisible="False" Foreground="{TemplateBinding Foreground}" RenderTransformOrigin="0.5,0.5" Margin="30,0">
+                            <TextBlock.RenderTransform>
+                                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="buttonTextBlck" Property="Foreground" Value="{Binding Path=(uidictionary:SK_ButtonControl.IconMouseOverColor), RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter TargetName="buttonBorder"   Property="Background" Value="{Binding Path=(uidictionary:SK_ButtonControl.MouseOverColor), RelativeSource={RelativeSource TemplatedParent}}"/>
+
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="buttonTextBlck" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)" From="1" To="1.3" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="buttonTextBlck" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)" From="1" To="1.3" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="buttonTextBlck" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"  To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="buttonTextBlck" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"  To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+
+                        <DataTrigger Binding="{Binding Path=(uidictionary:SK_ButtonControl.IsSelect), RelativeSource={RelativeSource self}}" Value="True">
+
+                            <Setter TargetName="buttonTextBlck" Property="Foreground" Value="White"/>
+
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <ColorAnimation Storyboard.TargetName="buttonBorder" Storyboard.TargetProperty="Background.Color" To="{StaticResource SK_Red_Color}" Duration="0:0:0.1"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+                            <DataTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <ColorAnimation Storyboard.TargetName="buttonBorder" Storyboard.TargetProperty="Background.Color" To="White" Duration="0:0:0.1"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.ExitActions>
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--돋보기 버튼-->
+    <Style x:Key="SK_TextButtonStyle_MagnifyingGlass" TargetType="{x:Type uidictionary:SK_ButtonControl}">
+        <Setter Property="Tag" Value="{Binding Path=(uidictionary:SK_ButtonControl.TagName), RelativeSource={RelativeSource self}}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type uidictionary:SK_ButtonControl}">
+                    <Border x:Name="buttonBorder" Cursor="Hand" Background="Transparent" >
+                        <Path x:Name="pathMagnifyingGlass" Margin="5" IsHitTestVisible="False" HorizontalAlignment="Stretch" Stretch="Uniform" Fill="{StaticResource SK_Red}" 
+                                Data="M500.3 443.7l-119.7-119.7c27.22-40.41 40.65-90.9 33.46-144.7C401.8 87.79 326.8 13.32 235.2 1.723C99.01-15.51-15.51 99.01 1.724 235.2c11.6 91.64 86.08 166.7 177.6 178.9c53.8 7.189 104.3-6.236 144.7-33.46l119.7 119.7c15.62 15.62 40.95 15.62 56.57 0C515.9 484.7 515.9 459.3 500.3 443.7zM79.1 208c0-70.58 57.42-128 128-128s128 57.42 128 128c0 70.58-57.42 128-128 128S79.1 278.6 79.1 208z"/>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <ThicknessAnimation Duration="0:0:0.2" Storyboard.TargetName="pathMagnifyingGlass" Storyboard.TargetProperty="Margin" From="5" To="0"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <ThicknessAnimation Duration="0:0:0.2" Storyboard.TargetName="pathMagnifyingGlass" Storyboard.TargetProperty="Margin" From="0" To="5"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Border.BorderThickness" TargetName="buttonBorder" Value="5"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--텍스트 버튼 - 밑줄버전-->
+    <Style x:Key="SK_TextButtonStyle_Line" TargetType="{x:Type uidictionary:SK_ButtonControl}">
+        <Setter Property="Tag" Value="{Binding Path=(uidictionary:SK_ButtonControl.TagName), RelativeSource={RelativeSource self}}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type uidictionary:SK_ButtonControl}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}">
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="3"/>
+                            </Grid.RowDefinitions>
+                            
+                            <TextBlock Text="{Binding Path=(uidictionary:SK_ButtonControl.DisplayName), RelativeSource={RelativeSource TemplatedParent}}"
+                                           HorizontalAlignment="Center" FontFamily="{StaticResource BoldFont}" FontSize="18"
+                                           Background="Transparent" VerticalAlignment="Center" IsHitTestVisible="False" Foreground="{TemplateBinding Foreground}"/>
+                            <Rectangle x:Name="rectangleTextLine" IsHitTestVisible="False" Grid.Row="1" Fill="{Binding Path=(uidictionary:SK_ButtonControl.MouseOverColor), RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Stretch" RenderTransformOrigin="0.5,0.5">
+                                <Rectangle.RenderTransform>
+                                    <ScaleTransform ScaleX="0"/>
+                                </Rectangle.RenderTransform>
+                            </Rectangle>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="rectangleTextLine" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)" From="0" To="1" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="rectangleTextLine" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)" From="1" To="0" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--네모 버튼 - 심플형 --> <!--SuHwan_20220817-->
+    <Style x:Key="SK_TextButtonStyle_Rectangle" TargetType="{x:Type uidictionary:SK_ButtonControl}">
+        <Setter Property="Tag" Value="{Binding Path=(uidictionary:SK_ButtonControl.TagName), RelativeSource={RelativeSource self}}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type uidictionary:SK_ButtonControl}">
+                    <Border Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="3" BorderThickness="1" >
+                        <TextBlock Name="textBlock" Text="{Binding Path=(uidictionary:SK_ButtonControl.DisplayName), RelativeSource={RelativeSource TemplatedParent}}"
+                                           HorizontalAlignment="Center" FontFamily="{StaticResource BoldFont}" FontSize="18"
+                                           Background="Transparent" VerticalAlignment="Center" IsHitTestVisible="False" Foreground="{TemplateBinding Foreground}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Foreground" Value="{Binding Path=(uidictionary:SK_ButtonControl.MouseOverColor), RelativeSource={RelativeSource TemplatedParent}}" TargetName="textBlock"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter TargetName="border" Property="BorderThickness" Value="2" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--네모 버튼 - 심플형 -->
+    <!--번역 DisplayName >> Content-->
+    <Style x:Key="SK_TextButtonStyle_Rectangle2" TargetType="{x:Type uidictionary:SK_ButtonControl}">
+        <Setter Property="Tag" Value="{Binding Path=(uidictionary:SK_ButtonControl.TagName), RelativeSource={RelativeSource self}}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="ToolTipService.ShowOnDisabled" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type uidictionary:SK_ButtonControl}">
+                    <Border Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="3" BorderThickness="1"
+                            ToolTip="{TemplateBinding ToolTip}" ToolTipService.ShowOnDisabled="True">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="7*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="7*"/>
+                                <RowDefinition Height="3*"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Name="textBlock" Text="{TemplateBinding Content}" Grid.ColumnSpan="2" Grid.RowSpan="2"
+                                           HorizontalAlignment="Center" FontFamily="{StaticResource BoldFont}" FontSize="{TemplateBinding FontSize}"
+                                           Background="Transparent" VerticalAlignment="Center" IsHitTestVisible="False" Foreground="{TemplateBinding Foreground}"/>
+                            <Path x:Name="LockPath" Style="{StaticResource pahtLockIcon}" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="15" Visibility="Hidden" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Foreground" Value="{Binding Path=(uidictionary:SK_ButtonControl.MouseOverColor), RelativeSource={RelativeSource TemplatedParent}}" TargetName="textBlock"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter TargetName="border" Property="BorderThickness" Value="2" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="ToolTip" Value="{ex:Translate 사용권한없음}"/>
+                            <Setter TargetName="LockPath" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--LKJ 추가 이미지 두개 관련 Style-->
+    <Style x:Key="SK_TextButtonStyle_iConChenge" TargetType="{x:Type uidictionary:SK_ButtonControl}">
+        <Setter Property="Tag" Value="{Binding Path=(uidictionary:SK_ButtonControl.TagName), RelativeSource={RelativeSource self}}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type uidictionary:SK_ButtonControl}">
+                    <Border Name="BorderTEST" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Grid Name="TEST" Margin="9" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Path Name="DeviceMap1" Data="M528 0h-480C21.5 0 0 21.5 0 48v320C0 394.5 21.5 416 48 416h192L224 464H152C138.8 464 128 474.8 128 488S138.8 512 152 512h272c13.25 0 24-10.75 24-24s-10.75-24-24-24H352L336 416h192c26.5 0 48-21.5 48-48v-320C576 21.5 554.5 0 528 0zM512 352H64V64h448V352z"
+                        Stretch="Uniform" Fill="{StaticResource SK_LBlack}" IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                                <!--<Path.Effect>
+                                    <DropShadowEffect Direction="300" Opacity="0.4" ShadowDepth="3" BlurRadius="4" />
+                                </Path.Effect>-->
+
+                                <Path.RenderTransform>
+                                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                </Path.RenderTransform>
+                            </Path>
+
+                            <Path Name="DeviceMap2" Data="M256 96H32C14.33 96 0 81.67 0 64C0 46.33 14.33 32 32 32H256C273.7 32 288 46.33 288 64C288 81.67 273.7 96 256 96zM256 352H32C14.33 352 0 337.7 0 320C0 302.3 14.33 288 32 288H256C273.7 288 288 302.3 288 320C288 337.7 273.7 352 256 352zM0 192C0 174.3 14.33 160 32 160H416C433.7 160 448 174.3 448 192C448 209.7 433.7 224 416 224H32C14.33 224 0 209.7 0 192zM416 480H32C14.33 480 0 465.7 0 448C0 430.3 14.33 416 32 416H416C433.7 416 448 430.3 448 448C448 465.7 433.7 480 416 480z"
+                              Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="{StaticResource SK_LBlack}" Margin="0,0,8,6" Height="12" Visibility="Hidden" IsEnabled="False" RenderTransformOrigin="0.5,0.5">
+                                <Path.RenderTransform>
+                                    <ScaleTransform  ScaleX="1" ScaleY="1"/>
+                                </Path.RenderTransform>
+                            </Path>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="DeviceMap2" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="DeviceMap2" Property="Fill" Value="{StaticResource SK_Orange}"/>
+                            <Setter TargetName="DeviceMap1" Property="Fill" Value="{StaticResource SK_Orange}"/>
+                            <!--<Setter TargetName="TEST" Property="Background" Value="{StaticResource SK_LBlack}"/>-->
+
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="DeviceMap1" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)" From="1" To="1.2" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="DeviceMap1" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)" From="1" To="1.2" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="DeviceMap2" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)" From="1" To="1.2" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="DeviceMap2" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)" From="1" To="1.2" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="DeviceMap1" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"  To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="DeviceMap1" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"  To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="DeviceMap2" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"  To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="DeviceMap2" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"  To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--슬라이드-->
+    <Style x:Key="SliderThumb" TargetType="Thumb">
+        <Setter Property="Focusable" Value="false" />
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Thumb">
+                    <Grid>
+                        <Ellipse Height="35" Width="35" Fill="White" Stroke="{StaticResource SK_MouseOverGray}" StrokeThickness="4"/>
+                        <Ellipse Height="15" Width="15" Fill="{StaticResource SK_Orange}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="SliderRepeatButton_HorizontalIncreaseLarge" TargetType="RepeatButton">
+        <Setter Property="Focusable" Value="false" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RepeatButton">
+                    <Border CornerRadius="0,10,10,0" Height="20" Background="#999595" Margin="-10,0,0,0"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="SliderRepeatButton_HorizontalDecreaseLarge" TargetType="RepeatButton">
+        <Setter Property="Focusable" Value="false" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RepeatButton">
+                    <Border CornerRadius="10,0,0,10" SnapsToDevicePixels="True" Background="#999595"   Height="20" Margin="0,0,-10,0"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <ControlTemplate x:Key="Horizontal_Slider"  TargetType="Slider">
+        <Grid >
+            <Track x:Name="PART_Track">
+                <Track.DecreaseRepeatButton>
+                    <RepeatButton Style="{StaticResource SliderRepeatButton_HorizontalDecreaseLarge}"  Command="Slider.DecreaseLarge" />
+                </Track.DecreaseRepeatButton>
+                <Track.IncreaseRepeatButton>
+                    <RepeatButton Style="{StaticResource SliderRepeatButton_HorizontalIncreaseLarge}" Command="Slider.IncreaseLarge" />
+                </Track.IncreaseRepeatButton>
+                <Track.Thumb>
+                    <Thumb Style="{StaticResource SliderThumb}"  />
+                </Track.Thumb>
+            </Track>
+        </Grid>
+    </ControlTemplate>
+
+    <Style x:Key="SliderRepeatButton_VerticalIncreaseLarge" TargetType="RepeatButton">
+        <Setter Property="Focusable" Value="false" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RepeatButton">
+                    <Border CornerRadius="10,10,0,0" Width="20" Background="#999595" Margin="0,0,0,-10"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="SliderRepeatButton_VerticalDecreaseLarge" TargetType="RepeatButton">
+        <Setter Property="Focusable" Value="false" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RepeatButton">
+                    <Border CornerRadius="0,0,10,10" SnapsToDevicePixels="True" Background="#999595"   Width="20" Margin="0,-10,0,0"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <ControlTemplate x:Key="Vertical_Slider"  TargetType="Slider">
+        <Grid >
+            <Track x:Name="PART_Track">
+                <Track.DecreaseRepeatButton>
+                    <RepeatButton Style="{StaticResource SliderRepeatButton_VerticalDecreaseLarge}"  Command="Slider.DecreaseLarge" />
+                </Track.DecreaseRepeatButton>
+                <Track.IncreaseRepeatButton>
+                    <RepeatButton Style="{StaticResource SliderRepeatButton_VerticalIncreaseLarge}" Command="Slider.IncreaseLarge" />
+                </Track.IncreaseRepeatButton>
+                <Track.Thumb>
+                    <Thumb Style="{StaticResource SliderThumb}"  />
+                </Track.Thumb>
+            </Track>
+        </Grid>
+    </ControlTemplate>
+    
+    <Style x:Key="SK_Slider" TargetType="Slider">
+        <Setter Property="Focusable" Value="False"/>
+        <Style.Triggers>
+            <Trigger Property="Orientation" Value="Horizontal">
+                <Setter Property="Template" Value="{StaticResource Horizontal_Slider}" />
+            </Trigger>
+            <Trigger Property="Orientation" Value="Vertical">
+                <Setter Property="Template" Value="{StaticResource Vertical_Slider}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--네모 버튼 - 배경색 변경 -->
+
+    <!--<TextBlock Name="BGtextBlock"  Text="{TemplateBinding Content}"
+                                           HorizontalAlignment="Center" FontFamily="{StaticResource BoldFont}" FontSize="25" Padding="11" FontWeight="Bold"
+                                           LineStackingStrategy="BlockLineHeight" LineHeight="26"  TextWrapping="Wrap"
+                                           Background="Transparent" IsHitTestVisible="False" Foreground="{TemplateBinding Foreground}"/>-->
+
+    <!--SuHwan_20220817-->
+    <Style x:Key="SK_TextButtonStyle_BackGroundColor" TargetType="{x:Type uidictionary:SK_ButtonControl}">
+        <Setter Property="Tag" Value="{Binding Path=(uidictionary:SK_ButtonControl.TagName), RelativeSource={RelativeSource self}}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type uidictionary:SK_ButtonControl}">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+
+                        <Border Grid.Row="0" Name="BGborder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="3" BorderThickness="1" VerticalAlignment="Bottom" Margin="0,-5">
+
+                            <Path Name="BGtextBlock" Stretch="Uniform" Fill="{TemplateBinding Foreground}" HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="False" RenderTransformOrigin="0.5,0.5"
+                              Margin="{Binding Path=(uidictionary:SK_ButtonControl.ImageMargin), RelativeSource={RelativeSource TemplatedParent}}" 
+                              Data="{Binding Path=(uidictionary:SK_ButtonControl.PathData), RelativeSource={RelativeSource TemplatedParent}}" >
+                                <Path.RenderTransform>
+                                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                </Path.RenderTransform>
+                            </Path>
+                        </Border>
+
+                        <TextBlock Name="BGtextBlock2"  Text="{TemplateBinding Content}" Grid.Row="1" VerticalAlignment="Top" Margin="0,-10"
+                                           HorizontalAlignment="Center" FontFamily="{StaticResource BoldFont}" FontSize="12"
+                                           LineStackingStrategy="BlockLineHeight" LineHeight="26"  TextWrapping="Wrap"
+                                           Background="Transparent" IsHitTestVisible="False" Foreground="{TemplateBinding Foreground}"/>
+                    </Grid>
+
+
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <!--<Setter TargetName="BGtextBlock" Property="Fill" Value="White"/>
+                            <Setter TargetName="BGborder" Property="Background" Value="{StaticResource SK_Orange}"/>
+                            <Setter TargetName="BGborder" Property="BorderBrush" Value="White"/>
+                            <Setter TargetName="BGborder" Property="BorderThickness" Value="2,2,2,2"/>-->
+
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="BGtextBlock" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)" From="1" To="1.2" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="BGtextBlock" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)" From="1" To="1.2" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="BGtextBlock" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"  To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="BGtextBlock" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"  To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SK_TextButtonStyle_BackGroundColor2" TargetType="{x:Type uidictionary:SK_ButtonControl}">
+        <Setter Property="Tag" Value="{Binding Path=(uidictionary:SK_ButtonControl.TagName), RelativeSource={RelativeSource self}}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type uidictionary:SK_ButtonControl}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Path Name="pathIcon" HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="False" RenderTransformOrigin="0.5,0.5"
+                            Stretch="Uniform" Fill="{Binding Path=(uidictionary:SK_ButtonControl.IconFill), RelativeSource={RelativeSource TemplatedParent}}" 
+                            Margin="{Binding Path=(uidictionary:SK_ButtonControl.ImageMargin), RelativeSource={RelativeSource TemplatedParent}}" 
+                            Data="{Binding Path=(uidictionary:SK_ButtonControl.PathData), RelativeSource={RelativeSource TemplatedParent}}" >
+                                <Path.RenderTransform>
+                                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                </Path.RenderTransform>
+                            </Path>
+
+                            <TextBlock Name="textblockText"  Text="{Binding Path=(uidictionary:SK_ButtonControl.DisplayName), RelativeSource={RelativeSource TemplatedParent}}" Grid.Column="1"
+                                           HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Center" FontFamily="{StaticResource BoldFont}" FontSize="{TemplateBinding FontSize}"
+                                            TextWrapping="Wrap"
+                                           Background="Transparent" IsHitTestVisible="False" Foreground="{TemplateBinding Foreground}"/>
+                        </Grid>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding Path=(uidictionary:SK_ButtonControl.SelectColor), RelativeSource={RelativeSource self}}" Value="True">
+                            <Setter Property="Background" Value="{Binding Path=(uidictionary:SK_ButtonControl.MouseOverColor), RelativeSource={RelativeSource TemplatedParent}}"/>
+                        </DataTrigger>
+                        
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" Value="{Binding Path=(uidictionary:SK_ButtonControl.MouseOverColor), RelativeSource={RelativeSource self}}"/>
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="pathIcon" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)" From="1" To="1.2" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="pathIcon" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)" From="1" To="1.2" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="pathIcon" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"  To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="pathIcon" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"  To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        
+
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--아이콘 버튼_SK로고-->
+    <Style x:Key="SK_IconButtonStyle_Logo" TargetType="{x:Type uidictionary:SK_ButtonControl}">
+        <Setter Property="Tag" Value="{Binding Path=(uidictionary:SK_ButtonControl.TagName), RelativeSource={RelativeSource self}}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type uidictionary:SK_ButtonControl}">
+                    <Border Background="{TemplateBinding Background}">
+                        <Grid Margin="10,0,10,10" IsHitTestVisible="False">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="11"/>
+                                <RowDefinition Height="13"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="8"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!--SK-->
+                            <Path Data="M170,20.500005 C153.7076,20.500003 140.5,40.423331 140.5,65.000003 140.5,89.576671 153.7076,109.5 170,109.5 186.2924,109.5 199.5,89.576671 199.5,65.000003 199.5,40.423331 186.2924,20.500003 170,20.500005 z M270.5,20.499999 C268.42893,20.500001 266.50492,21.412921 264.90891,22.976373 L264.5,23.419747 264.5,46.58026 264.90891,47.023631 C266.50492,48.587085 268.42893,49.500007 270.5,49.500011 L309.5,49.500011 C315.02285,49.500003 319.5,43.008132 319.5,34.999999 319.5,26.991874 315.02285,20.500003 309.5,20.499999 z M265.5,0.5 L314.5,0.5 C328.30712,0.50000244 339.5,15.946178 339.5,34.999999 339.5,54.053828 328.30712,69.500003 314.5,69.500003 L265.5,69.500003 264.5,69.465106 264.5,124.5 C264.5,127.26142 262.26142,129.5 259.5,129.5 L245.5,129.5 C242.73858,129.5 240.5,127.26142 240.5,124.5 L240.5,34.999999 240.5,5.5000039 C240.5,2.7385791 242.73858,0.50000292 245.5,0.50000507 L259.5,0.50000507 C260.19036,0.50000292 260.84803,0.63991392 261.44622,0.89293045 L261.52901,0.93786716 261.69274,0.8975172 C262.93414,0.63575816 264.20558,0.5000006 265.5,0.5 z M170,0.5 C197.3381,0.50000292 219.5,29.377637 219.5,65.000003 219.5,100.62237 197.3381,129.5 170,129.5 142.6619,129.5 120.5,100.62237 120.5,65.000003 120.5,29.377637 142.6619,0.50000292 170,0.5 z M5.5,0.5 L42.5,0.5 56.5,0.5 94.5,0.5 C97.261429,0.50000292 99.5,2.7385791 99.5,5.4999986 L99.5,24.499999 C99.5,27.261426 97.261429,29.500003 94.5,29.500003 L61.5,29.500003 61.5,124.5 C61.5,127.26142 59.261429,129.5 56.5,129.5 L42.5,129.5 C39.738571,129.5 37.5,127.26142 37.5,124.5 L37.5,29.500003 5.5,29.500003 C2.7385712,29.500003 0.5,27.261426 0.5,24.499999 L0.5,5.4999986 C0.5,2.7385791 2.7385712,0.50000292 5.5,0.5 z"
+                              Stretch="Uniform" Grid.RowSpan="2" Fill="#FFEA002C" Width="39.375" Height="24" Grid.Row="1" IsHitTestVisible="False"/>
+                            <!--ON-->
+                            <!--날개-->
+                            <Border x:Name="gridWing" Opacity="0" Grid.RowSpan="3" Grid.ColumnSpan="3" RenderTransformOrigin="0.5,0.5"  HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Height="50" Margin="11,4,15,1" IsHitTestVisible="False">
+                                <Border.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="28.716"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Border.RenderTransform>
+
+                                <Canvas Height="36" Margin="0" Width="51" >
+                                    <Canvas.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="-28.418"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Canvas.RenderTransform>
+                                    <Path Data="M66.089,59.136c-0.983,0.006-1.472-0.647-1.605-1.78c-0.125-1.125-4.988-45.612-5.712-52.345 c-0.105-0.983-0.349-2.788-0.352-3.431C58.418,0.543,59.093,0.002,59.889,0c2.304-0.009,14.86,2.932,28.185,12.271 c-3.839,1.083-10.784,5.076-10.752,13.344c0.025,7.318,5.265,11.346,5.292,18.688C82.654,56.243,68.931,59.131,66.089,59.136z" 
+                                  Margin="0" Stretch="Uniform"  Fill="#FFF47725" Width="51.145" Height="24.625" Canvas.Left="-19.332" />
+
+                                    <Path Data="M108.273,81.865c0.209,0.554,0.406,1.02,0.604,1.346c0.306,0.52,0.705,0.756,1.195,0.754 c0.31-0.004,0.69-0.107,1.11-0.297c1.027-0.472,41.626-19.372,47.749-22.197c0.888-0.426,2.57-1.178,3.125-1.503 c0.575-0.327,0.838-0.806,0.838-1.292c-0.002-0.272-0.082-0.547-0.236-0.797c-0.765-1.238-4.693-5.407-11.26-9.963 c-5.215,2.871-13.357,7.311-25.469,7.36c-2.968,0.003-3.64-0.196-5.667-0.188c-5.913,0.021-7.389,2.55-7.605,7.733 c-0.036,0.979-0.053,2.297-0.11,3.742C112.36,71.197,111.813,77.588,108.273,81.865z" 
+                                  Stretch="Uniform"  Fill="#FFF47725" Canvas.Top="15.262" Height="24.976" Width="23.125" Canvas.Left="20.875" />
+
+                                    <Path Data="M90.824,14.26c-4.334,0.818-10.76,4.752-10.739,11.709c0.017,6.317,5.182,10.146,5.198,18.424 c0.025,6.228-3.407,10.421-7.119,12.746c1.5-0.133,3.143-0.219,4.951-0.223c3.792-0.01,6.078,0.352,6.22,0.375l19.443-23.859 C103.378,25.348,97.072,19.075,90.824,14.26z" 
+                                  Stretch="Uniform"  Fill="#FFEA002C" Canvas.Left="8" Canvas.Top="5.5" Height="19.49" Width="14.051"/>
+
+                                    <Path Data="M107.156,78.69c2.451-3.81,2.758-9.882,2.966-16.067c0.229-5.769,1.433-10.11,9.151-10.137 c1.71-0.006,3.339,0.229,6.289,0.221c11.306-0.05,18.688-3.943,23.28-6.498c-9.382-5.982-23.076-12.09-40.065-12.777 c-1.107,3.123-9.717,27.063-10.368,28.995c0.098,0.116,1.606,1.806,3.489,5.102C104.676,72.056,106.167,75.891,107.156,78.69z" 
+                                  Stretch="Uniform"  Fill="#FFEA002C" Canvas.Left="14.312" Canvas.Top="14.5" Height="19.373" Width="27.17" />
+                                </Canvas>
+                            </Border>
+                        </Grid>
+
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="gridWing" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.2" />
+
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="gridWing" Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.5"/>
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0.5"/>
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="gridWing" Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="gridWing" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.2" />
+                                        <!--<DoubleAnimation Storyboard.TargetName="gridWing" Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)"  To="0" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="gridWing" Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)"  To="0" Duration="0:0:0.2" />-->
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <!--<Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Border.BorderThickness" TargetName="buttonBorder" Value="4"/>
+                        </Trigger>-->
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--아이콘 버튼_DeviceMapZoom-->
+    <Style x:Key="SK_IconButtonStyle_DeviceMapZoom" TargetType="{x:Type uidictionary:SK_ButtonControl}">
+        <Setter Property="Tag" Value="{Binding Path=(uidictionary:SK_ButtonControl.TagName), RelativeSource={RelativeSource self}}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="ToolTip" Value="{ex:Translate Menu Open}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type uidictionary:SK_ButtonControl}">
+                    <Border x:Name="buttonBorder" Background="{TemplateBinding Background}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="2*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="2*"/>
+                            </Grid.RowDefinitions>
+
+                            <Path Data="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"
+                                                          Name="pathArrow1" Stretch="Uniform" Fill="{Binding Path=(uidictionary:SK_ButtonControl.IconFill), RelativeSource={RelativeSource TemplatedParent}}"  Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5" Margin="{Binding Path=(uidictionary:SK_ButtonControl.ImageMargin), RelativeSource={RelativeSource TemplatedParent}}">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="315"/>
+                                        <TranslateTransform X="0" Y="0"/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+
+                            </Path>
+
+                            <Path Data="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"
+                                                          Name="pathArrow2" Stretch="Uniform" Fill="{Binding Path=(uidictionary:SK_ButtonControl.IconFill), RelativeSource={RelativeSource TemplatedParent}}" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5" Margin="{Binding Path=(uidictionary:SK_ButtonControl.ImageMargin), RelativeSource={RelativeSource TemplatedParent}}">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="135"/>
+                                        <TranslateTransform X="0" Y="0"/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+
+                            </Path>
+                        </Grid>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding Path=(uidictionary:SK_ButtonControl.IsSelect), RelativeSource={RelativeSource self}}" Value="True">
+                            <Setter Property="ToolTip" Value="{ex:Translate Menu Close}"/>
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="pathArrow1" Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" From="315" To="135" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="pathArrow2" Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" From="135" To="-45" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+                            <DataTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="pathArrow1" Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" From="135" To="315" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="pathArrow2" Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" From="-45" To="135" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.ExitActions>
+                        </DataTrigger>
+
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="pathArrow1" Property="Fill" Value="{Binding Path=(uidictionary:SK_ButtonControl.IconMouseOverColor), RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter TargetName="pathArrow2" Property="Fill" Value="{Binding Path=(uidictionary:SK_ButtonControl.IconMouseOverColor), RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Trigger.EnterActions>
+                                <BeginStoryboard >
+                                    <Storyboard RepeatBehavior="Forever" AutoReverse="True">
+                                        <DoubleAnimation Storyboard.TargetName="pathArrow1" Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="0" To="3" Duration="0:0:0.3"/>
+                                        <DoubleAnimation Storyboard.TargetName="pathArrow1" Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" From="0" To="-3" Duration="0:0:0.3" />
+                                        <DoubleAnimation Storyboard.TargetName="pathArrow2" Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="0" To="-3" Duration="0:0:0.3" />
+                                        <DoubleAnimation Storyboard.TargetName="pathArrow2" Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" From="0" To="3" Duration="0:0:0.3" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="pathArrow1" Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)"  To="0" Duration="0:0:0.3" />
+                                        <DoubleAnimation Storyboard.TargetName="pathArrow1" Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)"  To="0" Duration="0:0:0.3" />
+                                        <DoubleAnimation Storyboard.TargetName="pathArrow2" Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)"  To="0" Duration="0:0:0.3" />
+                                        <DoubleAnimation Storyboard.TargetName="pathArrow2" Storyboard.TargetProperty="(RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)"  To="0" Duration="0:0:0.3" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

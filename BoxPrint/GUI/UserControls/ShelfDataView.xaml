@@ -1,0 +1,428 @@
+﻿<UserControl x:Class="BoxPrint.GUI.UserControls.ShelfDataView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BoxPrint.GUI.UserControls"
+             mc:Ignorable="d" 
+             xmlns:UIControl="clr-namespace:BoxPrint.GUI.UIControls" 
+             xmlns:vm="clr-namespace:BoxPrint.GUI.ViewModels"
+             d:DataContext="{d:DesignInstance vm:ShelfDataViewModel}"
+             FontFamily="{StaticResource BoldFont}"
+             xmlns:uidictionary="clr-namespace:BoxPrint.GUI.UIControls"
+             xmlns:ex="clr-namespace:TranslationByMarkupExtension"
+             xmlns:stkfirm="clr-namespace:BoxPrint">
+
+    <UserControl.Resources>
+        <uidictionary:PositiveVisibleConverter x:Key="PvisibleConverter"/>
+        <uidictionary:ReversalBoolTypeConverter x:Key="ReversalBoolTypeConverter"/>
+
+        <SolidColorBrush x:Key="DefaultColor" Color="#FFDDDDDD"/>
+
+        <Style x:Key="HeaderBorder" TargetType="{x:Type Border}">
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Background" Value="{StaticResource SK_Yellow}"/>
+
+            <Style.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="TextAlignment" Value="Center"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="FontSize" Value="20"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style x:Key="BodyBorder" TargetType="{x:Type Border}">
+            <Setter Property="Background" Value="Transparent"/>
+
+            <Style.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="TextAlignment" Value="Left"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="FontSize" Value="17"/>
+                </Style>
+
+                <Style TargetType="{x:Type TextBox}">
+                    <Setter Property="TextAlignment" Value="Left"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="FontSize" Value="17"/>
+                    <Setter Property="IsEnabled" Value="False"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style x:Key="ButtonBorder" TargetType="{x:Type Border}">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Background" Value="{StaticResource DefaultColor}"/>
+
+            <Style.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="TextAlignment" Value="Center"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="FontSize" Value="17"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Margin="10,0,10,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="0"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="1" Style="{StaticResource HeaderBorder}">
+            <TextBlock Text="{Binding UnitType, TargetNullValue=SHELF}" FontSize="{Binding UIFontSize_Large}" FontFamily="{StaticResource ExtraBoldFont}" Margin="0,4"/>
+        </Border>
+
+        <Border Grid.Row="2" Style="{StaticResource BodyBorder}">
+            <StackPanel Orientation="Vertical" Margin="5">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Grid}">
+                        <Setter Property="Margin" Value="5"/>
+                    </Style>
+                </StackPanel.Resources>
+                <!--유닛 아이디-->
+                <Border Background="PowderBlue" Margin="1,10" Height="Auto" CornerRadius="5">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Border Background="{StaticResource SK_Yellow}" Width="10" CornerRadius="5,5,5,5" VerticalAlignment="Stretch" Grid.Column="0" Margin="2"/>
+                        <TextBlock Text="{Binding UnitID}" Grid.Column="1" FontSize="{Binding UIFontSize_Large}" Margin="2,0"/>
+
+                        <CheckBox Content="{ex:Translate Refresh}" Grid.Column="2" HorizontalAlignment="Right" FontSize="{Binding UIFontSize_Large}" VerticalContentAlignment="Center"
+                              IsChecked="{Binding RefreshChecked, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                    </Grid>
+                </Border>
+
+
+                <!--TagName-->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{ex:Translate Location}" Grid.Column="0" FontSize="{Binding UIFontSize_Medium}"/>
+                    <TextBox Grid.Column="1" Text="{Binding UnitID}" FontSize="{Binding UIFontSize_Medium}" Height="20" VerticalContentAlignment="Center" Background="#0C000000"/>
+                </Grid>
+                <!--TagName Detail-->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{ex:Translate Bank}" Grid.Column="0" HorizontalAlignment="Right" FontSize="{Binding UIFontSize_Medium}"/>
+                    <TextBox Grid.Column="1" Text="{Binding UnitBank}" Margin="5,0,5,0" FontSize="{Binding UIFontSize_Medium}" Height="20" VerticalContentAlignment="Center" Background="#0C000000"/>
+
+                    <TextBlock Text="{ex:Translate Bay}" Grid.Column="2" HorizontalAlignment="Right" FontSize="{Binding UIFontSize_Medium}"/>
+                    <TextBox Grid.Column="3" Text="{Binding UnitBay}" Margin="5,0,5,0" FontSize="{Binding UIFontSize_Medium}" Height="20" VerticalContentAlignment="Center" Background="#0C000000"/>
+
+                    <TextBlock Text="{ex:Translate Level}" Grid.Column="4" HorizontalAlignment="Right" FontSize="{Binding UIFontSize_Medium}"/>
+                    <TextBox Grid.Column="5" Text="{Binding UnitLevel}" Margin="5,0,5,0" FontSize="{Binding UIFontSize_Medium}" Height="20" VerticalContentAlignment="Center" Background="#0C000000"/>
+                </Grid>
+
+                <!--팔렛 정보-->
+                <Grid IsHitTestVisible="{Binding RefreshChecked, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ReversalBoolTypeConverter}}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{ex:Translate Carrier ID}" Grid.Column="0" FontSize="{Binding UIFontSize_Medium}"/>
+                    
+                    <!--240805 RGJ SHELF CARRIER ID 수정 기능 삭제-->
+                    <!--<Path Data="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160V416c0 53 43 96 96 96H352c53 0 96-43 96-96V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z"
+                          Grid.Column="1" IsHitTestVisible="False" Stretch="Uniform" Width="15" Height="15" Fill="#19000000" HorizontalAlignment="Center"
+                          Visibility="{Binding RefreshChecked, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource NvisibleConverter}}"/>-->
+
+                    <TextBox Tag="CarrierID" Style="{StaticResource SK_TextBox}" IsReadOnly="True" Grid.Column="1" Text="{Binding PalletInfo}" FontSize="{Binding UIFontSize_Medium}" Height="20" VerticalContentAlignment="Center"  
+                             Cursor="Hand"  BorderBrush="Black" BorderThickness="1" Background="Transparent"/>
+                </Grid>
+
+                <!--팔렛 사이즈 정보-->
+                <Grid IsHitTestVisible="{Binding RefreshChecked, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ReversalBoolTypeConverter}}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{ex:Translate Pallet Size}" Grid.Column="0" FontSize="{Binding UIFontSize_Medium}"/>
+
+                    <Path Data="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160V416c0 53 43 96 96 96H352c53 0 96-43 96-96V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z"
+                          Grid.Column="1" IsHitTestVisible="False" Stretch="Uniform" Width="15" Height="15" Fill="#19000000" HorizontalAlignment="Center"
+                          Visibility="{Binding RefreshChecked, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource NvisibleConverter}}"/>
+
+                    <TextBox Tag="PalletSize" Style="{StaticResource SK_TextBox}" Grid.Column="1" Text="{Binding PalletSize}" FontSize="{Binding UIFontSize_Medium}" Height="20" VerticalContentAlignment="Center" 
+                             Cursor="Hand" PreviewMouseDown="WriteItem_PreviewMouseDown" BorderBrush="Black" BorderThickness="1" Background="Transparent"/>
+                </Grid>
+
+
+                <!-- ProductEmpty 정보-->
+                <Grid IsHitTestVisible="{Binding RefreshChecked, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ReversalBoolTypeConverter}}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{ex:Translate Product Empty}" Grid.Column="0" FontSize="{Binding UIFontSize_Medium}"/>
+
+                    <Path Data="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160V416c0 53 43 96 96 96H352c53 0 96-43 96-96V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z"
+                          Grid.Column="1" IsHitTestVisible="False" Stretch="Uniform" Width="15" Height="15" Fill="#19000000" HorizontalAlignment="Center"
+                          Visibility="{Binding RefreshChecked, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource NvisibleConverter}}"/>
+
+                    <TextBox Tag="ProductEmpty" Style="{StaticResource SK_TextBox}" Grid.Column="1" Text="{Binding ProductEmpty}" FontSize="{Binding UIFontSize_Medium}" Height="20" VerticalContentAlignment="Center" 
+                             Cursor="Hand" PreviewMouseDown="WriteItem_PreviewMouseDown" BorderBrush="Black" BorderThickness="1" Background="Transparent"/>
+                </Grid>
+                
+                <!--캐리어 사이즈 정보-->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{ex:Translate Carrier Size}" Grid.Column="0" FontSize="{Binding UIFontSize_Medium}"/>
+                    <TextBox Tag="CarrierSize" Grid.Column="1" Text="{Binding CarrierSize}" FontSize="{Binding UIFontSize_Medium}" Height="20" VerticalContentAlignment="Center" Background="#0C000000"/>
+                    <!--<Path Data="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160V416c0 53 43 96 96 96H352c53 0 96-43 96-96V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z"
+                          Grid.Column="1" IsHitTestVisible="False" Stretch="Uniform" Width="15" Height="15" Fill="#19000000" HorizontalAlignment="Center"
+                          Visibility="{Binding RefreshChecked, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource NvisibleConverter}}"/>
+
+                    <TextBox Tag="CarrierSize" Style="{StaticResource SK_TextBox}" Grid.Column="1" Text="{Binding CarrierSize}" FontSize="{Binding UIFontSize_Medium}" Height="20" VerticalContentAlignment="Center" 
+                             Cursor="Hand" PreviewMouseDown="WriteItem_PreviewMouseDown" BorderBrush="Black" BorderThickness="1" Background="Transparent"/>-->
+                </Grid>
+
+                <!--ShelfType-->
+                <Grid IsHitTestVisible="{Binding RefreshChecked, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ReversalBoolTypeConverter}}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{ex:Translate Shelf Type}" Grid.Column="0" FontSize="{Binding UIFontSize_Medium}" Grid.ColumnSpan="2" Margin="0,3"/>
+
+                    <Path Data="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160V416c0 53 43 96 96 96H352c53 0 96-43 96-96V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z"
+                          Grid.Column="1" IsHitTestVisible="False" Stretch="Uniform" Width="15" Height="15" Fill="#19000000" HorizontalAlignment="Center"
+                          Visibility="{Binding RefreshChecked, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource NvisibleConverter}}"/>
+
+                    <TextBox Tag="ShelfType" Style="{StaticResource SK_TextBox}" Grid.Column="2" Text="{Binding ShelfType}" FontSize="{Binding UIFontSize_Medium}" Height="20" VerticalContentAlignment="Center" 
+                             Cursor="Hand" PreviewMouseDown="WriteItem_PreviewMouseDown" BorderBrush="Black" BorderThickness="1" Background="Transparent"/>
+                </Grid>
+
+                <!--ShelfState-->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{ex:Translate Shelf State}" Grid.Column="0" FontSize="{Binding UIFontSize_Medium}"/>
+                    <TextBox Grid.Column="1" Text="{Binding ShelfState}" FontSize="{Binding UIFontSize_Medium}" Height="20" VerticalContentAlignment="Center" Background="#0C000000"/>
+                </Grid>
+
+                <!--ShelfStatus-->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{ex:Translate Shelf Status}" Grid.Column="0" FontSize="{Binding UIFontSize_Medium}"/>
+                    <TextBox Tag="ShelfStatus" Grid.Column="1" Text="{Binding ShelfStatus}" FontSize="{Binding UIFontSize_Medium}" Height="20" VerticalContentAlignment="Center" Background="#0C000000"/>
+                </Grid>
+
+                <!--ZoneID-->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{ex:Translate Zone ID}" Grid.Column="0" FontSize="{Binding UIFontSize_Medium}"/>
+                    <TextBox Grid.Column="1" Text="{Binding ZoneName}" FontSize="{Binding UIFontSize_Medium}" Height="20" VerticalContentAlignment="Center" Background="#0C000000"/>
+                </Grid>
+
+                <!--Shelf Priority-->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{ex:Translate Shelf Priority}" Grid.Column="0" FontSize="{Binding UIFontSize_Medium}"/>
+                    <TextBox Grid.Column="1" Text="{Binding ShelfPriority}" FontSize="{Binding UIFontSize_Medium}" Height="20" VerticalContentAlignment="Center" Background="#0C000000"/>
+                </Grid>
+            </StackPanel>
+        </Border>
+
+        <!--<Border Grid.Row="4" Height="10" CornerRadius="5"
+                                Style="{StaticResource HeaderBorder}" BorderBrush="{x:Null}"/>-->
+
+        <Grid Grid.Row="6" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+            <WrapPanel>
+                <uidictionary:SK_ButtonControl x:Name="btnEnableContent" IsEnabled="False"
+                                               Content="{Binding EnableContent, UpdateSourceTrigger=PropertyChanged}" 
+                                               Tag="{Binding EnableState, UpdateSourceTrigger=PropertyChanged}" 
+                                               Style="{StaticResource SK_TextButtonStyle_Rectangle2}" 
+                                               MouseOverColor="{StaticResource SK_Orange}"  
+                                               Command="{Binding ButtonCommand}"
+                                               CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Tag}"
+                                               Background="#FFDDDDDD" Width="125" Height="25" 
+                                               Margin="5,0,5,10"
+                                               FontSize="{Binding UIFontSize_Large}"
+                                               Visibility="{Binding CommandButtonVisible, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <uidictionary:SK_ButtonControl x:Name="btnInstallContent" IsEnabled="False"
+                                               Content="{Binding InstallContent, UpdateSourceTrigger=PropertyChanged}" 
+                                               Tag="{Binding InstallState, UpdateSourceTrigger=PropertyChanged}" 
+                                               Style="{StaticResource SK_TextButtonStyle_Rectangle2}" 
+                                               MouseOverColor="{StaticResource SK_Orange}"  
+                                               Command="{Binding ButtonCommand}"
+                                               CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Tag}"
+                                               Background="#FFDDDDDD" Width="125" Height="25" 
+                                               Margin="5,0,5,10"
+                                               FontSize="{Binding UIFontSize_Large}"
+                                               Visibility="{Binding CommandButtonVisible, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <uidictionary:SK_ButtonControl x:Name="btnShelfTypeContent" IsEnabled="False"
+                                               Content="{Binding ShelfTypeContent, UpdateSourceTrigger=PropertyChanged}" 
+                                               Tag="{Binding ShelfTypeState, UpdateSourceTrigger=PropertyChanged}" 
+                                               Style="{StaticResource SK_TextButtonStyle_Rectangle2}" 
+                                               MouseOverColor="{StaticResource SK_Orange}"  
+                                               Command="{Binding ButtonCommand}"
+                                               CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Tag}"
+                                               Background="#FFDDDDDD" Width="125" Height="25" 
+                                               Margin="5,0,5,10"
+                                               FontSize="{Binding UIFontSize_Large}"
+                                               Visibility="{Binding CommandButtonVisible, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <uidictionary:SK_ButtonControl x:Name="btnInform" IsEnabled="False"
+                                               Content="{ex:Translate Inform}" 
+                                               Tag="{x:Static stkfirm:eUnitCommandProperty.Inform}" 
+                                               Style="{StaticResource SK_TextButtonStyle_Rectangle2}" 
+                                               MouseOverColor="{StaticResource SK_Orange}"  
+                                               Command="{Binding ButtonCommand}"
+                                               CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Tag}"
+                                               Background="#FFDDDDDD" Width="125" Height="25" 
+                                               Margin="5,0,5,10"
+                                               FontSize="{Binding UIFontSize_Large}"
+                                               Visibility="{Binding CommandButtonVisible, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <uidictionary:SK_ButtonControl x:Name="btnStatus" IsEnabled="False"
+                                               Content="{ex:Translate 상태 설정}"
+                                               Tag="{x:Static stkfirm:eUnitCommandProperty.Status}" 
+                                               Style="{StaticResource SK_TextButtonStyle_Rectangle2}" 
+                                               MouseOverColor="{StaticResource SK_Orange}"  
+                                               Background="#FFDDDDDD" Width="125" Height="25" 
+                                               Margin="5,0,5,10"
+                                               FontSize="{Binding UIFontSize_Large}"
+                                               Command="{Binding ButtonCommand}"
+                                               CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Tag}"
+                                               Visibility="{Binding CommandButtonVisible, UpdateSourceTrigger=PropertyChanged}"/>
+            </WrapPanel>
+        </Grid>
+
+        <!--데이타 변경 팝업-->
+        <Popup x:Name="popupWriteMenu" StaysOpen="False" AllowsTransparency="True" HorizontalOffset="0" VerticalOffset="-20" Placement="Bottom">
+            <Grid Margin="5" Background="Transparent">
+                <Grid.Effect>
+                    <DropShadowEffect Direction="330" Opacity="0.63" ShadowDepth="4" BlurRadius="8" />
+                </Grid.Effect>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Border IsHitTestVisible="False" Background="{StaticResource SK_LBlack}" CornerRadius="5" Grid.RowSpan="4"/>
+                    <TextBlock x:Name="PopupIOName" Margin="0,5,0,0" TextWrapping="Wrap" Text="IO Name" Foreground="White" HorizontalAlignment="Center" FontSize="15" VerticalAlignment="Bottom" IsHitTestVisible="False" TextAlignment="Center"/>
+
+                    <Grid x:Name="StringMenu" Grid.Row="1" Height="40" Margin="10,0">
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=popupWriteMenu, Path=Tag}" Value="TextBox">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="35"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="StringMenu_TextBox" CharacterCasing="Upper" FontSize="15" Style="{StaticResource SK_TextBox}" BorderThickness="0,0,0,1" Text="test" Height="20" VerticalAlignment="Center" TextAlignment="Center" BorderBrush="#FFACACAC" Foreground="White"/>
+
+                        <uidictionary:SK_ButtonControl PathData="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V173.3c0-17-6.7-33.3-18.7-45.3L352 50.7C340 38.7 323.7 32 306.7 32H64zm0 96c0-17.7 14.3-32 32-32H288c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128zM224 416c-35.3 0-64-28.7-64-64s28.7-64 64-64s64 28.7 64 64s-28.7 64-64 64z"                                                           
+                                                        ToolTip="{ex:Translate SAVE}" Margin="0,0,0,0" TagName="SaveBTN_TextBox" ImageMargin="4" Style="{StaticResource SK_IconButtonStyle}" Background="White" MouseOverColor="{StaticResource SK_Orange}" Click="SK_ButtonControl_Click" Width="25" Height="25" Grid.Column="1" HorizontalAlignment="Right"/>
+
+                    </Grid>
+
+                    <Grid x:Name="ComboBoxMenu" Grid.Row="2" Height="40" Margin="10,0">
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=popupWriteMenu, Path=Tag}" Value="ComboBox">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="35"/>
+                        </Grid.ColumnDefinitions>
+                        <ComboBox x:Name="ComboBoxMenu_ComboBox" Style="{StaticResource SK_ComboBox_style}" Height="20" FontSize="13" />
+                        <uidictionary:SK_ButtonControl PathData="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V173.3c0-17-6.7-33.3-18.7-45.3L352 50.7C340 38.7 323.7 32 306.7 32H64zm0 96c0-17.7 14.3-32 32-32H288c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128zM224 416c-35.3 0-64-28.7-64-64s28.7-64 64-64s64 28.7 64 64s-28.7 64-64 64z"
+                                                    ToolTip="{ex:Translate SAVE}" Margin="0,0,0,0" TagName="SaveBTN_ComboBox" ImageMargin="4" Style="{StaticResource SK_IconButtonStyle}" Background="White" MouseOverColor="{StaticResource SK_Orange}" Click="SK_ButtonControl_Click" Width="25" Height="25" Grid.Column="1" HorizontalAlignment="Right"/>
+
+                    </Grid>
+
+                    <Grid x:Name="CheckBoxMenu" Grid.Row="3" Width="200" Height="40">
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=popupWriteMenu, Path=Tag}" Value="CheckBox">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+
+                        <DockPanel HorizontalAlignment="Center">
+                            <TextBox Text="test" Width="150" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+                            <Button Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                        </DockPanel>
+                    </Grid>
+
+                </Grid>
+
+                <Path Fill="{StaticResource SK_LBlack}" Stretch="Fill"  HorizontalAlignment="Center" 
+                                  Margin="0,0,0,-1" Width="20" Grid.Row="1" Data="M9.35,297.45 L201.35,105.45 C213.85,92.95 234.1,92.95 246.6,105.45 L438.6,297.45" />
+            </Grid>
+
+        </Popup>
+    </Grid>
+</UserControl>

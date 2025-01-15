@@ -1,0 +1,409 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BoxPrint.GUI.Views"
+      xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+      xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="BoxPrint.GUI.Views.IOMonitorView"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"  
+      xmlns:ex="clr-namespace:TranslationByMarkupExtension"
+    
+      mc:Ignorable="d" 
+      d:DesignHeight="820" d:DesignWidth="1160"
+      Title="IOMonitor">
+
+    <Page.Resources>
+
+        <Style TargetType="{x:Type ToolTip}" BasedOn="{StaticResource SK_ToolTipStyle}"/>
+
+        <!--Expander-->
+        <!--Expander 스타일...;;; -->
+        <Style TargetType="Expander" x:Key="ExpanderStyle">
+            <Setter Property="Background" Value="#FF939393"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="{StaticResource BoldFont}"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Margin" Value="0,0,0,1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Expander" x:Name="exp">
+                        <Grid Background="{TemplateBinding Background}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Name="ContentRow" Height="0"/>
+                            </Grid.RowDefinitions>
+
+                            <Rectangle x:Name="rectangleTextLine" Stroke="{StaticResource SK_Orange}" StrokeThickness="2" IsHitTestVisible="False" Grid.Row="0" Fill="White" HorizontalAlignment="Stretch" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
+                                <Rectangle.RenderTransform>
+                                    <ScaleTransform ScaleY="0"/>
+                                </Rectangle.RenderTransform>
+                            </Rectangle>
+
+                            <Border Name="border"  Height="60" Background="Transparent">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Width="20" Height="20" Background="Transparent" HorizontalAlignment="Right" Margin="0,0,5,0" Grid.Column="1" VerticalAlignment="Center">
+                                        <Rectangle x:Name="icon1" Fill="{TemplateBinding Foreground}" RadiusX="2" RadiusY="2" Height="4" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                                            <Rectangle.RenderTransform>
+                                                <RotateTransform Angle="0"/>
+                                            </Rectangle.RenderTransform>
+                                        </Rectangle>
+                                        <Rectangle x:Name="icon2" Fill="{TemplateBinding Foreground}" RadiusX="2" RadiusY="2" Height="20" Width="4"  HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                                            <Rectangle.RenderTransform>
+                                                <RotateTransform Angle="0"/>
+                                            </Rectangle.RenderTransform>
+                                        </Rectangle>
+                                    </Grid>
+
+
+                                    <ToggleButton x:Name="tb" FontFamily="Marlett" BorderBrush="Transparent" Foreground="{x:Null}" Grid.Column="0" IsChecked="{Binding Path=IsExpanded,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}" Margin="0" Grid.ColumnSpan="2">
+                                        <ToggleButton.Style>
+                                            <Style TargetType="{x:Type ToggleButton}">
+                                                <Setter Property="Content" Value="EDIT"/>
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="ToggleButton">
+                                                            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="Transparent" SnapsToDevicePixels="True">
+                                                                <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}"                                              
+                                                                                  ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"                                                 
+                                                                                  Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                                            </Border>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="true">
+                                                        <Setter Property="Content" Value="Done"/>
+                                                        <Setter Property="FontWeight" Value="Bold"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </ToggleButton.Style>
+                                    </ToggleButton>
+                                    <ContentPresenter x:Name="HeaderContent" IsHitTestVisible="False" Grid.Column="0" ContentSource="Header" RecognizesAccessKey="True" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" RenderTransformOrigin="0.5,0.5">
+                                        <ContentPresenter.RenderTransform>
+                                            <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                        </ContentPresenter.RenderTransform>
+                                    </ContentPresenter>
+                                </Grid>
+                            </Border>
+                            <Border x:Name="Content" Grid.Row="1" Background="Transparent" RenderTransformOrigin="0.5,0">
+                                <Border.RenderTransform>
+                                    <ScaleTransform ScaleY="0"/>
+                                </Border.RenderTransform>
+                                <ContentPresenter/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FFBFBFBF"/>
+                                <Setter Property="Foreground" Value="{StaticResource SK_LBlack}"/>
+
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard >
+                                            <DoubleAnimation Storyboard.TargetName="HeaderContent" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)" From="1" To="1.3" Duration="0:0:0.2" />
+                                            <DoubleAnimation Storyboard.TargetName="HeaderContent" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)" From="1" To="1.3" Duration="0:0:0.2" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard >
+                                            <DoubleAnimation Storyboard.TargetName="HeaderContent" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)" From="1.3" To="1" Duration="0:0:0.2" />
+                                            <DoubleAnimation Storyboard.TargetName="HeaderContent" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)" From="1.3" To="1" Duration="0:0:0.2" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+
+                                <!--<Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard >
+                                            <DoubleAnimation  Storyboard.TargetProperty="FontSize" From="18" To="25" Duration="0:0:0.2" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard >
+                                            <DoubleAnimation  Storyboard.TargetProperty="FontSize" From="25" To="18" Duration="0:0:0.2" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>-->
+                            </Trigger>
+
+                            <Trigger Property="IsExpanded" Value="true">
+                                <Setter Property="Foreground" Value="{StaticResource SK_LBlack}"/>
+                                <Setter TargetName="ContentRow" Property="Height" Value="{Binding ElementName=Content,Path=Height}" />
+                                <Setter Property="Content" TargetName="tb" Value="t"/>
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard >
+                                            <DoubleAnimation Storyboard.TargetName="rectangleTextLine" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)" From="0" To="1" Duration="0:0:0.2" />
+                                            <DoubleAnimation Storyboard.TargetName="Content" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)" From="0" To="1" Duration="0:0:0.2" />
+                                            <DoubleAnimation Storyboard.TargetName="icon1" Storyboard.TargetProperty="(RenderTransform).(RotateTransform.Angle)" From="0" To="180" Duration="0:0:0.2" />
+                                            <DoubleAnimation Storyboard.TargetName="icon2" Storyboard.TargetProperty="(RenderTransform).(RotateTransform.Angle)" From="0" To="90" Duration="0:0:0.2" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard >
+                                            <DoubleAnimation Storyboard.TargetName="rectangleTextLine" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)" From="1" To="0" Duration="0:0:0.2"/>
+                                            <DoubleAnimation Storyboard.TargetName="Content" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)" From="1" To="0" Duration="0:0:0.2"/>
+                                            <DoubleAnimation Storyboard.TargetName="icon1" Storyboard.TargetProperty="(RenderTransform).(RotateTransform.Angle)" From="180" To="-0" Duration="0:0:0.2" />
+                                            <DoubleAnimation Storyboard.TargetName="icon2" Storyboard.TargetProperty="(RenderTransform).(RotateTransform.Angle)" From="90" To="0" Duration="0:0:0.2" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--Expander Item 스타일...;;; -->
+        <Style x:Key="ExpanderItemStyle" TargetType="{x:Type local:ExpanderItemControl}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Foreground" Value="{StaticResource SK_LBlack}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type local:ExpanderItemControl}">
+                        <Border Background="Transparent" Height="40"
+                                MouseDown="MenuItem_MouseDown"
+                                Tag="{Binding Path=(local:ExpanderItemControl.TagName), RelativeSource={RelativeSource TemplatedParent}}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Content="▶" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{TemplateBinding Foreground}"/>
+
+                                <TextBlock Text="{Binding Path=(local:ExpanderItemControl.DisplayName), RelativeSource={RelativeSource TemplatedParent}}"
+                                           FontFamily="{StaticResource BoldFont}" FontSize="15"
+                                           VerticalAlignment="Center" HorizontalAlignment="Left" IsHitTestVisible="False"
+                                           Foreground="{TemplateBinding Foreground}" Background="Transparent" Grid.Column="1"/>
+
+                            </Grid>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="{StaticResource SK_Orange}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource LightFont}"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+
+        <!--사각버튼 왼쪽 -->
+        <Style x:Key="RectangleButtonStyle_Left" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="buttonBorder" Cursor="Hand">
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="Background" Value="#FF4B494A"/>
+                                    <Setter Property="BorderBrush" Value="Transparent"/>
+
+                                </Style>
+                            </Border.Style>
+                            <!--<Path Data="M20.551986,0.50055361 C20.855136,0.50698662 21.160312,0.56954765 21.453281,0.69161749 22.390781,1.082243 23.000156,1.988493 23.000156,3.004118 L23.000156,13.004118 38.000156,13.004118 C40.761093,13.004118 43.000156,15.243181 43.000156,18.004118 L43.000156,23.004118 C43.000156,25.765055 40.761093,28.004118 38.000156,28.004118 L23.000156,28.004118 23.000156,38.004118 C23.000156,39.014898 22.392187,39.927557 21.457187,40.313494 20.522188,40.701616 19.447813,40.486773 18.732187,39.771463 L1.2321877,22.271461 C0.25593758,21.295212 0.25593758,19.712086 1.2321877,18.737087 L18.732187,1.2370853 C19.227939,0.7439127 19.885059,0.48640251 20.551986,0.50055361 z"                                                     
+                                                      IsHitTestVisible="False" Margin="15" HorizontalAlignment="Center" Stretch="Uniform" VerticalAlignment="Center" Fill="White"/>-->
+
+                            <Path x:Name="pathArrow" IsHitTestVisible="False" Margin="20,15,20,15" HorizontalAlignment="Stretch" Stretch="Uniform" VerticalAlignment="Stretch" Fill="White" 
+                                Data="M9.375 233.4l128-128c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L109.3 224H480c17.69 0 32 14.31 32 32s-14.31 32-32 32H109.3l73.38 73.38c12.5 12.5 12.5 32.75 0 45.25c-12.49 12.49-32.74 12.51-45.25 0l-128-128C-3.125 266.1-3.125 245.9 9.375 233.4z"/>
+
+
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard AutoReverse="True">
+                                            <ThicknessAnimation Duration="0:0:0.3" Storyboard.TargetName="pathArrow" Storyboard.TargetProperty="Margin" From="20,15,20,15" To="0,15,20,15"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Border.BorderThickness" TargetName="buttonBorder" Value="5"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--사각버튼 오른쪽-->
+        <Style x:Key="RectangleButtonStyle_Right" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="buttonBorder" Cursor="Hand">
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="Background" Value="#FF4B494A"/>
+                                    <Setter Property="BorderBrush" Value="Transparent"/>
+                                </Style>
+                            </Border.Style>
+                            <!--<Path Data="M19.639517,0.00052118301 C20.225117,-0.012279987 20.80398,0.21104383 21.234472,0.64134932 L36.546974,15.953848 C37.401192,16.808068 37.401192,18.193303 36.546974,19.046427 L21.234472,34.358929 C20.603516,34.986603 19.673828,35.17801 18.853516,34.836213 18.033203,34.494416 17.5,33.701447 17.5,32.812775 L17.5,24.062775 4.375,24.062775 C1.9591799,24.062775 0,22.103596 0,19.687775 L0,15.312775 C0,12.896954 1.9591799,10.937775 4.375,10.937775 L17.5,10.937775 17.5,2.1877751 C17.5,1.3033414 18.031973,0.50476694 18.850098,0.1670723 19.105762,0.06094408 19.373335,0.0063390732 19.639517,0.00052118301 z"                                                     
+                                                      IsHitTestVisible="False" Margin="15" HorizontalAlignment="Center" Stretch="Uniform" VerticalAlignment="Center" Fill="White"/>-->
+
+                            <Path x:Name="pathArrow" IsHitTestVisible="False" Margin="20,15,20,15" HorizontalAlignment="Center" Stretch="Uniform" VerticalAlignment="Center" Fill="White"
+                                  Data="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z"/>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard AutoReverse="True">
+                                            <ThicknessAnimation Duration="0:0:0.3" Storyboard.TargetName="pathArrow" Storyboard.TargetProperty="Margin" From="20,15,20,15" To="20,15,0,15"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Border.BorderThickness" TargetName="buttonBorder" Value="5"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+    </Page.Resources>
+
+    <Grid x:Name="grdMain" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="White" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--머리글-->
+        <TextBlock Text="{ex:Translate 조회 및 반송 > I/O 조회}" FontFamily="{StaticResource BoldFont}" Margin="10,0,0,0" FontSize="18" HorizontalAlignment="Left" Foreground="{StaticResource SK_LBlack}"/>
+
+
+
+        <Grid Grid.Row="1">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0"/>
+            </Grid.ColumnDefinitions>
+
+            <!--메뉴-->
+            <Border Background="#FFF4F4F4" >
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" VerticalAlignment="Top">
+                    <StackPanel x:Name="stackpanelMenuFrame">
+                        <Expander Style="{StaticResource ExpanderStyle}"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+
+            <!--아웃풋 아이오-->
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="100"/>
+                </Grid.RowDefinitions>
+
+                <DockPanel IsHitTestVisible="False" VerticalAlignment="Center" Margin="0">
+                    <Border Background="{StaticResource SK_Orange}" Width="10" CornerRadius="5,5,5,5" Height="25"/>
+                    <TextBlock x:Name="textblockOutputName" Text="{ex:Translate I/O Input}" HorizontalAlignment="Left" FontFamily="{StaticResource BoldFont}" TextAlignment="Center" Foreground="Black" Margin="5,0,0,0" VerticalAlignment="Center" FontSize="18"/>
+                    <Label Name="Label_OutputPage" Content="1 / 2"  FontFamily="{StaticResource BoldFont}" HorizontalAlignment="Right"  VerticalAlignment="Center"  FontSize="18" Margin="10,0,0,0" Foreground="Black"/>
+                </DockPanel>
+
+                <DataGrid x:Name="dataGrid_Output" Grid.Row="1" Style="{StaticResource SK_DataGridStyle}" MouseDoubleClick="DataGrid_DoubleClick">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="{ex:Translate Module}" Width="2*"  Binding="{Binding ModuleID}" />
+                        <DataGridTextColumn Header="{ex:Translate I/O DESCRIPTION}" Width="9*"  Binding="{Binding Description}" />
+                        <DataGridTextColumn Header="{ex:Translate BOARD}" Width="2*"  Binding="{Binding Board}"     />
+                        <DataGridTextColumn Header="{ex:Translate ADDRESS}" Width="3*"  Binding="{Binding Address}"     />
+                        <DataGridTextColumn Header="{ex:Translate Status}"  Width="3*"   Binding="{Binding IOStatus}"      />
+                    </DataGrid.Columns>
+
+
+                </DataGrid>
+
+                <Grid Grid.Row="3" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Tag ="OutputLeft"   ToolTip="{ex:Translate 이전 페이지}" Width="150" Height="60" Click="PageMove_Click" Style="{StaticResource RectangleButtonStyle_Left}"/>
+                    <Button Tag ="OutputRight"  ToolTip="{ex:Translate 다음 페이지}" Grid.Column="2" Width="150" Height="60" Click="PageMove_Click" Style="{StaticResource RectangleButtonStyle_Right}"/>
+                </Grid>
+            </Grid>
+
+            <!--인풋 아이오-->
+            <Grid Grid.Column="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="100"/>
+                </Grid.RowDefinitions>
+
+                <DockPanel IsHitTestVisible="False" VerticalAlignment="Center" Margin="0">
+                    <Border Background="{StaticResource SK_Orange}" Width="10" CornerRadius="5,5,5,5" Height="25"/>
+                    <TextBlock x:Name="textblockInputName" Text="{ex:Translate I/O Output}" HorizontalAlignment="Left" FontFamily="{StaticResource BoldFont}" TextAlignment="Center" Foreground="Black" Margin="5,0,0,0" VerticalAlignment="Center" FontSize="18"/>
+                    <Label Name="Label_InputPage" Content="1 / 2"  FontFamily="{StaticResource BoldFont}" HorizontalAlignment="Right"  VerticalAlignment="Center"  FontSize="18" Margin="10,0,0,0" Foreground="Black"/>
+                </DockPanel>
+
+                <DataGrid  x:Name="dataGrid_Input" Grid.Row="1"  Grid.Column="2" Style="{StaticResource SK_DataGridStyle}"  MouseDoubleClick="DataGrid_DoubleClick">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="{ex:Translate Module}" Width="2*"  Binding="{Binding ModuleID}" />
+                        <DataGridTextColumn Header="{ex:Translate I/O DESCRIPTION}" Width="9*"  Binding="{Binding Description}" />
+                        <DataGridTextColumn Header="{ex:Translate BOARD}" Width="2*"  Binding="{Binding Board}"     />
+                        <DataGridTextColumn Header="{ex:Translate ADDRESS}" Width="3*"  Binding="{Binding Address}"     />
+                        <DataGridTextColumn Header="{ex:Translate Status}"  Width="3*"   Binding="{Binding IOStatus}"      />
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <Grid Grid.Row="3" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Tag ="InputLeft"  ToolTip="{ex:Translate 이전 페이지}" Width="150" Height="60" Click="PageMove_Click" Style="{StaticResource RectangleButtonStyle_Left}"/>
+                    <Button Tag ="InputRight" ToolTip="{ex:Translate 다음 페이지}" Grid.Column="2" Width="150" Height="60" Click="PageMove_Click" Style="{StaticResource RectangleButtonStyle_Right}"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

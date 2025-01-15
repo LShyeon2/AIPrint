@@ -1,0 +1,184 @@
+﻿<UserControl x:Class="BoxPrint.GUI.CVUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BoxPrint"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+             mc:Ignorable="d" 
+             d:DesignHeight="90" d:DesignWidth="100">
+    <UserControl.Resources>
+        <Storyboard x:Key="CVRun" AutoReverse="False" RepeatBehavior ="Forever">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="regularPolygon2">
+                <EasingColorKeyFrame KeyTime="0:0:0.5" Value="#FFFFAB31"/>
+                <EasingColorKeyFrame KeyTime="0:0:1" Value="#FFCBCBB1"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="regularPolygon1">
+                <EasingColorKeyFrame KeyTime="0:0:1" Value="#FFFFAB31"/>
+                <EasingColorKeyFrame KeyTime="0:0:1.5" Value="#FFCBCBB1"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="regularPolygon0">
+                <EasingColorKeyFrame KeyTime="0:0:1.5" Value="#FFFFAB31"/>
+                <EasingColorKeyFrame KeyTime="0:0:2" Value="#FFCBCBB1"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="TurnAnimation" AutoReverse="False" FillBehavior="HoldEnd">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="Conveyor_Canvas">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="90"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="180"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <!--SuHwan_20220411-->
+        <Storyboard x:Key="storyboardMoveConveyor" RepeatBehavior="Forever">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" Storyboard.TargetName="gridCVBackground">
+                <SplineThicknessKeyFrame KeyTime="0:0:0:0" Value="0,20,0,-20" />
+                <SplineThicknessKeyFrame KeyTime="0:0:0:1" Value="0,-20,0,20" />
+            </ThicknessAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" Storyboard.TargetName="pathDirectionArrow">
+                <SplineThicknessKeyFrame KeyTime="0:0:0:0" Value="0,100,0,0" />
+                <SplineThicknessKeyFrame KeyTime="0:0:0:1" Value="0,-120,0,0" />
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="storyboardConveyorTurn_180" >
+            <DoubleAnimation 
+                    Storyboard.TargetName="gridConveyorImage" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)"
+                    To="{Binding ConveyorTurnAngle}" Duration="0:0:1">
+            </DoubleAnimation>
+        </Storyboard>
+        <Storyboard x:Key="storyboardConveyorTurn_0" >
+            <DoubleAnimation 
+                    Storyboard.TargetName="gridConveyorImage" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)"
+                     From="180" To="0" Duration="0:0:1">
+            </DoubleAnimation>
+        </Storyboard>
+
+    </UserControl.Resources>
+
+    <Grid>
+        <Canvas x:Name="MainCanvas"  Background="White" RenderTransformOrigin="0.5,0.5">
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseLeftButtonDown">
+                    <!--<ei:ControlStoryboardAction Storyboard="{StaticResource CVRun}" />-->
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
+            <Grid Background="White" PreviewMouseDown="Grid_PreviewMouseDown" Width="100" Height="90">
+
+                <!--내부 이미지-->
+                <Grid  x:Name="gridConveyorImage" HorizontalAlignment="Left" VerticalAlignment="Top" ClipToBounds="True" RenderTransformOrigin="0.46,0.5" >
+                    <Grid.RenderTransform>
+                        <RotateTransform Angle="0" />
+                    </Grid.RenderTransform>
+
+                    <Rectangle  RadiusX="5" RadiusY="5" Fill="#FF405068" Height="90" Margin="0" VerticalAlignment="Center" Stroke="#FF2E3541" StrokeThickness="3" Width="90"/>
+
+                    <!--컨베어 동작용-->
+                    <Grid x:Name="gridCVBackgroundArray" Margin="0" RenderTransformOrigin="0.5,0.5">
+                        <Grid.RenderTransform>
+                            <TransformGroup>
+                                <RotateTransform/>
+                            </TransformGroup>
+                        </Grid.RenderTransform>
+
+                        <Path x:Name="gridCVBackground" Data="M7.4999995,42.525002 L92.5,42.525002 C95.261421,42.525002 97.5,44.763578 97.5,47.525002 L97.5,77.525002 C97.5,80.286427 95.261421,82.525002 92.5,82.525002 L7.4999995,82.525002 C4.7385764,82.525002 2.5,80.286427 2.5,77.525002 L2.5,47.525002 C2.5,44.763578 4.7385764,42.525002 7.4999995,42.525002 z M7.4999995,2.5 L92.5,2.5 C95.261421,2.5 97.5,4.7385788 97.5,7.5 L97.5,37.500002 C97.5,40.261425 95.261421,42.500001 92.5,42.500001 L7.4999995,42.500001 C4.7385764,42.500001 2.5,40.261425 2.5,37.500002 L2.5,7.5 C2.5,4.7385788 4.7385764,2.5 7.4999995,2.5 z" Fill="#FF405068" Height="85.025" Margin="0,20,0,-20" Stretch="Fill" Stroke="#FF2E3541" StrokeThickness="5" />
+                        <Path x:Name="pathDirectionArrow" Stretch="Uniform" Width="45" Data="M9.39 265.4l127.1-128C143.6 131.1 151.8 128 160 128s16.38 3.125 22.63 9.375l127.1 128c9.156 9.156 11.9 22.91 6.943 34.88S300.9 320 287.1 320H32.01c-12.94 0-24.62-7.781-29.58-19.75S.2333 274.5 9.39 265.4z" Fill="White" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0"/>
+                        <Path x:Name="gridConveyorImage_pathConveyorType" HorizontalAlignment="Right" Stretch="Fill" Stroke="#FF2E3541" StrokeThickness="3" Width="100"
+                            Data="M79.5,1.5 L95.5,1.5 C97.156855,1.4999998 98.5,2.8431456 98.5,4.5000002 L98.5,85.5 C98.5,87.156852 97.156855,88.5 95.5,88.5 L79.5,88.5 C77.843146,88.5 76.5,87.156852 76.5,85.5 L76.5,4.5000002 C76.5,2.8431456 77.843146,1.4999998 79.5,1.5 z M4.5,1.5 L20.5,1.5 C22.156853,1.4999998 23.5,2.8431456 23.5,4.5000002 L23.5,85.5 C23.5,87.156852 22.156853,88.5 20.5,88.5 L4.5,88.5 C2.8431473,88.5 1.5,87.156852 1.5,85.5 L1.5,4.5000002 C1.5,2.8431456 2.8431473,1.4999998 4.5,1.5 z" Fill="#FFB3BBC4">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform />
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Grid>
+                </Grid>
+
+                <!--물건-->
+                <Image Visibility="Visible" x:Name="image_Tray" Source="/image/tray.png" Stretch="Fill" Height="52" Width="46" Canvas.Left="4"  Canvas.Top="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0"/>
+
+
+                <!--턴 이미지-->
+                <Grid Visibility="Visible" x:Name="pathConveyorTurnImage" IsHitTestVisible="False" Width="60" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Background="#66000000">
+                    <Path Stretch="Fill" Data="M464 16c-17.67 0-32 14.31-32 32v74.09C392.1 66.52 327.4 32 256 32C161.5 32 78.59 92.34 49.58 182.2c-5.438 16.81 3.797 34.88 20.61 40.28c16.89 5.5 34.88-3.812 40.3-20.59C130.9 138.5 189.4 96 256 96c50.5 0 96.26 24.55 124.4 64H336c-17.67 0-32 14.31-32 32s14.33 32 32 32h128c17.67 0 32-14.31 32-32V48C496 30.31 481.7 16 464 16zM441.8 289.6c-16.92-5.438-34.88 3.812-40.3 20.59C381.1 373.5 322.6 416 256 416c-50.5 0-96.25-24.55-124.4-64H176c17.67 0 32-14.31 32-32s-14.33-32-32-32h-128c-17.67 0-32 14.31-32 32v144c0 17.69 14.33 32 32 32s32-14.31 32-32v-74.09C119.9 445.5 184.6 480 255.1 480c94.45 0 177.4-60.34 206.4-150.2C467.9 313 458.6 294.1 441.8 289.6z" Fill="#B2FB9D20" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Top" StrokeThickness="3" Stroke="#B2000000"/>
+                    <TextBlock x:Name="pathConveyorTurnText" Text="0" FontFamily="{StaticResource ExtraBoldFont}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Padding="0" Width="60" Margin="0" Foreground="White" TextAlignment="Center"/>
+                </Grid>
+
+
+                <!--스톱퍼-->
+                <Rectangle x:Name="UpperStopper" RadiusX="3" RadiusY="3" IsHitTestVisible="False" Fill="#FFB3BBC4" Height="6" Stroke="#FF495A69" Width="50"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0" StrokeThickness="1"/>
+                <Rectangle x:Name="LowerStopper" RadiusX="3" RadiusY="3" IsHitTestVisible="False" Fill="#FFB3BBC4" Height="6" Stroke="#FF495A69" Width="50"  HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0" StrokeThickness="1"/>
+           
+            </Grid>
+
+
+
+            <!--상태 표시 모음-->
+            <Grid  x:Name="gridStateLampArray" IsHitTestVisible="False" Height="90" Width="100" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="25"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+
+                <!--CVStateLamp-->
+                <TextBlock x:Name="CVStateLamp" IsHitTestVisible="False" Text="M" FontFamily="{StaticResource ExtraBoldFont}" Margin="1,2,0,0" FontSize="20" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2"/>
+
+                <!--CVSpeed-->
+                <Grid x:Name="Border_CVSpeed" Margin="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2">
+
+                    <!--<Ellipse   Stroke="#FF303E53" RenderTransformOrigin="0,0"  Fill="#FFFEA118" StrokeThickness="0"/>-->
+
+                    <TextBlock x:Name="TB_CVSpeed" Text="1" FontFamily="{StaticResource ExtraBoldFont}" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" Margin="0"/>
+
+                </Grid>
+
+                <Grid x:Name="Border_RFID" Margin="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2">
+                    <!--<Ellipse Fill="#FF06BACC" Stroke="#FF303E53" StrokeThickness="0" />-->
+                    <!--<Path Stretch="Fill" Fill="Black" Data="M25.57 176.1C12.41 175.4 .9117 185.2 .0523 198.4s9.173 24.65 22.39 25.5c120.1 7.875 225.7 112.7 233.6 233.6C256.9 470.3 267.4 480 279.1 480c.5313 0 1.062-.0313 1.594-.0625c13.22-.8438 23.25-12.28 22.39-25.5C294.6 310.3 169.7 185.4 25.57 176.1zM32 32C14.33 32 0 46.31 0 64s14.33 32 32 32c194.1 0 352 157.9 352 352c0 17.69 14.33 32 32 32s32-14.31 32-32C448 218.6 261.4 32 32 32zM63.1 351.9C28.63 351.9 0 380.6 0 416s28.63 64 63.1 64s64.08-28.62 64.08-64S99.37 351.9 63.1 351.9z" RenderTransformOrigin="0.5,0.5" Width="7" Height="7" StrokeThickness="0" Margin="0"/>-->
+
+                    <TextBlock  x:Name="TB_RFID" Text="B" FontFamily="{StaticResource ExtraBoldFont}" Margin="0" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                    <!--<Path Stretch="Fill" Fill="White" Data="M40 32C53.25 32 64 42.75 64 56V456C64 469.3 53.25 480 40 480H24C10.75 480 0 469.3 0 456V56C0 42.75 10.75 32 24 32H40zM128 48V464C128 472.8 120.8 480 112 480C103.2 480 96 472.8 96 464V48C96 39.16 103.2 32 112 32C120.8 32 128 39.16 128 48zM200 32C213.3 32 224 42.75 224 56V456C224 469.3 213.3 480 200 480H184C170.7 480 160 469.3 160 456V56C160 42.75 170.7 32 184 32H200zM296 32C309.3 32 320 42.75 320 56V456C320 469.3 309.3 480 296 480H280C266.7 480 256 469.3 256 456V56C256 42.75 266.7 32 280 32H296zM448 56C448 42.75 458.7 32 472 32H488C501.3 32 512 42.75 512 56V456C512 469.3 501.3 480 488 480H472C458.7 480 448 469.3 448 456V56zM384 48C384 39.16 391.2 32 400 32C408.8 32 416 39.16 416 48V464C416 472.8 408.8 480 400 480C391.2 480 384 472.8 384 464V48z" RenderTransformOrigin="0.5,0.5" Width="8" Height="8" Stroke="Black" StrokeThickness="0" Margin="0,0,0,1"/>-->
+
+                    <!--<TextBlock Text="B" Foreground="White" FontFamily="{StaticResource ExtraBoldFont}" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>-->
+
+                    <!--<TextBlock Visibility="Hidden" x:Name="TB_RFID" Canvas.Left="76.51" TextWrapping="Wrap" Text="RF" FontSize="5" Canvas.Top="50.378"  RenderTransformOrigin="0.5,0.5"  Foreground="White" VerticalAlignment="Bottom" FontFamily="{StaticResource ExtraBoldFont}" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,0,0,1"/>-->
+
+                </Grid>
+
+                <!--CVLightCurtain-->
+                <TextBlock x:Name="CVLightCurtain" IsHitTestVisible="False" Text="L" FontFamily="{StaticResource ExtraBoldFont}" Margin="0" FontSize="20" Foreground="Black" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2"/>
+
+                <!--감지센서-->
+                <Ellipse x:Name="Entry_Lamp"  Fill="#FF83C843" Height="15"  Stroke="#FF191919" Canvas.Top="17" Width="15" Canvas.Left="5" StrokeThickness="0" Margin="0" Panel.ZIndex="1" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.RowSpan="2" />
+                <Ellipse x:Name="Stop_Lamp"  Fill="#FF83C843" Height="15"  Stroke="#FF191919" Canvas.Top="62" Width="15" Canvas.Left="5" StrokeThickness="0" Margin="0" Panel.ZIndex="1" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.RowSpan="2" />
+
+                <!--라이트 커튼-->
+                <Rectangle x:Name="RightLightCurtain" Fill="Yellow" HorizontalAlignment="Right" Height="10" Stroke="#FF191919" VerticalAlignment="Bottom" Width="5" Canvas.Left="78" Canvas.Top="80" Grid.Row="3"/>
+                <Rectangle x:Name="LeftLightCurtain" Fill="Yellow" HorizontalAlignment="Left" Height="10" Stroke="#FF191919" VerticalAlignment="Bottom" Width="5" Canvas.Top="80" Canvas.Left="17" Grid.Row="3" Grid.Column="2"/>
+                <Rectangle x:Name="LightCurtainRec" Height="8" Canvas.Left="22" Stroke="#FF191919" Canvas.Top="82" Width="56" Fill="#FFE8FF00" Opacity="0.2" RadiusX="2" RadiusY="2" StrokeThickness="0" Grid.Row="3" Grid.Column="1" VerticalAlignment="Bottom"/>
+            </Grid>
+        </Canvas>
+    </Grid>
+</UserControl>

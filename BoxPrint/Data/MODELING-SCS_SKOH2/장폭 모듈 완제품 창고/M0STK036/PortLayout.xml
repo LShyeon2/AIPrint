@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PortLayout AutoRecovery="False" Change="false">
+  <CVLine1 ModuleName="M0STK036_W01" LineType="AutoOut" Bank="1" Bay="26" Level="1" LineFloor="1F" Rotate="false" CVWay="BottomToTop">
+    <Conveyor1 ModuleName="M0STK036_W01" USE="true" CVType="WaterPool" TrackGroup="49" TrackNum="003" PortTableID="2" PortSize="Long" Direction="OUTPUT" PLCNum="0" />
+  </CVLine1>
+  <CVLine2 ModuleName="M0STK036_W02" LineType="AutoOut" Bank="1" Bay="1" Level="1" LineFloor="1F" Rotate="false" CVWay="BottomToTop">
+    <Conveyor1 ModuleName="M0STK036_W02" USE="true" CVType="WaterPool" TrackGroup="49" TrackNum="002" PortTableID="1" PortSize="Long" Direction="OUTPUT" PLCNum="0" />
+  </CVLine2>
+  <CVLine3 ModuleName="M0STK036_P12" LineType="AutoOut" Bank="2" Bay="27" Level="8" LineFloor="1F" Rotate="true" CVWay="TopToBottom">
+    <Conveyor1 ModuleName="M0STK036_P12" USE="true" CVType="RobotIF" TrackGroup="81" TrackNum="040" PortTableID="6" PortSize="Long" Direction="OUTPUT" PLCNum="1"></Conveyor1>
+  </CVLine3>
+  <CVLine4 ModuleName="M0STK036_P11" LineType="AutoOut" Bank="1" Bay="27" Level="8" LineFloor="1F" Rotate="true" CVWay="BottomToTop">
+    <Conveyor1 ModuleName="M0STK036_P11" USE="true" CVType="RobotIF" TrackGroup="81" TrackNum="043" PortTableID="5" PortSize="Long" Direction="INPUT" PLCNum="1"></Conveyor1>
+  </CVLine4>
+  <CVLine5 ModuleName="M0STK036_P14" LineType="AutoOut" Bank="2" Bay="0" Level="4" LineFloor="1F" Rotate="true" CVWay="TopToBottom">
+    <Conveyor1 ModuleName="M0STK036_P14" USE="true" CVType="RobotIF" TrackGroup="58" TrackNum="019" PortTableID="7" PortSize="Long" Direction="INPUT" PLCNum="2"></Conveyor1>
+  </CVLine5>
+  <CVLine6 ModuleName="M0STK036_P13" LineType="AutoOut" Bank="1" Bay="0" Level="4" LineFloor="1F" Rotate="true" CVWay="BottomToTop">
+    <Conveyor1 ModuleName="M0STK036_P13" USE="true" CVType="RobotIF" TrackGroup="58" TrackNum="016" PortTableID="4" PortSize="Long" Direction="OUTPUT" PLCNum="2"></Conveyor1>
+  </CVLine6>
+  <CVLine7 ModuleName="M0STK036_M01" LineType="MaunalIn" Bank="2" Bay="0" Level="1" LineFloor="1F" Rotate="true" CVWay="RightToLeft">
+    <Conveyor1 ModuleName="M0STK036_M01_OP01" USE="true" CVType="RobotIF" TrackGroup="49" TrackNum="005" PortTableID="3" PortSize="Long" Direction="OUTPUT" PLCNum="0" />
+    <Conveyor2 ModuleName="M0STK036_M01" USE="true" CVType="Manual" TrackGroup="49" TrackNum="004" PortTableID="-1" PortSize="Long" Direction="OUTPUT" PLCNum="0">
+      <RFID1 ModuleName="RFID_M01" RFIDType="BCR_SICK" CommunicationType="TCP_IP" IP="10.97.51.22" Port="2112" />
+    </Conveyor2>
+  </CVLine7>
+</PortLayout>

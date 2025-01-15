@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <FontFamily x:Key="RegularFont">/BoxPrint;component/Font/#NanumSquareRoundOTF Regular</FontFamily>
+    <FontFamily x:Key="LightFont">/BoxPrint;component/Font/#NanumSquareRoundOTF Light</FontFamily>
+    <FontFamily x:Key="BoldFont">/BoxPrint;component/Font/#NanumSquareRoundOTF Bold</FontFamily>
+    <FontFamily x:Key="ExtraBoldFont">/BoxPrint;component/Font/#NanumSquareRoundOTF ExtraBold</FontFamily>
+    
+    <!--240826 RGJ 폰트 메모리 누수 이슈가 있기에 윈도우에 미리 설치하고 폰트를 가져오는걸로 변경.필요시 적용검토-->
+    <!--https://forum.dotnetdev.kr/t/wpf-fontfamily/9240-->
+    <!--https://stackoverflow.com/questions/31452443/wpf-textblock-memory-leak-when-using-font-->
+    <!--
+    <FontFamily x:Key="RegularFont">#NanumSquareRoundOTF Regular</FontFamily>
+    <FontFamily x:Key="LightFont">#NanumSquareRoundOTF Light</FontFamily>
+    <FontFamily x:Key="BoldFont">#NanumSquareRoundOTF Bold</FontFamily>
+    <FontFamily x:Key="ExtraBoldFont">#NanumSquareRoundOTF ExtraBold</FontFamily>
+    -->
+</ResourceDictionary>

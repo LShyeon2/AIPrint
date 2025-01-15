@@ -1,0 +1,26 @@
+
+SCS_SKOH2_31	개별통지	SKOH2 (모듈) SCS 용 셀버퍼 좌상단 창고#1	M0STK011
+SCS_SKOH2_32	개별통지	SKOH2 (모듈) SCS 용 셀버퍼 우상단 창고#2	M0STK012	
+SCS_SKOH2_33	개별통지	SKOH2 (모듈) SCS 용 셀버퍼 좌하단 창고#3	M0STK013
+SCS_SKOH2_34	개별통지	SKOH2 (모듈) SCS 용 셀버퍼 우하단 창고#4 	M0STK014
+
+SCS_SKOH2_35	개별통지	SKOH2 (모듈) SCS 용 단폭모듈완제품창고#1	M0STK031
+SCS_SKOH2_36	개별통지	SKOH2 (모듈) SCS 용 단폭모듈완제품창고#2	M0STK032
+SCS_SKOH2_37	개별통지	SKOH2 (모듈) SCS 용 단폭모듈완제품창고#3	M0STK033
+
+SCS_SKOH2_38	개별통지	SKOH2 (모듈) SCS 용 상단모듈원자재창고#1	M0STK021
+SCS_SKOH2_39	개별통지	SKOH2 (모듈) SCS 용 상단모듈원자재창고#2	M0STK022
+SCS_SKOH2_40	개별통지	SKOH2 (모듈) SCS 용 상단모듈원자재창고#3	M0STK023
+SCS_SKOH2_41	개별통지	SKOH2 (모듈) SCS 용 상단모듈원자재창고#4	M0STK024
+
+SCS_SKOH2_42	개별통지	SKOH2 (모듈) SCS 용 셀완제품창고#1		M0STK034
+SCS_SKOH2_43	개별통지	SKOH2 (모듈) SCS 용 셀완제품창고#2		M0STK035
+
+SCS_SKOH2_44	개별통지	SKOH2 (모듈) SCS 용 장폭모듈완제품창고#1	M0STK036
+SCS_SKOH2_45	개별통지	SKOH2 (모듈) SCS 용 장폭모듈완제품창고#2	M0STK037
+SCS_SKOH2_46	개별통지	SKOH2 (모듈) SCS 용 장폭모듈완제품창고#3	M0STK038
+
+SCS_SKOH2_47	개별통지	SKOH2 (모듈) SCS 용 하단모듈원자재창고#1	M0STK025
+SCS_SKOH2_48	개별통지	SKOH2 (모듈) SCS 용 하단모듈원자재창고#2	M0STK026
+SCS_SKOH2_49	개별통지	SKOH2 (모듈) SCS 용 하단모듈원자재창고#3	M0STK027
+SCS_SKOH2_50	개별통지	SKOH2 (모듈) SCS 용 하단모듈원자재창고#4	M0STK028

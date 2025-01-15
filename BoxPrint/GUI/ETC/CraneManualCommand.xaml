@@ -1,0 +1,252 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BoxPrint.GUI.ETC"
+        xmlns:ex="clr-namespace:TranslationByMarkupExtension" 
+        x:Class="BoxPrint.GUI.ETC.CraneManualCommand"
+        mc:Ignorable="d"
+        xmlns:vm="clr-namespace:BoxPrint.GUI.ViewModels"
+        d:DataContext="{d:DesignInstance vm:ViewModelSearchView}"
+        FontFamily="{StaticResource BoldFont}"
+        Closed="Window_Closed"
+        ResizeMode="NoResize"
+        Title="CraneManualCommand" Height="250" Width="600">
+    <Window.Resources>
+        <Style x:Key="SKBorderStyle" TargetType="{x:Type Border}">
+            <Style.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="TextAlignment" Value="Center"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Style>
+            </Style.Resources>
+
+            <Setter Property="Background" Value="CornflowerBlue"/>
+            <Setter Property="CornerRadius" Value="15"/>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource SK_Orange}"/>
+                    <Setter Property="Cursor" Value="Hand"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="CustomComboBoxStyle" TargetType="{x:Type ComboBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ComboBox}">
+                        <Grid>
+                            <ToggleButton IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Focusable="false" Grid.Column="2">
+                                <ToggleButton.Template>
+                                    <ControlTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Border x:Name="Border" Grid.ColumnSpan="2" Background="White" BorderThickness="1" BorderBrush="Black"/>
+                                            <Border Margin="1" Grid.Column="0" Background="White" BorderThickness="0,0,1,0" BorderBrush="Black"/>
+                                            <Path x:Name="Arrow" Width="16" Stretch="Uniform" Margin="2" Fill="Black" Data="M 0 0 L 4 4 L 8 0 Z" Grid.Column="1"/>
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="true">
+                                                <Setter Property="Background" TargetName="Border" Value="{StaticResource SK_Orange}"/>
+                                            </Trigger>
+                                            <Trigger Property="ToggleButton.IsChecked" Value="true">
+                                                <Setter Property="Background" TargetName="Border" Value="{StaticResource SK_Orange}"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </ToggleButton.Template>
+                            </ToggleButton>
+                            <ContentPresenter x:Name="ContentSite" VerticalAlignment="Center" Margin="3" IsHitTestVisible="False" Content="{TemplateBinding SelectionBoxItem}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"/>
+                            <TextBox x:Name="PART_EditableTextBox" IsReadOnly="{TemplateBinding IsReadOnly}" Visibility="Hidden"/>
+                            <Popup x:Name="Popup" Placement="Bottom" PopupAnimation="Slide" MaxHeight="80" IsOpen="{TemplateBinding IsDropDownOpen}" Focusable="False" AllowsTransparency="True">
+                                <Grid x:Name="DropDown" SnapsToDevicePixels="True" MinWidth="{TemplateBinding ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <Border x:Name="DropDownBorder" Background="White" BorderThickness="1" BorderBrush="Black"/>
+                                    <ScrollViewer SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True"/>
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Margin="15,5,5,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" Background="{StaticResource SK_Orange}" Width="10" CornerRadius="5,5,5,5" VerticalAlignment="Stretch"/>
+                <TextBlock Grid.Column="1" Text="{ex:Translate Crane}" HorizontalAlignment="Left" TextAlignment="Center" Foreground="Black" Margin="5,0,0,0" VerticalAlignment="Center" FontSize="{Binding HeaderTextSize}"/>
+                <TextBox x:Name="tb_CraneID" Grid.Column="2" TextWrapping="Wrap" Text="{Binding SelectCrane}" FontSize="{Binding HeaderTextSize}"
+                         HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            </Grid>
+
+            <Grid Grid.Row="1" Margin="15,5,5,5" IsHitTestVisible="True">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0" Background="{StaticResource SK_Orange}" Width="10" CornerRadius="5,5,5,5" VerticalAlignment="Stretch"/>
+                <TextBlock Grid.Column="1" Text="{ex:Translate Crane Task}" HorizontalAlignment="Left" TextAlignment="Center" Foreground="Black" Margin="5,0,0,0" VerticalAlignment="Center" FontSize="{Binding HeaderTextSize}"/>
+                <TextBox x:Name="tb_Status" Grid.Column="2" TextWrapping="Wrap" Text="" FontSize="{Binding HeaderTextSize}"
+                         HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Row="2" Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <DockPanel IsHitTestVisible="False" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="0">
+                    <Border Background="{StaticResource SK_Orange}" Width="10" CornerRadius="5,5,5,5" VerticalAlignment="Stretch"/>
+                    <TextBlock Text="{ex:Translate Destination}" HorizontalAlignment="Left" TextAlignment="Center" Foreground="Black" Margin="5,0,0,0" VerticalAlignment="Center" FontSize="{Binding HeaderTextSize}"/>
+                </DockPanel>
+
+                <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1" Margin="5" Grid.ColumnSpan="2">
+                    <Grid Margin="0,5,0,5" ShowGridLines="False">
+                        <Grid.Resources>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Left"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                <Setter Property="TextAlignment" Value="Left"/>
+                                <Setter Property="FontSize" Value="{Binding BodyTextSize}"/>
+                            </Style>
+                        </Grid.Resources>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <RadioButton x:Name="PortRadioButton" Tag="Port" GroupName="DestinationGroup"
+                                 Grid.Column="0" Grid.Row="0" Margin="5"
+                                 Checked="RadioButtonCheckedChange"
+                                 Unchecked="RadioButtonCheckedChange"
+                                 IsChecked="{Binding SelectPort}"/>
+                        <TextBlock Text="{ex:Translate Port}" Grid.Column="1" Grid.Row="0" Margin="2" TextAlignment="Left" HorizontalAlignment="Stretch"/>
+                        <ComboBox x:Name="cbbPort" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Stretch" Margin="5"
+                              FontSize="{Binding BodyTextSize}"
+                              Style="{StaticResource CustomComboBoxStyle}"
+                              VerticalContentAlignment="Center"
+                              VerticalAlignment="Stretch"
+                              ItemsSource="{Binding PortList}"
+                              SelectedItem="{Binding DestPort}"
+                              PreviewMouseLeftButtonDown="cbbPort_PreviewMouseLeftButtonDown"
+                              MaxHeight="30"/>
+
+                        <RadioButton x:Name="ShelfRadioButton" Tag="Shelf" GroupName="DestinationGroup"
+                                 Grid.Column="0" Grid.Row="2" Margin="5"
+                                 Checked="RadioButtonCheckedChange"
+                                 Unchecked="RadioButtonCheckedChange"
+                                 IsChecked="{Binding SelectShelf}"/>
+                        <TextBlock Text="{ex:Translate Shelf}" Grid.Column="1" Grid.Row="2" Margin="2" TextAlignment="Left" HorizontalAlignment="Stretch"/>
+                        <!--TagName-->
+                        <TextBox Grid.Column="2" Grid.Row="2" Margin="5"
+                                 FontSize="{Binding HeaderTextSize}" IsEnabled="False"
+                                 Text="{Binding DestShelf}"
+                                 TextAlignment="Left"
+                                 VerticalContentAlignment="Center"
+                                 MaxHeight="30"/>
+
+                        <!--Bank-->
+                        <DockPanel Grid.Column="3" Grid.Row="2" Margin="5" HorizontalAlignment="Center">
+                            <TextBlock Text="{ex:Translate Bank}" Margin="2" TextAlignment="Center" HorizontalAlignment="Stretch"/>
+                            <ComboBox x:Name="cbbBank" MinWidth="50" HorizontalAlignment="Stretch"
+                                  FontSize="{Binding BodyTextSize}"
+                                  Style="{StaticResource CustomComboBoxStyle}"
+                                  VerticalContentAlignment="Center"
+                                  VerticalAlignment="Stretch"
+                                  ItemsSource="{Binding BankList}"
+                                  SelectedItem="{Binding DestBank}"
+                                  SelectionChanged="BankBayLevelChange"
+                                  PreviewMouseLeftButtonDown="cbbBankBayLevel_PreviewMouseLeftButtonDown"
+                                  MaxHeight="30"/>
+                        </DockPanel>
+
+                        <!--Bay-->
+                        <DockPanel Grid.Column="4" Grid.Row="2" Margin="5" HorizontalAlignment="Center">
+                            <TextBlock Text="{ex:Translate Bay}" Margin="2" TextAlignment="Center" HorizontalAlignment="Stretch"/>
+                            <ComboBox x:Name="cbbBay" Width="50" HorizontalAlignment="Left"
+                                  FontSize="{Binding BodyTextSize}"
+                                  Style="{StaticResource CustomComboBoxStyle}"
+                                  VerticalContentAlignment="Center"
+                                  VerticalAlignment="Stretch"
+                                  ItemsSource="{Binding BayList}"
+                                  SelectedItem="{Binding DestBay}"
+                                  SelectionChanged="BankBayLevelChange"
+                                  PreviewMouseLeftButtonDown="cbbBankBayLevel_PreviewMouseLeftButtonDown"
+                                  MaxHeight="30"/>
+                        </DockPanel>
+                        <!--Level-->
+                        <DockPanel Grid.Column="5" Grid.Row="2" Margin="5" HorizontalAlignment="Center">
+                            <TextBlock Text="{ex:Translate Level}" Margin="2" TextAlignment="Center" HorizontalAlignment="Stretch"/>
+                            <ComboBox x:Name="cbbLevel" Width="50" HorizontalAlignment="Left"
+                                  FontSize="{Binding BodyTextSize}"
+                                  Style="{StaticResource CustomComboBoxStyle}"
+                                  VerticalContentAlignment="Center"
+                                  VerticalAlignment="Stretch"
+                                  ItemsSource="{Binding LevelList}"
+                                  SelectedItem="{Binding DestLevel}"
+                                  SelectionChanged="BankBayLevelChange"
+                                  PreviewMouseLeftButtonDown="cbbBankBayLevel_PreviewMouseLeftButtonDown"
+                                  MaxHeight="30"/>
+                        </DockPanel>
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <Grid Grid.Row="3" Margin="5">
+                <DockPanel IsHitTestVisible="True" HorizontalAlignment="Right">
+                    <Border Width="100" HorizontalAlignment="Stretch" Style="{StaticResource SKBorderStyle}"
+                        MouseLeftButtonDown="MoveClick" Tag="MOVE"
+                        MaxHeight="50" VerticalAlignment="Stretch" Margin="5,0,5,0">
+                        <TextBlock Text="{ex:Translate Move}" FontSize="{Binding HeaderTextSize}"/>
+                    </Border>
+
+                    <Border Width="100" HorizontalAlignment="Stretch" Style="{StaticResource SKBorderStyle}"
+                        MouseLeftButtonDown="MoveClick" Tag="GET"
+                        MaxHeight="50" VerticalAlignment="Stretch" Margin="5,0,5,0">
+                        <TextBlock Text="{ex:Translate Pick}" FontSize="{Binding HeaderTextSize}"/>
+                    </Border>
+
+                    <Border Width="100" HorizontalAlignment="Stretch" Style="{StaticResource SKBorderStyle}"
+                        MouseLeftButtonDown="MoveClick" Tag="PUT"
+                        MaxHeight="50" VerticalAlignment="Stretch" Margin="5,0,5,0">
+                        <TextBlock Text="{ex:Translate Unload}" FontSize="{Binding HeaderTextSize}"/>
+                    </Border>
+                </DockPanel>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Window>

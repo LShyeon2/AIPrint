@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<GridItemListItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  
+	<GridItemListItemInfo Section="RMParameter"						GridItem="No"						GridWidth="50"		BindingItem="no"/>
+	<GridItemListItemInfo Section="RMParameter"						GridItem="TagName"					GridWidth="200"		BindingItem="Item1"/>
+	<GridItemListItemInfo Section="RMParameter"						GridItem="Definition"				GridWidth="300"		BindingItem="Item2"/>
+	<GridItemListItemInfo Section="RMParameter"						GridItem="Description"				GridWidth="300"		BindingItem="Item3"/>
+	<GridItemListItemInfo Section="RMParameter"						GridItem="Note"						GridWidth="100"		BindingItem="Item4"/>
+	<GridItemListItemInfo Section="RMParameter"						GridItem="DataType"					GridWidth="100"		BindingItem="Item5"/>
+
+	<GridItemListItemInfo Section="RMPval"							GridItem="No"						GridWidth="80"		BindingItem="no"/>
+	<GridItemListItemInfo Section="RMPval"							GridItem="TagName"					GridWidth="80"		BindingItem="Item1"/>
+	<GridItemListItemInfo Section="RMPval"							GridItem="Definition"				GridWidth="200"		BindingItem="Item2"/>
+	<GridItemListItemInfo Section="RMPval"							GridItem="Description"				GridWidth="600"		BindingItem="Item3"/>
+	<GridItemListItemInfo Section="RMPval"							GridItem="Note"						GridWidth="80"		BindingItem="Item4"/>
+	<GridItemListItemInfo Section="RMPval"							GridItem="DataType"					GridWidth="80"		BindingItem="Item5"/>
+
+	<GridItemListItemInfo Section="AxisState"						GridItem="No"						GridWidth="100"		BindingItem="no"/>
+	<GridItemListItemInfo Section="AxisState"						GridItem="TagName"					GridWidth="300"		BindingItem="Item1"/>
+	<GridItemListItemInfo Section="AxisState"						GridItem="Note"						GridWidth="300"		BindingItem="Item2"/>
+
+	<GridItemListItemInfo Section="Main_Pval"						GridItem="RM.No"					GridWidth="60"		BindingItem="Item1"/>
+	<GridItemListItemInfo Section="Main_Pval"						GridItem="TagName"					GridWidth="60"		BindingItem="Item2"/>
+	<GridItemListItemInfo Section="Main_Pval"						GridItem="P_AxisT"					GridWidth="60"		BindingItem="Item3"/>
+	<GridItemListItemInfo Section="Main_Pval"						GridItem="P_AxisZ"					GridWidth="60"		BindingItem="Item4"/>
+	<GridItemListItemInfo Section="Main_Pval"						GridItem="P_AxisD"					GridWidth="60"		BindingItem="Item5"/>
+	<GridItemListItemInfo Section="Main_Pval"						GridItem="P_AxisF"					GridWidth="60"		BindingItem="Item6"/>
+
+	<!--//220329 HHJ SCS 개발	//- LayOutView 구성 변경-->
+	<!--
+	<GridItemListItemInfo Section="AxisPosition"					GridItem="RM.No"					GridWidth="50"		BindingItem="Item1"/>
+	<GridItemListItemInfo Section="AxisPosition"					GridItem="AxisT"					GridWidth="50"		BindingItem="Item2"/>
+	<GridItemListItemInfo Section="AxisPosition"					GridItem="AxisZ"					GridWidth="50"		BindingItem="Item3"/>
+	<GridItemListItemInfo Section="AxisPosition"					GridItem="AxisD"					GridWidth="50"		BindingItem="Item4"/>
+	<GridItemListItemInfo Section="AxisPosition"					GridItem="AxisF"					GridWidth="50"		BindingItem="Item5"/>
+	<GridItemListItemInfo Section="AxisPosition"					GridItem="AxisG"					GridWidth="50"		BindingItem="Item6"/>
+	-->
+	<GridItemListItemInfo Section="AxisPosition"					GridItem="AxisT"					GridWidth="50"		BindingItem="Item2"/>
+	<GridItemListItemInfo Section="AxisPosition"					GridItem="AxisZ"					GridWidth="50"		BindingItem="Item3"/>
+	<GridItemListItemInfo Section="AxisPosition"					GridItem="AxisD"					GridWidth="50"		BindingItem="Item4"/>
+	<GridItemListItemInfo Section="AxisPosition"					GridItem="AxisF"					GridWidth="50"		BindingItem="Item5"/>
+	<GridItemListItemInfo Section="AxisPosition"					GridItem="AxisG"					GridWidth="50"		BindingItem="Item6"/>
+ 
+	<GridItemListItemInfo Section="Main_BankByalevel"				GridItem="TagName"					GridWidth="70"		BindingItem="Item1"/>
+	<GridItemListItemInfo Section="Main_BankByalevel"				GridItem="BANK"						GridWidth="50"		BindingItem="Item2"/>
+	<GridItemListItemInfo Section="Main_BankByalevel"				GridItem="BAY"						GridWidth="50"		BindingItem="Item3"/>
+	<GridItemListItemInfo Section="Main_BankByalevel"				GridItem="LEVEL"					GridWidth="50"		BindingItem="Item4"/>
+
+	<!--//220318 HHJ SCS 개발	//- ActiveJob 연동 RouteLine 추가-->
+	<!--
+	<GridItemListItemInfo Section="CraneCmd"						GridItem="Command"					GridWidth="80"		BindingItem="Item1"/>
+	<GridItemListItemInfo Section="CraneCmd"						GridItem="TargetType"				GridWidth="80"		BindingItem="Item2"/>
+	<GridItemListItemInfo Section="CraneCmd"						GridItem="TargetBank"				GridWidth="80"		BindingItem="Item3"/>
+	<GridItemListItemInfo Section="CraneCmd"						GridItem="TargetBay"				GridWidth="80"		BindingItem="Item4"/>
+	<GridItemListItemInfo Section="CraneCmd"						GridItem="TargetLevel"				GridWidth="80"		BindingItem="Item5"/>
+	<GridItemListItemInfo Section="CraneCmd"						GridItem="TargetTagID"				GridWidth="80"		BindingItem="Item6"/>
+	<GridItemListItemInfo Section="CraneCmd"						GridItem="TargetCarrierID"			GridWidth="80"		BindingItem="Item7"/>
+	-->
+	<GridItemListItemInfo Section="CraneCmd"						GridItem="Command"					GridWidth="80"		BindingItem="Command"/>
+	<GridItemListItemInfo Section="CraneCmd"						GridItem="TargetType"				GridWidth="80"		BindingItem="TargetType"/>
+	<GridItemListItemInfo Section="CraneCmd"						GridItem="TargetBank"				GridWidth="80"		BindingItem="TargetBank"/>
+	<GridItemListItemInfo Section="CraneCmd"						GridItem="TargetBay"				GridWidth="80"		BindingItem="TargetBay"/>
+	<GridItemListItemInfo Section="CraneCmd"						GridItem="TargetLevel"				GridWidth="80"		BindingItem="TargetLevel"/>
+	<GridItemListItemInfo Section="CraneCmd"						GridItem="TargetTagID"				GridWidth="80"		BindingItem="TargetTagID"/>
+	<GridItemListItemInfo Section="CraneCmd"						GridItem="TargetCarrierID"			GridWidth="80"		BindingItem="TargetCarrierID"/>
+
+	<GridItemListItemInfo Section="PortCmd"							GridItem="PortCommandType"			GridWidth="80"		BindingItem="Item1"/>
+	<GridItemListItemInfo Section="PortCmd"							GridItem="TargetUnitID"				GridWidth="80"		BindingItem="Item2"/>
+	<GridItemListItemInfo Section="PortCmd"							GridItem="TargetTagID"				GridWidth="80"		BindingItem="Item3"/>
+
+	<!--//2021.01.05 Tower Lamp 순서 잘못된거 수정-->
+	<GridItemListItemInfo Section="TowerLampCmd"					GridItem="Green"					GridWidth="60"		BindingItem="Item1"/>
+	<GridItemListItemInfo Section="TowerLampCmd"					GridItem="Yellow"					GridWidth="60"		BindingItem="Item2"/>
+	<GridItemListItemInfo Section="TowerLampCmd"					GridItem="Red"						GridWidth="60"		BindingItem="Item3"/>
+	<GridItemListItemInfo Section="TowerLampCmd"					GridItem="Buzzer"					GridWidth="60"		BindingItem="Item4"/>
+	<GridItemListItemInfo Section="TowerLampCmd"					GridItem="MuteMode"					GridWidth="60"		BindingItem="Item5"/>
+
+	<!--//220609 HHJ SCS 개선	//- Shelf UIControl 변경
+		확실하지 않은 바인딩 아이템은 전부 빈값으로 처리하여 바인딩 되지않도록 한다.-->
+	<!--
+	<GridItemListItemInfo Section="McsJob"							GridItem="CommandID"				GridWidth="100"		BindingItem="CommandID" />
+	<GridItemListItemInfo Section="McsJob"							GridItem="CarrierID"				GridWidth="80"		BindingItem="CarrierID"/>
+	<GridItemListItemInfo Section="McsJob"							GridItem="CarrierType"				GridWidth="60"		BindingItem="CarrierType"/>
+	<GridItemListItemInfo Section="McsJob"							GridItem="Priority"					GridWidth="80"		BindingItem="Priority"/>
+	<GridItemListItemInfo Section="McsJob"							GridItem="TRStatus"					GridWidth="80"		BindingItem="TRStatus"/>
+	<GridItemListItemInfo Section="McsJob"							GridItem="JobType"					GridWidth="80"		BindingItem="JobType"/>
+	<GridItemListItemInfo Section="McsJob"							GridItem="Source"					GridWidth="80"		BindingItem="Source"/>
+	<GridItemListItemInfo Section="McsJob"							GridItem="Destination"				GridWidth="80"		BindingItem="Destination"/>
+	<GridItemListItemInfo Section="McsJob"							GridItem="AssignRM"					GridWidth="80"		BindingItem="AssignRM"/>
+	<GridItemListItemInfo Section="McsJob"							GridItem="SourceGroup"				GridWidth="80"		BindingItem="SourceGroup"/>
+	<GridItemListItemInfo Section="McsJob"							GridItem="DestGroup"				GridWidth="80"		BindingItem="DestGroup"/>
+	<GridItemListItemInfo Section="McsJob"							GridItem="TransferState"			GridWidth="80"		BindingItem="TransferState"/>
+	<GridItemListItemInfo Section="McsJob"							GridItem="ScheduleStep"				GridWidth="100"		BindingItem="Step"/>
+	-->
+  <!--2024.09.19 lim, 이철훈 매니저 생성 시간 앞으로 이동 요청-->
+	<GridItemListItemInfo Section="McsJob"							GridItem="SAVE DTTM"				GridWidth="80"		BindingItem="CreateTime"/>		
+	<GridItemListItemInfo Section="McsJob"							GridItem="COMMAND ID"				GridWidth="120"		BindingItem="CommandID" />
+	<GridItemListItemInfo Section="McsJob"							GridItem="CRANE NUMBER"				GridWidth="70"		BindingItem="AssignRMNumber" />
+	<GridItemListItemInfo Section="McsJob"							GridItem="Type"						GridWidth="70"		BindingItem="JobType"/>
+	<GridItemListItemInfo Section="McsJob"							GridItem="Status"					GridWidth="70"		BindingItem="TCStatus"/>
+	<GridItemListItemInfo Section="McsJob"							GridItem="Priority"					GridWidth="60"		BindingItem="Priority"/>
+	<GridItemListItemInfo Section="McsJob"							GridItem="CarrierID"				GridWidth="80"		BindingItem="CarrierID"/>
+	<GridItemListItemInfo Section="McsJob"							GridItem="SOURCE LOCATION"			GridWidth="80"		BindingItem="Source"/>
+	<GridItemListItemInfo Section="McsJob"							GridItem="DESTINATION LOCATION"		GridWidth="80"		BindingItem="Destination"/>
+	<GridItemListItemInfo Section="McsJob"							GridItem="CARRIER LOCATION"			GridWidth="80"		BindingItem="CarrierLoc"/>
+
+	<!--//220405 HHJ SCS 개선	//- User Page 추가-->
+	<GridItemListItemInfo Section="User"							GridItem="No"						GridWidth="1"		BindingItem="ListNo"/>
+	<GridItemListItemInfo Section="User"							GridItem="ID"						GridWidth="4"		BindingItem="UserID"/>
+	<GridItemListItemInfo Section="User"							GridItem="Name"						GridWidth="4"		BindingItem="UserName"/>
+	<GridItemListItemInfo Section="User"							GridItem="Group"					GridWidth="10"		BindingItem="UserLevel"/>
+	<GridItemListItemInfo Section="User"							GridItem="Use"						GridWidth="1"		BindingItem="UserUse"/>
+
+	<GridItemListItemInfo Section="GUser"							GridItem="No"						GridWidth="1"		BindingItem="ListNo"/>
+	<GridItemListItemInfo Section="GUser"							GridItem="Group"					GridWidth="4"		BindingItem="UserLevel"/>
+	<GridItemListItemInfo Section="GUser"							GridItem="Menu"						GridWidth="10"		BindingItem="UserLevel"/>
+	<GridItemListItemInfo Section="GUser"							GridItem="Delete"					GridWidth="1"		BindingItem="UserUse"/>
+
+  <GridItemListItemInfo Section="State_PRT"							GridItem="Date"						GridWidth="6"		BindingItem="logTime"	BindingStringFormat="yyyy-MM-dd HH:mm:ss"/>
+  <GridItemListItemInfo Section="State_PRT"							GridItem="Level"						GridWidth="3"		BindingItem="logLevel"/>
+  <GridItemListItemInfo Section="State_PRT"							GridItem="Module"						GridWidth="3"		BindingItem="logModules"/>
+  <GridItemListItemInfo Section="State_PRT"							GridItem="Message"					GridWidth="12"		BindingItem="message"/>
+
+  <GridItemListItemInfo Section="Recipe_Modify"							GridItem="Recipe"						GridWidth="3"		BindingItem="Recipe_No"/>
+  <GridItemListItemInfo Section="Recipe_Modify"							GridItem="Order"						GridWidth="3"		BindingItem="Order"/>
+  <GridItemListItemInfo Section="Recipe_Modify"							GridItem="Type"						GridWidth="3"		BindingItem="DataType"/>
+  <GridItemListItemInfo Section="Recipe_Modify"							GridItem="Name"					  GridWidth="12"		BindingItem="Config_NM"/>
+  <GridItemListItemInfo Section="Recipe_Modify"							GridItem="Value"					GridWidth="12"		BindingItem="Config_Val"/>
+
+  <GridItemListItemInfo Section="Recipe_Manage"							GridItem="Recipe No"					GridWidth="3"		  BindingItem="Recipe_No"/>
+  <GridItemListItemInfo Section="Recipe_Manage"							GridItem="Recipe Name"				GridWidth="10"		BindingItem="Recipe_Name"/>
+  <GridItemListItemInfo Section="Recipe_Manage"							GridItem="State"							GridWidth="10"		BindingItem="Recipe_State"/>
+  <GridItemListItemInfo Section="Recipe_Manage"							GridItem="Modify Date"				GridWidth="12"		BindingItem="ModifyDate"	BindingStringFormat="yyyy-MM-dd HH:mm:ss"/>
+  <GridItemListItemInfo Section="Recipe_Manage"							GridItem="Create Date"				GridWidth="12"		BindingItem="CreateDate"  BindingStringFormat="yyyy-MM-dd HH:mm:ss"/>
+
+  <GridItemListItemInfo Section="Scenario_Manage"							GridItem="Step"							GridWidth="3"		  BindingItem="Step"/>
+  <GridItemListItemInfo Section="Scenario_Manage"							GridItem="Recipe No"				GridWidth="10"		BindingItem="Recipe_No"/>
+  <GridItemListItemInfo Section="Scenario_Manage"							GridItem="Recipe Name"			GridWidth="10"		BindingItem="Recipe_Name"/>
+
+</GridItemListItem>

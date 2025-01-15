@@ -1,0 +1,531 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="clr-namespace:BoxPrint.GUI.Views.Map">
+
+    <Storyboard x:Key="storyboardSelectkiosk" AutoReverse="True" RepeatBehavior="Forever">
+        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="pathSelectkiosk">
+            <EasingDoubleKeyFrame KeyTime="0" Value="2.667"/>
+            <EasingDoubleKeyFrame KeyTime="0:0:0.126" Value="-2.949"/>
+            <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="-10">
+                <EasingDoubleKeyFrame.EasingFunction>
+                    <ExponentialEase EasingMode="EaseOut"/>
+                </EasingDoubleKeyFrame.EasingFunction>
+            </EasingDoubleKeyFrame>
+        </DoubleAnimationUsingKeyFrames>
+        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="pathSelectkiosk">
+            <EasingDoubleKeyFrame KeyTime="0" Value="0.852"/>
+            <EasingDoubleKeyFrame KeyTime="0:0:0.126" Value="0.988"/>
+            <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+        </DoubleAnimationUsingKeyFrames>
+        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="pathSelectkiosk">
+            <EasingDoubleKeyFrame KeyTime="0" Value="1.128"/>
+            <EasingDoubleKeyFrame KeyTime="0:0:0.126" Value="1"/>
+        </DoubleAnimationUsingKeyFrames>
+        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="pathSelectkiosk">
+            <EasingDoubleKeyFrame KeyTime="0" Value="0.031"/>
+            <EasingDoubleKeyFrame KeyTime="0:0:0.126" Value="0"/>
+        </DoubleAnimationUsingKeyFrames>
+    </Storyboard>
+
+    <!--컨베어-->
+    <Style x:Key="Conveyor" TargetType="{x:Type s:MapGUIControl}">
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width"  Value="50"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type s:MapGUIControl}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!--Background="#FFE2CCBE"-->
+                        <Border CornerRadius="1" Background="{StaticResource SK_MouseOverGray}" Grid.ColumnSpan="6"/>
+
+                        <!--Fill="#FF815360"-->
+                        <Rectangle Fill="{StaticResource SK_LBlack}" RadiusX="1" RadiusY="1" Margin="1"/>
+                        <Rectangle Fill="{StaticResource SK_LBlack}" RadiusX="1" RadiusY="1" Margin="1" Grid.Column="1"/>
+                        <Rectangle Fill="{StaticResource SK_LBlack}" RadiusX="1" RadiusY="1" Margin="1" Grid.Column="2"/>
+                        <Rectangle Fill="{StaticResource SK_LBlack}" RadiusX="1" RadiusY="1" Margin="1" Grid.Column="3"/>
+
+                        <TextBlock Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"
+                                   Foreground="#FF422030" FontFamily="{StaticResource ExtraBoldFont}"
+                                   Text="{Binding Path=(s:MapGUIControl.DisplayName), RelativeSource={RelativeSource TemplatedParent}}"
+                                   FontSize="{Binding Path=(s:MapGUIControl.DisplayNameFontSize), RelativeSource={RelativeSource TemplatedParent}}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--컨베어2-->
+    <Style x:Key="Conveyor2" TargetType="{x:Type s:MapGUIControl}">
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width"  Value="50"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type s:MapGUIControl}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!--Background="#FFE2CCBE"-->
+                        <Border CornerRadius="1" Background="{StaticResource SK_MouseOverGray}" Grid.ColumnSpan="6"/>
+
+                        <!--Fill="#FF815360"-->
+                        <Rectangle Fill="{StaticResource SK_LBlack}" RadiusX="1" RadiusY="1" Margin="1"/>
+                        <Rectangle Fill="{StaticResource SK_LBlack}" RadiusX="1" RadiusY="1" Margin="1" Grid.Column="1"/>
+                        <Rectangle Fill="{StaticResource SK_LBlack}" RadiusX="1" RadiusY="1" Margin="1" Grid.Column="2"/>
+                        <Rectangle Fill="{StaticResource SK_LBlack}" RadiusX="1" RadiusY="1" Margin="1" Grid.Column="3"/>
+
+                        <TextBlock Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"
+                                   Foreground="#FF422030" FontFamily="{StaticResource ExtraBoldFont}"
+                                   Text="{Binding Path=(s:MapGUIControl.DisplayName), RelativeSource={RelativeSource TemplatedParent}}"
+                                   FontSize="{Binding Path=(s:MapGUIControl.DisplayNameFontSize), RelativeSource={RelativeSource TemplatedParent}}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!--랙마스터-->
+    <Style x:Key="RackMaster" TargetType="{x:Type s:MapGUIControl}">
+        <Setter Property="Height" Value="300"/>
+        <Setter Property="Width"  Value="28"/>
+        <Setter Property="Cursor"  Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type s:MapGUIControl}">
+                    <Border Name="border" CornerRadius="3,5,0,5" BorderBrush="{Binding Path=(s:MapGUIControl.SubColor), RelativeSource={RelativeSource TemplatedParent}}" BorderThickness="0,0,4,10" >
+                        <!--BorderBrush="#FF49596D"-->
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Setter Property="Background" Value="{Binding Path=(s:MapGUIControl.MainColor), RelativeSource={RelativeSource TemplatedParent}}"/>
+                                <!--Value="#FFFBDB4C"-->
+                                <!--<Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="{Binding Path=(s:MapGUIControl.MouseOverColor), RelativeSource={RelativeSource TemplatedParent}}"/> -->
+                                <!--Value="#FFFBF05A"-->
+                                    <!--</Trigger>
+                                </Style.Triggers>-->
+                            </Style>
+                        </Border.Style>
+
+                        <!--Foreground="#FF422030"-->
+                        <TextBlock Name="textBlock" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"
+                                   Foreground="{TemplateBinding Foreground}" FontFamily="{StaticResource ExtraBoldFont}"
+                                   Text="{Binding Path=(s:MapGUIControl.DisplayName), RelativeSource={RelativeSource TemplatedParent}}"
+                                   FontSize="{Binding Path=(s:MapGUIControl.DisplayNameFontSize), RelativeSource={RelativeSource TemplatedParent}}" RenderTransformOrigin="0.5,0.5" >
+                            <TextBlock.LayoutTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </TextBlock.LayoutTransform>
+                        </TextBlock>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <!--<Setter TargetName="border"     Property="Background" Value="{Binding Path=(s:MapGUIControl.MouseOverColor), RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter TargetName="textBlock"  Property="Foreground" Value="white"/>-->
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="textBlock" Storyboard.TargetProperty="(LayoutTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" From="1" To="1.3" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="textBlock" Storyboard.TargetProperty="(LayoutTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" From="1" To="1.3" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="textBlock" Storyboard.TargetProperty="(LayoutTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)"  To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="textBlock" Storyboard.TargetProperty="(LayoutTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)"  To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <DataTrigger Binding="{Binding Path=(s:MapGUIControl.isSelect), RelativeSource={RelativeSource self}}" Value="True">
+                            <Setter Property="Background" TargetName="border" Value="{StaticResource SK_Orange}"></Setter>
+                            <Setter Property="Foreground" TargetName="textBlock" Value="white"></Setter>
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--랙마스터_번역-->
+    <Style x:Key="RackMaster1" TargetType="{x:Type s:MapGUIControl}">
+        <Setter Property="Height" Value="300"/>
+        <Setter Property="Width"  Value="28"/>
+        <Setter Property="Cursor"  Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type s:MapGUIControl}">
+                    <Border Name="border" CornerRadius="3,5,0,5" BorderBrush="{Binding Path=(s:MapGUIControl.SubColor), RelativeSource={RelativeSource TemplatedParent}}" BorderThickness="0,0,4,10" >
+                        <!--BorderBrush="#FF49596D"-->
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Setter Property="Background" Value="{Binding Path=(s:MapGUIControl.MainColor), RelativeSource={RelativeSource TemplatedParent}}"/>
+                            </Style>
+                        </Border.Style>
+
+                        <!--Foreground="#FF422030"-->
+                        <TextBlock Name="textBlock" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"
+                                   Foreground="{TemplateBinding Foreground}" FontFamily="{StaticResource ExtraBoldFont}"
+                                   Text="{TemplateBinding Content}" FontSize="{TemplateBinding FontSize}" RenderTransformOrigin="0.5,0.5" >
+                            <TextBlock.LayoutTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </TextBlock.LayoutTransform>
+                        </TextBlock>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="textBlock" Storyboard.TargetProperty="(LayoutTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" From="1" To="1.3" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="textBlock" Storyboard.TargetProperty="(LayoutTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" From="1" To="1.3" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="textBlock" Storyboard.TargetProperty="(LayoutTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)"  To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="textBlock" Storyboard.TargetProperty="(LayoutTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)"  To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <DataTrigger Binding="{Binding Path=(s:MapGUIControl.isSelect), RelativeSource={RelativeSource self}}" Value="True">
+                            <Setter Property="Background" TargetName="border" Value="{StaticResource SK_Orange}"></Setter>
+                            <Setter Property="Foreground" TargetName="textBlock" Value="white"></Setter>
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--CellPacking-->
+    <Style x:Key="CellPacking" TargetType="{x:Type s:MapGUIControl}">
+        <Setter Property="Height" Value="51.74"/>
+        <Setter Property="Width"  Value="341.187"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type s:MapGUIControl}">
+                    <Grid>
+                        <!--Fill="#FFF3E1D7"-->
+                        <Path Stretch="Fill" Fill="{StaticResource SK_MouseOverGray}" StrokeThickness="0"
+                              Data="M274.29958,5.0499971 L282.79955,5.0499971 284.98702,7.2375018 284.98702,14.675006 282.175,14.675006 282.175,43.175013 261.175,43.175013 261.175,30.425007 249.175,30.425007 249.175,26.300009 245.425,26.300009 245.425,27.425009 239.175,27.425009 239.175,26.175009 237.05,26.175009 237.05,27.925009 215.04999,27.925009 215.04999,25.800009 213.425,25.800009 213.425,29.675009 210.42502,29.675009 207.55003,26.800022 193.30006,26.800022 193.30006,21.050009&#xD;&#xA;183.55003,21.050009 183.55003,23.425009 185.92503,23.425009 188.17503,26.675011 186.17503,27.800011 186.17503,33.800009 187.30003,33.800009 187.30003,34.675009 185.55003,36.050009 177.17505,36.050009 175.42502,34.300009 177.80003,34.300009 177.80003,28.300011 176.30003,26.175009 177.92503,24.050009 177.92503,21.550011 176.67503,19.550009 176.67503,15.550008 169.80003,15.550008 169.80003,9.675009 188.80002,9.675009 188.80002,14.925008 195.05002,14.925008&#xD;&#xA;195.05002,8.8000119 207.92502,8.8000119 211.55002,6.0500104 213.17502,6.0500104 215.34999,8.2250073 274.29958,8.2250073 z M130.05,0.05 L141.63298,0.05 141.63298,9.8829901 166.09999,9.8829901 166.09999,15.599991 163.30002,16.300011 163.30002,19.799998 166.425,19.799998 166.425,17.549994 168.42503,17.549994 168.42503,20.550009 170.8,20.550009 170.8,26.300005 C170.8,26.300003 168.16324,26.629585 167.73065,26.361799 L167.69118,26.318003 167.6684,26.271897 C167.66519,26.267777 167.66715,26.276566 167.67496,26.300005 L167.69118,26.318003 167.69278,26.321247 C167.87222,26.716021 168.92497,29.29999 168.92497,29.299992 L168.92497,31.800011 167.67496,32.800001 168.92497,34.174994 168.92497,35.925001 159.42497,35.925001 159.42497,34.425009 160.67499,33.174998 159.42497,32.300013 159.42497,30.175009 160.42499,28.674982 160.42499,26.174998 141.92497,26.174998 141.92497,34.799998 129.04999,34.799998 129.04999,29.675009 134.04999,29.675009 134.04999,27.67502 81.675011,27.67502 81.675011,26.550015 20.05003,26.550015 17.674996,28.17502 12.674987,28.17502 9.9250119,25.800003&#xD;&#xA;9.9250119,24.424988 6.3000257,24.424988 4.4249971,22.924996 1.5500186,24.549992 0.05,24.549992 0.05,10.924978 1.6750219,10.924978 4.8000029,12.674987 7.1749766,10.424982 9.799949,10.424982 9.799949,8.924989 11.799977,7.0500033 17.049984,7.0500033 19.799963,8.924989 84.17498,8.924989 84.17498,7.5500038 130.05,7.5500038 z"/>
+
+                        <TextBlock Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"
+                                   Foreground="#FF293340" FontFamily="{StaticResource ExtraBoldFont}"
+                                   Text="{Binding Path=(s:MapGUIControl.DisplayName), RelativeSource={RelativeSource TemplatedParent}}"
+                                   FontSize="{Binding Path=(s:MapGUIControl.DisplayNameFontSize), RelativeSource={RelativeSource TemplatedParent}}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--20230516 정인길 셀해체포장기 Path-->
+    <!--CellPacking_1-->
+    <Style x:Key="CellPacking_1" TargetType="{x:Type s:MapGUIControl}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type s:MapGUIControl}">
+                    <Grid>
+                        <!--Fill="#FFF3E1D7"-->
+                        <Path Stretch="Fill" Fill="{StaticResource SK_MouseOverGray}" StrokeThickness="0" 
+                              Data="M144.33186,79.538133 L152.64436,79.538133 152.64436,100.57813 160.76203,100.57813 160.76203,79.265115 168.97712,79.265115 168.97712,109.87975 167.19162,111.65412 167.19162,113.14958 171.92942,113.14958 171.92942,115.75765 170.14069,115.75765 170.14069,145.95523 171.9933,145.95523 171.9933,148.39548 168.21547,148.39548 168.21547,152.88386 171.48106,152.88386 171.48106,156.95078 168.02338,156.95078 168.02338,161.08039 170.26447,161.08039 170.26447,176.90909 168.02338,176.90909 168.02338,187.74244 171.41703,187.74244 171.41703,190.66161 170.26447,190.66161 170.26447,220.97882 167.94008,223.5684 167.94008,225.38743 171.33813,225.38743 171.33813,227.9283 167.81143,227.9283 167.81143,257.97288 174.82314,257.97288 174.82314,267.79425 168.08964,267.79425 168.08964,271.67825 170.6941,271.67825 170.6941,275.0759 168.13944,275.0759 168.13944,283.60558 171.58343,283.60558 171.58343,292.63981 167.89907,292.63981 167.89907,296.26566 169.69805,298.04385 169.69805,301.47105 167.92067,303.22933 167.92067,306.59633 175.14075,306.59633 175.14075,316.28684 166.73248,316.28684 166.73248,317.95904 175.3333,317.95904 175.3333,326.96272 166.61414,326.96272 166.61414,328.69508 175.59164,328.69508 175.59164,338.00114 167.09288,338.00114 167.09288,339.4515 171.85783,339.4515 171.85783,343.09143 168.29769,343.09143 168.29769,357.67711 172.11833,357.67711 172.08591,364.88477 167.93065,364.88477 169.67516,367.40797 167.95695,369.68041 167.95492,371.06186 172.80749,371.06186 172.79128,380.39547 168.25427,380.39547 168.25427,382.52169 171.21332,385.01669 171.1755,390.09212 168.37858,392.36537 168.37299,395.25195 169.99093,395.25129 169.99093,417.1109 159.76637,417.1109 159.76637,406.1237 145.12895,406.1237 145.17231,395.25284 162.03483,395.33642 162.0347,392.50611 159.50085,390.5009 154.33963,390.5009 154.33963,384.93491 159.34597,384.96626 162.03338,382.67938 162.03338,380.41325 144.58041,380.37146 144.58041,371.08249 162.05669,371.04388 162.05669,369.75877 160.3871,367.43931 162.12152,364.91611 157.4056,364.91093 157.38939,357.68964 161.69116,357.68964 161.69116,352.73975 153.59057,352.73975 153.59057,343.09059 158.25617,343.09059 158.25617,339.58181 161.25242,339.58181 161.25242,337.9945 153.29095,337.9945 153.29095,328.76305 161.98008,328.76305 161.98008,327.00866 153.16253,327.00866 153.16253,318.06962 162.02289,318.06962 162.02289,316.44054 153.11973,316.44054 153.11973,306.49898 161.49854,306.49898 161.49854,303.36614 160.47125,302.3323 153.9223,302.3323 153.9223,297.75835 160.69597,297.75835 161.93728,296.13972 161.93728,292.77713 145.15826,292.77713 145.15826,283.69189 162.1727,283.69189 162.1727,275.1079 159.32626,275.1079 159.32626,271.72443 162.16743,271.72443 162.16743,267.81898 155.34552,267.81898 155.34552,258.21143 162.70774,258.21143 162.70774,251.40272 153.76179,251.40272 C153.76179,251.40272 153.76179,241.08522 153.76179,241.08522 160.76018,241.08522 160.82438,241.08522 160.82438,241.08522 L160.82438,227.98985 157.19266,227.98985 157.19266,225.47321 160.85757,225.47321 160.85717,220.99978 151.40759,220.9306 151.40759,229.09688 128.91428,229.09688 128.91428,220.22049 144.79755,220.22049 144.79755,216.58639 128.7198,216.58639 128.7198,207.43849 144.53904,207.43849 144.53904,199.91967 128.5245,199.91967 128.5245,190.20786 150.09694,190.20786 150.09694,186.00985 161.73298,186.00985 161.73298,177.15434 159.33604,177.15434 159.33604,161.3857 161.53687,161.3857 161.53687,157.12503 157.81072,157.12503 157.81072,153.24031 161.60224,153.24031 161.60224,148.3844 156.37256,148.3844 156.37256,146.09743 150.88139,146.09743 150.88139,156.56112 127.87079,156.56112 127.87079,147.09994 143.62644,147.09994 143.62644,142.77661 127.93562,142.77661 127.93562,133.81668 143.95064,133.81668 143.95064,125.79661 128.0653,125.79661 128.0653,117.02465 149.98058,117.02465 149.98058,115.2076 155.32973,115.2076 155.32973,113.07726 163.23998,113.07726 163.23998,111.19756 144.16676,111.19756 144.16676,79.096361"
+                              Stroke="Black"  VerticalAlignment="Top" Width="47" />
+
+                        <TextBlock Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"
+                                   Foreground="#FF293340" FontFamily="{StaticResource ExtraBoldFont}"
+                                   Text="{TemplateBinding Content}" FontSize="{TemplateBinding FontSize}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--20230516 정인길 셀해체포장기 Path , TextBlock 대칭 -->
+    <!--CellPacking_2-->
+    <Style x:Key="CellPacking_2" TargetType="{x:Type s:MapGUIControl}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type s:MapGUIControl}">
+                    <Grid>
+                        <!--Fill="#FFF3E1D7"-->
+                        <Path Stretch="Fill" Fill="{StaticResource SK_MouseOverGray}" StrokeThickness="0" 
+                              Data="M144.33186,79.538133 L152.64436,79.538133 152.64436,100.57813 160.76203,100.57813 160.76203,79.265115 168.97712,79.265115 168.97712,109.87975 167.19162,111.65412 167.19162,113.14958 171.92942,113.14958 171.92942,115.75765 170.14069,115.75765 170.14069,145.95523 171.9933,145.95523 171.9933,148.39548 168.21547,148.39548 168.21547,152.88386 171.48106,152.88386 171.48106,156.95078 168.02338,156.95078 168.02338,161.08039 170.26447,161.08039 170.26447,176.90909 168.02338,176.90909 168.02338,187.74244 171.41703,187.74244 171.41703,190.66161 170.26447,190.66161 170.26447,220.97882 167.94008,223.5684 167.94008,225.38743 171.33813,225.38743 171.33813,227.9283 167.81143,227.9283 167.81143,257.97288 174.82314,257.97288 174.82314,267.79425 168.08964,267.79425 168.08964,271.67825 170.6941,271.67825 170.6941,275.0759 168.13944,275.0759 168.13944,283.60558 171.58343,283.60558 171.58343,292.63981 167.89907,292.63981 167.89907,296.26566 169.69805,298.04385 169.69805,301.47105 167.92067,303.22933 167.92067,306.59633 175.14075,306.59633 175.14075,316.28684 166.73248,316.28684 166.73248,317.95904 175.3333,317.95904 175.3333,326.96272 166.61414,326.96272 166.61414,328.69508 175.59164,328.69508 175.59164,338.00114 167.09288,338.00114 167.09288,339.4515 171.85783,339.4515 171.85783,343.09143 168.29769,343.09143 168.29769,357.67711 172.11833,357.67711 172.08591,364.88477 167.93065,364.88477 169.67516,367.40797 167.95695,369.68041 167.95492,371.06186 172.80749,371.06186 172.79128,380.39547 168.25427,380.39547 168.25427,382.52169 171.21332,385.01669 171.1755,390.09212 168.37858,392.36537 168.37299,395.25195 169.99093,395.25129 169.99093,417.1109 159.76637,417.1109 159.76637,406.1237 145.12895,406.1237 145.17231,395.25284 162.03483,395.33642 162.0347,392.50611 159.50085,390.5009 154.33963,390.5009 154.33963,384.93491 159.34597,384.96626 162.03338,382.67938 162.03338,380.41325 144.58041,380.37146 144.58041,371.08249 162.05669,371.04388 162.05669,369.75877 160.3871,367.43931 162.12152,364.91611 157.4056,364.91093 157.38939,357.68964 161.69116,357.68964 161.69116,352.73975 153.59057,352.73975 153.59057,343.09059 158.25617,343.09059 158.25617,339.58181 161.25242,339.58181 161.25242,337.9945 153.29095,337.9945 153.29095,328.76305 161.98008,328.76305 161.98008,327.00866 153.16253,327.00866 153.16253,318.06962 162.02289,318.06962 162.02289,316.44054 153.11973,316.44054 153.11973,306.49898 161.49854,306.49898 161.49854,303.36614 160.47125,302.3323 153.9223,302.3323 153.9223,297.75835 160.69597,297.75835 161.93728,296.13972 161.93728,292.77713 145.15826,292.77713 145.15826,283.69189 162.1727,283.69189 162.1727,275.1079 159.32626,275.1079 159.32626,271.72443 162.16743,271.72443 162.16743,267.81898 155.34552,267.81898 155.34552,258.21143 162.70774,258.21143 162.70774,251.40272 153.76179,251.40272 C153.76179,251.40272 153.76179,241.08522 153.76179,241.08522 160.76018,241.08522 160.82438,241.08522 160.82438,241.08522 L160.82438,227.98985 157.19266,227.98985 157.19266,225.47321 160.85757,225.47321 160.85717,220.99978 151.40759,220.9306 151.40759,229.09688 128.91428,229.09688 128.91428,220.22049 144.79755,220.22049 144.79755,216.58639 128.7198,216.58639 128.7198,207.43849 144.53904,207.43849 144.53904,199.91967 128.5245,199.91967 128.5245,190.20786 150.09694,190.20786 150.09694,186.00985 161.73298,186.00985 161.73298,177.15434 159.33604,177.15434 159.33604,161.3857 161.53687,161.3857 161.53687,157.12503 157.81072,157.12503 157.81072,153.24031 161.60224,153.24031 161.60224,148.3844 156.37256,148.3844 156.37256,146.09743 150.88139,146.09743 150.88139,156.56112 127.87079,156.56112 127.87079,147.09994 143.62644,147.09994 143.62644,142.77661 127.93562,142.77661 127.93562,133.81668 143.95064,133.81668 143.95064,125.79661 128.0653,125.79661 128.0653,117.02465 149.98058,117.02465 149.98058,115.2076 155.32973,115.2076 155.32973,113.07726 163.23998,113.07726 163.23998,111.19756 144.16676,111.19756 144.16676,79.096361"
+                              Stroke="Black"  VerticalAlignment="Top" Width="47" />
+
+                        <TextBlock Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" 
+                                   Foreground="#FF293340" FontFamily="{StaticResource ExtraBoldFont}"
+                                   Text="{TemplateBinding Content}" FontSize="{TemplateBinding FontSize}">
+                            <TextBlock.RenderTransform>
+                                <ScaleTransform ScaleY="-1" />
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--CellPacking_번역-->
+    <Style x:Key="CellPacking3" TargetType="{x:Type s:MapGUIControl}">
+        <Setter Property="Height" Value="51.74"/>
+        <Setter Property="Width"  Value="341.187"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type s:MapGUIControl}">
+                    <Grid>
+                        <!--Fill="#FFF3E1D7"-->
+                        <Path Stretch="Fill" Fill="{StaticResource SK_MouseOverGray}" StrokeThickness="0"
+                              Data="M274.29958,5.0499971 L282.79955,5.0499971 284.98702,7.2375018 284.98702,14.675006 282.175,14.675006 282.175,43.175013 261.175,43.175013 261.175,30.425007 249.175,30.425007 249.175,26.300009 245.425,26.300009 245.425,27.425009 239.175,27.425009 239.175,26.175009 237.05,26.175009 237.05,27.925009 215.04999,27.925009 215.04999,25.800009 213.425,25.800009 213.425,29.675009 210.42502,29.675009 207.55003,26.800022 193.30006,26.800022 193.30006,21.050009&#xD;&#xA;183.55003,21.050009 183.55003,23.425009 185.92503,23.425009 188.17503,26.675011 186.17503,27.800011 186.17503,33.800009 187.30003,33.800009 187.30003,34.675009 185.55003,36.050009 177.17505,36.050009 175.42502,34.300009 177.80003,34.300009 177.80003,28.300011 176.30003,26.175009 177.92503,24.050009 177.92503,21.550011 176.67503,19.550009 176.67503,15.550008 169.80003,15.550008 169.80003,9.675009 188.80002,9.675009 188.80002,14.925008 195.05002,14.925008&#xD;&#xA;195.05002,8.8000119 207.92502,8.8000119 211.55002,6.0500104 213.17502,6.0500104 215.34999,8.2250073 274.29958,8.2250073 z M130.05,0.05 L141.63298,0.05 141.63298,9.8829901 166.09999,9.8829901 166.09999,15.599991 163.30002,16.300011 163.30002,19.799998 166.425,19.799998 166.425,17.549994 168.42503,17.549994 168.42503,20.550009 170.8,20.550009 170.8,26.300005 C170.8,26.300003 168.16324,26.629585 167.73065,26.361799 L167.69118,26.318003 167.6684,26.271897 C167.66519,26.267777 167.66715,26.276566 167.67496,26.300005 L167.69118,26.318003 167.69278,26.321247 C167.87222,26.716021 168.92497,29.29999 168.92497,29.299992 L168.92497,31.800011 167.67496,32.800001 168.92497,34.174994 168.92497,35.925001 159.42497,35.925001 159.42497,34.425009 160.67499,33.174998 159.42497,32.300013 159.42497,30.175009 160.42499,28.674982 160.42499,26.174998 141.92497,26.174998 141.92497,34.799998 129.04999,34.799998 129.04999,29.675009 134.04999,29.675009 134.04999,27.67502 81.675011,27.67502 81.675011,26.550015 20.05003,26.550015 17.674996,28.17502 12.674987,28.17502 9.9250119,25.800003&#xD;&#xA;9.9250119,24.424988 6.3000257,24.424988 4.4249971,22.924996 1.5500186,24.549992 0.05,24.549992 0.05,10.924978 1.6750219,10.924978 4.8000029,12.674987 7.1749766,10.424982 9.799949,10.424982 9.799949,8.924989 11.799977,7.0500033 17.049984,7.0500033 19.799963,8.924989 84.17498,8.924989 84.17498,7.5500038 130.05,7.5500038 z"/>
+
+                        <TextBlock Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"
+                                   Foreground="#FF293340" FontFamily="{StaticResource ExtraBoldFont}"
+                                   Text="{TemplateBinding Content}" FontSize="{TemplateBinding FontSize}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--모듈 조립 라인-->
+    <Style x:Key="ModuleAssembleLine" TargetType="{x:Type s:MapGUIControl}">
+        <Setter Property="Height" Value="153.667"/>
+        <Setter Property="Width"  Value="377"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type s:MapGUIControl}">
+                    <Grid>
+                        <!--Fill="#FFF3E1D7"--> 
+                        <Path Stretch="Fill" Fill="{StaticResource SK_MouseOverGray}" StrokeThickness="0" 
+                            Data="M1007.6667,184.33333 L1007.6667,203.16699 1092.4997,203.16699 1092.4997,212.49983 1084.4996,212.49983 1034.4997,220.83302 1034.4997,212.16676 1007.1664,212.16676 1007.1664,231.83326 1109.833,231.83326 1109.833,233.50027 1121.5001,233.50027 1121.5001,215.16695 1183.8339,215.16695 1183.8339,223.50027 1190.8343,223.50027 1190.8343,211.83362 1230.1683,211.83362 1230.1683,227.8336 1236.5014,227.8336 1236.5014,216.50028 1246.1681,216.50028 1246.1681,209.83363 1275.5013,209.83363&#xA;1275.5013,222.16694 1283.8347,222.16694 1283.8347,212.16696 1287.8351,212.16696 1287.8351,223.83361 1301.5022,223.83361 1301.5022,212.83362 1321.1691,209.50029 1321.1691,180.50033 1268.835,180.50033 1268.835,157.50037 1321.8354,157.50037 1321.8354,131.16707 1300.8356,124.83339 1300.8356,113.83374 1288.8355,113.83374 1288.8355,125.50069 1284.5021,125.50069 1284.5021,115.50073 1275.502,115.50073 1275.502,127.83401 1246.5017,127.83401 1246.5017,121.5007&#xA;1236.835,121.5007 1236.835,109.50075 1229.8349,109.50075 1229.8349,125.50068 1190.1678,125.50068 1190.1678,115.16739 1185.1678,115.16739 1185.1678,125.16735 1121.8338,125.16735 1121.8338,105.8341 1111.8337,105.8341 1111.8337,107.83442 1008.1661,107.83442 1008.1661,125.16764 1034.1663,125.16764 1034.1663,116.1677 1085.5001,125.16764 1092.8336,125.16764 1092.8336,135.16757 1008.1661,135.16757 1008.1661,154.16745 1033.833,154.16745 1033.833,146.1675&#xA;1104.8337,155.50077 1104.8337,149.83414 1115.8338,149.83414 1115.8338,162.1674 1119.5005,162.1674 1119.5005,157.50076 1179.1677,157.50076 1179.1677,161.50073 1185.8345,161.50073 1185.8345,145.83417 1206.168,145.83417 1206.168,162.50073 1212.5014,162.50073 1212.5014,158.16742 1228.1682,158.16742 1228.1682,178.16729 1212.168,178.16729 1212.168,174.16732 1206.168,174.16732 1206.168,192.50053 1185.8345,192.50053 1185.8345,175.16731 1180.5011,175.16731&#xA;1180.5011,181.16727 1119.8338,181.16727 1119.8338,174.83398 1115.1671,174.83398 1115.1671,186.8339 1104.167,186.8339 1104.167,180.16728 1033.833,191.83387 1033.833,184.16725 z"/>
+
+                        <TextBlock Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"
+                                   Foreground="#FF293340" FontFamily="{StaticResource ExtraBoldFont}"
+                                   Text="{Binding Path=(s:MapGUIControl.DisplayName), RelativeSource={RelativeSource TemplatedParent}}"
+                                   FontSize="{Binding Path=(s:MapGUIControl.DisplayNameFontSize), RelativeSource={RelativeSource TemplatedParent}}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!--모듈 조립 라인_번역-->
+    <Style x:Key="ModuleAssembleLine1" TargetType="{x:Type s:MapGUIControl}">
+        <Setter Property="Height" Value="153.667"/>
+        <Setter Property="Width"  Value="377"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type s:MapGUIControl}">
+                    <Grid>
+                        <!--Fill="#FFF3E1D7"-->
+                        <Path Stretch="Fill" Fill="{StaticResource SK_MouseOverGray}" StrokeThickness="0" 
+                            Data="M1007.6667,184.33333 L1007.6667,203.16699 1092.4997,203.16699 1092.4997,212.49983 1084.4996,212.49983 1034.4997,220.83302 1034.4997,212.16676 1007.1664,212.16676 1007.1664,231.83326 1109.833,231.83326 1109.833,233.50027 1121.5001,233.50027 1121.5001,215.16695 1183.8339,215.16695 1183.8339,223.50027 1190.8343,223.50027 1190.8343,211.83362 1230.1683,211.83362 1230.1683,227.8336 1236.5014,227.8336 1236.5014,216.50028 1246.1681,216.50028 1246.1681,209.83363 1275.5013,209.83363&#xA;1275.5013,222.16694 1283.8347,222.16694 1283.8347,212.16696 1287.8351,212.16696 1287.8351,223.83361 1301.5022,223.83361 1301.5022,212.83362 1321.1691,209.50029 1321.1691,180.50033 1268.835,180.50033 1268.835,157.50037 1321.8354,157.50037 1321.8354,131.16707 1300.8356,124.83339 1300.8356,113.83374 1288.8355,113.83374 1288.8355,125.50069 1284.5021,125.50069 1284.5021,115.50073 1275.502,115.50073 1275.502,127.83401 1246.5017,127.83401 1246.5017,121.5007&#xA;1236.835,121.5007 1236.835,109.50075 1229.8349,109.50075 1229.8349,125.50068 1190.1678,125.50068 1190.1678,115.16739 1185.1678,115.16739 1185.1678,125.16735 1121.8338,125.16735 1121.8338,105.8341 1111.8337,105.8341 1111.8337,107.83442 1008.1661,107.83442 1008.1661,125.16764 1034.1663,125.16764 1034.1663,116.1677 1085.5001,125.16764 1092.8336,125.16764 1092.8336,135.16757 1008.1661,135.16757 1008.1661,154.16745 1033.833,154.16745 1033.833,146.1675&#xA;1104.8337,155.50077 1104.8337,149.83414 1115.8338,149.83414 1115.8338,162.1674 1119.5005,162.1674 1119.5005,157.50076 1179.1677,157.50076 1179.1677,161.50073 1185.8345,161.50073 1185.8345,145.83417 1206.168,145.83417 1206.168,162.50073 1212.5014,162.50073 1212.5014,158.16742 1228.1682,158.16742 1228.1682,178.16729 1212.168,178.16729 1212.168,174.16732 1206.168,174.16732 1206.168,192.50053 1185.8345,192.50053 1185.8345,175.16731 1180.5011,175.16731&#xA;1180.5011,181.16727 1119.8338,181.16727 1119.8338,174.83398 1115.1671,174.83398 1115.1671,186.8339 1104.167,186.8339 1104.167,180.16728 1033.833,191.83387 1033.833,184.16725 z"/>
+
+                        <TextBlock Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"
+                                   Foreground="#FF293340" FontFamily="{StaticResource ExtraBoldFont}"
+                                   Text="{TemplateBinding Content}" FontSize="{TemplateBinding FontSize}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--컨베어 라인-->
+    <Style x:Key="ConveyorLine" TargetType="{x:Type s:MapGUIControl}">
+        <Setter Property="Width" Value="214.75"/>
+        <Setter Property="Height"  Value="276.25"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type s:MapGUIControl}">
+                    <Grid>
+                        <Path Stretch="Fill" Fill="{StaticResource SK_MouseOverGray}" StrokeThickness="0"
+                            Data="M9.0829906,218.50002 L9.0829906,228.16701 13.249725,228.16701 13.249725,223.66718 27.417006,223.66718 27.417006,218.83299 z M19.749989,150.75 L19.749989,156 21.49999,156 21.49999,167.5 19.249998,167.5 19.249998,172.25 26.499987,172.25 26.499987,150.75 z M18.249996,124.75 L18.249996,132.25 21.49999,132.25 21.49999,137.25 26.49999,137.25 26.49999,124.75 z M10.41701,100.333 L10.41701,105.333 13.749921,105.333 13.749921,118 26.082991,118 26.082991,100.5 z M9.0829906,48.499992 L9.0829906,58.166985 27.417009,57.834003 27.417009,52.999828 13.249729,52.999828 13.249729,48.499992 z M0.5,0.5 L21.999998,0.5 21.999998,44.75 25.74999,44.75 25.74999,40 35.74999,40 35.74999,130.25 214.25,130.25 214.25,146.5 35.999994,146.5 35.999994,146.75 35.999994,235 25.499998,235 25.499998,231.5 21.49999,231.5 21.49999,275.75 1.4999976,275.75 1.4999976,210.5 26,210.5 26,201.25 18.75,201.25 18.75,181.75 10.749998,181.75 10.749998,156.5&#xD;&#xA;1.4999976,156.5 1.4999976,91.25 26,91.25 26,66.25 0.5,66.25 z"/>
+
+                        <TextBlock Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"
+                                   Foreground="#FF293340" FontFamily="{StaticResource ExtraBoldFont}"
+                                   Text="{Binding Path=(s:MapGUIControl.DisplayName), RelativeSource={RelativeSource TemplatedParent}}"
+                                   FontSize="{Binding Path=(s:MapGUIControl.DisplayNameFontSize), RelativeSource={RelativeSource TemplatedParent}}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--컨베어 라인_번역-->
+    <Style x:Key="ConveyorLine1" TargetType="{x:Type s:MapGUIControl}">
+        <Setter Property="Width" Value="214.75"/>
+        <Setter Property="Height"  Value="276.25"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type s:MapGUIControl}">
+                    <Grid>
+                        <Path Stretch="Fill" Fill="{StaticResource SK_MouseOverGray}" StrokeThickness="0"
+                            Data="M9.0829906,218.50002 L9.0829906,228.16701 13.249725,228.16701 13.249725,223.66718 27.417006,223.66718 27.417006,218.83299 z M19.749989,150.75 L19.749989,156 21.49999,156 21.49999,167.5 19.249998,167.5 19.249998,172.25 26.499987,172.25 26.499987,150.75 z M18.249996,124.75 L18.249996,132.25 21.49999,132.25 21.49999,137.25 26.49999,137.25 26.49999,124.75 z M10.41701,100.333 L10.41701,105.333 13.749921,105.333 13.749921,118 26.082991,118 26.082991,100.5 z M9.0829906,48.499992 L9.0829906,58.166985 27.417009,57.834003 27.417009,52.999828 13.249729,52.999828 13.249729,48.499992 z M0.5,0.5 L21.999998,0.5 21.999998,44.75 25.74999,44.75 25.74999,40 35.74999,40 35.74999,130.25 214.25,130.25 214.25,146.5 35.999994,146.5 35.999994,146.75 35.999994,235 25.499998,235 25.499998,231.5 21.49999,231.5 21.49999,275.75 1.4999976,275.75 1.4999976,210.5 26,210.5 26,201.25 18.75,201.25 18.75,181.75 10.749998,181.75 10.749998,156.5&#xD;&#xA;1.4999976,156.5 1.4999976,91.25 26,91.25 26,66.25 0.5,66.25 z"/>
+
+                        <TextBlock Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"
+                                   Foreground="#FF293340" FontFamily="{StaticResource ExtraBoldFont}"
+                                   Text="{TemplateBinding Content}" FontSize="{TemplateBinding FontSize}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--kiosk-->
+    <Style x:Key="kiosk" TargetType="{x:Type s:MapGUIControl}">
+        <Setter Property="Height" Value="60"/>
+        <Setter Property="Width"  Value="60"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type s:MapGUIControl}">
+                    <Grid Background="Transparent">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="8*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+
+                        <!--fill="#FFAF6F7D"-->
+                        <Path x:Name="kiosks" Stretch="Uniform"  Fill="#49596d" Margin="0" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" Grid.RowSpan="2"   
+                              Data="M528 0h-480C21.5 0 0 21.5 0 48v320C0 394.5 21.5 416 48 416h192L224 464H152C138.8 464 128 474.8 128 488S138.8 512 152 512h272c13.25 0 24-10.75 24-24s-10.75-24-24-24H352L336 416h192c26.5 0 48-21.5 48-48v-320C576 21.5 554.5 0 528 0zM512 288H64V64h448V288z" RenderTransformOrigin="0.5,1">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+
+                        <Path x:Name="pathSelectkiosk" Visibility="Hidden" Stretch="Uniform" Fill="#FF51BCE8" Margin="0" Stroke="White" StrokeThickness="2" Grid.Column="1" Grid.RowSpan="3" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center"
+                              Data="M168.3 499.2C116.1 435 0 279.4 0 192C0 85.96 85.96 0 192 0C298 0 384 85.96 384 192C384 279.4 267 435 215.7 499.2C203.4 514.5 180.6 514.5 168.3 499.2H168.3zM192 256C227.3 256 256 227.3 256 192C256 156.7 227.3 128 192 128C156.7 128 128 156.7 128 192C128 227.3 156.7 256 192 256z">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+
+                        <TextBlock x:Name="kioskTextBlock"  Grid.Row="4" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Bottom" TextAlignment="Center" RenderTransformOrigin="0.5, 0"
+                                   Foreground="#FF293340" FontFamily="{StaticResource ExtraBoldFont}"
+                                   Text="{Binding Path=(s:MapGUIControl.DisplayName), RelativeSource={RelativeSource TemplatedParent}}"
+                                   FontSize="{Binding Path=(s:MapGUIControl.DisplayNameFontSize), RelativeSource={RelativeSource TemplatedParent}}" Margin="0,1,0,0">
+                            <TextBlock.RenderTransform>
+                                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsHitTestVisible" Value="True">
+                            <Setter TargetName="kiosks" Property="Fill" Value="{StaticResource SK_Red}"/>
+                            <Setter Property="Cursor"  Value="Hand"/>
+
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="kiosks" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" From="1" To="1.5" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="kiosks" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" From="1" To="1.5" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="kioskTextBlock" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)" From="1" To="1.5" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="kioskTextBlock" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)" From="1" To="1.5" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="kiosks" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)"  To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="kiosks" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)"  To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="kioskTextBlock" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)" To="1" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="kioskTextBlock" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)" To="1" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="kiosks" Property="Fill" Value="{StaticResource SK_Green}"/>
+                            <!--<Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="kiosks" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" From="1.5" To="2" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="kiosks" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" From="1.5" To="2" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="kioskTextBlock" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)" From="1.5" To="2" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="kioskTextBlock" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)" From="1.5" To="2" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard >
+                                        <DoubleAnimation Storyboard.TargetName="kiosks" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)"  To="1.5" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="kiosks" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)"  To="1.5" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="kioskTextBlock" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)" To="1.5" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="kioskTextBlock" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)" To="1.5" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>-->
+                        </Trigger>
+
+                        <DataTrigger Value="True" Binding="{Binding Path=isBeginStoryboard, RelativeSource={RelativeSource Self}}">
+                            <Setter TargetName="pathSelectkiosk" Property="Visibility" Value="Visible"/>
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard x:Name="beginStoryboard" Storyboard="{StaticResource storyboardSelectkiosk}"/>
+                            </DataTrigger.EnterActions>
+                        </DataTrigger>
+
+                        <DataTrigger Value="False" Binding="{Binding Path=isBeginStoryboard, RelativeSource={RelativeSource Self}}">
+                            <Setter TargetName="pathSelectkiosk" Property="Visibility" Value="Hidden"/>
+                            <DataTrigger.EnterActions>
+                                <StopStoryboard BeginStoryboardName="beginStoryboard"/>
+                            </DataTrigger.EnterActions>
+                        </DataTrigger>
+
+                        <!--YSW221109 kiosk setting-->
+                        <DataTrigger Binding="{Binding Path=(s:MapGUIControl.isSettingKiosk), RelativeSource={RelativeSource self}}" Value="True">
+                            <Setter Property="IsHitTestVisible" Value="True"></Setter>
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding Path=(s:MapGUIControl.isSettingKiosk), RelativeSource={RelativeSource self}}" Value="False">
+                            <Setter Property="IsHitTestVisible" Value="False"></Setter>
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

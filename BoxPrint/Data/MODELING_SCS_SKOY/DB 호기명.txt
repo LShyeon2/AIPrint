@@ -1,0 +1,18 @@
+[USERNAME,  	PASSWORD,	창고명, 					EQPID
+SCS_SKOY_55	개별통지		SKOY (모듈) SCS 용 CELL 완제품 창고 (남) #1	F0CKM100
+SCS_SKOY_56	개별통지		SKOY (모듈) SCS 용 CELL 완제품 창고 (남) #2	F0CKM200
+SCS_SKOY_57	개별통지		SKOY (모듈) SCS 용 CELL 완제품 창고 (남) #3	F0CKM300
+SCS_SKOY_58	개별통지		SKOY (모듈) SCS 용 CELL 완제품 창고 (남) #4	F0CKM400
+SCS_SKOY_59	개별통지		SKOY (모듈) SCS 용 CELL 완제품 창고 (남) #5	F0CKM500
+SCS_SKOY_60	개별통지		SKOY (모듈) SCS 용 CELL 완제품 창고 (남) #6	F0CKM600
+SCS_SKOY_61	개별통지		SKOY (모듈) SCS 용 CELL 완제품 창고 (남) #7	F0CKM700
+SCS_SKOY_62	개별통지		SKOY (모듈) SCS 용 CELL 완제품 창고 (남) #8	F0CKM800
+
+SCS_SKOY_63	개별통지		SKOY (모듈) SCS 용 CELL 완제품 창고 (북) #1	F0CKM900
+SCS_SKOY_64	개별통지		SKOY (모듈) SCS 용 CELL 완제품 창고 (북) #2	F0CKMA00
+SCS_SKOY_65	개별통지		SKOY (모듈) SCS 용 CELL 완제품 창고 (북) #3	F0CKMB00
+SCS_SKOY_66	개별통지		SKOY (모듈) SCS 용 CELL 완제품 창고 (북) #4	F0CKMC00
+SCS_SKOY_67	개별통지		SKOY (모듈) SCS 용 CELL 완제품 창고 (북) #5	F0CKMD00
+SCS_SKOY_68	개별통지		SKOY (모듈) SCS 용 CELL 완제품 창고 (북) #6	F0CKME00
+SCS_SKOY_69	개별통지		SKOY (모듈) SCS 용 CELL 완제품 창고 (북) #7	F0CKMF00
+SCS_SKOY_70	개별통지		SKOY (모듈) SCS 용 CELL 완제품 창고 (북) #8	F0CKMG00

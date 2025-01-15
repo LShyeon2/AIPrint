@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<TurnTeachingItemList xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <TurnTeachingItem Name="1" Axis="1" TagName="RETURN" PositionValue="-912" />
+  <TurnTeachingItem Name="2" Axis="1" TagName="TURN" PositionValue="98907" />
+  <TurnTeachingItem Name="3" Axis="2" TagName="RETURN" PositionValue="-1409" />
+  <TurnTeachingItem Name="4" Axis="2" TagName="TURN" PositionValue="98577" />
+  <TurnTeachingItem Name="5" Axis="3" TagName="RETURN" PositionValue="-1508" />
+  <TurnTeachingItem Name="6" Axis="3" TagName="TURN" PositionValue="98231" />
+  <TurnTeachingItem Name="7" Axis="4" TagName="RETURN" PositionValue="-1144" />
+  <TurnTeachingItem Name="8" Axis="4" TagName="TURN" PositionValue="98930" />
+  <TurnTeachingItem Name="9" Axis="5" TagName="RETURN" PositionValue="-803" />
+  <TurnTeachingItem Name="10" Axis="5" TagName="TURN" PositionValue="98689" />
+</TurnTeachingItemList>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HSMSMessageList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	
+	<!--Stream 1-->
+	<HSMSMessage name="S1F1"    stream="1" function="1"    wait="true" desc="Are You There Request" />
+	<HSMSMessage name="S1F2"    stream="1" function="2"    wait="true" desc="On Line Data" />
+	<HSMSMessage name="S1F3"    stream="1" function="3"    wait="true" desc="Selected Equipment Status Request" />
+	<HSMSMessage name="S1F4"    stream="1" function="4"    wait="true" desc="Selected Equipment Status Data" />
+	<HSMSMessage name="S1F5"    stream="1" function="5"    wait="true" desc="Formatted Equipment state Request" />
+	<HSMSMessage name="S1F11"   stream="1" function="11"   wait="true" desc="Selected Equipment state Request(for SEM)" />
+	<HSMSMessage name="S1F13"   stream="1" function="13"   wait="true" desc="Establish Communication Request" />
+	<HSMSMessage name="S1F14"   stream="1" function="14"   wait="true" desc="Establish Communication Request Ack" />
+	<HSMSMessage name="S1F15"   stream="1" function="15"   wait="true" desc="Request OFF-LINE" />
+	<HSMSMessage name="S1F16"   stream="1" function="16"   wait="true" desc="Request OFF-LINE Ack" />
+	<HSMSMessage name="S1F17"   stream="1" function="17"   wait="true" desc="Request ON-LINE" />
+	<HSMSMessage name="S1F18"   stream="1" function="18"   wait="true" desc="Request ON-LINE Ack" />
+
+	<!--Stream 2-->
+	<HSMSMessage name="S2F15"   stream="2" function="15"   wait="true" desc="New Equipment Constant Send" />
+	<HSMSMessage name="S2F23"   stream="2" function="23"   wait="true" desc="Trace Initialize Send" />
+	<HSMSMessage name="S2F25"   stream="2" function="25"   wait="true" desc="Trace Initialize Send(for SEM)" />
+	<HSMSMessage name="S2F29"   stream="2" function="29"   wait="true" desc="Equipment Constant Namelist Request" />
+	<HSMSMessage name="S2F31"   stream="2" function="31"   wait="true" desc="Data and Time Set Send" />
+	<HSMSMessage name="S2F41"   stream="2" function="41"   wait="true" desc="HOST Command Send" />
+	<HSMSMessage name="S2F49"   stream="2" function="49"   wait="true" desc="Enhanced HOST Command Send" />
+	<HSMSMessage name="S2F103"  stream="2" function="103"  wait="true" desc="Equipment Online Parameter Change" />
+
+	<!--Stream 3-->
+	<HSMSMessage name="S3F101"  stream="3" function="101"  wait="true" desc="HOST Command Send" />
+  <!--"<HSMSMessage name="S5F101"  stream="5" function="101"  wait="true" desc="Waiting Reset Alarms List Request" />-->
+	
+	<!--Stream 5-->
+	<HSMSMessage name="S5F1"    stream="5" function="1"    wait="true" desc="Alarm Report send" />
+	<HSMSMessage name="S5F5"    stream="5" function="5"    wait="true" desc="List Alarm Request" />
+  <HSMSMessage name="S5F101"  stream="5" function="101"    wait="true" desc="Alarm Report send(for MCS)" />
+
+  <!--Stream 6-->
+	<HSMSMessage name="S6F1"    stream="6" function="1"    wait="true" desc="Trace Data Send" />
+	<HSMSMessage name="S6F3"    stream="6" function="3"    wait="true" desc="Trace Data Send(for SEM)" />
+	<HSMSMessage name="S6F11"   stream="6" function="11"   wait="true" desc="Event Report Send" />
+	<HSMSMessage name="S6F13"   stream="6" function="13"   wait="true" desc="Annotated Event Report Send" />
+	
+	<!--Stream 7-->
+	<HSMSMessage name="S7F1"    stream="7" function="1"    wait="true" desc="Process Program Load Inquire" />
+	<HSMSMessage name="S7F23"   stream="7" function="23"   wait="true" desc="Formatted Process Program Send" />
+	<HSMSMessage name="S7F25"   stream="7" function="25"   wait="true" desc="Formatted Process Program Request" />
+	<HSMSMessage name="S7F33"   stream="7" function="33"   wait="true" desc="Formatted Process Program Request" />
+	<HSMSMessage name="S7F101"  stream="7" function="101"  wait="true" desc="Current Equipment's PPID List Request" />
+	<HSMSMessage name="S7F107"  stream="7" function="107"  wait="true" desc="PPID Create/Delete/ Report, PP Body ChangedReport" />
+	<HSMSMessage name="S7F109"  stream="7" function="109"  wait="true" desc="Current Running PPID Request" />
+	
+	<!--Stream 10-->
+	<HSMSMessage name="S10F3"   stream="10" function="3"   wait="true" desc="Terminal Display, Single (VTN)" />
+	<HSMSMessage name="S10F9"   stream="10" function="9"   wait="true" desc="Broadcast (BCN)" />
+	
+	<!--Stream 16-->
+	<HSMSMessage name="S16F101" stream="16" function="101" wait="true" desc="Current Process Control Data Request" />
+	<HSMSMessage name="S16F103" stream="16" function="103" wait="true" desc="Process Control Information Send" />
+	<HSMSMessage name="S16F105" stream="16" function="105" wait="true" desc="Process Control Data Create/Delete Report" />
+	<HSMSMessage name="S16F107" stream="16" function="107" wait="true" desc="Process Control Result Report" />
+	
+</HSMSMessageList>

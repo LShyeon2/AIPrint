@@ -1,0 +1,2772 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="1층 선택" xml:space="preserve">
+    <value>1층 선택</value>
+  </data>
+  <data name="2층 선택" xml:space="preserve">
+    <value>2층 선택</value>
+  </data>
+  <data name="A user without user rights. Are you sure you want to login again?" xml:space="preserve">
+    <value>A user without user rights. Are you sure you want to login again?</value>
+  </data>
+  <data name="AccessAGV" xml:space="preserve">
+    <value>AccessAGV</value>
+  </data>
+  <data name="AccessOPER" xml:space="preserve">
+    <value>AccessOPER</value>
+  </data>
+  <data name="Ack Code" xml:space="preserve">
+    <value>Ack Code</value>
+  </data>
+  <data name="ACTION" xml:space="preserve">
+    <value>ACTION</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="ADDRESS" xml:space="preserve">
+    <value>ADDRESS</value>
+  </data>
+  <data name="AddressOffset" xml:space="preserve">
+    <value>Address Offset</value>
+  </data>
+  <data name="Admin &gt;" xml:space="preserve">
+    <value>Admin &gt;</value>
+  </data>
+  <data name="Alarm" xml:space="preserve">
+    <value>Alarm</value>
+  </data>
+  <data name="Alarm Log" xml:space="preserve">
+    <value>EQP Error Log</value>
+  </data>
+  <data name="AlarmClear" xml:space="preserve">
+    <value>AlarmClear</value>
+  </data>
+  <data name="AlarmLog" xml:space="preserve">
+    <value>EQPErrorLog</value>
+  </data>
+  <data name="AlarmManager" xml:space="preserve">
+    <value>AlarmManager</value>
+  </data>
+  <data name="AlarmTest" xml:space="preserve">
+    <value>AlarmTest</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="Already have a Carrier" xml:space="preserve">
+    <value>Already have a Carrier</value>
+  </data>
+  <data name="AnodeReel" xml:space="preserve">
+    <value>AnodeReel</value>
+  </data>
+  <data name="Are you sure you want to" xml:space="preserve">
+    <value>Are you sure you want to</value>
+  </data>
+  <data name="as a reason" xml:space="preserve">
+    <value>as a reason</value>
+  </data>
+  <data name="AUTO" xml:space="preserve">
+    <value>AUTO</value>
+  </data>
+  <data name="AUTOACTION" xml:space="preserve">
+    <value>AutoAction</value>
+  </data>
+  <data name="AutoLogoutTime" xml:space="preserve">
+    <value>AutoLogoutTime</value>
+  </data>
+  <data name="AutoRun" xml:space="preserve">
+    <value>Auto Run</value>
+  </data>
+  <data name="Axis Number" xml:space="preserve">
+    <value>Axis Number</value>
+  </data>
+  <data name="Axis State" xml:space="preserve">
+    <value>Axis State</value>
+  </data>
+  <data name="AxisState" xml:space="preserve">
+    <value>AxisState</value>
+  </data>
+  <data name="B" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="Bank" xml:space="preserve">
+    <value>Bank</value>
+  </data>
+  <data name="BANK Tag" xml:space="preserve">
+    <value>BANK{0}</value>
+  </data>
+  <data name="Bank 선택" xml:space="preserve">
+    <value>Bank {0} 선택</value>
+  </data>
+  <data name="Bay" xml:space="preserve">
+    <value>Bay</value>
+  </data>
+  <data name="Bay 끝지점" xml:space="preserve">
+    <value>Bay 끝지점</value>
+  </data>
+  <data name="Bay 또는 Level의 시작 값이 끝 값보다 작아야 합니다." xml:space="preserve">
+    <value>Bay 또는 Level의 시작 값이 끝 값보다 작아야 합니다.</value>
+  </data>
+  <data name="Bay 시작지점" xml:space="preserve">
+    <value>Bay 시작지점</value>
+  </data>
+  <data name="BCR" xml:space="preserve">
+    <value>BCR</value>
+  </data>
+  <data name="BCR Log" xml:space="preserve">
+    <value>BCR Log</value>
+  </data>
+  <data name="BCR NO" xml:space="preserve">
+    <value>BCR NO</value>
+  </data>
+  <data name="BCR Not Exist" xml:space="preserve">
+    <value>BCR Not Exist</value>
+  </data>
+  <data name="BCR Read" xml:space="preserve">
+    <value>BCR Read</value>
+  </data>
+  <data name="BCR ReadTest" xml:space="preserve">
+    <value>BCR Read Test</value>
+  </data>
+  <data name="BCR Result" xml:space="preserve">
+    <value>BCR Result</value>
+  </data>
+  <data name="BCR TestMode : [0] Normal" xml:space="preserve">
+    <value>BCR TestMode : [0] Normal</value>
+  </data>
+  <data name="BCR TestMode : [1] Read Fail" xml:space="preserve">
+    <value>BCR TestMode : [1] Read Fail</value>
+  </data>
+  <data name="BCR TestMode : [2] Read Duplicate" xml:space="preserve">
+    <value>BCR TestMode : [2] Read Duplicate</value>
+  </data>
+  <data name="BCRLog" xml:space="preserve">
+    <value>BCRLog</value>
+  </data>
+  <data name="BitOffset" xml:space="preserve">
+    <value>Bit Offset</value>
+  </data>
+  <data name="BOARD" xml:space="preserve">
+    <value>BOARD</value>
+  </data>
+  <data name="Booth" xml:space="preserve">
+    <value>Booth</value>
+  </data>
+  <data name="BoothState 변경 메시지" xml:space="preserve">
+    <value>BoothState {0} 에서 {1} 로 변경 하시겠습니까?</value>
+  </data>
+  <data name="Both" xml:space="preserve">
+    <value>Both</value>
+  </data>
+  <data name="BothMode" xml:space="preserve">
+    <value>Type Change</value>
+  </data>
+  <data name="BottomMenu" xml:space="preserve">
+    <value>BottomMenu</value>
+  </data>
+  <data name="BP" xml:space="preserve">
+    <value>BP</value>
+  </data>
+  <data name="BUTTON" xml:space="preserve">
+    <value>BUTTON</value>
+  </data>
+  <data name="C/V BACKWARD" xml:space="preserve">
+    <value>C/V BACKWARD</value>
+  </data>
+  <data name="C/V FORWARD" xml:space="preserve">
+    <value>C/V FORWARD</value>
+  </data>
+  <data name="Can't Change" xml:space="preserve">
+    <value>Can't Change</value>
+  </data>
+  <data name="CANCEL" xml:space="preserve">
+    <value>CANCEL</value>
+  </data>
+  <data name="Carrier" xml:space="preserve">
+    <value>Carrier</value>
+  </data>
+  <data name="Carrier Exist" xml:space="preserve">
+    <value>Carrier Exist</value>
+  </data>
+  <data name="Carrier ID" xml:space="preserve">
+    <value>CARRIER ID</value>
+  </data>
+  <data name="Carrier List" xml:space="preserve">
+    <value>Carrier List</value>
+  </data>
+  <data name="Carrier Loc" xml:space="preserve">
+    <value>Carrier Loc</value>
+  </data>
+  <data name="CARRIER LOCATION" xml:space="preserve">
+    <value>CARRIER LOCATION</value>
+  </data>
+  <data name="Carrier Not Exist" xml:space="preserve">
+    <value>Carrier Not Exist</value>
+  </data>
+  <data name="Carrier Search and Transfer" xml:space="preserve">
+    <value>Carrier Search and Transfer</value>
+  </data>
+  <data name="Carrier Size" xml:space="preserve">
+    <value>Carrier Size</value>
+  </data>
+  <data name="Carrier size is mismatched" xml:space="preserve">
+    <value>Carrier size is mismatched</value>
+  </data>
+  <data name="Carrier 조회 및 반송" xml:space="preserve">
+    <value>Carrier 조회 및 반송</value>
+  </data>
+  <data name="CarrierID" xml:space="preserve">
+    <value>CarrierID</value>
+  </data>
+  <data name="CarrierID is Empty" xml:space="preserve">
+    <value>CarrierID is Empty</value>
+  </data>
+  <data name="CarrierID is Empty or PalletSize is None." xml:space="preserve">
+    <value>CarrierID is Empty or PalletSize is None.</value>
+  </data>
+  <data name="CarrierSearch" xml:space="preserve">
+    <value>CarrierSearch</value>
+  </data>
+  <data name="CarrierSize" xml:space="preserve">
+    <value>CarrierSize</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="CathodeReel" xml:space="preserve">
+    <value>CathodeReel</value>
+  </data>
+  <data name="CEID" xml:space="preserve">
+    <value>CEID</value>
+  </data>
+  <data name="Cell Packing" xml:space="preserve">
+    <value>Cell Packing</value>
+  </data>
+  <data name="CELL 완제품 창고 (남) #1" xml:space="preserve">
+    <value>CELL 완제품 창고 (남) #1</value>
+  </data>
+  <data name="CELL 완제품 창고 (남) #2" xml:space="preserve">
+    <value>CELL 완제품 창고 (남) #2</value>
+  </data>
+  <data name="CELL 완제품 창고 (남) #3" xml:space="preserve">
+    <value>CELL 완제품 창고 (남) #3</value>
+  </data>
+  <data name="CELL 완제품 창고 (남) #4" xml:space="preserve">
+    <value>CELL 완제품 창고 (남) #4</value>
+  </data>
+  <data name="CELL 완제품 창고 (남) #5" xml:space="preserve">
+    <value>CELL 완제품 창고 (남) #5</value>
+  </data>
+  <data name="CELL 완제품 창고 (남) #6" xml:space="preserve">
+    <value>CELL 완제품 창고 (남) #6</value>
+  </data>
+  <data name="CELL 완제품 창고 (남) #7" xml:space="preserve">
+    <value>CELL 완제품 창고 (남) #7</value>
+  </data>
+  <data name="CELL 완제품 창고 (남) #8" xml:space="preserve">
+    <value>CELL 완제품 창고 (남) #8</value>
+  </data>
+  <data name="CELL 완제품 창고 (북) #1" xml:space="preserve">
+    <value>CELL 완제품 창고 (북) #1</value>
+  </data>
+  <data name="CELL 완제품 창고 (북) #2" xml:space="preserve">
+    <value>CELL 완제품 창고 (북) #2</value>
+  </data>
+  <data name="CELL 완제품 창고 (북) #3" xml:space="preserve">
+    <value>CELL 완제품 창고 (북) #3</value>
+  </data>
+  <data name="CELL 완제품 창고 (북) #4" xml:space="preserve">
+    <value>CELL 완제품 창고 (북) #4</value>
+  </data>
+  <data name="CELL 완제품 창고 (북) #5" xml:space="preserve">
+    <value>CELL 완제품 창고 (북) #5</value>
+  </data>
+  <data name="CELL 완제품 창고 (북) #6" xml:space="preserve">
+    <value>CELL 완제품 창고 (북) #6</value>
+  </data>
+  <data name="CELL 완제품 창고 (북) #7" xml:space="preserve">
+    <value>CELL 완제품 창고 (북) #7</value>
+  </data>
+  <data name="CELL 완제품 창고 (북) #8" xml:space="preserve">
+    <value>CELL 완제품 창고 (북) #8</value>
+  </data>
+  <data name="CellPacking" xml:space="preserve">
+    <value>CellPacking</value>
+  </data>
+  <data name="CellProduct_Long" xml:space="preserve">
+    <value>CellProduct_Long</value>
+  </data>
+  <data name="CellProduct_Short" xml:space="preserve">
+    <value>CellProduct_Short</value>
+  </data>
+  <data name="Cell_Long" xml:space="preserve">
+    <value>Cell_Long</value>
+  </data>
+  <data name="Cell_Short" xml:space="preserve">
+    <value>Cell_Short</value>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>Change</value>
+  </data>
+  <data name="Check" xml:space="preserve">
+    <value>Check</value>
+  </data>
+  <data name="Check Select Value" xml:space="preserve">
+    <value>Check Select Value</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="CLICK" xml:space="preserve">
+    <value>CLICK</value>
+  </data>
+  <data name="CLOSE" xml:space="preserve">
+    <value>CLOSE</value>
+  </data>
+  <data name="CMD" xml:space="preserve">
+    <value>CMD</value>
+  </data>
+  <data name="CN" xml:space="preserve">
+    <value>CN</value>
+  </data>
+  <data name="Command" xml:space="preserve">
+    <value>Command</value>
+  </data>
+  <data name="Command Error" xml:space="preserve">
+    <value>Command Error</value>
+  </data>
+  <data name="COMMAND ID" xml:space="preserve">
+    <value>COMMAND ID</value>
+  </data>
+  <data name="Comment입력 메시지" xml:space="preserve">
+    <value>Do you want to write the Comment {0} to {1}?</value>
+  </data>
+  <data name="Complete" xml:space="preserve">
+    <value>Complete</value>
+  </data>
+  <data name="Config" xml:space="preserve">
+    <value>Config</value>
+  </data>
+  <data name="CONFIRM" xml:space="preserve">
+    <value>CONFIRM</value>
+  </data>
+  <data name="Confirmation" xml:space="preserve">
+    <value>Confirmation</value>
+  </data>
+  <data name="Connect" xml:space="preserve">
+    <value>Connect</value>
+  </data>
+  <data name="Connection" xml:space="preserve">
+    <value>Connection</value>
+  </data>
+  <data name="Connection Info" xml:space="preserve">
+    <value>Connection Info</value>
+  </data>
+  <data name="Consumable" xml:space="preserve">
+    <value>Consumable</value>
+  </data>
+  <data name="Contain" xml:space="preserve">
+    <value>Contain</value>
+  </data>
+  <data name="CONVERTER" xml:space="preserve">
+    <value>CONVERTER</value>
+  </data>
+  <data name="Conveyor" xml:space="preserve">
+    <value>Conveyor</value>
+  </data>
+  <data name="Conveyor Line" xml:space="preserve">
+    <value>Conveyor Line</value>
+  </data>
+  <data name="Core Type" xml:space="preserve">
+    <value>Core Type</value>
+  </data>
+  <data name="CPS Reset" xml:space="preserve">
+    <value>CPS Reset</value>
+  </data>
+  <data name="CPS Start" xml:space="preserve">
+    <value>CPS Start</value>
+  </data>
+  <data name="Crane" xml:space="preserve">
+    <value>Crane</value>
+  </data>
+  <data name="CRANE ID" xml:space="preserve">
+    <value>크레인 ID</value>
+  </data>
+  <data name="Crane is Busy" xml:space="preserve">
+    <value>Crane is Busy</value>
+  </data>
+  <data name="CRANE NUMBER" xml:space="preserve">
+    <value>SC_NO</value>
+  </data>
+  <data name="Crane Speed Setting" xml:space="preserve">
+    <value>Crane Speed Setting</value>
+  </data>
+  <data name="Crane Task" xml:space="preserve">
+    <value>Crane Task</value>
+  </data>
+  <data name="Crane1" xml:space="preserve">
+    <value>Crane1</value>
+  </data>
+  <data name="Crane2" xml:space="preserve">
+    <value>Crane2</value>
+  </data>
+  <data name="CraneAble" xml:space="preserve">
+    <value>CraneAble</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="Current" xml:space="preserve">
+    <value>Current</value>
+  </data>
+  <data name="Current Language" xml:space="preserve">
+    <value>Current Language</value>
+  </data>
+  <data name="Current Location" xml:space="preserve">
+    <value>Current Location</value>
+  </data>
+  <data name="Current Speed mm/s" xml:space="preserve">
+    <value>Current Speed mm/s</value>
+  </data>
+  <data name="Current State" xml:space="preserve">
+    <value>Current State</value>
+  </data>
+  <data name="Current User cannot Create/Delete User. (Manager Only)" xml:space="preserve">
+    <value>Current User cannot Create/Delete User. (Manager Only)</value>
+  </data>
+  <data name="CV" xml:space="preserve">
+    <value>CV</value>
+  </data>
+  <data name="CV Error Reset" xml:space="preserve">
+    <value>CV Error Reset</value>
+  </data>
+  <data name="Cycle" xml:space="preserve">
+    <value>Cycle</value>
+  </data>
+  <data name="Data Type" xml:space="preserve">
+    <value>Data Type</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>일자</value>
+  </data>
+  <data name="Db Get1" xml:space="preserve">
+    <value>Db Get1</value>
+  </data>
+  <data name="Db Get2" xml:space="preserve">
+    <value>Db Get2</value>
+  </data>
+  <data name="Db Get3" xml:space="preserve">
+    <value>Db Get3</value>
+  </data>
+  <data name="DB Open Failed" xml:space="preserve">
+    <value>DB Open 실패! 프로그램을 종료합니다.</value>
+  </data>
+  <data name="DB Set Fail" xml:space="preserve">
+    <value>DB Set Fail</value>
+  </data>
+  <data name="DeadZone" xml:space="preserve">
+    <value>DeadZone</value>
+  </data>
+  <data name="DeadZone설정 메시지" xml:space="preserve">
+    <value>Do you want to set the DeadZone to {0}?</value>
+  </data>
+  <data name="Default Value" xml:space="preserve">
+    <value>Default Value</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Delete User is Null" xml:space="preserve">
+    <value>Delete User is Null</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Dest" xml:space="preserve">
+    <value>Dest</value>
+  </data>
+  <data name="Destination" xml:space="preserve">
+    <value>Destination</value>
+  </data>
+  <data name="DESTINATION LOCATION" xml:space="preserve">
+    <value>DESTINATION LOCATION</value>
+  </data>
+  <data name="Detail" xml:space="preserve">
+    <value>Detail</value>
+  </data>
+  <data name="Detect" xml:space="preserve">
+    <value>Detect</value>
+  </data>
+  <data name="Device Map" xml:space="preserve">
+    <value>Device Map</value>
+  </data>
+  <data name="Device Map(PLC) Monitoring" xml:space="preserve">
+    <value>Device Map(PLC) Monitoring</value>
+  </data>
+  <data name="Direction" xml:space="preserve">
+    <value>Direction</value>
+  </data>
+  <data name="DirectionBothMode" xml:space="preserve">
+    <value>DirectionBothMode</value>
+  </data>
+  <data name="DirectionInMode" xml:space="preserve">
+    <value>DirectionInMode</value>
+  </data>
+  <data name="DirectionOutMode" xml:space="preserve">
+    <value>DirectionOutMode</value>
+  </data>
+  <data name="Disable" xml:space="preserve">
+    <value>Disable</value>
+  </data>
+  <data name="Disconnect" xml:space="preserve">
+    <value>Disconnect</value>
+  </data>
+  <data name="Do You Want to Change?" xml:space="preserve">
+    <value>Do You Really Want to Change?</value>
+  </data>
+  <data name="Do you want to Create User?" xml:space="preserve">
+    <value>Do you want to Create User?</value>
+  </data>
+  <data name="Do you want to Delete User?" xml:space="preserve">
+    <value>Do you want to Delete User?</value>
+  </data>
+  <data name="Do you want to Edit User?" xml:space="preserve">
+    <value>Do you want to Edit User?</value>
+  </data>
+  <data name="Do you want to reconnect a Crane?" xml:space="preserve">
+    <value>Do you want to reconnect a Crane?</value>
+  </data>
+  <data name="Do you want to write the Comment" xml:space="preserve">
+    <value>Do you want to write the Comment</value>
+  </data>
+  <data name="Door Open" xml:space="preserve">
+    <value>Door Open</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Emergency Stop" xml:space="preserve">
+    <value>Emergency Stop</value>
+  </data>
+  <data name="EmergencyStop" xml:space="preserve">
+    <value>EmergencyStop</value>
+  </data>
+  <data name="EMPTY" xml:space="preserve">
+    <value>EMPTY</value>
+  </data>
+  <data name="Enable" xml:space="preserve">
+    <value>Enable</value>
+  </data>
+  <data name="End Status" xml:space="preserve">
+    <value>End Status</value>
+  </data>
+  <data name="Enter Priority to Change" xml:space="preserve">
+    <value>Enter Priority to Change</value>
+  </data>
+  <data name="EQP ID" xml:space="preserve">
+    <value>EQP ID</value>
+  </data>
+  <data name="EQPType" xml:space="preserve">
+    <value>EQPType</value>
+  </data>
+  <data name="Error Code" xml:space="preserve">
+    <value>Error Code</value>
+  </data>
+  <data name="Error Name" xml:space="preserve">
+    <value>Error Name</value>
+  </data>
+  <data name="Error Reset" xml:space="preserve">
+    <value>Error Reset</value>
+  </data>
+  <data name="ERROR TIME" xml:space="preserve">
+    <value>에러 시간</value>
+  </data>
+  <data name="Error Type" xml:space="preserve">
+    <value>Error Type</value>
+  </data>
+  <data name="ERRORHANDLING" xml:space="preserve">
+    <value>ErrorHandling</value>
+  </data>
+  <data name="ErrorReset" xml:space="preserve">
+    <value>ErrorReset</value>
+  </data>
+  <data name="Event Info" xml:space="preserve">
+    <value>Event Info</value>
+  </data>
+  <data name="Event Time" xml:space="preserve">
+    <value>Event Time</value>
+  </data>
+  <data name="EventType" xml:space="preserve">
+    <value>EventType</value>
+  </data>
+  <data name="Exception" xml:space="preserve">
+    <value>Exception</value>
+  </data>
+  <data name="EXIST" xml:space="preserve">
+    <value>EXIST</value>
+  </data>
+  <data name="EXIT" xml:space="preserve">
+    <value>EXIT</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="Fail" xml:space="preserve">
+    <value>Fail</value>
+  </data>
+  <data name="False" xml:space="preserve">
+    <value>False</value>
+  </data>
+  <data name="FILE 잠김" xml:space="preserve">
+    <value>FILE 잠김</value>
+  </data>
+  <data name="Filtering Text" xml:space="preserve">
+    <value>Filtering Text</value>
+  </data>
+  <data name="Final Location" xml:space="preserve">
+    <value>Final Location</value>
+  </data>
+  <data name="Find" xml:space="preserve">
+    <value>Find</value>
+  </data>
+  <data name="Fire State" xml:space="preserve">
+    <value>Fire State</value>
+  </data>
+  <data name="Fire1" xml:space="preserve">
+    <value>Fire1</value>
+  </data>
+  <data name="Fire2" xml:space="preserve">
+    <value>Fire2</value>
+  </data>
+  <data name="FireWaterPool" xml:space="preserve">
+    <value>FireWaterPool</value>
+  </data>
+  <data name="FirmwareLog" xml:space="preserve">
+    <value>FirmwareLog</value>
+  </data>
+  <data name="FIRST FLOOR" xml:space="preserve">
+    <value>FIRST FLOOR</value>
+  </data>
+  <data name="Fork" xml:space="preserve">
+    <value>Fork</value>
+  </data>
+  <data name="Front Bank" xml:space="preserve">
+    <value>Front Bank</value>
+  </data>
+  <data name="Front Shelf" xml:space="preserve">
+    <value>Front Shelf</value>
+  </data>
+  <data name="Front Teaching 데이터를 PMAC으로 부터 읽어 옵니다." xml:space="preserve">
+    <value>Front Teaching 데이터를 PMAC으로 부터 읽어 옵니다.</value>
+  </data>
+  <data name="GROUND FLOOR" xml:space="preserve">
+    <value>GROUND FLOOR</value>
+  </data>
+  <data name="Group" xml:space="preserve">
+    <value>Group</value>
+  </data>
+  <data name="G층 선택" xml:space="preserve">
+    <value>G층 선택</value>
+  </data>
+  <data name="HandOver Counter :" xml:space="preserve">
+    <value>HandOver Counter :</value>
+  </data>
+  <data name="Heavy Alarm" xml:space="preserve">
+    <value>Heavy Alarm</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="HSMS Log" xml:space="preserve">
+    <value>HSMS Log</value>
+  </data>
+  <data name="HSMSLog" xml:space="preserve">
+    <value>HSMSLog</value>
+  </data>
+  <data name="HU" xml:space="preserve">
+    <value>HU</value>
+  </data>
+  <data name="I/O DESCRIPTION" xml:space="preserve">
+    <value>I/O DESCRIPTION</value>
+  </data>
+  <data name="I/O Input" xml:space="preserve">
+    <value>I/O Input</value>
+  </data>
+  <data name="I/O Num" xml:space="preserve">
+    <value>I/O Num</value>
+  </data>
+  <data name="I/O Output" xml:space="preserve">
+    <value>I/O Output</value>
+  </data>
+  <data name="I/O 조회" xml:space="preserve">
+    <value>I/O 조회</value>
+  </data>
+  <data name="I/OMonitorRM" xml:space="preserve">
+    <value>I/OMonitorRM</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="IDLE TIME" xml:space="preserve">
+    <value>대기 시간</value>
+  </data>
+  <data name="In" xml:space="preserve">
+    <value>In</value>
+  </data>
+  <data name="IN/OUT" xml:space="preserve">
+    <value>IN/OUT</value>
+  </data>
+  <data name="Info Message" xml:space="preserve">
+    <value>Info Message</value>
+  </data>
+  <data name="Inform" xml:space="preserve">
+    <value>Inform</value>
+  </data>
+  <data name="Inform Log" xml:space="preserve">
+    <value>Inform Log</value>
+  </data>
+  <data name="INIT" xml:space="preserve">
+    <value>INIT</value>
+  </data>
+  <data name="INITIALIZE" xml:space="preserve">
+    <value>Initialize</value>
+  </data>
+  <data name="Inner Tray Type" xml:space="preserve">
+    <value>Inner Tray Type</value>
+  </data>
+  <data name="InOut" xml:space="preserve">
+    <value>InOut</value>
+  </data>
+  <data name="InOutMode" xml:space="preserve">
+    <value>InOutMode</value>
+  </data>
+  <data name="INPUT" xml:space="preserve">
+    <value>INPUT</value>
+  </data>
+  <data name="Input Data is Abnormal" xml:space="preserve">
+    <value>Input Data is Abnormal</value>
+  </data>
+  <data name="Install" xml:space="preserve">
+    <value>Install</value>
+  </data>
+  <data name="Invalid Target" xml:space="preserve">
+    <value>Invalid Target</value>
+  </data>
+  <data name="IOMonitor" xml:space="preserve">
+    <value>IOMonitor</value>
+  </data>
+  <data name="IP 주소" xml:space="preserve">
+    <value>IP 주소</value>
+  </data>
+  <data name="is Add Complete" xml:space="preserve">
+    <value>is Add Complete</value>
+  </data>
+  <data name="is Current User" xml:space="preserve">
+    <value>is Current User</value>
+  </data>
+  <data name="is no Result" xml:space="preserve">
+    <value>is no Result</value>
+  </data>
+  <data name="is Not Exist" xml:space="preserve">
+    <value>is Not Exist</value>
+  </data>
+  <data name="is Overlap" xml:space="preserve">
+    <value>is Overlap</value>
+  </data>
+  <data name="is Remove Complete" xml:space="preserve">
+    <value>is Remove Complete</value>
+  </data>
+  <data name="is Remove Fail" xml:space="preserve">
+    <value>is Remove Fail</value>
+  </data>
+  <data name="is Update Complete" xml:space="preserve">
+    <value>is Update Complete</value>
+  </data>
+  <data name="ITEM" xml:space="preserve">
+    <value>ITEM</value>
+  </data>
+  <data name="Item Name" xml:space="preserve">
+    <value>Item Name</value>
+  </data>
+  <data name="ItemType" xml:space="preserve">
+    <value>ItemType</value>
+  </data>
+  <data name="Job" xml:space="preserve">
+    <value>Job</value>
+  </data>
+  <data name="Job creating failed. Check source or destination state." xml:space="preserve">
+    <value>Job creating failed. Check source or destination state.</value>
+  </data>
+  <data name="Job has been created successfully." xml:space="preserve">
+    <value>Job has been created successfully.</value>
+  </data>
+  <data name="Job has been Sent successfully." xml:space="preserve">
+    <value>Job has been Sent successfully.</value>
+  </data>
+  <data name="Job is not selected for changing priority." xml:space="preserve">
+    <value>Job is not selected for changing priority.</value>
+  </data>
+  <data name="Job is not selected for removing." xml:space="preserve">
+    <value>Job is not selected for removing.</value>
+  </data>
+  <data name="KEY IN" xml:space="preserve">
+    <value>KEY IN</value>
+  </data>
+  <data name="Key Send 메시지" xml:space="preserve">
+    <value>Send key in request Conveyor[{0}] to Server?</value>
+  </data>
+  <data name="KEYIN" xml:space="preserve">
+    <value>KEYIN</value>
+  </data>
+  <data name="Kiosk" xml:space="preserve">
+    <value>Kiosk</value>
+  </data>
+  <data name="Kiosk Setting" xml:space="preserve">
+    <value>Kiosk Setting</value>
+  </data>
+  <data name="Kiosk 선택 메시지" xml:space="preserve">
+    <value>Do you want to change your current kiosk to {0}?</value>
+  </data>
+  <data name="KR" xml:space="preserve">
+    <value>KR</value>
+  </data>
+  <data name="L Req" xml:space="preserve">
+    <value>L Req</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Language Setting" xml:space="preserve">
+    <value>Language Setting</value>
+  </data>
+  <data name="Language State Change" xml:space="preserve">
+    <value>Language State Change</value>
+  </data>
+  <data name="LeftMenu" xml:space="preserve">
+    <value>LeftMenu</value>
+  </data>
+  <data name="Legend" xml:space="preserve">
+    <value>범례</value>
+  </data>
+  <data name="Level" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="Level 끝지점" xml:space="preserve">
+    <value>Level 끝지점</value>
+  </data>
+  <data name="Level 시작지점" xml:space="preserve">
+    <value>Level 시작지점</value>
+  </data>
+  <data name="Level1" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="Light Alarm" xml:space="preserve">
+    <value>Light Alarm</value>
+  </data>
+  <data name="Light/Heavy Alarm" xml:space="preserve">
+    <value>Light/Heavy Alarm</value>
+  </data>
+  <data name="List" xml:space="preserve">
+    <value>List</value>
+  </data>
+  <data name="Load Rate :" xml:space="preserve">
+    <value>Load Rate :</value>
+  </data>
+  <data name="Loading..." xml:space="preserve">
+    <value>Loading...</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="Log" xml:space="preserve">
+    <value>Log</value>
+  </data>
+  <data name="Log &gt; Alarm Log" xml:space="preserve">
+    <value>Log &gt; Alarm Log</value>
+  </data>
+  <data name="Log &gt; BCR Log" xml:space="preserve">
+    <value>Log &gt; BCR Log</value>
+  </data>
+  <data name="Log &gt; HSMS Log" xml:space="preserve">
+    <value>Log &gt; HSMS Log</value>
+  </data>
+  <data name="Log &gt; Inform Log" xml:space="preserve">
+    <value>Log &gt; Inform Log</value>
+  </data>
+  <data name="Log &gt; Operator Log" xml:space="preserve">
+    <value>Log &gt; Operator Log</value>
+  </data>
+  <data name="Log &gt; Transfer Log" xml:space="preserve">
+    <value>Log &gt; Transfer Log</value>
+  </data>
+  <data name="Log &gt; Utilization Log" xml:space="preserve">
+    <value>Log &gt; Utilization Log</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="Long" xml:space="preserve">
+    <value>Long</value>
+  </data>
+  <data name="LongMode" xml:space="preserve">
+    <value>Type Change</value>
+  </data>
+  <data name="LP" xml:space="preserve">
+    <value>LP</value>
+  </data>
+  <data name="Macro Dest" xml:space="preserve">
+    <value>Macro Dest</value>
+  </data>
+  <data name="Macro Source" xml:space="preserve">
+    <value>Macro Source</value>
+  </data>
+  <data name="Main" xml:space="preserve">
+    <value>Main</value>
+  </data>
+  <data name="MainPage" xml:space="preserve">
+    <value>MainPage</value>
+  </data>
+  <data name="MAINT TIME" xml:space="preserve">
+    <value>점검 시간</value>
+  </data>
+  <data name="Manual" xml:space="preserve">
+    <value>Manual</value>
+  </data>
+  <data name="Manual Command" xml:space="preserve">
+    <value>Manual Command</value>
+  </data>
+  <data name="Manual Port" xml:space="preserve">
+    <value>Manual Port</value>
+  </data>
+  <data name="ManualRun" xml:space="preserve">
+    <value>Manual Run</value>
+  </data>
+  <data name="Map 관리" xml:space="preserve">
+    <value>Map 관리</value>
+  </data>
+  <data name="Map 관리 권한" xml:space="preserve">
+    <value>Map 관리 권한</value>
+  </data>
+  <data name="MapViewer" xml:space="preserve">
+    <value>MapViewer</value>
+  </data>
+  <data name="MCS" xml:space="preserve">
+    <value>MCS</value>
+  </data>
+  <data name="MCS On/Offline State Change" xml:space="preserve">
+    <value>MCS On/Offline State Change</value>
+  </data>
+  <data name="MCS State Change" xml:space="preserve">
+    <value>MCS State Change</value>
+  </data>
+  <data name="Member Login" xml:space="preserve">
+    <value>Member Login</value>
+  </data>
+  <data name="Memo" xml:space="preserve">
+    <value>Memo</value>
+  </data>
+  <data name="MENU" xml:space="preserve">
+    <value>MENU</value>
+  </data>
+  <data name="Menu Close" xml:space="preserve">
+    <value>Menu Close</value>
+  </data>
+  <data name="Menu Open" xml:space="preserve">
+    <value>Menu Open</value>
+  </data>
+  <data name="MenuID" xml:space="preserve">
+    <value>MenuID</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="MILEAGE" xml:space="preserve">
+    <value>주행거리 KM</value>
+  </data>
+  <data name="Mode" xml:space="preserve">
+    <value>Mode</value>
+  </data>
+  <data name="Modify" xml:space="preserve">
+    <value>Modify</value>
+  </data>
+  <data name="Module" xml:space="preserve">
+    <value>MODULE</value>
+  </data>
+  <data name="Module Name" xml:space="preserve">
+    <value>Module Name</value>
+  </data>
+  <data name="Module State Monitoring" xml:space="preserve">
+    <value>Module State Monitoring</value>
+  </data>
+  <data name="Module Type" xml:space="preserve">
+    <value>Module Type</value>
+  </data>
+  <data name="ModuleProduct_Long" xml:space="preserve">
+    <value>ModuleProduct_Long</value>
+  </data>
+  <data name="ModuleProduct_Short" xml:space="preserve">
+    <value>ModuleProduct_Short</value>
+  </data>
+  <data name="Monitoring" xml:space="preserve">
+    <value>Monitoring</value>
+  </data>
+  <data name="Move" xml:space="preserve">
+    <value>Move</value>
+  </data>
+  <data name="Move Home" xml:space="preserve">
+    <value>Move Home</value>
+  </data>
+  <data name="Move Only" xml:space="preserve">
+    <value>Move Only</value>
+  </data>
+  <data name="MSG NM" xml:space="preserve">
+    <value>MSG NM</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Navigation Tab" xml:space="preserve">
+    <value>Navigation Tab</value>
+  </data>
+  <data name="NO" xml:space="preserve">
+    <value>NO</value>
+  </data>
+  <data name="No Select RM" xml:space="preserve">
+    <value>No Select RM</value>
+  </data>
+  <data name="NONE" xml:space="preserve">
+    <value>NONE</value>
+  </data>
+  <data name="Not Use User" xml:space="preserve">
+    <value>Not Use User</value>
+  </data>
+  <data name="NumberOrder" xml:space="preserve">
+    <value>NO.</value>
+  </data>
+  <data name="Occur" xml:space="preserve">
+    <value>Occur</value>
+  </data>
+  <data name="OFF" xml:space="preserve">
+    <value>OFF</value>
+  </data>
+  <data name="Offline" xml:space="preserve">
+    <value>Offline</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ON" xml:space="preserve">
+    <value>ON</value>
+  </data>
+  <data name="Online" xml:space="preserve">
+    <value>Online</value>
+  </data>
+  <data name="Only numbers can be entered" xml:space="preserve">
+    <value>Only numbers can be entered</value>
+  </data>
+  <data name="OP" xml:space="preserve">
+    <value>OP</value>
+  </data>
+  <data name="Operator Log" xml:space="preserve">
+    <value>Operator Log</value>
+  </data>
+  <data name="OperatorLog" xml:space="preserve">
+    <value>OperatorLog</value>
+  </data>
+  <data name="Out" xml:space="preserve">
+    <value>Out</value>
+  </data>
+  <data name="OUTPUT" xml:space="preserve">
+    <value>OUTPUT</value>
+  </data>
+  <data name="Pallet Size" xml:space="preserve">
+    <value>Pallet Size</value>
+  </data>
+  <data name="Pallet 정보" xml:space="preserve">
+    <value>Pallet 정보</value>
+  </data>
+  <data name="PalletSize" xml:space="preserve">
+    <value>PalletSize</value>
+  </data>
+  <data name="Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="Parameter Name" xml:space="preserve">
+    <value>Parameter Name</value>
+  </data>
+  <data name="Parameter 변경 메시지" xml:space="preserve">
+    <value>{0}Parameter {1} 에서 {2}변경 하시겠습니까?</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Password is Wrong" xml:space="preserve">
+    <value>Password is Wrong</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="PAUSED" xml:space="preserve">
+    <value>PAUSED</value>
+  </data>
+  <data name="PAUSING" xml:space="preserve">
+    <value>PAUSING</value>
+  </data>
+  <data name="PC LOC" xml:space="preserve">
+    <value>PC LOC</value>
+  </data>
+  <data name="PC NAME" xml:space="preserve">
+    <value>PC NAME</value>
+  </data>
+  <data name="PC_CarrierID" xml:space="preserve">
+    <value>PC_CarrierID</value>
+  </data>
+  <data name="PC_CommandWriteComplete" xml:space="preserve">
+    <value>PC_CommandWriteComplete</value>
+  </data>
+  <data name="PC_InnerTrayType" xml:space="preserve">
+    <value>PC_InnerTrayType</value>
+  </data>
+  <data name="PC_PalletSize" xml:space="preserve">
+    <value>PC_PalletSize</value>
+  </data>
+  <data name="PC_Polarity" xml:space="preserve">
+    <value>PC_Polarity</value>
+  </data>
+  <data name="PC_ProductEmpty" xml:space="preserve">
+    <value>PC_ProductEmpty</value>
+  </data>
+  <data name="PC_TrayType" xml:space="preserve">
+    <value>PC_TrayType</value>
+  </data>
+  <data name="PC_WinderDirection" xml:space="preserve">
+    <value>PC_WinderDirection</value>
+  </data>
+  <data name="Pick" xml:space="preserve">
+    <value>Pick</value>
+  </data>
+  <data name="Play Back" xml:space="preserve">
+    <value>Play Back</value>
+  </data>
+  <data name="Play Back &gt; Play Back" xml:space="preserve">
+    <value>Play Back &gt; Play Back</value>
+  </data>
+  <data name="PlayBack" xml:space="preserve">
+    <value>PlayBack</value>
+  </data>
+  <data name="PlayBack List" xml:space="preserve">
+    <value>PlayBack List</value>
+  </data>
+  <data name="PlayBack을 종료 하시겠습니까?" xml:space="preserve">
+    <value>PlayBack을 종료 하시겠습니까?</value>
+  </data>
+  <data name="PLC" xml:space="preserve">
+    <value>PLC</value>
+  </data>
+  <data name="PLC State" xml:space="preserve">
+    <value>PLC State</value>
+  </data>
+  <data name="PLC Write Data" xml:space="preserve">
+    <value>PLC Write Data</value>
+  </data>
+  <data name="PLC 시뮬창 오픈" xml:space="preserve">
+    <value>PLC 시뮬창 오픈</value>
+  </data>
+  <data name="PLC_PortType" xml:space="preserve">
+    <value>PLC_PortType</value>
+  </data>
+  <data name="Please Enter Your Password" xml:space="preserve">
+    <value>Please Enter Your Password</value>
+  </data>
+  <data name="Please Enter Your User ID" xml:space="preserve">
+    <value>Please Enter Your User ID</value>
+  </data>
+  <data name="Please Enter Your User ID and Password" xml:space="preserve">
+    <value>Please Enter Your User ID and Password</value>
+  </data>
+  <data name="Please Select Mode" xml:space="preserve">
+    <value>Please Select Mode</value>
+  </data>
+  <data name="PMAC Reload 메시지" xml:space="preserve">
+    <value>{0} PMAC 으로 부터 {1} ReLoad 하시겠습니까?</value>
+  </data>
+  <data name="PMAC Teaching Comp 메시지" xml:space="preserve">
+    <value>{0} PMAC 부터  TeachingData를 Reading완료 하였습니다.</value>
+  </data>
+  <data name="PMAC Teaching Fail 메시지" xml:space="preserve">
+    <value>{0} PMAC 부터  TeachingData를 Reading실패 하였습니다.</value>
+  </data>
+  <data name="Polarity" xml:space="preserve">
+    <value>Polarity</value>
+  </data>
+  <data name="POPUP" xml:space="preserve">
+    <value>POPUP</value>
+  </data>
+  <data name="POPUPMENU" xml:space="preserve">
+    <value>POPUPMENU</value>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>Port</value>
+  </data>
+  <data name="Port Get 작업을 시작 하시겠습니까?" xml:space="preserve">
+    <value>Port Get 작업을 시작 하시겠습니까?</value>
+  </data>
+  <data name="Port Get 작업을 중단 하시겠습니까?" xml:space="preserve">
+    <value>Port Get 작업을 중단 하시겠습니까?</value>
+  </data>
+  <data name="Port Teaching 데이터를 PMAC으로 부터 읽어 옵니다." xml:space="preserve">
+    <value>Port Teaching 데이터를 PMAC으로 부터 읽어 옵니다.</value>
+  </data>
+  <data name="Port Type" xml:space="preserve">
+    <value>Port Type</value>
+  </data>
+  <data name="PortSize" xml:space="preserve">
+    <value>PortSize</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Priority</value>
+  </data>
+  <data name="Priority Change" xml:space="preserve">
+    <value>Priority Change</value>
+  </data>
+  <data name="ProcessState" xml:space="preserve">
+    <value>ProcessState</value>
+  </data>
+  <data name="Product Empty" xml:space="preserve">
+    <value>Product Empty</value>
+  </data>
+  <data name="Product End" xml:space="preserve">
+    <value>Product End</value>
+  </data>
+  <data name="Product Quantity" xml:space="preserve">
+    <value>Product Quantity</value>
+  </data>
+  <data name="Push Counter :" xml:space="preserve">
+    <value>Push Counter :</value>
+  </data>
+  <data name="Rack Master" xml:space="preserve">
+    <value>Rack Master</value>
+  </data>
+  <data name="Rack Type" xml:space="preserve">
+    <value>Rack type</value>
+  </data>
+  <data name="RackMaster" xml:space="preserve">
+    <value>RackMaster</value>
+  </data>
+  <data name="Raw_Material" xml:space="preserve">
+    <value>Raw_Material</value>
+  </data>
+  <data name="RCMD" xml:space="preserve">
+    <value>RCMD</value>
+  </data>
+  <data name="Read" xml:space="preserve">
+    <value>Read</value>
+  </data>
+  <data name="READ DATA" xml:space="preserve">
+    <value>READ DATA</value>
+  </data>
+  <data name="READ DATA NONE" xml:space="preserve">
+    <value>Read Data가 없습니다. Shelf 설정으로 진행합니다.</value>
+  </data>
+  <data name="READ DATA가 없습니다." xml:space="preserve">
+    <value>READ DATA가 없습니다.</value>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>Ready</value>
+  </data>
+  <data name="Rear Bank" xml:space="preserve">
+    <value>Rear Bank</value>
+  </data>
+  <data name="Rear Shelf" xml:space="preserve">
+    <value>Rear Shelf</value>
+  </data>
+  <data name="Rear Teaching 데이터를 PMAC으로 부터 읽어 옵니다." xml:space="preserve">
+    <value>Rear Teaching 데이터를 PMAC으로 부터 읽어 옵니다.</value>
+  </data>
+  <data name="RECEIVECARRIEIR" xml:space="preserve">
+    <value>ReceiveCarrier</value>
+  </data>
+  <data name="RECEIVECARRIER" xml:space="preserve">
+    <value>RECEIVECARRIER</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="REGULATOR" xml:space="preserve">
+    <value>REGULATOR</value>
+  </data>
+  <data name="Remote" xml:space="preserve">
+    <value>Remote</value>
+  </data>
+  <data name="Remote Collecting" xml:space="preserve">
+    <value>Remote Collecting</value>
+  </data>
+  <data name="Request" xml:space="preserve">
+    <value>Request</value>
+  </data>
+  <data name="Resume" xml:space="preserve">
+    <value>Resume</value>
+  </data>
+  <data name="RFID CP" xml:space="preserve">
+    <value>RFID CP</value>
+  </data>
+  <data name="RFID RD" xml:space="preserve">
+    <value>RFID RD</value>
+  </data>
+  <data name="RFID Read" xml:space="preserve">
+    <value>RFID Read</value>
+  </data>
+  <data name="RIGHTCLICK" xml:space="preserve">
+    <value>RIGHTCLICK</value>
+  </data>
+  <data name="RM Fork 화재감지 텍스트" xml:space="preserve">
+    <value>RM Fork 화재감지를 진행하시겠습니까?</value>
+  </data>
+  <data name="RM Name" xml:space="preserve">
+    <value>RM Name</value>
+  </data>
+  <data name="RM P-val" xml:space="preserve">
+    <value>RM P-val</value>
+  </data>
+  <data name="RM Parameter 설정" xml:space="preserve">
+    <value>RM Parameter 설정</value>
+  </data>
+  <data name="RM Remove Carrier Exist Flag" xml:space="preserve">
+    <value>RM Remove Carrier Exist Flag</value>
+  </data>
+  <data name="RM 선택" xml:space="preserve">
+    <value>RM 선택</value>
+  </data>
+  <data name="RM 선택 메시지" xml:space="preserve">
+    <value>Do you want to move to the selected RackMaster({0})?</value>
+  </data>
+  <data name="RM1 Active" xml:space="preserve">
+    <value>RM1 Active</value>
+  </data>
+  <data name="RM2 Active" xml:space="preserve">
+    <value>RM2 Active</value>
+  </data>
+  <data name="RMParameter" xml:space="preserve">
+    <value>RMParameter</value>
+  </data>
+  <data name="RMPval" xml:space="preserve">
+    <value>RMPval</value>
+  </data>
+  <data name="RobotSpeed 변경 메시지" xml:space="preserve">
+    <value>{0} Speed를 {1}로 변경 하시겠습니까?</value>
+  </data>
+  <data name="RPTID" xml:space="preserve">
+    <value>RPTID</value>
+  </data>
+  <data name="Run" xml:space="preserve">
+    <value>Run</value>
+  </data>
+  <data name="RUN TIME" xml:space="preserve">
+    <value>가동 시간</value>
+  </data>
+  <data name="S" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="S/F" xml:space="preserve">
+    <value>S/F</value>
+  </data>
+  <data name="SAVE" xml:space="preserve">
+    <value>SAVE</value>
+  </data>
+  <data name="SAVE DTTM" xml:space="preserve">
+    <value>SAVE DTTM</value>
+  </data>
+  <data name="SC" xml:space="preserve">
+    <value>SC</value>
+  </data>
+  <data name="ScaleReset" xml:space="preserve">
+    <value>ScaleReset</value>
+  </data>
+  <data name="SCS" xml:space="preserve">
+    <value>SCS</value>
+  </data>
+  <data name="SCS Config" xml:space="preserve">
+    <value>SCS Config</value>
+  </data>
+  <data name="SCS State Change" xml:space="preserve">
+    <value>SCS State Change</value>
+  </data>
+  <data name="SCS Write Data" xml:space="preserve">
+    <value>SCS Write Data</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SearchText" xml:space="preserve">
+    <value>Search Text</value>
+  </data>
+  <data name="Search_Init" xml:space="preserve">
+    <value>Search_Init</value>
+  </data>
+  <data name="SECOND FLOOR" xml:space="preserve">
+    <value>SECOND FLOOR</value>
+  </data>
+  <data name="SECS2 Log" xml:space="preserve">
+    <value>SECS2 Log</value>
+  </data>
+  <data name="Select Level is Abnormal" xml:space="preserve">
+    <value>Select Level is Abnormal</value>
+  </data>
+  <data name="Select Use is Abnormal" xml:space="preserve">
+    <value>Select Use is Abnormal</value>
+  </data>
+  <data name="Send Counter :" xml:space="preserve">
+    <value>Send Counter :</value>
+  </data>
+  <data name="SENDCARRIER" xml:space="preserve">
+    <value>SendCarrier</value>
+  </data>
+  <data name="Sensor Error" xml:space="preserve">
+    <value>Sensor Error</value>
+  </data>
+  <data name="Sensor View Switching" xml:space="preserve">
+    <value>Sensor View Switching</value>
+  </data>
+  <data name="Set RM Speed Change" xml:space="preserve">
+    <value>Set RM Speed Change</value>
+  </data>
+  <data name="Set SCS mode to Pause for operation." xml:space="preserve">
+    <value>Set SCS mode to Pause for operation.</value>
+  </data>
+  <data name="Set SCS State" xml:space="preserve">
+    <value>Set SCS State</value>
+  </data>
+  <data name="SetGrid" xml:space="preserve">
+    <value>SetGrid</value>
+  </data>
+  <data name="Setup" xml:space="preserve">
+    <value>Setup</value>
+  </data>
+  <data name="Shelf" xml:space="preserve">
+    <value>Shelf</value>
+  </data>
+  <data name="Shelf Both Type" xml:space="preserve">
+    <value>Shelf Both Type</value>
+  </data>
+  <data name="Shelf Disable" xml:space="preserve">
+    <value>Shelf Disable</value>
+  </data>
+  <data name="Shelf Empty" xml:space="preserve">
+    <value>Shelf Empty</value>
+  </data>
+  <data name="Shelf Error" xml:space="preserve">
+    <value>Shelf Error</value>
+  </data>
+  <data name="Shelf Exist" xml:space="preserve">
+    <value>Shelf Exist</value>
+  </data>
+  <data name="Shelf FireWaterPool Type" xml:space="preserve">
+    <value>Shelf FireWaterPool Type</value>
+  </data>
+  <data name="Shelf ID" xml:space="preserve">
+    <value>Shelf ID</value>
+  </data>
+  <data name="Shelf is already job scheduled." xml:space="preserve">
+    <value>Shelf is already job scheduled.</value>
+  </data>
+  <data name="Shelf level" xml:space="preserve">
+    <value>Shelf level</value>
+  </data>
+  <data name="Shelf LoadRate :" xml:space="preserve">
+    <value>Shelf LoadRate :</value>
+  </data>
+  <data name="Shelf Long Type" xml:space="preserve">
+    <value>Shelf Long Type</value>
+  </data>
+  <data name="Shelf Priority" xml:space="preserve">
+    <value>Shelf Priority</value>
+  </data>
+  <data name="Shelf Short Type" xml:space="preserve">
+    <value>Shelf Short Type</value>
+  </data>
+  <data name="Shelf Size" xml:space="preserve">
+    <value>Shelf Size</value>
+  </data>
+  <data name="Shelf State" xml:space="preserve">
+    <value>Shelf State</value>
+  </data>
+  <data name="Shelf Status" xml:space="preserve">
+    <value>Shelf Status</value>
+  </data>
+  <data name="Shelf Type" xml:space="preserve">
+    <value>Shelf Type</value>
+  </data>
+  <data name="Shelf UNKID Count :" xml:space="preserve">
+    <value>Shelf UNKID Count :</value>
+  </data>
+  <data name="Shelf 상태 설정" xml:space="preserve">
+    <value>Shelf 상태 설정</value>
+  </data>
+  <data name="ShelfStatus" xml:space="preserve">
+    <value>ShelfStatus</value>
+  </data>
+  <data name="ShelfType" xml:space="preserve">
+    <value>ShelfType</value>
+  </data>
+  <data name="Short" xml:space="preserve">
+    <value>Short</value>
+  </data>
+  <data name="ShortMode" xml:space="preserve">
+    <value>Type Change</value>
+  </data>
+  <data name="SIGNIN" xml:space="preserve">
+    <value>SIGNIN</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="Smoke" xml:space="preserve">
+    <value>Smoke</value>
+  </data>
+  <data name="Smoke Detect 조회" xml:space="preserve">
+    <value>Smoke Detect 조회</value>
+  </data>
+  <data name="SmokeDetect" xml:space="preserve">
+    <value>SmokeDetect</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="SOURCE LOCATION" xml:space="preserve">
+    <value>SOURCE LOCATION</value>
+  </data>
+  <data name="Speed" xml:space="preserve">
+    <value>Speed</value>
+  </data>
+  <data name="SRC" xml:space="preserve">
+    <value>SRC</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="State is Error" xml:space="preserve">
+    <value>State is Error</value>
+  </data>
+  <data name="State is Not Error" xml:space="preserve">
+    <value>State is Not Error</value>
+  </data>
+  <data name="StateChangeTime" xml:space="preserve">
+    <value>StateChangeTime</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Step" xml:space="preserve">
+    <value>Step</value>
+  </data>
+  <data name="Stocker Alarm 관리" xml:space="preserve">
+    <value>Stocker Alarm 관리</value>
+  </data>
+  <data name="Stocker Alarm 관리 권한" xml:space="preserve">
+    <value>Stocker Alarm 관리 권한</value>
+  </data>
+  <data name="Stocker Config 관리" xml:space="preserve">
+    <value>Stocker Config 관리</value>
+  </data>
+  <data name="Stocker Config 관리 권한" xml:space="preserve">
+    <value>Stocker Config 관리 권한</value>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="Stopper B" xml:space="preserve">
+    <value>Stopper B</value>
+  </data>
+  <data name="Stopper F" xml:space="preserve">
+    <value>Stopper F</value>
+  </data>
+  <data name="Stored In" xml:space="preserve">
+    <value>Stored In</value>
+  </data>
+  <data name="Stream/Function" xml:space="preserve">
+    <value>Stream/Function</value>
+  </data>
+  <data name="Success Login" xml:space="preserve">
+    <value>Success Login</value>
+  </data>
+  <data name="Success Logout" xml:space="preserve">
+    <value>Success Logout</value>
+  </data>
+  <data name="SVID" xml:space="preserve">
+    <value>SVID</value>
+  </data>
+  <data name="Switch" xml:space="preserve">
+    <value>Switch</value>
+  </data>
+  <data name="Switching CPS Views" xml:space="preserve">
+    <value>Switching CPS Views</value>
+  </data>
+  <data name="SysByte" xml:space="preserve">
+    <value>SysByte</value>
+  </data>
+  <data name="SYSTEM STATE" xml:space="preserve">
+    <value>SYSTEM STATE</value>
+  </data>
+  <data name="Tab" xml:space="preserve">
+    <value>Tab</value>
+  </data>
+  <data name="Teaching Data" xml:space="preserve">
+    <value>Teaching Data</value>
+  </data>
+  <data name="Temperature" xml:space="preserve">
+    <value>Temperature</value>
+  </data>
+  <data name="Terminal Message" xml:space="preserve">
+    <value>Terminal Message</value>
+  </data>
+  <data name="TerminalMessage" xml:space="preserve">
+    <value>TerminalMessage</value>
+  </data>
+  <data name="TEST" xml:space="preserve">
+    <value>TEST</value>
+  </data>
+  <data name="TestMode" xml:space="preserve">
+    <value>TestMode</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>시간</value>
+  </data>
+  <data name="TimeStamp" xml:space="preserve">
+    <value>TimeStamp</value>
+  </data>
+  <data name="Track ID" xml:space="preserve">
+    <value>Track ID</value>
+  </data>
+  <data name="Track Name" xml:space="preserve">
+    <value>Track Name</value>
+  </data>
+  <data name="Track NO" xml:space="preserve">
+    <value>Track NO</value>
+  </data>
+  <data name="Tracking Data" xml:space="preserve">
+    <value>Tracking Data</value>
+  </data>
+  <data name="TrackPause" xml:space="preserve">
+    <value>TrackPause</value>
+  </data>
+  <data name="TrackResume" xml:space="preserve">
+    <value>TrackResume</value>
+  </data>
+  <data name="Transaction ID" xml:space="preserve">
+    <value>Transaction ID</value>
+  </data>
+  <data name="Transfer List" xml:space="preserve">
+    <value>Transfer List</value>
+  </data>
+  <data name="Transfer Log" xml:space="preserve">
+    <value>Transfer Log</value>
+  </data>
+  <data name="TransferLog" xml:space="preserve">
+    <value>TransferLog</value>
+  </data>
+  <data name="Tray Size" xml:space="preserve">
+    <value>Tray Size</value>
+  </data>
+  <data name="Tray Slot Quantity" xml:space="preserve">
+    <value>Tray Slot Quantity</value>
+  </data>
+  <data name="Tray Type" xml:space="preserve">
+    <value>Tray Type</value>
+  </data>
+  <data name="True" xml:space="preserve">
+    <value>True</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Uncoordinated Direction" xml:space="preserve">
+    <value>Uncoordinated Direction</value>
+  </data>
+  <data name="Unit" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="Unit ID" xml:space="preserve">
+    <value>UNIT ID</value>
+  </data>
+  <data name="Unit Image" xml:space="preserve">
+    <value>Unit Image</value>
+  </data>
+  <data name="UnitID" xml:space="preserve">
+    <value>Unit ID</value>
+  </data>
+  <data name="UNK ID Count :" xml:space="preserve">
+    <value>UNK ID Count :</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="UNKSHELF" xml:space="preserve">
+    <value>UNKSHELF</value>
+  </data>
+  <data name="Unload" xml:space="preserve">
+    <value>Unload</value>
+  </data>
+  <data name="Unuse" xml:space="preserve">
+    <value>Unuse</value>
+  </data>
+  <data name="Update User is Null" xml:space="preserve">
+    <value>Update User is Null</value>
+  </data>
+  <data name="US" xml:space="preserve">
+    <value>US</value>
+  </data>
+  <data name="Use" xml:space="preserve">
+    <value>Use</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="User Create" xml:space="preserve">
+    <value>User Create</value>
+  </data>
+  <data name="User Delete" xml:space="preserve">
+    <value>User Delete</value>
+  </data>
+  <data name="User Edit" xml:space="preserve">
+    <value>User Edit</value>
+  </data>
+  <data name="User ID" xml:space="preserve">
+    <value>User ID</value>
+  </data>
+  <data name="User편집 메시지" xml:space="preserve">
+    <value>Do you want to {0} User {1}?</value>
+  </data>
+  <data name="UTIL RATE" xml:space="preserve">
+    <value>가동율 %</value>
+  </data>
+  <data name="Utilization Log" xml:space="preserve">
+    <value>크레인 가동율 Log</value>
+  </data>
+  <data name="Validation NG" xml:space="preserve">
+    <value>Validation NG</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="Value :" xml:space="preserve">
+    <value>Value :</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="WAITCARRIERLOAD" xml:space="preserve">
+    <value>WaitCarrierLoad</value>
+  </data>
+  <data name="WAITCARRIERREMOVE" xml:space="preserve">
+    <value>WaitCarrierRemove</value>
+  </data>
+  <data name="WAITCRANEGET" xml:space="preserve">
+    <value>WaitCraneGet</value>
+  </data>
+  <data name="WAITCRANEPUT" xml:space="preserve">
+    <value>WaitCranePut</value>
+  </data>
+  <data name="Warning Code" xml:space="preserve">
+    <value>Warning Code</value>
+  </data>
+  <data name="WARNING!" xml:space="preserve">
+    <value>WARNING!</value>
+  </data>
+  <data name="Water Tank" xml:space="preserve">
+    <value>Water Tank</value>
+  </data>
+  <data name="Winder Direction" xml:space="preserve">
+    <value>Winder Direction</value>
+  </data>
+  <data name="WRITE" xml:space="preserve">
+    <value>WRITE</value>
+  </data>
+  <data name="XML 불러오기" xml:space="preserve">
+    <value>XML 불러오기</value>
+  </data>
+  <data name="XML_Load" xml:space="preserve">
+    <value>XML_Load</value>
+  </data>
+  <data name="YES" xml:space="preserve">
+    <value>YES</value>
+  </data>
+  <data name="Yield Action Counter :" xml:space="preserve">
+    <value>Yield Action Counter :</value>
+  </data>
+  <data name="Zone ID" xml:space="preserve">
+    <value>Zone ID</value>
+  </data>
+  <data name="값 선택" xml:space="preserve">
+    <value>값 선택</value>
+  </data>
+  <data name="검색" xml:space="preserve">
+    <value>검색</value>
+  </data>
+  <data name="검색 아이템" xml:space="preserve">
+    <value>검색 아이템</value>
+  </data>
+  <data name="검색 종료일시가 시작일시와 같거나 작습니다. 다시 설정하세요." xml:space="preserve">
+    <value>검색 종료일시가 시작일시와 같거나 작습니다. 다시 설정하세요.</value>
+  </data>
+  <data name="검색값이 없습니다." xml:space="preserve">
+    <value>검색값이 없습니다.</value>
+  </data>
+  <data name="경고 온도" xml:space="preserve">
+    <value>경고 온도</value>
+  </data>
+  <data name="계정관리" xml:space="preserve">
+    <value>계정관리</value>
+  </data>
+  <data name="공출고" xml:space="preserve">
+    <value>공출고</value>
+  </data>
+  <data name="공출고 테스트 모드 : [OFF]" xml:space="preserve">
+    <value>공출고 테스트 모드 : [OFF]</value>
+  </data>
+  <data name="구분" xml:space="preserve">
+    <value>구분</value>
+  </data>
+  <data name="그룹관리" xml:space="preserve">
+    <value>그룹관리</value>
+  </data>
+  <data name="기간 설정이 올바르지 않습니다." xml:space="preserve">
+    <value>기간 설정이 올바르지 않습니다.</value>
+  </data>
+  <data name="기상반 Active" xml:space="preserve">
+    <value>기상반 ACTIVE</value>
+  </data>
+  <data name="기상반 동작모드" xml:space="preserve">
+    <value>기상반 동작모드</value>
+  </data>
+  <data name="기상반 상태" xml:space="preserve">
+    <value>기상반 상태</value>
+  </data>
+  <data name="기존 위치" xml:space="preserve">
+    <value>기존 위치</value>
+  </data>
+  <data name="기준 정보 관리" xml:space="preserve">
+    <value>기준 정보 관리</value>
+  </data>
+  <data name="기준 정보 관리 &gt; SCS 구성 관리" xml:space="preserve">
+    <value>기준 정보 관리 &gt; SCS 구성 관리</value>
+  </data>
+  <data name="기준 정보 관리 &gt; SCS 알람 관리" xml:space="preserve">
+    <value>기준 정보 관리 &gt; SCS 알람 관리</value>
+  </data>
+  <data name="기준값" xml:space="preserve">
+    <value>기준값</value>
+  </data>
+  <data name="긴급정지 테스트" xml:space="preserve">
+    <value>긴급정지 테스트</value>
+  </data>
+  <data name="끝으로" xml:space="preserve">
+    <value>끝으로</value>
+  </data>
+  <data name="남_모듈단폭창고04" xml:space="preserve">
+    <value>남_모듈단폭창고04</value>
+  </data>
+  <data name="남_모듈단폭창고05" xml:space="preserve">
+    <value>남_모듈단폭창고05</value>
+  </data>
+  <data name="남_모듈원자재창고05" xml:space="preserve">
+    <value>남_모듈원자재창고05</value>
+  </data>
+  <data name="남_모듈원자재창고06" xml:space="preserve">
+    <value>남_모듈원자재창고06</value>
+  </data>
+  <data name="남_모듈원자재창고07" xml:space="preserve">
+    <value>남_모듈원자재창고07</value>
+  </data>
+  <data name="남_모듈원자재창고08" xml:space="preserve">
+    <value>남_모듈원자재창고08</value>
+  </data>
+  <data name="남_모듈장폭창고01" xml:space="preserve">
+    <value>남_모듈장폭창고01</value>
+  </data>
+  <data name="남_셀완제품창고01" xml:space="preserve">
+    <value>남_셀완제품창고01</value>
+  </data>
+  <data name="남_셀완제품창고02" xml:space="preserve">
+    <value>남_셀완제품창고02</value>
+  </data>
+  <data name="다음 페이지" xml:space="preserve">
+    <value>다음 페이지</value>
+  </data>
+  <data name="단폭모듈완제품창고#1" xml:space="preserve">
+    <value>단폭모듈완제품창고#1</value>
+  </data>
+  <data name="단폭모듈완제품창고#2" xml:space="preserve">
+    <value>단폭모듈완제품창고#2</value>
+  </data>
+  <data name="단폭모듈완제품창고#3" xml:space="preserve">
+    <value>단폭모듈완제품창고#3</value>
+  </data>
+  <data name="단폭모듈완제품창고#4" xml:space="preserve">
+    <value>단폭모듈완제품창고#4</value>
+  </data>
+  <data name="단폭모듈완제품창고#5" xml:space="preserve">
+    <value>단폭모듈완제품창고#5</value>
+  </data>
+  <data name="단폭전용" xml:space="preserve">
+    <value>단폭전용</value>
+  </data>
+  <data name="대기" xml:space="preserve">
+    <value>대기</value>
+  </data>
+  <data name="더블 스토리지 테스트 모드 : [OFF]" xml:space="preserve">
+    <value>더블 스토리지 테스트 모드 : [OFF]</value>
+  </data>
+  <data name="더블에러" xml:space="preserve">
+    <value>더블에러</value>
+  </data>
+  <data name="데이터 수집" xml:space="preserve">
+    <value>데이터 수집</value>
+  </data>
+  <data name="데이터가 비어 있습니다. 확인해 주세요" xml:space="preserve">
+    <value>데이터가 비어 있습니다.
+확인해 주세요.</value>
+  </data>
+  <data name="동작 상태" xml:space="preserve">
+    <value>동작 상태</value>
+  </data>
+  <data name="동작모드" xml:space="preserve">
+    <value>동작모드</value>
+  </data>
+  <data name="랙투랙" xml:space="preserve">
+    <value>랙투랙</value>
+  </data>
+  <data name="로그 메뉴" xml:space="preserve">
+    <value>Log 메뉴</value>
+  </data>
+  <data name="로컬수집" xml:space="preserve">
+    <value>로컬수집</value>
+  </data>
+  <data name="모니터링 메뉴" xml:space="preserve">
+    <value>모니터링 메뉴</value>
+  </data>
+  <data name="모듈 조립 Line" xml:space="preserve">
+    <value>모듈 조립 Line</value>
+  </data>
+  <data name="모듈타입이 비어 있습니다." xml:space="preserve">
+    <value>모듈타입이 비어 있습니다.</value>
+  </data>
+  <data name="반송 커맨드를 실행하시겠습니까?" xml:space="preserve">
+    <value>반송 커맨드를 실행하시겠습니까?</value>
+  </data>
+  <data name="방화수조" xml:space="preserve">
+    <value>방화수조</value>
+  </data>
+  <data name="범례" xml:space="preserve">
+    <value>범례</value>
+  </data>
+  <data name="변경값" xml:space="preserve">
+    <value>변경 Value</value>
+  </data>
+  <data name="변경사항을 적용 시키겠습니까?" xml:space="preserve">
+    <value>변경사항을 적용 시키겠습니까?</value>
+  </data>
+  <data name="북_모듈단폭창고01" xml:space="preserve">
+    <value>북_모듈단폭창고01</value>
+  </data>
+  <data name="북_모듈단폭창고02" xml:space="preserve">
+    <value>북_모듈단폭창고02</value>
+  </data>
+  <data name="북_모듈단폭창고03" xml:space="preserve">
+    <value>북_모듈단폭창고03</value>
+  </data>
+  <data name="북_모듈원자재창고01" xml:space="preserve">
+    <value>북_모듈원자재창고01</value>
+  </data>
+  <data name="북_모듈원자재창고02" xml:space="preserve">
+    <value>북_모듈원자재창고02</value>
+  </data>
+  <data name="북_모듈원자재창고03" xml:space="preserve">
+    <value>북_모듈원자재창고03</value>
+  </data>
+  <data name="북_모듈원자재창고04" xml:space="preserve">
+    <value>북_모듈원자재창고04</value>
+  </data>
+  <data name="사용 PC IP" xml:space="preserve">
+    <value>사용 PC IP</value>
+  </data>
+  <data name="사용 PC명" xml:space="preserve">
+    <value>사용 PC명</value>
+  </data>
+  <data name="사용권한없음" xml:space="preserve">
+    <value>사용권한없음</value>
+  </data>
+  <data name="사용금지" xml:space="preserve">
+    <value>사용금지</value>
+  </data>
+  <data name="사용자 검색" xml:space="preserve">
+    <value>사용자 검색</value>
+  </data>
+  <data name="사용자 관리" xml:space="preserve">
+    <value>사용자 관리</value>
+  </data>
+  <data name="사용자 관리 권한" xml:space="preserve">
+    <value>사용자 관리 권한</value>
+  </data>
+  <data name="사용자 관리 설정" xml:space="preserve">
+    <value>사용자 관리 설정</value>
+  </data>
+  <data name="사용자 로그아웃" xml:space="preserve">
+    <value>사용자 로그아웃</value>
+  </data>
+  <data name="사용자 로그인" xml:space="preserve">
+    <value>사용자 로그인</value>
+  </data>
+  <data name="사이클 작업 시작" xml:space="preserve">
+    <value>사이클 작업 시작</value>
+  </data>
+  <data name="사이클 작업 정지" xml:space="preserve">
+    <value>사이클 작업 정지</value>
+  </data>
+  <data name="사이클 작업을 시작 하시겠습니까?" xml:space="preserve">
+    <value>사이클 작업을 시작 하시겠습니까?</value>
+  </data>
+  <data name="사이클 작업을 정지 하시겠습니까?" xml:space="preserve">
+    <value>사이클 작업을 정지 하시겠습니까?</value>
+  </data>
+  <data name="삭제 시 복구할 수 없습니다." xml:space="preserve">
+    <value>삭제 시 복구할 수 없습니다.</value>
+  </data>
+  <data name="삭제할 유저 정보를 선택해주세요." xml:space="preserve">
+    <value>삭제할 유저 정보를 선택해주세요.</value>
+  </data>
+  <data name="삭제할 정보가 없습니다." xml:space="preserve">
+    <value>삭제할 정보가 없습니다.</value>
+  </data>
+  <data name="상단모듈원자재창고#1" xml:space="preserve">
+    <value>상단모듈원자재창고#1</value>
+  </data>
+  <data name="상단모듈원자재창고#2" xml:space="preserve">
+    <value>상단모듈원자재창고#2</value>
+  </data>
+  <data name="상단모듈원자재창고#3" xml:space="preserve">
+    <value>상단모듈원자재창고#3</value>
+  </data>
+  <data name="상단모듈원자재창고#4" xml:space="preserve">
+    <value>상단모듈원자재창고#4</value>
+  </data>
+  <data name="상태 설정" xml:space="preserve">
+    <value>상태 설정</value>
+  </data>
+  <data name="새 위치" xml:space="preserve">
+    <value>새 위치</value>
+  </data>
+  <data name="선택 PLC 시작" xml:space="preserve">
+    <value>선택 PLC 시작</value>
+  </data>
+  <data name="선택 PLC 중지" xml:space="preserve">
+    <value>선택 PLC 중지</value>
+  </data>
+  <data name="선택된 Alarm Data가 없습니다." xml:space="preserve">
+    <value>선택된 알람데이터가 없습니다.</value>
+  </data>
+  <data name="선택한 잡 삭제" xml:space="preserve">
+    <value>선택한 잡 삭제</value>
+  </data>
+  <data name="선택한 잡 우선순위 변경" xml:space="preserve">
+    <value>선택한 잡 우선순위 변경</value>
+  </data>
+  <data name="설비 정지상태 일때만 변경 가능 합니다." xml:space="preserve">
+    <value>설비 정지상태 일때만 변경 가능 합니다.</value>
+  </data>
+  <data name="설정" xml:space="preserve">
+    <value>설정</value>
+  </data>
+  <data name="설정 초기화" xml:space="preserve">
+    <value>설정 초기화</value>
+  </data>
+  <data name="센서상태이상" xml:space="preserve">
+    <value>센서상태이상</value>
+  </data>
+  <data name="셀버퍼 우상단 창고#2" xml:space="preserve">
+    <value>셀버퍼 우상단 창고#2</value>
+  </data>
+  <data name="셀버퍼 우하단 창고#4" xml:space="preserve">
+    <value>셀버퍼 우하단 창고#4</value>
+  </data>
+  <data name="셀버퍼 좌상단 창고#1" xml:space="preserve">
+    <value>셀버퍼 좌상단 창고#1</value>
+  </data>
+  <data name="셀버퍼 좌하단 창고#3" xml:space="preserve">
+    <value>셀버퍼 좌하단 창고#3</value>
+  </data>
+  <data name="셀버퍼창고01" xml:space="preserve">
+    <value>셀버퍼창고01</value>
+  </data>
+  <data name="셀버퍼창고02" xml:space="preserve">
+    <value>셀버퍼창고02</value>
+  </data>
+  <data name="셀버퍼창고03" xml:space="preserve">
+    <value>셀버퍼창고02</value>
+  </data>
+  <data name="셀버퍼창고04" xml:space="preserve">
+    <value>셀버퍼창고04</value>
+  </data>
+  <data name="셀완제품창고#1" xml:space="preserve">
+    <value>셀완제품창고#1</value>
+  </data>
+  <data name="셀완제품창고#2" xml:space="preserve">
+    <value>셀완제품창고#2</value>
+  </data>
+  <data name="셀프 트레이 뒤틀림 센서 [LR1]" xml:space="preserve">
+    <value>셀프 트레이 뒤틀림 센서 [LR1]</value>
+  </data>
+  <data name="셀프 트레이 뒤틀림 센서 [LR2]" xml:space="preserve">
+    <value>셀프 트레이 뒤틀림 센서 [LR2]</value>
+  </data>
+  <data name="셀프 트레이 뒤틀림 센서 [LR3]" xml:space="preserve">
+    <value>셀프 트레이 뒤틀림 센서 [LR3]</value>
+  </data>
+  <data name="셀프 트레이 뒤틀림 센서 [LR4]" xml:space="preserve">
+    <value>셀프 트레이 뒤틀림 센서 [LR4]</value>
+  </data>
+  <data name="수집된 플레이백 항목" xml:space="preserve">
+    <value>수집된 플레이백 항목</value>
+  </data>
+  <data name="수집중" xml:space="preserve">
+    <value>수집중</value>
+  </data>
+  <data name="순번" xml:space="preserve">
+    <value>순번</value>
+  </data>
+  <data name="숫자코드" xml:space="preserve">
+    <value>숫자코드</value>
+  </data>
+  <data name="쉘프 구간 데이터 변경 메시지" xml:space="preserve">
+    <value>쉘프 {0} ~ {1} {2} Type 변경?</value>
+  </data>
+  <data name="쉘프 구간 데이터 변경완료 메시지" xml:space="preserve">
+    <value>쉘프 {0} ~ {1} {2} Type 변경완료</value>
+  </data>
+  <data name="쉘프 데이터 변경 메시지" xml:space="preserve">
+    <value>쉘프 {0} {1}-&gt;{2} 변경?</value>
+  </data>
+  <data name="쉘프 데이터 변경완료 메시지" xml:space="preserve">
+    <value>쉘프 {0} {1}-&gt;{2} 변경완료</value>
+  </data>
+  <data name="쉘프 캐리어ID 메시지" xml:space="preserve">
+    <value>쉘프 {0} 캐리어ID {1} {2}?</value>
+  </data>
+  <data name="쉘프 캐리어ID삭제 메시지" xml:space="preserve">
+    <value>쉘프 {0} 캐리어ID {1} 삭제 {2}</value>
+  </data>
+  <data name="쉘프 캐리어ID추가 메시지" xml:space="preserve">
+    <value>쉘프 {0} 캐리어ID {1} 추가 {2}</value>
+  </data>
+  <data name="쉘프 트레이 스토리지 센서" xml:space="preserve">
+    <value>쉘프 트레이 스토리지 센서</value>
+  </data>
+  <data name="쉘프사용/미사용 메시지" xml:space="preserve">
+    <value>Do you want to {0} {1}?</value>
+  </data>
+  <data name="스케쥴러 비활성화 메시지" xml:space="preserve">
+    <value>스케쥴러 : {0} 를 비활성화 하시겠습니까?</value>
+  </data>
+  <data name="스케쥴러 활성화 메시지" xml:space="preserve">
+    <value>스케쥴러 : {0} 를 활성화 하시겠습니까?</value>
+  </data>
+  <data name="승강 위치" xml:space="preserve">
+    <value>승강 위치</value>
+  </data>
+  <data name="시운전 모드" xml:space="preserve">
+    <value>시운전 모드</value>
+  </data>
+  <data name="시작" xml:space="preserve">
+    <value>시작</value>
+  </data>
+  <data name="시작일시" xml:space="preserve">
+    <value>시작일시</value>
+  </data>
+  <data name="알람 클리어" xml:space="preserve">
+    <value>알람 클리어</value>
+  </data>
+  <data name="알림 메시지" xml:space="preserve">
+    <value>알림 메시지</value>
+  </data>
+  <data name="에러" xml:space="preserve">
+    <value>에러</value>
+  </data>
+  <data name="에러 리스트" xml:space="preserve">
+    <value>에러 리스트</value>
+  </data>
+  <data name="에러 리스트 내보내기" xml:space="preserve">
+    <value>에러 리스트 내보내기</value>
+  </data>
+  <data name="에러 리스트 수정" xml:space="preserve">
+    <value>에러 리스트 수정</value>
+  </data>
+  <data name="에러 리스트 제거" xml:space="preserve">
+    <value>에러 리스트 제거</value>
+  </data>
+  <data name="에러 리스트 추가" xml:space="preserve">
+    <value>에러 리스트 추가</value>
+  </data>
+  <data name="에러가 발생했습니다. 자세한 내용을 확인하시겠습니까?" xml:space="preserve">
+    <value>에러가 발생했습니다. 자세한 내용을 확인하시겠습니까?</value>
+  </data>
+  <data name="에러레벨" xml:space="preserve">
+    <value>에러레벨</value>
+  </data>
+  <data name="에러레벨이 비어 있습니다." xml:space="preserve">
+    <value>에러레벨이 비어 있습니다.</value>
+  </data>
+  <data name="에러메시지" xml:space="preserve">
+    <value>에러메시지</value>
+  </data>
+  <data name="에러메시지가 비어 있습니다." xml:space="preserve">
+    <value>에러메시지가 비어 있습니다.</value>
+  </data>
+  <data name="에러이름" xml:space="preserve">
+    <value>에러이름</value>
+  </data>
+  <data name="에러이름이 비어 있습니다." xml:space="preserve">
+    <value>에러이름이 비어 있습니다.</value>
+  </data>
+  <data name="에러코드" xml:space="preserve">
+    <value>에러코드</value>
+  </data>
+  <data name="에러코드가 비어 있습니다." xml:space="preserve">
+    <value>에러코드가 비어 있습니다.</value>
+  </data>
+  <data name="에러현황" xml:space="preserve">
+    <value>에러현황</value>
+  </data>
+  <data name="연기 감지 감도" xml:space="preserve">
+    <value>연기 감지 감도</value>
+  </data>
+  <data name="연기감지" xml:space="preserve">
+    <value>연기감지</value>
+  </data>
+  <data name="연기미감지" xml:space="preserve">
+    <value>연기미감지</value>
+  </data>
+  <data name="영어" xml:space="preserve">
+    <value>영어</value>
+  </data>
+  <data name="오프라인" xml:space="preserve">
+    <value>오프라인</value>
+  </data>
+  <data name="온라인" xml:space="preserve">
+    <value>온라인</value>
+  </data>
+  <data name="원격수집" xml:space="preserve">
+    <value>원격수집</value>
+  </data>
+  <data name="위치변경" xml:space="preserve">
+    <value>위치변경</value>
+  </data>
+  <data name="위험 온도" xml:space="preserve">
+    <value>위험 온도</value>
+  </data>
+  <data name="유닛 이름 선택" xml:space="preserve">
+    <value>유닛 이름 선택</value>
+  </data>
+  <data name="을 삭제 하시겠습니까?" xml:space="preserve">
+    <value>을 삭제 하시겠습니까?</value>
+  </data>
+  <data name="이동" xml:space="preserve">
+    <value>이동</value>
+  </data>
+  <data name="이동 중 RM 연기감지" xml:space="preserve">
+    <value>이동 중 RM 연기감지</value>
+  </data>
+  <data name="이미 SCS 실행중이거나 완전히 종료되지 않았습니다." xml:space="preserve">
+    <value>이미 SCS 실행중이거나 완전히 종료되지 않았습니다.</value>
+  </data>
+  <data name="이전 크기로 복원" xml:space="preserve">
+    <value>이전 크기로 복원</value>
+  </data>
+  <data name="이전 페이지" xml:space="preserve">
+    <value>이전 페이지</value>
+  </data>
+  <data name="임의 쉘프 연기 감지" xml:space="preserve">
+    <value>임의 쉘프 연기 감지</value>
+  </data>
+  <data name="임의 쉘프 연기 감지 텍스트" xml:space="preserve">
+    <value>임의 쉘프 연기 감지를 진행하시겠습니까?
+(YES는 무작위 쉘프 알람발생, NO는 Normal상태)</value>
+  </data>
+  <data name="입고" xml:space="preserve">
+    <value>입고</value>
+  </data>
+  <data name="입고금지" xml:space="preserve">
+    <value>입고금지</value>
+  </data>
+  <data name="입고예약" xml:space="preserve">
+    <value>입고예약</value>
+  </data>
+  <data name="작업 구분" xml:space="preserve">
+    <value>작업 구분</value>
+  </data>
+  <data name="작업 내용" xml:space="preserve">
+    <value>작업 내용</value>
+  </data>
+  <data name="작업 임시 생성" xml:space="preserve">
+    <value>작업 임시 생성</value>
+  </data>
+  <data name="작업 타입" xml:space="preserve">
+    <value>작업 타입</value>
+  </data>
+  <data name="작업결과" xml:space="preserve">
+    <value>작업결과</value>
+  </data>
+  <data name="작업일시" xml:space="preserve">
+    <value>작업일시</value>
+  </data>
+  <data name="장폭모듈완제품창고#1" xml:space="preserve">
+    <value>장폭모듈완제품창고#1</value>
+  </data>
+  <data name="장폭전용" xml:space="preserve">
+    <value>장폭전용</value>
+  </data>
+  <data name="재생" xml:space="preserve">
+    <value>재생</value>
+  </data>
+  <data name="적재" xml:space="preserve">
+    <value>적재</value>
+  </data>
+  <data name="전면 트레이 기울임 센서 [FB1]" xml:space="preserve">
+    <value>전면 트레이 기울임 센서 [FB1]</value>
+  </data>
+  <data name="전체 PLC 시작" xml:space="preserve">
+    <value>전체 PLC 시작</value>
+  </data>
+  <data name="전체 PLC 중지" xml:space="preserve">
+    <value>전체 PLC 중지</value>
+  </data>
+  <data name="전체 쉘프 언로드" xml:space="preserve">
+    <value>전체 쉘프 언로드</value>
+  </data>
+  <data name="전체 쉘프 언로드 작업을 시작 하시겠습니까?" xml:space="preserve">
+    <value>전체 쉘프 언로드 작업을 시작 하시겠습니까?</value>
+  </data>
+  <data name="전체 쉘프 언로드 작업을 정지 하시겠습니까?" xml:space="preserve">
+    <value>전체 쉘프 언로드 작업을 정지 하시겠습니까?</value>
+  </data>
+  <data name="전체 쉘프 언로드 중단" xml:space="preserve">
+    <value>전체 쉘프 언로드 중단</value>
+  </data>
+  <data name="전체 작업 삭제" xml:space="preserve">
+    <value>전체 작업 삭제</value>
+  </data>
+  <data name="전체 작업을 삭제 하시겠습니까?" xml:space="preserve">
+    <value>전체 작업을 삭제 하시겠습니까?</value>
+  </data>
+  <data name="접속불가 메시지" xml:space="preserve">
+    <value>{0}로 접속할 수 없습니다.</value>
+  </data>
+  <data name="정렬" xml:space="preserve">
+    <value>정렬</value>
+  </data>
+  <data name="정보 관리 메뉴" xml:space="preserve">
+    <value>정보 관리 메뉴</value>
+  </data>
+  <data name="정위치 감지 센서 [PUT]" xml:space="preserve">
+    <value>정위치 감지 센서 [PUT]</value>
+  </data>
+  <data name="정지" xml:space="preserve">
+    <value>정지</value>
+  </data>
+  <data name="조치 방법" xml:space="preserve">
+    <value>조치 방법</value>
+  </data>
+  <data name="조치방법이 비어 있습니다." xml:space="preserve">
+    <value>조치방법이 비어 있습니다.</value>
+  </data>
+  <data name="조치사항" xml:space="preserve">
+    <value>조치사항</value>
+  </data>
+  <data name="조회 및 반송" xml:space="preserve">
+    <value>조회 및 반송</value>
+  </data>
+  <data name="조회 및 반송 &gt; I/O 조회" xml:space="preserve">
+    <value>조회 및 반송 &gt; I/O 조회</value>
+  </data>
+  <data name="조회 및 반송 &gt; 연기감지" xml:space="preserve">
+    <value>조회 및 반송 &gt; 연기감지</value>
+  </data>
+  <data name="조회 및 반송 &gt; 터미널 메시지" xml:space="preserve">
+    <value>조회 및 반송 &gt; 터미널 메시지</value>
+  </data>
+  <data name="종료" xml:space="preserve">
+    <value>종료</value>
+  </data>
+  <data name="종료일시" xml:space="preserve">
+    <value>종료일시</value>
+  </data>
+  <data name="종료일시가 시작일시보다 이전입니다." xml:space="preserve">
+    <value>종료일시가 시작일시보다 이전입니다.</value>
+  </data>
+  <data name="좌측 메뉴" xml:space="preserve">
+    <value>좌측 메뉴</value>
+  </data>
+  <data name="주행 위치" xml:space="preserve">
+    <value>주행 위치</value>
+  </data>
+  <data name="중국어" xml:space="preserve">
+    <value>중국어</value>
+  </data>
+  <data name="중복실행" xml:space="preserve">
+    <value>중복실행</value>
+  </data>
+  <data name="지상반 동작모드" xml:space="preserve">
+    <value>지상반 동작모드</value>
+  </data>
+  <data name="직출고" xml:space="preserve">
+    <value>직출고</value>
+  </data>
+  <data name="처음으로" xml:space="preserve">
+    <value>처음으로</value>
+  </data>
+  <data name="최근 동작 결과" xml:space="preserve">
+    <value>최근 동작 결과</value>
+  </data>
+  <data name="최대화" xml:space="preserve">
+    <value>최대화</value>
+  </data>
+  <data name="최소화" xml:space="preserve">
+    <value>최소화</value>
+  </data>
+  <data name="출고" xml:space="preserve">
+    <value>출고</value>
+  </data>
+  <data name="출고금지" xml:space="preserve">
+    <value>출고금지</value>
+  </data>
+  <data name="출고예약" xml:space="preserve">
+    <value>출고예약</value>
+  </data>
+  <data name="측정값" xml:space="preserve">
+    <value>측정값</value>
+  </data>
+  <data name="캐리어 삭제" xml:space="preserve">
+    <value>캐리어 삭제</value>
+  </data>
+  <data name="캐리어 생성" xml:space="preserve">
+    <value>캐리어 생성</value>
+  </data>
+  <data name="캐리어 위치가 해당 위치로 강제 설정 되었습니다." xml:space="preserve">
+    <value>캐리어 위치가 해당 위치로 강제 설정 되었습니다.</value>
+  </data>
+  <data name="캐리어 위치를 강제 변경하시겠습니까?" xml:space="preserve">
+    <value>캐리어 위치를 강제 변경하시겠습니까?</value>
+  </data>
+  <data name="캐리어설치/삭제 메시지" xml:space="preserve">
+    <value>Do you want to {0} a Carrier in {1}?</value>
+  </data>
+  <data name="커맨드를 실행하시겠습니까?" xml:space="preserve">
+    <value>커맨드를 실행하시겠습니까?</value>
+  </data>
+  <data name="컨베이어 BCR완료 메시지" xml:space="preserve">
+    <value>컨베이어 {0} {1} {2}</value>
+  </data>
+  <data name="컨베이어 BCR요청 메시지" xml:space="preserve">
+    <value>컨베이어 {0} BCR 읽기?</value>
+  </data>
+  <data name="컨베이어 IO 변경 메시지" xml:space="preserve">
+    <value>컨베이어 {0} {1} {2} IO 변경?</value>
+  </data>
+  <data name="컨베이어 IO 변경완료 메시지" xml:space="preserve">
+    <value>컨베이어 {0} {1} {2} IO 변경완료</value>
+  </data>
+  <data name="컨베이어 데이터 변경 메시지" xml:space="preserve">
+    <value>컨베이어 {0} {1}-&gt;{2} 변경?</value>
+  </data>
+  <data name="컨베이어 데이터 변경완료 메시지" xml:space="preserve">
+    <value>컨베이어 {0} {1}-&gt;{2} 변경완료</value>
+  </data>
+  <data name="컨베이어 캐리어ID 메시지" xml:space="preserve">
+    <value>컨베이어 {0} 캐리어ID {1} {2}?</value>
+  </data>
+  <data name="컨베이어 캐리어ID삭제 메시지" xml:space="preserve">
+    <value>컨베이어 {0} 캐리어ID {1} 삭제 {2}</value>
+  </data>
+  <data name="컨베이어 캐리어ID추가 메시지" xml:space="preserve">
+    <value>컨베이어 {0} 캐리어ID {1} 추가 {2}</value>
+  </data>
+  <data name="크기 조정" xml:space="preserve">
+    <value>크기 조정</value>
+  </data>
+  <data name="크레인 IO 변경 메시지" xml:space="preserve">
+    <value>크레인 {0} {1} {2} IO 변경?</value>
+  </data>
+  <data name="크레인 IO 변경완료 메시지" xml:space="preserve">
+    <value>크레인 {0} {1} {2} IO 변경완료</value>
+  </data>
+  <data name="크레인 데이터 변경 메시지" xml:space="preserve">
+    <value>크레인 {0} {1} 명령 진행?</value>
+  </data>
+  <data name="크레인 데이터 변경완료 메시지" xml:space="preserve">
+    <value>크레인 {0} {1} {2} 진행</value>
+  </data>
+  <data name="크레인 캐리어ID 메시지" xml:space="preserve">
+    <value>크레인 {0} 캐리어ID {1} {2}?</value>
+  </data>
+  <data name="크레인 캐리어ID삭제 메시지" xml:space="preserve">
+    <value>크레인 {0} 캐리어ID {1} 삭제 {2}</value>
+  </data>
+  <data name="크레인 캐리어ID추가 메시지" xml:space="preserve">
+    <value>크레인 {0} 캐리어ID {1} 추가 {2}</value>
+  </data>
+  <data name="클릭시 MCS 상태를 변경할수 있습니다." xml:space="preserve">
+    <value>클릭시 MCS 상태를 변경할수 있습니다.</value>
+  </data>
+  <data name="클릭시 PLC 상태를 변경할수 있습니다." xml:space="preserve">
+    <value>클릭시 PLC 상태를 변경할수 있습니다.</value>
+  </data>
+  <data name="클릭시 SCS 상태를 변경할수 있습니다." xml:space="preserve">
+    <value>클릭시 SCS 상태를 변경할수 있습니다.</value>
+  </data>
+  <data name="클릭시 SYSTEM 상태를 변경할수 있습니다." xml:space="preserve">
+    <value>클릭시 SYSTEM 상태를 변경할수 있습니다.</value>
+  </data>
+  <data name="테스트 메뉴" xml:space="preserve">
+    <value>테스트 메뉴</value>
+  </data>
+  <data name="테스트 알람 생성" xml:space="preserve">
+    <value>테스트 알람 생성</value>
+  </data>
+  <data name="통신 설정" xml:space="preserve">
+    <value>통신 설정</value>
+  </data>
+  <data name="트레이 재하 감지 센서 [PLACE]" xml:space="preserve">
+    <value>트레이 재하 감지 센서 [PLACE]</value>
+  </data>
+  <data name="포크 위치" xml:space="preserve">
+    <value>포크 위치</value>
+  </data>
+  <data name="포크 작업 유무" xml:space="preserve">
+    <value>포크 작업 유무</value>
+  </data>
+  <data name="포트 로드 시작" xml:space="preserve">
+    <value>포트 로드 시작</value>
+  </data>
+  <data name="포트 로드 중단" xml:space="preserve">
+    <value>포트 로드 중단</value>
+  </data>
+  <data name="프로그램을 종료 하시겠습니까?" xml:space="preserve">
+    <value>프로그램을 종료 하시겠습니까?</value>
+  </data>
+  <data name="플레이백 데이터 수신에 성공했습니다." xml:space="preserve">
+    <value>플레이백 데이터 수신에 성공했습니다.</value>
+  </data>
+  <data name="플레이백 데이터 수신에 실패했습니다." xml:space="preserve">
+    <value>플레이백 데이터 수신에 실패했습니다.</value>
+  </data>
+  <data name="플레이백 메뉴" xml:space="preserve">
+    <value>플레이백 메뉴</value>
+  </data>
+  <data name="플레이백 요청시간 지연 텍스트" xml:space="preserve">
+    <value>플레이백 요청시간이 {0}분 이상입니다.
+요청에 시간이 지연될수 있습니다. 그래도 진행하시겠습니까?</value>
+  </data>
+  <data name="플레이백 화면을 최대화합니다." xml:space="preserve">
+    <value>플레이백 화면을 최대화합니다.</value>
+  </data>
+  <data name="플레이백 화면을 최소화합니다." xml:space="preserve">
+    <value>플레이백 화면을 최소화합니다.</value>
+  </data>
+  <data name="하단 메뉴" xml:space="preserve">
+    <value>하단 메뉴</value>
+  </data>
+  <data name="하단모듈원자재창고#1" xml:space="preserve">
+    <value>하단모듈원자재창고#1</value>
+  </data>
+  <data name="하단모듈원자재창고#2" xml:space="preserve">
+    <value>하단모듈원자재창고#2</value>
+  </data>
+  <data name="하단모듈원자재창고#3" xml:space="preserve">
+    <value>하단모듈원자재창고#3</value>
+  </data>
+  <data name="하단모듈원자재창고#4" xml:space="preserve">
+    <value>하단모듈원자재창고#4</value>
+  </data>
+  <data name="하역" xml:space="preserve">
+    <value>하역</value>
+  </data>
+  <data name="한국어" xml:space="preserve">
+    <value>한국어</value>
+  </data>
+  <data name="해당 로그 파일 로드에 실패하였습니다." xml:space="preserve">
+    <value>해당 로그 파일 로드에 실패하였습니다.</value>
+  </data>
+  <data name="핸드 오프 작업 임시 생성" xml:space="preserve">
+    <value>핸드 오프 작업 임시 생성</value>
+  </data>
+  <data name="헝가리어" xml:space="preserve">
+    <value>헝가리어</value>
+  </data>
+  <data name="현재 동작" xml:space="preserve">
+    <value>현재 동작</value>
+  </data>
+  <data name="현재 로그인 아이디" xml:space="preserve">
+    <value>현재 로그인 아이디</value>
+  </data>
+  <data name="현재값" xml:space="preserve">
+    <value>현재값</value>
+  </data>
+  <data name="혼합사용" xml:space="preserve">
+    <value>혼합사용</value>
+  </data>
+  <data name="홈 복귀" xml:space="preserve">
+    <value>홈 복귀</value>
+  </data>
+  <data name="화면 맞춤" xml:space="preserve">
+    <value>화면 맞춤</value>
+  </data>
+  <data name="화물" xml:space="preserve">
+    <value>화물</value>
+  </data>
+  <data name="화물유무" xml:space="preserve">
+    <value>화물유무</value>
+  </data>
+  <data name="화재" xml:space="preserve">
+    <value>화재</value>
+  </data>
+  <data name="화재 신호" xml:space="preserve">
+    <value>화재 신호</value>
+  </data>
+  <data name="화재작업취소" xml:space="preserve">
+    <value>화재작업취소</value>
+  </data>
+  <data name="화재출고" xml:space="preserve">
+    <value>화재출고</value>
+  </data>
+  <data name="후면 트레이 기울임 센서 [FB2]" xml:space="preserve">
+    <value>후면 트레이 기울임 센서 [FB2]</value>
+  </data>
+</root>

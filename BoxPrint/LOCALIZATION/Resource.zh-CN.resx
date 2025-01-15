@@ -1,0 +1,2755 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="1층 선택" xml:space="preserve">
+    <value>选择一楼</value>
+  </data>
+  <data name="2층 선택" xml:space="preserve">
+    <value>选择二楼</value>
+  </data>
+  <data name="A user without user rights. Are you sure you want to login again?" xml:space="preserve">
+    <value>没有用户权限的用户。您确定要再次登录吗？</value>
+  </data>
+  <data name="AccessAGV" xml:space="preserve">
+    <value>存取AGV</value>
+  </data>
+  <data name="AccessOPER" xml:space="preserve">
+    <value>存取OPER</value>
+  </data>
+  <data name="Ack Code" xml:space="preserve">
+    <value>Ack代码</value>
+  </data>
+  <data name="ACTION" xml:space="preserve">
+    <value>动作</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>活跃</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="ADDRESS" xml:space="preserve">
+    <value>地址</value>
+  </data>
+  <data name="AddressOffset" xml:space="preserve">
+    <value>位址偏移</value>
+  </data>
+  <data name="Admin &gt;" xml:space="preserve">
+    <value>行政 &gt;</value>
+  </data>
+  <data name="Alarm" xml:space="preserve">
+    <value>警报</value>
+  </data>
+  <data name="Alarm Log" xml:space="preserve">
+    <value>EQP误差日志</value>
+  </data>
+  <data name="AlarmClear" xml:space="preserve">
+    <value>警报清除</value>
+  </data>
+  <data name="AlarmLog" xml:space="preserve">
+    <value>EQP误差日志</value>
+  </data>
+  <data name="AlarmManager" xml:space="preserve">
+    <value>警报经理</value>
+  </data>
+  <data name="AlarmTest" xml:space="preserve">
+    <value>警报测试</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>全体</value>
+  </data>
+  <data name="Already have a Carrier" xml:space="preserve">
+    <value>已经有载体。</value>
+  </data>
+  <data name="AnodeReel" xml:space="preserve">
+    <value>阳极卷轴</value>
+  </data>
+  <data name="Are you sure you want to" xml:space="preserve">
+    <value>您确定要</value>
+  </data>
+  <data name="as a reason" xml:space="preserve">
+    <value>作为理由</value>
+  </data>
+  <data name="AUTO" xml:space="preserve">
+    <value>自动</value>
+  </data>
+  <data name="AUTOACTION" xml:space="preserve">
+    <value>自动动作</value>
+  </data>
+  <data name="AutoLogoutTime" xml:space="preserve">
+    <value>自动注销(分钟)</value>
+  </data>
+  <data name="AutoRun" xml:space="preserve">
+    <value>开始自动</value>
+  </data>
+  <data name="Axis Number" xml:space="preserve">
+    <value>轴数字</value>
+  </data>
+  <data name="Axis State" xml:space="preserve">
+    <value>轴状态</value>
+  </data>
+  <data name="AxisState" xml:space="preserve">
+    <value>轴状态</value>
+  </data>
+  <data name="B" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="Bank" xml:space="preserve">
+    <value>仓库</value>
+  </data>
+  <data name="BANK Tag" xml:space="preserve">
+    <value>仓库{0}</value>
+  </data>
+  <data name="Bank 선택" xml:space="preserve">
+    <value>仓库{0}选择</value>
+  </data>
+  <data name="Bay" xml:space="preserve">
+    <value>节</value>
+  </data>
+  <data name="Bay 끝지점" xml:space="preserve">
+    <value>节结束</value>
+  </data>
+  <data name="Bay 또는 Level의 시작 값이 끝 값보다 작아야 합니다." xml:space="preserve">
+    <value>所选节或层的起始值必须小于结束值。</value>
+  </data>
+  <data name="Bay 시작지점" xml:space="preserve">
+    <value>节开始</value>
+  </data>
+  <data name="BCR" xml:space="preserve">
+    <value>BCR</value>
+  </data>
+  <data name="BCR Log" xml:space="preserve">
+    <value>BCR 日志</value>
+  </data>
+  <data name="BCR NO" xml:space="preserve">
+    <value>BCR 数字</value>
+  </data>
+  <data name="BCR Not Exist" xml:space="preserve">
+    <value>BCR无</value>
+  </data>
+  <data name="BCR Read" xml:space="preserve">
+    <value>BCR 读懂</value>
+  </data>
+  <data name="BCR ReadTest" xml:space="preserve">
+    <value>BCR 读取测试</value>
+  </data>
+  <data name="BCR Result" xml:space="preserve">
+    <value>BCR结果</value>
+  </data>
+  <data name="BCR TestMode : [0] Normal" xml:space="preserve">
+    <value>BCR 测试模式：[0] 普通</value>
+  </data>
+  <data name="BCR TestMode : [1] Read Fail" xml:space="preserve">
+    <value>BCR 测试模式：[1] 读懂失败</value>
+  </data>
+  <data name="BCR TestMode : [2] Read Duplicate" xml:space="preserve">
+    <value>BCR 测试模式：[2] 读懂重复</value>
+  </data>
+  <data name="BCRLog" xml:space="preserve">
+    <value>BCR日志</value>
+  </data>
+  <data name="BitOffset" xml:space="preserve">
+    <value>位偏移</value>
+  </data>
+  <data name="BOARD" xml:space="preserve">
+    <value>板</value>
+  </data>
+  <data name="Booth" xml:space="preserve">
+    <value>展位</value>
+  </data>
+  <data name="BoothState 변경 메시지" xml:space="preserve">
+    <value>将展位状态从 {0} 更改为 {1}？</value>
+  </data>
+  <data name="Both" xml:space="preserve">
+    <value>混合</value>
+  </data>
+  <data name="BothMode" xml:space="preserve">
+    <value>种类更改</value>
+  </data>
+  <data name="BottomMenu" xml:space="preserve">
+    <value>底部菜单</value>
+  </data>
+  <data name="BP" xml:space="preserve">
+    <value>缓冲口</value>
+  </data>
+  <data name="BUTTON" xml:space="preserve">
+    <value>按钮</value>
+  </data>
+  <data name="C/V BACKWARD" xml:space="preserve">
+    <value>输送机 后进</value>
+  </data>
+  <data name="C/V FORWARD" xml:space="preserve">
+    <value>输送机 前进</value>
+  </data>
+  <data name="Can't Change" xml:space="preserve">
+    <value>不能改变</value>
+  </data>
+  <data name="CANCEL" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Carrier" xml:space="preserve">
+    <value>载体</value>
+  </data>
+  <data name="Carrier Exist" xml:space="preserve">
+    <value>载体存在</value>
+  </data>
+  <data name="Carrier ID" xml:space="preserve">
+    <value>CARRIER ID</value>
+  </data>
+  <data name="Carrier List" xml:space="preserve">
+    <value>载体列表</value>
+  </data>
+  <data name="Carrier Loc" xml:space="preserve">
+    <value>载体位置</value>
+  </data>
+  <data name="CARRIER LOCATION" xml:space="preserve">
+    <value>载体位置</value>
+  </data>
+  <data name="Carrier Not Exist" xml:space="preserve">
+    <value>载体不存在</value>
+  </data>
+  <data name="Carrier Search and Transfer" xml:space="preserve">
+    <value>载体搜索和转移</value>
+  </data>
+  <data name="Carrier Size" xml:space="preserve">
+    <value>载体尺寸</value>
+  </data>
+  <data name="Carrier size is mismatched" xml:space="preserve">
+    <value>载体大小不匹配</value>
+  </data>
+  <data name="Carrier 조회 및 반송" xml:space="preserve">
+    <value>载体搜索和转移</value>
+  </data>
+  <data name="CarrierID" xml:space="preserve">
+    <value>载体ID</value>
+  </data>
+  <data name="CarrierID is Empty" xml:space="preserve">
+    <value>载体ID是空。</value>
+  </data>
+  <data name="CarrierID is Empty or PalletSize is None." xml:space="preserve">
+    <value>载体ID为空或托盘尺寸为无。</value>
+  </data>
+  <data name="CarrierSearch" xml:space="preserve">
+    <value>载体搜索</value>
+  </data>
+  <data name="CarrierSize" xml:space="preserve">
+    <value>载体尺寸</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>类别</value>
+  </data>
+  <data name="CathodeReel" xml:space="preserve">
+    <value>阴极卷轴</value>
+  </data>
+  <data name="CEID" xml:space="preserve">
+    <value>CEID</value>
+  </data>
+  <data name="Cell Packing" xml:space="preserve">
+    <value>细胞包裹</value>
+  </data>
+  <data name="CELL 완제품 창고 (남) #1" xml:space="preserve">
+    <value>细胞产品仓库(南)#1</value>
+  </data>
+  <data name="CELL 완제품 창고 (남) #2" xml:space="preserve">
+    <value>细胞产品仓库(南)#2</value>
+  </data>
+  <data name="CELL 완제품 창고 (남) #3" xml:space="preserve">
+    <value>细胞产品仓库(南)#3</value>
+  </data>
+  <data name="CELL 완제품 창고 (남) #4" xml:space="preserve">
+    <value>细胞产品仓库(南)#4</value>
+  </data>
+  <data name="CELL 완제품 창고 (남) #5" xml:space="preserve">
+    <value>细胞产品仓库(南)#5</value>
+  </data>
+  <data name="CELL 완제품 창고 (남) #6" xml:space="preserve">
+    <value>细胞产品仓库(南)#6</value>
+  </data>
+  <data name="CELL 완제품 창고 (남) #7" xml:space="preserve">
+    <value>细胞产品仓库(南)#7</value>
+  </data>
+  <data name="CELL 완제품 창고 (남) #8" xml:space="preserve">
+    <value>细胞产品仓库(南)#8</value>
+  </data>
+  <data name="CELL 완제품 창고 (북) #1" xml:space="preserve">
+    <value>细胞产品仓库(北)#1</value>
+  </data>
+  <data name="CELL 완제품 창고 (북) #2" xml:space="preserve">
+    <value>细胞产品仓库(北)#2</value>
+  </data>
+  <data name="CELL 완제품 창고 (북) #3" xml:space="preserve">
+    <value>细胞产品仓库(北)#3</value>
+  </data>
+  <data name="CELL 완제품 창고 (북) #4" xml:space="preserve">
+    <value>细胞产品仓库(北)#4</value>
+  </data>
+  <data name="CELL 완제품 창고 (북) #5" xml:space="preserve">
+    <value>细胞产品仓库(北)#5</value>
+  </data>
+  <data name="CELL 완제품 창고 (북) #6" xml:space="preserve">
+    <value>细胞产品仓库(北)#6</value>
+  </data>
+  <data name="CELL 완제품 창고 (북) #7" xml:space="preserve">
+    <value>细胞产品仓库(北)#7</value>
+  </data>
+  <data name="CELL 완제품 창고 (북) #8" xml:space="preserve">
+    <value>细胞产品仓库(北)#8</value>
+  </data>
+  <data name="CellPacking" xml:space="preserve">
+    <value>细胞包裹</value>
+  </data>
+  <data name="CellProduct_Long" xml:space="preserve">
+    <value>细胞产品_长</value>
+  </data>
+  <data name="CellProduct_Short" xml:space="preserve">
+    <value>细胞产品_短</value>
+  </data>
+  <data name="Cell_Long" xml:space="preserve">
+    <value>细胞_长</value>
+  </data>
+  <data name="Cell_Short" xml:space="preserve">
+    <value>细胞_短</value>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>更改</value>
+  </data>
+  <data name="Check" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="Check Select Value" xml:space="preserve">
+    <value>检查选择值</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>空</value>
+  </data>
+  <data name="CLICK" xml:space="preserve">
+    <value>点击</value>
+  </data>
+  <data name="CLOSE" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="CMD" xml:space="preserve">
+    <value>命令</value>
+  </data>
+  <data name="CN" xml:space="preserve">
+    <value>中文</value>
+  </data>
+  <data name="Command" xml:space="preserve">
+    <value>命令</value>
+  </data>
+  <data name="Command Error" xml:space="preserve">
+    <value>命令误差</value>
+  </data>
+  <data name="COMMAND ID" xml:space="preserve">
+    <value>命令ID</value>
+  </data>
+  <data name="Comment입력 메시지" xml:space="preserve">
+    <value>您要把评论{0}写给{1}吗？</value>
+  </data>
+  <data name="Complete" xml:space="preserve">
+    <value>完成</value>
+  </data>
+  <data name="Config" xml:space="preserve">
+    <value>配置</value>
+  </data>
+  <data name="CONFIRM" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="Confirmation" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="Connect" xml:space="preserve">
+    <value>连接</value>
+  </data>
+  <data name="Connection" xml:space="preserve">
+    <value>连线</value>
+  </data>
+  <data name="Connection Info" xml:space="preserve">
+    <value>连线信息</value>
+  </data>
+  <data name="Consumable" xml:space="preserve">
+    <value>可消费</value>
+  </data>
+  <data name="Contain" xml:space="preserve">
+    <value>包含</value>
+  </data>
+  <data name="CONVERTER" xml:space="preserve">
+    <value>转换器</value>
+  </data>
+  <data name="Conveyor" xml:space="preserve">
+    <value>输送机</value>
+  </data>
+  <data name="Conveyor Line" xml:space="preserve">
+    <value>输送带</value>
+  </data>
+  <data name="Core Type" xml:space="preserve">
+    <value>磁芯种类</value>
+  </data>
+  <data name="CPS Reset" xml:space="preserve">
+    <value>CPS 重置</value>
+  </data>
+  <data name="CPS Start" xml:space="preserve">
+    <value>CPS 开始</value>
+  </data>
+  <data name="Crane" xml:space="preserve">
+    <value>吊车</value>
+  </data>
+  <data name="Crane is Busy" xml:space="preserve">
+    <value>吊车在使用中</value>
+  </data>
+  <data name="CRANE NUMBER" xml:space="preserve">
+    <value>SC_NO</value>
+  </data>
+  <data name="Crane Speed Setting" xml:space="preserve">
+    <value>吊车速度设定</value>
+  </data>
+  <data name="Crane Task" xml:space="preserve">
+    <value>吊车任务</value>
+  </data>
+  <data name="Crane1" xml:space="preserve">
+    <value>吊车1</value>
+  </data>
+  <data name="Crane2" xml:space="preserve">
+    <value>吊车2</value>
+  </data>
+  <data name="CraneAble" xml:space="preserve">
+    <value>吊车进入</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="Current" xml:space="preserve">
+    <value>当前</value>
+  </data>
+  <data name="Current Language" xml:space="preserve">
+    <value>当前语言</value>
+  </data>
+  <data name="Current Location" xml:space="preserve">
+    <value>当前位置</value>
+  </data>
+  <data name="Current Speed mm/s" xml:space="preserve">
+    <value>吊车速度 mm/s</value>
+  </data>
+  <data name="Current State" xml:space="preserve">
+    <value>当前状态</value>
+  </data>
+  <data name="Current User cannot Create/Delete User. (Manager Only)" xml:space="preserve">
+    <value>当前用户不能添加/删除用户。（仅限经理）</value>
+  </data>
+  <data name="CV" xml:space="preserve">
+    <value>输送机</value>
+  </data>
+  <data name="CV Error Reset" xml:space="preserve">
+    <value>输送机误差重置</value>
+  </data>
+  <data name="Cycle" xml:space="preserve">
+    <value>周期</value>
+  </data>
+  <data name="Data Type" xml:space="preserve">
+    <value>数据种类</value>
+  </data>
+  <data name="Db Get1" xml:space="preserve">
+    <value>资料库获取 1</value>
+  </data>
+  <data name="Db Get2" xml:space="preserve">
+    <value>资料库获取 2</value>
+  </data>
+  <data name="Db Get3" xml:space="preserve">
+    <value>资料库获取 3</value>
+  </data>
+  <data name="DB Open Failed" xml:space="preserve">
+    <value>数据库打开失败！ 终止程序。</value>
+  </data>
+  <data name="DB Set Fail" xml:space="preserve">
+    <value>数据库集失败</value>
+  </data>
+  <data name="DeadZone" xml:space="preserve">
+    <value>死区</value>
+  </data>
+  <data name="DeadZone설정 메시지" xml:space="preserve">
+    <value>您要将死区设置为{0}吗？</value>
+  </data>
+  <data name="Default Value" xml:space="preserve">
+    <value>预设值</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Delete User is Null" xml:space="preserve">
+    <value>没有用户要删除</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>记述说</value>
+  </data>
+  <data name="Dest" xml:space="preserve">
+    <value>目标</value>
+  </data>
+  <data name="Destination" xml:space="preserve">
+    <value>目的地</value>
+  </data>
+  <data name="DESTINATION LOCATION" xml:space="preserve">
+    <value>目的地位置</value>
+  </data>
+  <data name="Detail" xml:space="preserve">
+    <value>细节</value>
+  </data>
+  <data name="Detect" xml:space="preserve">
+    <value>觉察</value>
+  </data>
+  <data name="Device Map" xml:space="preserve">
+    <value>设备映射</value>
+  </data>
+  <data name="Device Map(PLC) Monitoring" xml:space="preserve">
+    <value>设备映射(PLC)力监控</value>
+  </data>
+  <data name="Direction" xml:space="preserve">
+    <value>方向</value>
+  </data>
+  <data name="DirectionBothMode" xml:space="preserve">
+    <value>方向混合模式</value>
+  </data>
+  <data name="DirectionInMode" xml:space="preserve">
+    <value>方向入库模式</value>
+  </data>
+  <data name="DirectionOutMode" xml:space="preserve">
+    <value>方向出库模式</value>
+  </data>
+  <data name="Disable" xml:space="preserve">
+    <value>未使用</value>
+  </data>
+  <data name="Disconnect" xml:space="preserve">
+    <value>不连接</value>
+  </data>
+  <data name="Do You Want to Change?" xml:space="preserve">
+    <value>您要更改吗？</value>
+  </data>
+  <data name="Do you want to Create User?" xml:space="preserve">
+    <value>您要添加用户吗？</value>
+  </data>
+  <data name="Do you want to Delete User?" xml:space="preserve">
+    <value>您要删除用户吗？</value>
+  </data>
+  <data name="Do you want to Edit User?" xml:space="preserve">
+    <value>您要编辑用户吗？</value>
+  </data>
+  <data name="Do you want to reconnect a Crane?" xml:space="preserve">
+    <value>您想重新连接吊车吗？</value>
+  </data>
+  <data name="Do you want to write the Comment" xml:space="preserve">
+    <value>你想写注释吗？</value>
+  </data>
+  <data name="Door Open" xml:space="preserve">
+    <value>门打开</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="Emergency Stop" xml:space="preserve">
+    <value>紧急停止</value>
+  </data>
+  <data name="EmergencyStop" xml:space="preserve">
+    <value>紧急停止</value>
+  </data>
+  <data name="EMPTY" xml:space="preserve">
+    <value>空</value>
+  </data>
+  <data name="Enable" xml:space="preserve">
+    <value>使用</value>
+  </data>
+  <data name="End Status" xml:space="preserve">
+    <value>结束状态</value>
+  </data>
+  <data name="Enter Priority to Change" xml:space="preserve">
+    <value>输入要更改的优先级</value>
+  </data>
+  <data name="EQP ID" xml:space="preserve">
+    <value>EQP ID</value>
+  </data>
+  <data name="EQPType" xml:space="preserve">
+    <value>EQP种类</value>
+  </data>
+  <data name="Error Code" xml:space="preserve">
+    <value>误差代码</value>
+  </data>
+  <data name="Error Name" xml:space="preserve">
+    <value>误差名称</value>
+  </data>
+  <data name="Error Reset" xml:space="preserve">
+    <value>误差重置</value>
+  </data>
+  <data name="Error Type" xml:space="preserve">
+    <value>误差种类</value>
+  </data>
+  <data name="ERRORHANDLING" xml:space="preserve">
+    <value>误差处理</value>
+  </data>
+  <data name="ErrorReset" xml:space="preserve">
+    <value>误差重置</value>
+  </data>
+  <data name="Event Info" xml:space="preserve">
+    <value>发生信息</value>
+  </data>
+  <data name="Event Time" xml:space="preserve">
+    <value>发生时间</value>
+  </data>
+  <data name="EventType" xml:space="preserve">
+    <value>发生种类</value>
+  </data>
+  <data name="Exception" xml:space="preserve">
+    <value>例外</value>
+  </data>
+  <data name="EXIST" xml:space="preserve">
+    <value>存在</value>
+  </data>
+  <data name="EXIT" xml:space="preserve">
+    <value>退出</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>提取</value>
+  </data>
+  <data name="Fail" xml:space="preserve">
+    <value>失败</value>
+  </data>
+  <data name="False" xml:space="preserve">
+    <value>不可能</value>
+  </data>
+  <data name="FILE 잠김" xml:space="preserve">
+    <value>档案锁定</value>
+  </data>
+  <data name="Filtering Text" xml:space="preserve">
+    <value>筛选文本</value>
+  </data>
+  <data name="Final Location" xml:space="preserve">
+    <value>最终位置</value>
+  </data>
+  <data name="Find" xml:space="preserve">
+    <value>寻找</value>
+  </data>
+  <data name="Fire State" xml:space="preserve">
+    <value>火灾状态</value>
+  </data>
+  <data name="Fire1" xml:space="preserve">
+    <value>火灾1</value>
+  </data>
+  <data name="Fire2" xml:space="preserve">
+    <value>火灾2</value>
+  </data>
+  <data name="FireWaterPool" xml:space="preserve">
+    <value>消防水箱</value>
+  </data>
+  <data name="FirmwareLog" xml:space="preserve">
+    <value>固件日志</value>
+  </data>
+  <data name="FIRST FLOOR" xml:space="preserve">
+    <value>一楼</value>
+  </data>
+  <data name="Fork" xml:space="preserve">
+    <value>叉</value>
+  </data>
+  <data name="Front Bank" xml:space="preserve">
+    <value>前岸</value>
+  </data>
+  <data name="Front Shelf" xml:space="preserve">
+    <value>前架子</value>
+  </data>
+  <data name="Front Teaching 데이터를 PMAC으로 부터 읽어 옵니다." xml:space="preserve">
+    <value>从PMAC读取前方教学数据。</value>
+  </data>
+  <data name="GROUND FLOOR" xml:space="preserve">
+    <value>底子楼</value>
+  </data>
+  <data name="Group" xml:space="preserve">
+    <value>群体</value>
+  </data>
+  <data name="G층 선택" xml:space="preserve">
+    <value>选择底子楼</value>
+  </data>
+  <data name="HandOver Counter :" xml:space="preserve">
+    <value>交接数器 :</value>
+  </data>
+  <data name="Heavy Alarm" xml:space="preserve">
+    <value>重警报</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>帮助</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>首页</value>
+  </data>
+  <data name="HSMS Log" xml:space="preserve">
+    <value>HSMS 日志</value>
+  </data>
+  <data name="HSMSLog" xml:space="preserve">
+    <value>HSMS日志</value>
+  </data>
+  <data name="HU" xml:space="preserve">
+    <value>匈牙利语</value>
+  </data>
+  <data name="I/O DESCRIPTION" xml:space="preserve">
+    <value>入力/出力 记述说</value>
+  </data>
+  <data name="I/O Input" xml:space="preserve">
+    <value>出/入 输入</value>
+  </data>
+  <data name="I/O Num" xml:space="preserve">
+    <value>入力/出力 号码</value>
+  </data>
+  <data name="I/O Output" xml:space="preserve">
+    <value>出/入 输出</value>
+  </data>
+  <data name="I/O 조회" xml:space="preserve">
+    <value>入力/出力 搜索</value>
+  </data>
+  <data name="I/OMonitorRM" xml:space="preserve">
+    <value>入力/出力监控RM</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="In" xml:space="preserve">
+    <value>入</value>
+  </data>
+  <data name="IN/OUT" xml:space="preserve">
+    <value>入/出</value>
+  </data>
+  <data name="Info Message" xml:space="preserve">
+    <value>信息消息</value>
+  </data>
+  <data name="Inform" xml:space="preserve">
+    <value>通知</value>
+  </data>
+  <data name="Inform Log" xml:space="preserve">
+    <value>通知日志</value>
+  </data>
+  <data name="INIT" xml:space="preserve">
+    <value>初始化</value>
+  </data>
+  <data name="INITIALIZE" xml:space="preserve">
+    <value>初始化</value>
+  </data>
+  <data name="Inner Tray Type" xml:space="preserve">
+    <value>内部托盘种类</value>
+  </data>
+  <data name="InOut" xml:space="preserve">
+    <value>入出库</value>
+  </data>
+  <data name="InOutMode" xml:space="preserve">
+    <value>入出库模式</value>
+  </data>
+  <data name="INPUT" xml:space="preserve">
+    <value>入</value>
+  </data>
+  <data name="Input Data is Abnormal" xml:space="preserve">
+    <value>输入数据异常</value>
+  </data>
+  <data name="Install" xml:space="preserve">
+    <value>安装</value>
+  </data>
+  <data name="Invalid Target" xml:space="preserve">
+    <value>无效目标</value>
+  </data>
+  <data name="IOMonitor" xml:space="preserve">
+    <value>入出力监控</value>
+  </data>
+  <data name="IP 주소" xml:space="preserve">
+    <value>IP地址</value>
+  </data>
+  <data name="is Add Complete" xml:space="preserve">
+    <value>添加完成</value>
+  </data>
+  <data name="is Current User" xml:space="preserve">
+    <value>是当前用户</value>
+  </data>
+  <data name="is no Result" xml:space="preserve">
+    <value>是没有结果</value>
+  </data>
+  <data name="is Not Exist" xml:space="preserve">
+    <value>不存在</value>
+  </data>
+  <data name="is Overlap" xml:space="preserve">
+    <value>是重叠</value>
+  </data>
+  <data name="is Remove Complete" xml:space="preserve">
+    <value>删除完成</value>
+  </data>
+  <data name="is Remove Fail" xml:space="preserve">
+    <value>删除失败</value>
+  </data>
+  <data name="is Update Complete" xml:space="preserve">
+    <value>更新完成</value>
+  </data>
+  <data name="ITEM" xml:space="preserve">
+    <value>物品</value>
+  </data>
+  <data name="Item Name" xml:space="preserve">
+    <value>项目名称</value>
+  </data>
+  <data name="ItemType" xml:space="preserve">
+    <value>物品种类</value>
+  </data>
+  <data name="Job" xml:space="preserve">
+    <value>工作</value>
+  </data>
+  <data name="Job creating failed. Check source or destination state." xml:space="preserve">
+    <value>工作创建失败。检查源或目标状态。</value>
+  </data>
+  <data name="Job has been created successfully." xml:space="preserve">
+    <value>工作已成功创建。</value>
+  </data>
+  <data name="Job has been Sent successfully." xml:space="preserve">
+    <value>工作已发送成功。</value>
+  </data>
+  <data name="Job is not selected for changing priority." xml:space="preserve">
+    <value>工作没有被选为改变优先权。</value>
+  </data>
+  <data name="Job is not selected for removing." xml:space="preserve">
+    <value>工作没有被选择删除。</value>
+  </data>
+  <data name="KEY IN" xml:space="preserve">
+    <value>钥匙投入</value>
+  </data>
+  <data name="Key Send 메시지" xml:space="preserve">
+    <value>将请求输送机{0}中的密钥发送到服务器？</value>
+  </data>
+  <data name="KEYIN" xml:space="preserve">
+    <value>钥匙投入</value>
+  </data>
+  <data name="Kiosk" xml:space="preserve">
+    <value>售货亭</value>
+  </data>
+  <data name="Kiosk Setting" xml:space="preserve">
+    <value>售货亭设定</value>
+  </data>
+  <data name="Kiosk 선택 메시지" xml:space="preserve">
+    <value>您要当前售货亭更改为 {0}？</value>
+  </data>
+  <data name="KR" xml:space="preserve">
+    <value>韩语</value>
+  </data>
+  <data name="L Req" xml:space="preserve">
+    <value>装载要求</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>语言</value>
+  </data>
+  <data name="Language Setting" xml:space="preserve">
+    <value>语言设置</value>
+  </data>
+  <data name="Language State Change" xml:space="preserve">
+    <value>语言状态更改</value>
+  </data>
+  <data name="LeftMenu" xml:space="preserve">
+    <value>左侧菜单</value>
+  </data>
+  <data name="Legend" xml:space="preserve">
+    <value>图例</value>
+  </data>
+  <data name="Level" xml:space="preserve">
+    <value>层</value>
+  </data>
+  <data name="Level 끝지점" xml:space="preserve">
+    <value>层结束</value>
+  </data>
+  <data name="Level 시작지점" xml:space="preserve">
+    <value>层开始</value>
+  </data>
+  <data name="Level1" xml:space="preserve">
+    <value>等级</value>
+  </data>
+  <data name="Light Alarm" xml:space="preserve">
+    <value>轻警报</value>
+  </data>
+  <data name="Light/Heavy Alarm" xml:space="preserve">
+    <value>轻/重警报</value>
+  </data>
+  <data name="List" xml:space="preserve">
+    <value>列表</value>
+  </data>
+  <data name="Load Rate :" xml:space="preserve">
+    <value>装载率 :</value>
+  </data>
+  <data name="Loading..." xml:space="preserve">
+    <value>加载中…</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>位置</value>
+  </data>
+  <data name="Log" xml:space="preserve">
+    <value>日志</value>
+  </data>
+  <data name="Log &gt; Alarm Log" xml:space="preserve">
+    <value>日志 &gt; 警报日志</value>
+  </data>
+  <data name="Log &gt; BCR Log" xml:space="preserve">
+    <value>日志 &gt; BCR 日志</value>
+  </data>
+  <data name="Log &gt; HSMS Log" xml:space="preserve">
+    <value>日志 &gt; HSMS 日志</value>
+  </data>
+  <data name="Log &gt; Inform Log" xml:space="preserve">
+    <value>日志 &gt; 通知日志</value>
+  </data>
+  <data name="Log &gt; Operator Log" xml:space="preserve">
+    <value>日志 &gt; 操作员日志</value>
+  </data>
+  <data name="Log &gt; Transfer Log" xml:space="preserve">
+    <value>日志 &gt; 转移日志</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>登录</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>注销</value>
+  </data>
+  <data name="Long" xml:space="preserve">
+    <value>长</value>
+  </data>
+  <data name="LongMode" xml:space="preserve">
+    <value>种类更改</value>
+  </data>
+  <data name="LP" xml:space="preserve">
+    <value>装载口</value>
+  </data>
+  <data name="Macro Dest" xml:space="preserve">
+    <value>批处理目标</value>
+  </data>
+  <data name="Macro Source" xml:space="preserve">
+    <value>批处理源</value>
+  </data>
+  <data name="Main" xml:space="preserve">
+    <value>主</value>
+  </data>
+  <data name="MainPage" xml:space="preserve">
+    <value>主页</value>
+  </data>
+  <data name="Manual" xml:space="preserve">
+    <value>手动</value>
+  </data>
+  <data name="Manual Command" xml:space="preserve">
+    <value>手动命令</value>
+  </data>
+  <data name="Manual Port" xml:space="preserve">
+    <value>手动端口</value>
+  </data>
+  <data name="ManualRun" xml:space="preserve">
+    <value>手动开始</value>
+  </data>
+  <data name="Map 관리" xml:space="preserve">
+    <value>映射管理</value>
+  </data>
+  <data name="Map 관리 권한" xml:space="preserve">
+    <value>映射管理权威</value>
+  </data>
+  <data name="MapViewer" xml:space="preserve">
+    <value>映射查看器</value>
+  </data>
+  <data name="MCS" xml:space="preserve">
+    <value>MCS</value>
+  </data>
+  <data name="MCS On/Offline State Change" xml:space="preserve">
+    <value>MCS在/离线状态更改</value>
+  </data>
+  <data name="MCS State Change" xml:space="preserve">
+    <value>MCS状态更改</value>
+  </data>
+  <data name="Member Login" xml:space="preserve">
+    <value>会员登录</value>
+  </data>
+  <data name="Memo" xml:space="preserve">
+    <value>备忘录</value>
+  </data>
+  <data name="MENU" xml:space="preserve">
+    <value>菜单</value>
+  </data>
+  <data name="Menu Close" xml:space="preserve">
+    <value>菜单关闭</value>
+  </data>
+  <data name="Menu Open" xml:space="preserve">
+    <value>菜单打开</value>
+  </data>
+  <data name="MenuID" xml:space="preserve">
+    <value>菜单ID</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>口信</value>
+  </data>
+  <data name="Mode" xml:space="preserve">
+    <value>模式</value>
+  </data>
+  <data name="Modify" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="Module" xml:space="preserve">
+    <value>模块</value>
+  </data>
+  <data name="Module Name" xml:space="preserve">
+    <value>模块名称</value>
+  </data>
+  <data name="Module State Monitoring" xml:space="preserve">
+    <value>模块状态监测</value>
+  </data>
+  <data name="Module Type" xml:space="preserve">
+    <value>模块种类</value>
+  </data>
+  <data name="ModuleProduct_Long" xml:space="preserve">
+    <value>模块产品_长</value>
+  </data>
+  <data name="ModuleProduct_Short" xml:space="preserve">
+    <value>模块产品_短</value>
+  </data>
+  <data name="Monitoring" xml:space="preserve">
+    <value>监测</value>
+  </data>
+  <data name="Move" xml:space="preserve">
+    <value>移动</value>
+  </data>
+  <data name="Move Home" xml:space="preserve">
+    <value>移动原位</value>
+  </data>
+  <data name="Move Only" xml:space="preserve">
+    <value>移动仅</value>
+  </data>
+  <data name="MSG NM" xml:space="preserve">
+    <value>口信数字</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Navigation Tab" xml:space="preserve">
+    <value>底部选项卡</value>
+  </data>
+  <data name="NO" xml:space="preserve">
+    <value>不</value>
+  </data>
+  <data name="No Select RM" xml:space="preserve">
+    <value>未选择 RM</value>
+  </data>
+  <data name="NONE" xml:space="preserve">
+    <value>无</value>
+  </data>
+  <data name="Not Use User" xml:space="preserve">
+    <value>未使用用户</value>
+  </data>
+  <data name="NumberOrder" xml:space="preserve">
+    <value>NO.</value>
+  </data>
+  <data name="Occur" xml:space="preserve">
+    <value>发生</value>
+  </data>
+  <data name="OFF" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="Offline" xml:space="preserve">
+    <value>Offline</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>好</value>
+  </data>
+  <data name="ON" xml:space="preserve">
+    <value>开启</value>
+  </data>
+  <data name="Online" xml:space="preserve">
+    <value>Online</value>
+  </data>
+  <data name="Only numbers can be entered" xml:space="preserve">
+    <value>只可以输入数字</value>
+  </data>
+  <data name="OP" xml:space="preserve">
+    <value>操作口</value>
+  </data>
+  <data name="Operator Log" xml:space="preserve">
+    <value>操作员日志</value>
+  </data>
+  <data name="OperatorLog" xml:space="preserve">
+    <value>操作员日志</value>
+  </data>
+  <data name="Out" xml:space="preserve">
+    <value>出</value>
+  </data>
+  <data name="OUTPUT" xml:space="preserve">
+    <value>出</value>
+  </data>
+  <data name="Pallet Size" xml:space="preserve">
+    <value>托盘尺寸</value>
+  </data>
+  <data name="Pallet 정보" xml:space="preserve">
+    <value>托盘数据</value>
+  </data>
+  <data name="PalletSize" xml:space="preserve">
+    <value>托盘尺寸</value>
+  </data>
+  <data name="Parameter" xml:space="preserve">
+    <value>参数</value>
+  </data>
+  <data name="Parameter Name" xml:space="preserve">
+    <value>参数名称</value>
+  </data>
+  <data name="Parameter 변경 메시지" xml:space="preserve">
+    <value>您要将{0}参数从{1}改为{2}？</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>密码</value>
+  </data>
+  <data name="Password is Wrong" xml:space="preserve">
+    <value>密码错误</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="PAUSED" xml:space="preserve">
+    <value>暂停</value>
+  </data>
+  <data name="PAUSING" xml:space="preserve">
+    <value>正在暂停</value>
+  </data>
+  <data name="PC LOC" xml:space="preserve">
+    <value>PC位置</value>
+  </data>
+  <data name="PC NAME" xml:space="preserve">
+    <value>PC名称</value>
+  </data>
+  <data name="PC_CarrierID" xml:space="preserve">
+    <value>PC_载体ID</value>
+  </data>
+  <data name="PC_CommandWriteComplete" xml:space="preserve">
+    <value>PC_命令写入完成</value>
+  </data>
+  <data name="PC_InnerTrayType" xml:space="preserve">
+    <value>PC_内部托盘种类</value>
+  </data>
+  <data name="PC_PalletSize" xml:space="preserve">
+    <value>PC_托盘尺寸</value>
+  </data>
+  <data name="PC_Polarity" xml:space="preserve">
+    <value>PC_极性</value>
+  </data>
+  <data name="PC_ProductEmpty" xml:space="preserve">
+    <value>PC_产品为空</value>
+  </data>
+  <data name="PC_TrayType" xml:space="preserve">
+    <value>PC_托盘种类</value>
+  </data>
+  <data name="PC_WinderDirection" xml:space="preserve">
+    <value>PC_卷绕机方向</value>
+  </data>
+  <data name="Pick" xml:space="preserve">
+    <value>获取</value>
+  </data>
+  <data name="Play Back" xml:space="preserve">
+    <value>回放</value>
+  </data>
+  <data name="Play Back &gt; Play Back" xml:space="preserve">
+    <value>回放 &gt; 回放</value>
+  </data>
+  <data name="PlayBack" xml:space="preserve">
+    <value>回放</value>
+  </data>
+  <data name="PlayBack List" xml:space="preserve">
+    <value>回放 列表</value>
+  </data>
+  <data name="PlayBack을 종료 하시겠습니까?" xml:space="preserve">
+    <value>退出回放？</value>
+  </data>
+  <data name="PLC" xml:space="preserve">
+    <value>PLC</value>
+  </data>
+  <data name="PLC State" xml:space="preserve">
+    <value>PLC状态</value>
+  </data>
+  <data name="PLC Write Data" xml:space="preserve">
+    <value>PLC 写入数据</value>
+  </data>
+  <data name="PLC 시뮬창 오픈" xml:space="preserve">
+    <value>打开PLC仿真标签</value>
+  </data>
+  <data name="PLC_PortType" xml:space="preserve">
+    <value>PC_端口种类</value>
+  </data>
+  <data name="Please Enter Your Password" xml:space="preserve">
+    <value>请输入您的密码</value>
+  </data>
+  <data name="Please Enter Your User ID" xml:space="preserve">
+    <value>请输入您的使用者名</value>
+  </data>
+  <data name="Please Enter Your User ID and Password" xml:space="preserve">
+    <value>请输入您的使用者名称和密码</value>
+  </data>
+  <data name="Please Select Mode" xml:space="preserve">
+    <value>请选择模式</value>
+  </data>
+  <data name="PMAC Reload 메시지" xml:space="preserve">
+    <value>您要从{0}PMAC重装{1}</value>
+  </data>
+  <data name="PMAC Teaching Comp 메시지" xml:space="preserve">
+    <value>从{0}PMAC读取教学数据完成</value>
+  </data>
+  <data name="PMAC Teaching Fail 메시지" xml:space="preserve">
+    <value>从{0}PMAC读取教学数据失败</value>
+  </data>
+  <data name="Polarity" xml:space="preserve">
+    <value>极性</value>
+  </data>
+  <data name="POPUP" xml:space="preserve">
+    <value>弹出窗口</value>
+  </data>
+  <data name="POPUPMENU" xml:space="preserve">
+    <value>弹出菜单</value>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>端口</value>
+  </data>
+  <data name="Port Get 작업을 시작 하시겠습니까?" xml:space="preserve">
+    <value>开始端口获取工作？</value>
+  </data>
+  <data name="Port Get 작업을 중단 하시겠습니까?" xml:space="preserve">
+    <value>停止端口获取工作？</value>
+  </data>
+  <data name="Port Teaching 데이터를 PMAC으로 부터 읽어 옵니다." xml:space="preserve">
+    <value>从PMAC读取端口教学数据。</value>
+  </data>
+  <data name="Port Type" xml:space="preserve">
+    <value>端口种类</value>
+  </data>
+  <data name="PortSize" xml:space="preserve">
+    <value>端口尺寸</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>优先权</value>
+  </data>
+  <data name="Priority Change" xml:space="preserve">
+    <value>优先权更改</value>
+  </data>
+  <data name="ProcessState" xml:space="preserve">
+    <value>流程状态</value>
+  </data>
+  <data name="Product Empty" xml:space="preserve">
+    <value>产品为空</value>
+  </data>
+  <data name="Product End" xml:space="preserve">
+    <value>产品结束</value>
+  </data>
+  <data name="Product Quantity" xml:space="preserve">
+    <value>产品数量</value>
+  </data>
+  <data name="Push Counter :" xml:space="preserve">
+    <value>推计数器 :</value>
+  </data>
+  <data name="Rack Master" xml:space="preserve">
+    <value>机架掌握</value>
+  </data>
+  <data name="Rack Type" xml:space="preserve">
+    <value>机架种类</value>
+  </data>
+  <data name="RackMaster" xml:space="preserve">
+    <value>机架掌握</value>
+  </data>
+  <data name="Raw_Material" xml:space="preserve">
+    <value>原_料</value>
+  </data>
+  <data name="RCMD" xml:space="preserve">
+    <value>RCMD</value>
+  </data>
+  <data name="Read" xml:space="preserve">
+    <value>读取</value>
+  </data>
+  <data name="READ DATA" xml:space="preserve">
+    <value>数据读取</value>
+  </data>
+  <data name="READ DATA NONE" xml:space="preserve">
+    <value>没有读取数据。继续货架设置。</value>
+  </data>
+  <data name="READ DATA가 없습니다." xml:space="preserve">
+    <value>没有数据读取。</value>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>准备</value>
+  </data>
+  <data name="Rear Bank" xml:space="preserve">
+    <value>后岸</value>
+  </data>
+  <data name="Rear Shelf" xml:space="preserve">
+    <value>后架子</value>
+  </data>
+  <data name="Rear Teaching 데이터를 PMAC으로 부터 읽어 옵니다." xml:space="preserve">
+    <value>从PMAC读取后方教学数据。</value>
+  </data>
+  <data name="RECEIVECARRIEIR" xml:space="preserve">
+    <value>接收载体</value>
+  </data>
+  <data name="RECEIVECARRIER" xml:space="preserve">
+    <value>接收载体</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="REGULATOR" xml:space="preserve">
+    <value>调节器</value>
+  </data>
+  <data name="Remote" xml:space="preserve">
+    <value>远程</value>
+  </data>
+  <data name="Remote Collecting" xml:space="preserve">
+    <value>远程收集</value>
+  </data>
+  <data name="Request" xml:space="preserve">
+    <value>要求</value>
+  </data>
+  <data name="Resume" xml:space="preserve">
+    <value>继续</value>
+  </data>
+  <data name="RFID CP" xml:space="preserve">
+    <value>射频识别CP</value>
+  </data>
+  <data name="RFID RD" xml:space="preserve">
+    <value>射频识别RD</value>
+  </data>
+  <data name="RFID Read" xml:space="preserve">
+    <value>射频识别读取</value>
+  </data>
+  <data name="RIGHTCLICK" xml:space="preserve">
+    <value>右键点击</value>
+  </data>
+  <data name="RM Fork 화재감지 텍스트" xml:space="preserve">
+    <value>您要进行RM叉的火灾检测？</value>
+  </data>
+  <data name="RM Name" xml:space="preserve">
+    <value>RM 名称</value>
+  </data>
+  <data name="RM P-val" xml:space="preserve">
+    <value>RM 参数值</value>
+  </data>
+  <data name="RM Parameter 설정" xml:space="preserve">
+    <value>RM 参数设置</value>
+  </data>
+  <data name="RM Remove Carrier Exist Flag" xml:space="preserve">
+    <value>RM 删除载体存在标志</value>
+  </data>
+  <data name="RM 선택" xml:space="preserve">
+    <value>RM 选择</value>
+  </data>
+  <data name="RM 선택 메시지" xml:space="preserve">
+    <value>您要移至选定的机架掌握({0})吗？</value>
+  </data>
+  <data name="RM1 Active" xml:space="preserve">
+    <value>RM1 活性</value>
+  </data>
+  <data name="RM2 Active" xml:space="preserve">
+    <value>RM2 活跃</value>
+  </data>
+  <data name="RMParameter" xml:space="preserve">
+    <value>RM 参数</value>
+  </data>
+  <data name="RMPval" xml:space="preserve">
+    <value>RM参数值</value>
+  </data>
+  <data name="RobotSpeed 변경 메시지" xml:space="preserve">
+    <value>您要将{0}的速度更改为{1}吗？</value>
+  </data>
+  <data name="RPTID" xml:space="preserve">
+    <value>RPTID</value>
+  </data>
+  <data name="Run" xml:space="preserve">
+    <value>开始</value>
+  </data>
+  <data name="S" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="S/F" xml:space="preserve">
+    <value>S/F</value>
+  </data>
+  <data name="SAVE" xml:space="preserve">
+    <value>储藏</value>
+  </data>
+  <data name="SAVE DTTM" xml:space="preserve">
+    <value>SAVE DTTM</value>
+  </data>
+  <data name="SC" xml:space="preserve">
+    <value>吊车</value>
+  </data>
+  <data name="ScaleReset" xml:space="preserve">
+    <value>比例重置</value>
+  </data>
+  <data name="SCS" xml:space="preserve">
+    <value>SCS</value>
+  </data>
+  <data name="SCS Config" xml:space="preserve">
+    <value>SCS 配置</value>
+  </data>
+  <data name="SCS State Change" xml:space="preserve">
+    <value>SCS 状态更改</value>
+  </data>
+  <data name="SCS Write Data" xml:space="preserve">
+    <value>SCS 写入数据</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>搜索</value>
+  </data>
+  <data name="SearchText" xml:space="preserve">
+    <value>搜索文字</value>
+  </data>
+  <data name="Search_Init" xml:space="preserve">
+    <value>搜索初始化</value>
+  </data>
+  <data name="SECOND FLOOR" xml:space="preserve">
+    <value>二楼</value>
+  </data>
+  <data name="SECS2 Log" xml:space="preserve">
+    <value>SECS2 日志</value>
+  </data>
+  <data name="Select Level is Abnormal" xml:space="preserve">
+    <value>选择等级异常</value>
+  </data>
+  <data name="Select Use is Abnormal" xml:space="preserve">
+    <value>选择使用异常</value>
+  </data>
+  <data name="Send Counter :" xml:space="preserve">
+    <value>转移数器 :</value>
+  </data>
+  <data name="SENDCARRIER" xml:space="preserve">
+    <value>发送载体</value>
+  </data>
+  <data name="Sensor Error" xml:space="preserve">
+    <value>传感器误差</value>
+  </data>
+  <data name="Sensor View Switching" xml:space="preserve">
+    <value>传感器检视切换</value>
+  </data>
+  <data name="Set RM Speed Change" xml:space="preserve">
+    <value>设置 RM 速度更改</value>
+  </data>
+  <data name="Set SCS mode to Pause for operation." xml:space="preserve">
+    <value>将SCS模式设置为暂停以进行操作。</value>
+  </data>
+  <data name="Set SCS State" xml:space="preserve">
+    <value>设置 SCS 状态</value>
+  </data>
+  <data name="SetGrid" xml:space="preserve">
+    <value>设置格线</value>
+  </data>
+  <data name="Setup" xml:space="preserve">
+    <value>设定</value>
+  </data>
+  <data name="Shelf" xml:space="preserve">
+    <value>架子</value>
+  </data>
+  <data name="Shelf Both Type" xml:space="preserve">
+    <value>架子混合种类</value>
+  </data>
+  <data name="Shelf Disable" xml:space="preserve">
+    <value>架子不使用</value>
+  </data>
+  <data name="Shelf Empty" xml:space="preserve">
+    <value>架子为空</value>
+  </data>
+  <data name="Shelf Error" xml:space="preserve">
+    <value>架子误差</value>
+  </data>
+  <data name="Shelf Exist" xml:space="preserve">
+    <value>架子存在</value>
+  </data>
+  <data name="Shelf FireWaterPool Type" xml:space="preserve">
+    <value>架子消防水箱种类</value>
+  </data>
+  <data name="Shelf ID" xml:space="preserve">
+    <value>架子 ID</value>
+  </data>
+  <data name="Shelf is already job scheduled." xml:space="preserve">
+    <value>架子已经有工作调度。</value>
+  </data>
+  <data name="Shelf level" xml:space="preserve">
+    <value>架子等级</value>
+  </data>
+  <data name="Shelf LoadRate :" xml:space="preserve">
+    <value>货架装载率:</value>
+  </data>
+  <data name="Shelf Long Type" xml:space="preserve">
+    <value>架子长种类</value>
+  </data>
+  <data name="Shelf Priority" xml:space="preserve">
+    <value>架子优先权</value>
+  </data>
+  <data name="Shelf Short Type" xml:space="preserve">
+    <value>架子短种类</value>
+  </data>
+  <data name="Shelf Size" xml:space="preserve">
+    <value>架子尺寸</value>
+  </data>
+  <data name="Shelf State" xml:space="preserve">
+    <value>架子状态</value>
+  </data>
+  <data name="Shelf Status" xml:space="preserve">
+    <value>架子状态</value>
+  </data>
+  <data name="Shelf Type" xml:space="preserve">
+    <value>架子种类</value>
+  </data>
+  <data name="Shelf UNKID Count :" xml:space="preserve">
+    <value>货架UNKID计数 :</value>
+  </data>
+  <data name="Shelf 상태 설정" xml:space="preserve">
+    <value>架子状态设定</value>
+  </data>
+  <data name="ShelfStatus" xml:space="preserve">
+    <value>架子状态</value>
+  </data>
+  <data name="ShelfType" xml:space="preserve">
+    <value>架子种类</value>
+  </data>
+  <data name="Short" xml:space="preserve">
+    <value>短</value>
+  </data>
+  <data name="ShortMode" xml:space="preserve">
+    <value>种类更改</value>
+  </data>
+  <data name="SIGNIN" xml:space="preserve">
+    <value>登入</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>尺寸</value>
+  </data>
+  <data name="Smoke" xml:space="preserve">
+    <value>烟雾</value>
+  </data>
+  <data name="Smoke Detect 조회" xml:space="preserve">
+    <value>烟雾觉察查找</value>
+  </data>
+  <data name="SmokeDetect" xml:space="preserve">
+    <value>烟雾觉察</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>源</value>
+  </data>
+  <data name="SOURCE LOCATION" xml:space="preserve">
+    <value>源位置</value>
+  </data>
+  <data name="Speed" xml:space="preserve">
+    <value>速度</value>
+  </data>
+  <data name="SRC" xml:space="preserve">
+    <value>SRC</value>
+  </data>
+  <data name="SRC Pause" xml:space="preserve">
+    <value>Pause SRC</value>
+  </data>
+  <data name="SRC Resume" xml:space="preserve">
+    <value>Resume SRC</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>开始</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>状态</value>
+  </data>
+  <data name="State is Error" xml:space="preserve">
+    <value>状态误差</value>
+  </data>
+  <data name="State is Not Error" xml:space="preserve">
+    <value>状态不误差</value>
+  </data>
+  <data name="StateChangeTime" xml:space="preserve">
+    <value>状态更改时间</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>状态</value>
+  </data>
+  <data name="Step" xml:space="preserve">
+    <value>步</value>
+  </data>
+  <data name="Stocker Alarm 관리" xml:space="preserve">
+    <value>储料器报警管理</value>
+  </data>
+  <data name="Stocker Alarm 관리 권한" xml:space="preserve">
+    <value>储料器报警管理权威</value>
+  </data>
+  <data name="Stocker Config 관리" xml:space="preserve">
+    <value>储料器配置管理</value>
+  </data>
+  <data name="Stocker Config 관리 권한" xml:space="preserve">
+    <value>储料器配置管理权威</value>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>停住</value>
+  </data>
+  <data name="Stopper B" xml:space="preserve">
+    <value>止动器 B</value>
+  </data>
+  <data name="Stopper F" xml:space="preserve">
+    <value>止动器 F</value>
+  </data>
+  <data name="Stored In" xml:space="preserve">
+    <value>储存于</value>
+  </data>
+  <data name="Stream/Function" xml:space="preserve">
+    <value>流/功能</value>
+  </data>
+  <data name="Success Login" xml:space="preserve">
+    <value>登录成功</value>
+  </data>
+  <data name="Success Logout" xml:space="preserve">
+    <value>注销成功</value>
+  </data>
+  <data name="SVID" xml:space="preserve">
+    <value>SVID</value>
+  </data>
+  <data name="Switch" xml:space="preserve">
+    <value>切换</value>
+  </data>
+  <data name="Switching CPS Views" xml:space="preserve">
+    <value>切换 CPS 检视</value>
+  </data>
+  <data name="SysByte" xml:space="preserve">
+    <value>系统字节</value>
+  </data>
+  <data name="SYSTEM STATE" xml:space="preserve">
+    <value>系统状态</value>
+  </data>
+  <data name="Tab" xml:space="preserve">
+    <value>选项卡</value>
+  </data>
+  <data name="Teaching Data" xml:space="preserve">
+    <value>教学数据</value>
+  </data>
+  <data name="Temperature" xml:space="preserve">
+    <value>温度</value>
+  </data>
+  <data name="Terminal Message" xml:space="preserve">
+    <value>终端口信</value>
+  </data>
+  <data name="TerminalMessage" xml:space="preserve">
+    <value>终端口信</value>
+  </data>
+  <data name="TEST" xml:space="preserve">
+    <value>测试</value>
+  </data>
+  <data name="TestMode" xml:space="preserve">
+    <value>测试模式</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>时间</value>
+  </data>
+  <data name="TimeStamp" xml:space="preserve">
+    <value>时间戳</value>
+  </data>
+  <data name="Track ID" xml:space="preserve">
+    <value>轨道 ID</value>
+  </data>
+  <data name="Track Name" xml:space="preserve">
+    <value>轨道名称</value>
+  </data>
+  <data name="Track NO" xml:space="preserve">
+    <value>轨道号</value>
+  </data>
+  <data name="Tracking Data" xml:space="preserve">
+    <value>跟踪数据</value>
+  </data>
+  <data name="TrackPause" xml:space="preserve">
+    <value>轨道暂停</value>
+  </data>
+  <data name="TrackResume" xml:space="preserve">
+    <value>轨道继续</value>
+  </data>
+  <data name="Transaction ID" xml:space="preserve">
+    <value>交易 ID</value>
+  </data>
+  <data name="Transfer List" xml:space="preserve">
+    <value>转移清单</value>
+  </data>
+  <data name="Transfer Log" xml:space="preserve">
+    <value>转移日志</value>
+  </data>
+  <data name="TransferLog" xml:space="preserve">
+    <value>转移日志</value>
+  </data>
+  <data name="Tray Size" xml:space="preserve">
+    <value>托盘尺寸</value>
+  </data>
+  <data name="Tray Slot Quantity" xml:space="preserve">
+    <value>托盘插槽数量</value>
+  </data>
+  <data name="Tray Type" xml:space="preserve">
+    <value>托盘种类</value>
+  </data>
+  <data name="True" xml:space="preserve">
+    <value>可能</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>种类</value>
+  </data>
+  <data name="Uncoordinated Direction" xml:space="preserve">
+    <value>不协调的方向</value>
+  </data>
+  <data name="Unit" xml:space="preserve">
+    <value>单元</value>
+  </data>
+  <data name="Unit ID" xml:space="preserve">
+    <value>单元 ID</value>
+  </data>
+  <data name="Unit Image" xml:space="preserve">
+    <value>单元意象</value>
+  </data>
+  <data name="UnitID" xml:space="preserve">
+    <value>单元 ID</value>
+  </data>
+  <data name="UNK ID Count :" xml:space="preserve">
+    <value>未知 ID 计数 :</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>未知</value>
+  </data>
+  <data name="UNKSHELF" xml:space="preserve">
+    <value>未知机架</value>
+  </data>
+  <data name="Unload" xml:space="preserve">
+    <value>卸货</value>
+  </data>
+  <data name="Unuse" xml:space="preserve">
+    <value>未使用</value>
+  </data>
+  <data name="Update User is Null" xml:space="preserve">
+    <value>没有用户要更新</value>
+  </data>
+  <data name="US" xml:space="preserve">
+    <value>英语</value>
+  </data>
+  <data name="Use" xml:space="preserve">
+    <value>使用</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>用户</value>
+  </data>
+  <data name="User Create" xml:space="preserve">
+    <value>用户添加</value>
+  </data>
+  <data name="User Delete" xml:space="preserve">
+    <value>用户删除</value>
+  </data>
+  <data name="User Edit" xml:space="preserve">
+    <value>用户编辑</value>
+  </data>
+  <data name="User ID" xml:space="preserve">
+    <value>用户 ID</value>
+  </data>
+  <data name="User편집 메시지" xml:space="preserve">
+    <value>您要{0}用户{1}吗？</value>
+  </data>
+  <data name="Validation NG" xml:space="preserve">
+    <value>验证 NG</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>值</value>
+  </data>
+  <data name="Value :" xml:space="preserve">
+    <value>值 :</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>检视</value>
+  </data>
+  <data name="WAITCARRIERLOAD" xml:space="preserve">
+    <value>等待载体装载</value>
+  </data>
+  <data name="WAITCARRIERREMOVE" xml:space="preserve">
+    <value>等待载体删除</value>
+  </data>
+  <data name="WAITCRANEGET" xml:space="preserve">
+    <value>等待吊车获取</value>
+  </data>
+  <data name="WAITCRANEPUT" xml:space="preserve">
+    <value>等待吊车卸货</value>
+  </data>
+  <data name="Warning Code" xml:space="preserve">
+    <value>警告代码</value>
+  </data>
+  <data name="WARNING!" xml:space="preserve">
+    <value>警告!</value>
+  </data>
+  <data name="Water Tank" xml:space="preserve">
+    <value>消防水箱</value>
+  </data>
+  <data name="Winder Direction" xml:space="preserve">
+    <value>卷绕机方向</value>
+  </data>
+  <data name="WRITE" xml:space="preserve">
+    <value>写入</value>
+  </data>
+  <data name="XML 불러오기" xml:space="preserve">
+    <value>XML 导入</value>
+  </data>
+  <data name="XML_Load" xml:space="preserve">
+    <value>XML_加载</value>
+  </data>
+  <data name="YES" xml:space="preserve">
+    <value>是</value>
+  </data>
+  <data name="Yield Action Counter :" xml:space="preserve">
+    <value>让步动作数器 :</value>
+  </data>
+  <data name="Zone ID" xml:space="preserve">
+    <value>区域 ID</value>
+  </data>
+  <data name="값 선택" xml:space="preserve">
+    <value>选择值</value>
+  </data>
+  <data name="검색" xml:space="preserve">
+    <value>搜索</value>
+  </data>
+  <data name="검색 아이템" xml:space="preserve">
+    <value>搜索项目</value>
+  </data>
+  <data name="검색 종료일시가 시작일시와 같거나 작습니다. 다시 설정하세요." xml:space="preserve">
+    <value>搜索结束日期和时间等于或早于开始日期和时间。请检查。</value>
+  </data>
+  <data name="검색값이 없습니다." xml:space="preserve">
+    <value>没有查册结果。</value>
+  </data>
+  <data name="경고 온도" xml:space="preserve">
+    <value>警告温度</value>
+  </data>
+  <data name="계정관리" xml:space="preserve">
+    <value>帐户管理</value>
+  </data>
+  <data name="공출고" xml:space="preserve">
+    <value>空出库</value>
+  </data>
+  <data name="공출고 테스트 모드 : [OFF]" xml:space="preserve">
+    <value>空出库测试模式：[OFF]</value>
+  </data>
+  <data name="구분" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="그룹관리" xml:space="preserve">
+    <value>群体管理</value>
+  </data>
+  <data name="기간 설정이 올바르지 않습니다." xml:space="preserve">
+    <value>期间设定不正确。</value>
+  </data>
+  <data name="기상반 Active" xml:space="preserve">
+    <value>气象班活性</value>
+  </data>
+  <data name="기상반 동작모드" xml:space="preserve">
+    <value>气象班活性模式</value>
+  </data>
+  <data name="기상반 상태" xml:space="preserve">
+    <value>气象班状态</value>
+  </data>
+  <data name="기존 위치" xml:space="preserve">
+    <value>现有位置</value>
+  </data>
+  <data name="기준 정보 관리" xml:space="preserve">
+    <value>基线信息管理</value>
+  </data>
+  <data name="기준 정보 관리 &gt; SCS 구성 관리" xml:space="preserve">
+    <value>基线信息管理 &gt; SCS 配置管理</value>
+  </data>
+  <data name="기준 정보 관리 &gt; SCS 알람 관리" xml:space="preserve">
+    <value>基线信息管理 &gt; SCS 警报管理</value>
+  </data>
+  <data name="기준값" xml:space="preserve">
+    <value>参考值</value>
+  </data>
+  <data name="긴급정지 테스트" xml:space="preserve">
+    <value>紧急停止测试</value>
+  </data>
+  <data name="끝으로" xml:space="preserve">
+    <value>至结束</value>
+  </data>
+  <data name="남_모듈단폭창고04" xml:space="preserve">
+    <value>S_Short_Module_End_Product_Storage04</value>
+  </data>
+  <data name="남_모듈단폭창고05" xml:space="preserve">
+    <value>S_Short_Module_End_Product_Storage05</value>
+  </data>
+  <data name="남_모듈원자재창고05" xml:space="preserve">
+    <value>S_Raw_Material_Storege05</value>
+  </data>
+  <data name="남_모듈원자재창고06" xml:space="preserve">
+    <value>S_Raw_Material_Storege06</value>
+  </data>
+  <data name="남_모듈원자재창고07" xml:space="preserve">
+    <value>S_Raw_Material_Storege07</value>
+  </data>
+  <data name="남_모듈원자재창고08" xml:space="preserve">
+    <value>S_Raw_Material_Storege08</value>
+  </data>
+  <data name="남_모듈장폭창고01" xml:space="preserve">
+    <value>S_Long_Module_End_Product_Storage01</value>
+  </data>
+  <data name="남_셀완제품창고01" xml:space="preserve">
+    <value>S_Cell_End_Product_Storage01</value>
+  </data>
+  <data name="남_셀완제품창고02" xml:space="preserve">
+    <value>S_Cell_End_Product_Storage02</value>
+  </data>
+  <data name="다음 페이지" xml:space="preserve">
+    <value>下页</value>
+  </data>
+  <data name="단폭모듈완제품창고#1" xml:space="preserve">
+    <value>短模块产品仓库#1</value>
+  </data>
+  <data name="단폭모듈완제품창고#2" xml:space="preserve">
+    <value>短模块产品仓库#2</value>
+  </data>
+  <data name="단폭모듈완제품창고#3" xml:space="preserve">
+    <value>短模块产品仓库#3</value>
+  </data>
+  <data name="단폭모듈완제품창고#4" xml:space="preserve">
+    <value>仅短块产品仓库#4</value>
+  </data>
+  <data name="단폭모듈완제품창고#5" xml:space="preserve">
+    <value>仅短块产品仓库#5</value>
+  </data>
+  <data name="단폭전용" xml:space="preserve">
+    <value>仅短宽度</value>
+  </data>
+  <data name="대기" xml:space="preserve">
+    <value>等待</value>
+  </data>
+  <data name="더블 스토리지 테스트 모드 : [OFF]" xml:space="preserve">
+    <value>双存储测试模式：[OFF]</value>
+  </data>
+  <data name="더블에러" xml:space="preserve">
+    <value>双重误差</value>
+  </data>
+  <data name="데이터 수집" xml:space="preserve">
+    <value>数据收集</value>
+  </data>
+  <data name="데이터가 비어 있습니다. 확인해 주세요" xml:space="preserve">
+    <value>数据是空。
+请确认。</value>
+  </data>
+  <data name="동작 상태" xml:space="preserve">
+    <value>开始状态</value>
+  </data>
+  <data name="동작모드" xml:space="preserve">
+    <value>开始模式</value>
+  </data>
+  <data name="랙투랙" xml:space="preserve">
+    <value>机架到机架</value>
+  </data>
+  <data name="로그 메뉴" xml:space="preserve">
+    <value>日志菜单</value>
+  </data>
+  <data name="로컬수집" xml:space="preserve">
+    <value>当地收集</value>
+  </data>
+  <data name="모니터링 메뉴" xml:space="preserve">
+    <value>监控菜单</value>
+  </data>
+  <data name="모듈 조립 Line" xml:space="preserve">
+    <value>模块装配线</value>
+  </data>
+  <data name="모듈타입이 비어 있습니다." xml:space="preserve">
+    <value>模块种类是空。</value>
+  </data>
+  <data name="반송 커맨드를 실행하시겠습니까?" xml:space="preserve">
+    <value>您要执行传输命令吗？</value>
+  </data>
+  <data name="방화수조" xml:space="preserve">
+    <value>消防水箱</value>
+  </data>
+  <data name="범례" xml:space="preserve">
+    <value>图例</value>
+  </data>
+  <data name="변경값" xml:space="preserve">
+    <value>更改的值</value>
+  </data>
+  <data name="변경사항을 적용 시키겠습니까?" xml:space="preserve">
+    <value>您要应用更改吗？</value>
+  </data>
+  <data name="보관된 캐리어 조회" xml:space="preserve">
+    <value>搜索存储的材料</value>
+  </data>
+  <data name="북_모듈단폭창고01" xml:space="preserve">
+    <value>N_Short_Module_End_Product_Storage01</value>
+  </data>
+  <data name="북_모듈단폭창고02" xml:space="preserve">
+    <value>N_Short_Module_End_Product_Storage02</value>
+  </data>
+  <data name="북_모듈단폭창고03" xml:space="preserve">
+    <value>N_Short_Module_End_Product_Storage03</value>
+  </data>
+  <data name="북_모듈원자재창고01" xml:space="preserve">
+    <value>N_Raw_Material_Storege01</value>
+  </data>
+  <data name="북_모듈원자재창고02" xml:space="preserve">
+    <value>N_Raw_Material_Storege02</value>
+  </data>
+  <data name="북_모듈원자재창고03" xml:space="preserve">
+    <value>N_Raw_Material_Storege03</value>
+  </data>
+  <data name="북_모듈원자재창고04" xml:space="preserve">
+    <value>N_Raw_Material_Storege04</value>
+  </data>
+  <data name="사용 PC IP" xml:space="preserve">
+    <value>使用中的 PC IP</value>
+  </data>
+  <data name="사용 PC명" xml:space="preserve">
+    <value>使用中的 PC ID</value>
+  </data>
+  <data name="사용권한없음" xml:space="preserve">
+    <value>没有许可</value>
+  </data>
+  <data name="사용금지" xml:space="preserve">
+    <value>禁止使用</value>
+  </data>
+  <data name="사용자 검색" xml:space="preserve">
+    <value>搜索用户</value>
+  </data>
+  <data name="사용자 관리" xml:space="preserve">
+    <value>用户管理</value>
+  </data>
+  <data name="사용자 관리 권한" xml:space="preserve">
+    <value>用户管理权威</value>
+  </data>
+  <data name="사용자 관리 설정" xml:space="preserve">
+    <value>用户管理设定</value>
+  </data>
+  <data name="사용자 로그아웃" xml:space="preserve">
+    <value>用户注销</value>
+  </data>
+  <data name="사용자 로그인" xml:space="preserve">
+    <value>用户登录</value>
+  </data>
+  <data name="사이클 작업 시작" xml:space="preserve">
+    <value>开始周期工作</value>
+  </data>
+  <data name="사이클 작업 정지" xml:space="preserve">
+    <value>停止周期工作</value>
+  </data>
+  <data name="사이클 작업을 시작 하시겠습니까?" xml:space="preserve">
+    <value>开始周期工作？</value>
+  </data>
+  <data name="사이클 작업을 정지 하시겠습니까?" xml:space="preserve">
+    <value>停止周期工作？</value>
+  </data>
+  <data name="삭제 시 복구할 수 없습니다." xml:space="preserve">
+    <value>删除时无法恢复。</value>
+  </data>
+  <data name="삭제할 유저 정보를 선택해주세요." xml:space="preserve">
+    <value>请选择要删除的
+使用者资讯。</value>
+  </data>
+  <data name="삭제할 정보가 없습니다." xml:space="preserve">
+    <value>没有要删除的资讯。</value>
+  </data>
+  <data name="상단모듈원자재창고#1" xml:space="preserve">
+    <value>上方模块原料仓库#1</value>
+  </data>
+  <data name="상단모듈원자재창고#2" xml:space="preserve">
+    <value>上方模块原料仓库#2</value>
+  </data>
+  <data name="상단모듈원자재창고#3" xml:space="preserve">
+    <value>上方模块原料仓库#3</value>
+  </data>
+  <data name="상단모듈원자재창고#4" xml:space="preserve">
+    <value>上方模块原料仓库#4</value>
+  </data>
+  <data name="상태 설정" xml:space="preserve">
+    <value>状态设定</value>
+  </data>
+  <data name="새 위치" xml:space="preserve">
+    <value>新地点</value>
+  </data>
+  <data name="선택 PLC 시작" xml:space="preserve">
+    <value>开始选定 PLC</value>
+  </data>
+  <data name="선택 PLC 중지" xml:space="preserve">
+    <value>停止选定 PLC</value>
+  </data>
+  <data name="선택된 Alarm Data가 없습니다." xml:space="preserve">
+    <value>没有选中的闹钟数据。</value>
+  </data>
+  <data name="선택한 잡 삭제" xml:space="preserve">
+    <value>删除所选工作</value>
+  </data>
+  <data name="선택한 잡 우선순위 변경" xml:space="preserve">
+    <value>更改所选工作的优先级</value>
+  </data>
+  <data name="설비 정지상태 일때만 변경 가능 합니다." xml:space="preserve">
+    <value>能更改只有在EQP暂停。</value>
+  </data>
+  <data name="설정" xml:space="preserve">
+    <value>设定</value>
+  </data>
+  <data name="설정 초기화" xml:space="preserve">
+    <value>初始化设定</value>
+  </data>
+  <data name="센서상태이상" xml:space="preserve">
+    <value>传感器异常</value>
+  </data>
+  <data name="셀버퍼 우상단 창고#2" xml:space="preserve">
+    <value>细胞缓冲右上方仓库#2</value>
+  </data>
+  <data name="셀버퍼 우하단 창고#4" xml:space="preserve">
+    <value>细胞缓冲右下方仓库#4</value>
+  </data>
+  <data name="셀버퍼 좌상단 창고#1" xml:space="preserve">
+    <value>细胞缓冲左上方仓库#1</value>
+  </data>
+  <data name="셀버퍼 좌하단 창고#3" xml:space="preserve">
+    <value>细胞缓冲左下方仓库#3</value>
+  </data>
+  <data name="셀버퍼창고01" xml:space="preserve">
+    <value>Cell_Buffer_Storage01</value>
+  </data>
+  <data name="셀버퍼창고02" xml:space="preserve">
+    <value>Cell_Buffer_Storage02</value>
+  </data>
+  <data name="셀버퍼창고03" xml:space="preserve">
+    <value>Cell_Buffer_Storage03</value>
+  </data>
+  <data name="셀버퍼창고04" xml:space="preserve">
+    <value>Cell_Buffer_Storage04</value>
+  </data>
+  <data name="셀완제품창고#1" xml:space="preserve">
+    <value>细胞产品仓库#1</value>
+  </data>
+  <data name="셀완제품창고#2" xml:space="preserve">
+    <value>细胞产品仓库#2</value>
+  </data>
+  <data name="셀프 트레이 뒤틀림 센서 [LR1]" xml:space="preserve">
+    <value>架子托盘失真传感器 [LR1]</value>
+  </data>
+  <data name="셀프 트레이 뒤틀림 센서 [LR2]" xml:space="preserve">
+    <value>架子托盘失真传感器 [LR2]</value>
+  </data>
+  <data name="셀프 트레이 뒤틀림 센서 [LR3]" xml:space="preserve">
+    <value>架子托盘失真传感器 [LR3]</value>
+  </data>
+  <data name="셀프 트레이 뒤틀림 센서 [LR4]" xml:space="preserve">
+    <value>架子托盘失真传感器 [LR4]</value>
+  </data>
+  <data name="수집된 플레이백 항목" xml:space="preserve">
+    <value>收集的回放项目</value>
+  </data>
+  <data name="수집중" xml:space="preserve">
+    <value>正在收集</value>
+  </data>
+  <data name="순번" xml:space="preserve">
+    <value>号</value>
+  </data>
+  <data name="숫자코드" xml:space="preserve">
+    <value>数字代码</value>
+  </data>
+  <data name="쉘프 구간 데이터 변경 메시지" xml:space="preserve">
+    <value>架子{0} ~ {1} {2}种类更改？</value>
+  </data>
+  <data name="쉘프 구간 데이터 변경완료 메시지" xml:space="preserve">
+    <value>架子{0} ~ {1} {2}种类更改完成</value>
+  </data>
+  <data name="쉘프 데이터 변경 메시지" xml:space="preserve">
+    <value>架子{0} {1}-&gt;{2} 更改？</value>
+  </data>
+  <data name="쉘프 데이터 변경완료 메시지" xml:space="preserve">
+    <value>架子{0} {1}-&gt;{2} 更改完成</value>
+  </data>
+  <data name="쉘프 캐리어ID 메시지" xml:space="preserve">
+    <value>架子{0}载体ID{1}{2}？</value>
+  </data>
+  <data name="쉘프 캐리어ID삭제 메시지" xml:space="preserve">
+    <value>架子{0}载体ID{1}删除{2}</value>
+  </data>
+  <data name="쉘프 캐리어ID추가 메시지" xml:space="preserve">
+    <value>架子{0}载体ID{1}安装{2}</value>
+  </data>
+  <data name="쉘프 트레이 스토리지 센서" xml:space="preserve">
+    <value>架子托盘储存传感器</value>
+  </data>
+  <data name="쉘프사용/미사용 메시지" xml:space="preserve">
+    <value>您要{0}{1}吗？</value>
+  </data>
+  <data name="스냅 검색 실패" xml:space="preserve">
+    <value>无法搜索快照。</value>
+  </data>
+  <data name="스케쥴러 비활성화 메시지" xml:space="preserve">
+    <value>您要禁用调度程序：{0}吗？</value>
+  </data>
+  <data name="스케쥴러 활성화 메시지" xml:space="preserve">
+    <value>您要启用调度程序：{0}吗？</value>
+  </data>
+  <data name="승강 위치" xml:space="preserve">
+    <value>升降位置</value>
+  </data>
+  <data name="시운전 모드" xml:space="preserve">
+    <value>试开动模式</value>
+  </data>
+  <data name="시작" xml:space="preserve">
+    <value>开始</value>
+  </data>
+  <data name="시작일시" xml:space="preserve">
+    <value>开始日期</value>
+  </data>
+  <data name="알람 클리어" xml:space="preserve">
+    <value>警报清除</value>
+  </data>
+  <data name="알림 메시지" xml:space="preserve">
+    <value>通知消息</value>
+  </data>
+  <data name="에러" xml:space="preserve">
+    <value>误差</value>
+  </data>
+  <data name="에러 리스트" xml:space="preserve">
+    <value>误差清单</value>
+  </data>
+  <data name="에러 리스트 내보내기" xml:space="preserve">
+    <value>误差清单提取</value>
+  </data>
+  <data name="에러 리스트 수정" xml:space="preserve">
+    <value>误差清单编辑</value>
+  </data>
+  <data name="에러 리스트 제거" xml:space="preserve">
+    <value>误差清单删除</value>
+  </data>
+  <data name="에러 리스트 추가" xml:space="preserve">
+    <value>误差清单添加</value>
+  </data>
+  <data name="에러가 발생했습니다. 자세한 내용을 확인하시겠습니까?" xml:space="preserve">
+    <value>误差发生。确认细节？</value>
+  </data>
+  <data name="에러레벨" xml:space="preserve">
+    <value>误差等级</value>
+  </data>
+  <data name="에러레벨이 비어 있습니다." xml:space="preserve">
+    <value>误差等级是空。</value>
+  </data>
+  <data name="에러메시지" xml:space="preserve">
+    <value>误差口信</value>
+  </data>
+  <data name="에러메시지가 비어 있습니다." xml:space="preserve">
+    <value>误差口信是空。</value>
+  </data>
+  <data name="에러이름" xml:space="preserve">
+    <value>误差名称</value>
+  </data>
+  <data name="에러이름이 비어 있습니다." xml:space="preserve">
+    <value>误差名称是空。</value>
+  </data>
+  <data name="에러코드" xml:space="preserve">
+    <value>误差代码</value>
+  </data>
+  <data name="에러코드가 비어 있습니다." xml:space="preserve">
+    <value>误差代码是空。</value>
+  </data>
+  <data name="에러현황" xml:space="preserve">
+    <value>误差状态</value>
+  </data>
+  <data name="연기 감지 감도" xml:space="preserve">
+    <value>烟雾觉察感度</value>
+  </data>
+  <data name="연기감지" xml:space="preserve">
+    <value>烟雾觉察</value>
+  </data>
+  <data name="연기미감지" xml:space="preserve">
+    <value>烟雾未觉察</value>
+  </data>
+  <data name="영어" xml:space="preserve">
+    <value>英语</value>
+  </data>
+  <data name="오프라인" xml:space="preserve">
+    <value>离线</value>
+  </data>
+  <data name="온라인" xml:space="preserve">
+    <value>在线</value>
+  </data>
+  <data name="원격수집" xml:space="preserve">
+    <value>远程收集</value>
+  </data>
+  <data name="위치변경" xml:space="preserve">
+    <value>改变地点</value>
+  </data>
+  <data name="위험 온도" xml:space="preserve">
+    <value>危险温度</value>
+  </data>
+  <data name="유닛 이름 선택" xml:space="preserve">
+    <value>选择单位名称</value>
+  </data>
+  <data name="을 삭제 하시겠습니까?" xml:space="preserve">
+    <value>确实要删除 {0}？</value>
+  </data>
+  <data name="이동" xml:space="preserve">
+    <value>移动</value>
+  </data>
+  <data name="이동 중 RM 연기감지" xml:space="preserve">
+    <value>RM移动时烟雾探测</value>
+  </data>
+  <data name="이미 SCS 실행중이거나 완전히 종료되지 않았습니다." xml:space="preserve">
+    <value>SCS已在运行或未完全结束。</value>
+  </data>
+  <data name="이전 크기로 복원" xml:space="preserve">
+    <value>恢复到以前尺寸</value>
+  </data>
+  <data name="이전 페이지" xml:space="preserve">
+    <value>上页</value>
+  </data>
+  <data name="임의 쉘프 연기 감지" xml:space="preserve">
+    <value>随机架子烟雾检测</value>
+  </data>
+  <data name="임의 쉘프 연기 감지 텍스트" xml:space="preserve">
+    <value>要执行随机架子烟雾检测？
+(执行时在随机架子上警报生成)</value>
+  </data>
+  <data name="입고" xml:space="preserve">
+    <value>入库</value>
+  </data>
+  <data name="입고금지" xml:space="preserve">
+    <value>入库禁止</value>
+  </data>
+  <data name="입고예약" xml:space="preserve">
+    <value>入库预约</value>
+  </data>
+  <data name="작업 구분" xml:space="preserve">
+    <value>工作类型</value>
+  </data>
+  <data name="작업 내용" xml:space="preserve">
+    <value>工作内容</value>
+  </data>
+  <data name="작업 임시 생성" xml:space="preserve">
+    <value>生成临时工作</value>
+  </data>
+  <data name="작업 타입" xml:space="preserve">
+    <value>工作种类</value>
+  </data>
+  <data name="작업결과" xml:space="preserve">
+    <value>工作结果</value>
+  </data>
+  <data name="작업일시" xml:space="preserve">
+    <value>工作日期</value>
+  </data>
+  <data name="장폭모듈완제품창고#1" xml:space="preserve">
+    <value>长模块产品仓库#1</value>
+  </data>
+  <data name="장폭전용" xml:space="preserve">
+    <value>仅长宽度</value>
+  </data>
+  <data name="재생" xml:space="preserve">
+    <value>播放</value>
+  </data>
+  <data name="적재" xml:space="preserve">
+    <value>装载</value>
+  </data>
+  <data name="전면 트레이 기울임 센서 [FB1]" xml:space="preserve">
+    <value>前托盘倾斜传感器[FB1]</value>
+  </data>
+  <data name="전체 PLC 시작" xml:space="preserve">
+    <value>开始所有 PLC</value>
+  </data>
+  <data name="전체 PLC 중지" xml:space="preserve">
+    <value>停止所有 PLC</value>
+  </data>
+  <data name="전체 쉘프 언로드" xml:space="preserve">
+    <value>卸货全体架子</value>
+  </data>
+  <data name="전체 쉘프 언로드 작업을 시작 하시겠습니까?" xml:space="preserve">
+    <value>要开始卸货全体架子？</value>
+  </data>
+  <data name="전체 쉘프 언로드 작업을 정지 하시겠습니까?" xml:space="preserve">
+    <value>要停止卸货全体架子？</value>
+  </data>
+  <data name="전체 쉘프 언로드 중단" xml:space="preserve">
+    <value>停止卸货全体架子</value>
+  </data>
+  <data name="전체 작업 삭제" xml:space="preserve">
+    <value>删除全体工作</value>
+  </data>
+  <data name="전체 작업을 삭제 하시겠습니까?" xml:space="preserve">
+    <value>要删除全体工作？</value>
+  </data>
+  <data name="접속불가 메시지" xml:space="preserve">
+    <value>不能用{0}访问。</value>
+  </data>
+  <data name="정렬" xml:space="preserve">
+    <value>整列</value>
+  </data>
+  <data name="정보 관리 메뉴" xml:space="preserve">
+    <value>信息管理菜单</value>
+  </data>
+  <data name="정위치 감지 센서 [PUT]" xml:space="preserve">
+    <value>位置检测传感器[放]</value>
+  </data>
+  <data name="정지" xml:space="preserve">
+    <value>停住</value>
+  </data>
+  <data name="조치 방법" xml:space="preserve">
+    <value>解决方法</value>
+  </data>
+  <data name="조치방법이 비어 있습니다." xml:space="preserve">
+    <value>解决方法是空。</value>
+  </data>
+  <data name="조치사항" xml:space="preserve">
+    <value>解决明细</value>
+  </data>
+  <data name="조회 및 반송" xml:space="preserve">
+    <value>搜索和转移</value>
+  </data>
+  <data name="조회 및 반송 &gt; I/O 조회" xml:space="preserve">
+    <value>搜索和转移 &gt; 入力/出力 搜索</value>
+  </data>
+  <data name="조회 및 반송 &gt; 연기감지" xml:space="preserve">
+    <value>搜索和转移 &gt; 烟雾觉察</value>
+  </data>
+  <data name="조회 및 반송 &gt; 터미널 메시지" xml:space="preserve">
+    <value>搜索和转移 &gt; 终端口信</value>
+  </data>
+  <data name="종료" xml:space="preserve">
+    <value>退出</value>
+  </data>
+  <data name="종료일시" xml:space="preserve">
+    <value>结束日期</value>
+  </data>
+  <data name="종료일시가 시작일시보다 이전입니다." xml:space="preserve">
+    <value>结束日期和时间早于开始日期和时间。</value>
+  </data>
+  <data name="좌측 메뉴" xml:space="preserve">
+    <value>左侧菜单</value>
+  </data>
+  <data name="주행 위치" xml:space="preserve">
+    <value>行驶位置</value>
+  </data>
+  <data name="중국어" xml:space="preserve">
+    <value>中文</value>
+  </data>
+  <data name="중복실행" xml:space="preserve">
+    <value>重复运转</value>
+  </data>
+  <data name="지상반 동작모드" xml:space="preserve">
+    <value>地象班开始模式</value>
+  </data>
+  <data name="직출고" xml:space="preserve">
+    <value>直出库</value>
+  </data>
+  <data name="처음으로" xml:space="preserve">
+    <value>至开头</value>
+  </data>
+  <data name="최근 동작 결과" xml:space="preserve">
+    <value>最近工作记录</value>
+  </data>
+  <data name="최대화" xml:space="preserve">
+    <value>最大化</value>
+  </data>
+  <data name="최소화" xml:space="preserve">
+    <value>最小化</value>
+  </data>
+  <data name="출고" xml:space="preserve">
+    <value>出库</value>
+  </data>
+  <data name="출고금지" xml:space="preserve">
+    <value>出库禁止</value>
+  </data>
+  <data name="출고예약" xml:space="preserve">
+    <value>出库预约</value>
+  </data>
+  <data name="측정값" xml:space="preserve">
+    <value>测量值</value>
+  </data>
+  <data name="캐리어 삭제" xml:space="preserve">
+    <value>删除载体</value>
+  </data>
+  <data name="캐리어 생성" xml:space="preserve">
+    <value>添加载体</value>
+  </data>
+  <data name="캐리어 위치가 해당 위치로 강제 설정 되었습니다." xml:space="preserve">
+    <value>载体位置已被强制至该位置</value>
+  </data>
+  <data name="캐리어 위치를 강제 변경하시겠습니까?" xml:space="preserve">
+    <value>您想强制更改运营商位置吗？</value>
+  </data>
+  <data name="캐리어설치/삭제 메시지" xml:space="preserve">
+    <value>您要在{1}中{0}载体吗？</value>
+  </data>
+  <data name="커맨드를 실행하시겠습니까?" xml:space="preserve">
+    <value>开始命令？</value>
+  </data>
+  <data name="컨베이어 BCR완료 메시지" xml:space="preserve">
+    <value>输送机{0}{1}{2}</value>
+  </data>
+  <data name="컨베이어 BCR요청 메시지" xml:space="preserve">
+    <value>输送机{0}BCR读懂？</value>
+  </data>
+  <data name="컨베이어 IO 변경 메시지" xml:space="preserve">
+    <value>输送机{0}{1}{2}入出力更改？</value>
+  </data>
+  <data name="컨베이어 IO 변경완료 메시지" xml:space="preserve">
+    <value>输送机{0}{1}{2}入出力更改完成</value>
+  </data>
+  <data name="컨베이어 데이터 변경 메시지" xml:space="preserve">
+    <value>输送机{0} {1}-&gt;{2} 更改？</value>
+  </data>
+  <data name="컨베이어 데이터 변경완료 메시지" xml:space="preserve">
+    <value>输送机{0} {1}-&gt;{2} 更改完成</value>
+  </data>
+  <data name="컨베이어 캐리어ID 메시지" xml:space="preserve">
+    <value>输送机{0}载体ID{1}{2}？</value>
+  </data>
+  <data name="컨베이어 캐리어ID삭제 메시지" xml:space="preserve">
+    <value>输送机{0}载体ID{1}删除{2}</value>
+  </data>
+  <data name="컨베이어 캐리어ID추가 메시지" xml:space="preserve">
+    <value>输送机{0}载体ID{1}安装{2}</value>
+  </data>
+  <data name="크기 조정" xml:space="preserve">
+    <value>调整尺寸</value>
+  </data>
+  <data name="크레인 IO 변경 메시지" xml:space="preserve">
+    <value>吊车{0}{1}{2}入出力更改？</value>
+  </data>
+  <data name="크레인 IO 변경완료 메시지" xml:space="preserve">
+    <value>吊车{0}{1}{2}入出力更改完成</value>
+  </data>
+  <data name="크레인 데이터 변경 메시지" xml:space="preserve">
+    <value>吊车{0}{1}命令开始？</value>
+  </data>
+  <data name="크레인 데이터 변경완료 메시지" xml:space="preserve">
+    <value>吊车{0}{1}命令进度？</value>
+  </data>
+  <data name="크레인 캐리어ID 메시지" xml:space="preserve">
+    <value>吊车{0}载体ID{1}{2}？</value>
+  </data>
+  <data name="크레인 캐리어ID삭제 메시지" xml:space="preserve">
+    <value>吊车{0}载体ID{1}删除{2}</value>
+  </data>
+  <data name="크레인 캐리어ID추가 메시지" xml:space="preserve">
+    <value>吊车{0}载体ID{1}安装{2}</value>
+  </data>
+  <data name="클릭시 MCS 상태를 변경할수 있습니다." xml:space="preserve">
+    <value>点击时可以更改MCS状态。</value>
+  </data>
+  <data name="클릭시 PLC 상태를 변경할수 있습니다." xml:space="preserve">
+    <value>点击时可以更改PLC状态。</value>
+  </data>
+  <data name="클릭시 SCS 상태를 변경할수 있습니다." xml:space="preserve">
+    <value>点击时可以更改SCS状态。</value>
+  </data>
+  <data name="클릭시 SYSTEM 상태를 변경할수 있습니다." xml:space="preserve">
+    <value>点击时可以更改系统状态。</value>
+  </data>
+  <data name="테스트 메뉴" xml:space="preserve">
+    <value>测试菜单</value>
+  </data>
+  <data name="테스트 알람 생성" xml:space="preserve">
+    <value>生成测试警报</value>
+  </data>
+  <data name="통신 설정" xml:space="preserve">
+    <value>通讯设定</value>
+  </data>
+  <data name="트레이 재하 감지 센서 [PLACE]" xml:space="preserve">
+    <value>托盘装载检测传感器[放置]</value>
+  </data>
+  <data name="포크 위치" xml:space="preserve">
+    <value>叉位置</value>
+  </data>
+  <data name="포크 작업 유무" xml:space="preserve">
+    <value>叉工作状态</value>
+  </data>
+  <data name="포트 로드 시작" xml:space="preserve">
+    <value>开始端口装载</value>
+  </data>
+  <data name="포트 로드 중단" xml:space="preserve">
+    <value>停止端口装载</value>
+  </data>
+  <data name="프로그램을 종료 하시겠습니까?" xml:space="preserve">
+    <value>您确定关闭程序吗？</value>
+  </data>
+  <data name="플레이백 데이터 수신에 성공했습니다." xml:space="preserve">
+    <value>接收回放数据成功。</value>
+  </data>
+  <data name="플레이백 데이터 수신에 실패했습니다." xml:space="preserve">
+    <value>接收回放数据失败。</value>
+  </data>
+  <data name="플레이백 메뉴" xml:space="preserve">
+    <value>回放菜单</value>
+  </data>
+  <data name="플레이백 요청시간 지연 텍스트" xml:space="preserve">
+    <value>回放要求时间超过{0}分钟。
+可以延迟要求。想继续吗？</value>
+  </data>
+  <data name="플레이백 화면을 최대화합니다." xml:space="preserve">
+    <value>最大化回放屏幕</value>
+  </data>
+  <data name="플레이백 화면을 최소화합니다." xml:space="preserve">
+    <value>最小化回放屏幕</value>
+  </data>
+  <data name="하단 메뉴" xml:space="preserve">
+    <value>底部菜单</value>
+  </data>
+  <data name="하단모듈원자재창고#1" xml:space="preserve">
+    <value>下方模块原料仓库#1</value>
+  </data>
+  <data name="하단모듈원자재창고#2" xml:space="preserve">
+    <value>下方模块原料仓库#2</value>
+  </data>
+  <data name="하단모듈원자재창고#3" xml:space="preserve">
+    <value>下方模块原料仓库#3</value>
+  </data>
+  <data name="하단모듈원자재창고#4" xml:space="preserve">
+    <value>下方模块原料仓库#4</value>
+  </data>
+  <data name="하역" xml:space="preserve">
+    <value>卸货</value>
+  </data>
+  <data name="한국어" xml:space="preserve">
+    <value>韩语</value>
+  </data>
+  <data name="해당 로그 파일 로드에 실패하였습니다." xml:space="preserve">
+    <value>失败加载该日志档案。</value>
+  </data>
+  <data name="핸드 오프 작업 임시 생성" xml:space="preserve">
+    <value>HandOff 工作临时创建</value>
+  </data>
+  <data name="헝가리어" xml:space="preserve">
+    <value>匈牙利语</value>
+  </data>
+  <data name="현재 동작" xml:space="preserve">
+    <value>当前动作</value>
+  </data>
+  <data name="현재 로그인 아이디" xml:space="preserve">
+    <value>当前登录ID</value>
+  </data>
+  <data name="현재값" xml:space="preserve">
+    <value>当前值</value>
+  </data>
+  <data name="혼합사용" xml:space="preserve">
+    <value>混合使用</value>
+  </data>
+  <data name="홈 복귀" xml:space="preserve">
+    <value>返回原位</value>
+  </data>
+  <data name="화면 맞춤" xml:space="preserve">
+    <value>屏幕适合</value>
+  </data>
+  <data name="화물" xml:space="preserve">
+    <value>货物</value>
+  </data>
+  <data name="화물유무" xml:space="preserve">
+    <value>货物状态</value>
+  </data>
+  <data name="화재" xml:space="preserve">
+    <value>火灾</value>
+  </data>
+  <data name="화재 신호" xml:space="preserve">
+    <value>火灾信号</value>
+  </data>
+  <data name="화재작업취소" xml:space="preserve">
+    <value>取消火灾工作</value>
+  </data>
+  <data name="화재출고" xml:space="preserve">
+    <value>火灾出库</value>
+  </data>
+  <data name="후면 트레이 기울임 센서 [FB2]" xml:space="preserve">
+    <value>后托盘倾斜传感器[FB2]</value>
+  </data>
+</root>

@@ -1,0 +1,250 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Stockerfirmware.GUI.Views"
+      xmlns:i="http://schemas.Microsoft.com/expression/2010/interactivity"
+      xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="Stockerfirmware.GUI.Views.WPSMonitorView"
+      xmlns:ex="clr-namespace:TranslationByMarkupExtension"
+      mc:Ignorable="d" 
+      d:DesignHeight="820" d:DesignWidth="1160"
+      Title="AlarmLog">
+
+    <Page.Resources>
+        <!--Toggle Button Template-->
+        <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
+            <Grid x:Name="gd">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="25" />
+                </Grid.ColumnDefinitions>
+                <Border x:Name="Border" SnapsToDevicePixels="True" Grid.ColumnSpan="2" Background="#FFE5E5E5" BorderBrush="{x:Null}"/>
+                <Border x:Name="Boredr1" SnapsToDevicePixels="True" Grid.Column="1"  Margin="1.1,1,1,1" Background="#FFE5E5E5" BorderBrush="{x:Null}" BorderThickness="0" />
+                <Path x:Name="Arrow" SnapsToDevicePixels="True" Grid.Column="1" Fill="White" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M 0 0 L 6 6 L 12 0 Z" Margin="6,9" Height="9.5" Stretch="Fill" Width="12.667"/>
+                <ContentPresenter Grid.Column="0" TextElement.Foreground="Orange"/>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter TargetName="Arrow" Property="Fill" Value="#FF2AA8DE"/>
+                </Trigger>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter TargetName="Arrow" Property="Data" Value="M 0 0 L 5 5 L 10 0"/>
+                    <Setter TargetName="Arrow" Property="Fill" Value="White"/>
+                    <Setter TargetName="Arrow" Property="Stroke" Value="White"/>
+                    <Setter TargetName="Arrow" Property="StrokeThickness" Value="1.5"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter TargetName="gd" Property="Visibility" Value="Visible"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <!--TextBox Template-->
+        <ControlTemplate x:Key="ComboBoxTextBox" TargetType="{x:Type TextBox}">
+            <ScrollViewer x:Name="PART_ContentHost" Focusable="False" />
+        </ControlTemplate>
+
+        <!--combobox-->
+        <Style x:Key="combobox_style" TargetType="{x:Type ComboBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate  TargetType="{x:Type ComboBox}">
+                        <Grid>
+                            <ToggleButton x:Name="ToggleButton" Foreground="Black" Template="{StaticResource ComboBoxToggleButton}" Focusable="false" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" ClickMode="Press"/>
+                            <ContentPresenter x:Name="ContentSite" IsHitTestVisible="False" Content="{TemplateBinding SelectionBoxItem}" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Margin="3,3,23,3"  VerticalAlignment="Center" HorizontalAlignment="Left" />
+                            <TextBox OverridesDefaultStyle="True" SelectionBrush="Gray" CaretBrush="Black" Margin="0,0,30,0" TextWrapping="NoWrap"   x:Name="PART_EditableTextBox" FontFamily="Segoe UI Dark"   Foreground="Black" Style="{x:Null}" Template="{StaticResource ComboBoxTextBox}" HorizontalAlignment="Left" Focusable="True"  VerticalAlignment="Center"  FontSize="15"   Visibility="Hidden" IsReadOnly="{TemplateBinding IsReadOnly}"/>
+                            <Popup x:Name="Popup"  Grid.ColumnSpan="2" Placement="Bottom"  IsOpen="{TemplateBinding IsDropDownOpen}" AllowsTransparency="True" Focusable="False" PopupAnimation="Slide" OpacityMask="{x:Null}">
+                                <Grid x:Name="DropDown"   SnapsToDevicePixels="True" MaxWidth="{TemplateBinding ActualWidth}" MinWidth="{TemplateBinding ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}" Background="White">
+                                    <Border Grid.ColumnSpan="2" Grid.RowSpan="2" x:Name="DropDownBorder" SnapsToDevicePixels="True" Background="Transparent" MaxWidth="{TemplateBinding ActualWidth}" BorderThickness="1" BorderBrush="#FFA3B2B8"/>
+                                    <ScrollViewer Grid.ColumnSpan="2" ScrollViewer.CanContentScroll="False" Grid.Row="1" SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True" Background="Transparent" Margin="1"/>
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEditable" Value="true">
+                                <Setter Property="IsTabStop" Value="false"/>
+                                <Setter  TargetName="PART_EditableTextBox" Property="Background" Value="White"/>
+                                <Setter TargetName="PART_EditableTextBox" Property="Visibility" Value="Visible"/>
+                                <Setter TargetName="PART_EditableTextBox" Property="Foreground" Value="Black"/>
+                                <Setter TargetName="ContentSite" Property="Visibility" Value="Hidden"/>
+                            </Trigger>
+                            <Trigger Property="HasItems" Value="false">
+                                <Setter TargetName="DropDownBorder" Property="MinHeight" Value="95"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="IsTabStop" Value="false"/>
+                                <Setter TargetName="PART_EditableTextBox" Property="Visibility" Value="Visible"/>
+                                <Setter TargetName="PART_EditableTextBox" Property="Foreground" Value="Black"/>
+                                <Setter  TargetName="PART_EditableTextBox" Property="IsEnabled" Value="False"/>
+                                <Setter  TargetName="PART_EditableTextBox" Property="Background" Value="White"/>
+                                <Setter TargetName="ContentSite" Property="Visibility" Value="Hidden"/>
+                            </Trigger>
+                            <Trigger Property="IsGrouping" Value="true">
+                                <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                            </Trigger>
+                            <Trigger SourceName="Popup" Property="AllowsTransparency" Value="true">
+                                <Setter TargetName="DropDownBorder" Property="Margin" Value="0,2,0,0"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <!--DataGrid Text 오른쪽 정렬-->
+        <Style x:Key="DataGridCellHorizontalAlignmentStyle" TargetType="{x:Type TextBlock}">
+
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <!--<Setter Property="Margin" Value="10,0"></Setter>-->
+
+        </Style>
+        <!--DataGrid Text 가운데 정렬-->
+        <Style x:Key="DataGridCellCenterAlignmentStyle" TargetType="{x:Type TextBlock}">
+
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment"   Value="Center"/>
+            <!--<Setter Property="Margin" Value="10,0"></Setter>-->
+        </Style>
+
+
+    </Page.Resources>
+
+    <Grid x:Name="grdMain" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Border HorizontalAlignment="Center" BorderThickness="2" CornerRadius="5" Margin="132,10,132,13" BorderBrush="#FFA3B2B8" Background="AliceBlue" Grid.Row="1" Grid.Column="1" Width="233">
+            <Label x:Name="Label_Converter"  Content="{ex:Translate CONVERTER}"  FontSize="18" Margin="0,0,0,0" FontWeight="Bold" HorizontalAlignment="Center"/>
+        </Border>
+        <Ellipse x:Name="ConverterLamp" Height="20" Width="20" Canvas.Left="76"   Stroke="#FF171717"  RenderTransformOrigin="0.335,1.095" Canvas.Top="30" Grid.Column="1" Margin="382,29,120,15" Grid.Row="1">
+            <Ellipse.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="OrangeRed" Offset="1"/>
+                </LinearGradientBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+
+        <Border HorizontalAlignment="Center" BorderThickness="2" CornerRadius="5" Margin="140,11,145,12" BorderBrush="#FFA3B2B8" Background="#FFFFEFE9" Grid.Row="1" Grid.Column="2" Width="237">
+            <Label Content="{ex:Translate REGULATOR}" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" />
+        </Border>
+
+        <DataGrid x:Name="dataGrid_Converter" AutoGenerateColumns="False" RowHeight="35" Grid.Row="2"  Grid.Column="1" IsReadOnly="True" 
+                  CanUserResizeColumns="False" CanUserSortColumns="False" CanUserReorderColumns="False" Margin="10,0" Background="{x:Null}" FontSize="14" FontWeight="Bold">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{ex:Translate ITEM}" Width="4*"  Binding="{Binding ItemName}" />
+                <DataGridTextColumn Header="{ex:Translate DESCRIPTION}" Width="8*"  Binding="{Binding Description}"/>
+                <DataGridTextColumn Header="{ex:Translate 기준값}"  Width="4*"   Binding="{Binding ReferenceValue}"/>
+                <DataGridTextColumn Header="{ex:Translate 측정값}"  Width="4*"   Binding="{Binding SensorValue}"/>
+            </DataGrid.Columns>
+
+            <DataGrid.Resources>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}" >
+                    <Setter Property="Background" Value="White" />
+                    <Setter Property="Foreground" Value="Black" />
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="BorderThickness" Value="1 1 1 1"/>
+                    <Setter Property="Margin" Value="-1,-1,0,0" />
+                    <Setter Property="Height" Value="60" />
+                    <Setter Property="Width" Value="auto"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <!--<EventSetter Event="MouseDoubleClick" Handler="DataGridCell_DoubleClick"/>-->
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="{x:Null}" />
+                            <Setter Property="BorderBrush" Value="{x:Null}" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+
+            </DataGrid.Resources>
+
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ValueCheck}" Value="True">
+                            <Setter Property="Background" Value="#FFabecff"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ValueCheck}" Value="False">
+                            <Setter Property="Background" Value="#FFffdf90"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+        </DataGrid>
+
+        <DataGrid x:Name="dataGrid_Regulator" AutoGenerateColumns="False"  RowHeight="35" Grid.Row="2" Grid.Column="2" IsReadOnly="True"
+                   CanUserResizeColumns="False" CanUserSortColumns="False" CanUserReorderColumns="False" Margin="10,0,10,0" Background="#FFFFB2B2" FontSize="14" FontWeight="Bold" BorderBrush="#FF688CAF">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{ex:Translate ITEM}" Width="4*"  Binding="{Binding ItemName}" />
+                <DataGridTextColumn Header="{ex:Translate DESCRIPTION}" Width="8*"  Binding="{Binding Description}"/>
+                <DataGridTextColumn Header="{ex:Translate 기준값}"  Width="4*"   Binding="{Binding ReferenceValue}"/>
+                <DataGridTextColumn Header="{ex:Translate 측정값}"  Width="4*"   Binding="{Binding SensorValue}"/>
+            </DataGrid.Columns>
+
+            <DataGrid.Resources>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}" >
+                    <Setter Property="Background" Value="White" />
+                    <Setter Property="Foreground" Value="Black" />
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="BorderThickness" Value="1 1 1 1"/>
+                    <Setter Property="Margin" Value="-1,-1,0,0" />
+                    <Setter Property="Height" Value="60" />
+                    <Setter Property="Width" Value="auto"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <!--<EventSetter Event="MouseDoubleClick" Handler="DataGridCell_DoubleClick"/>-->
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="{x:Null}" />
+                            <Setter Property="BorderBrush" Value="{x:Null}" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.Resources>
+
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ValueCheck}" Value="True">
+                            <Setter Property="Background" Value="#FFabecff"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ValueCheck}" Value="False">
+                            <Setter Property="Background" Value="#FFffdf90"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+        </DataGrid>
+        <Ellipse x:Name="RegulatorLamp" Height="20" Width="20" Canvas.Left="76"  Stroke="#FF171717"  RenderTransformOrigin="0.335,1.095" Canvas.Top="30" Grid.Column="2" Margin="382,29,120,15" Grid.Row="1">
+            <Ellipse.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="OrangeRed" Offset="1"/>
+                </LinearGradientBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+        <Button x:Name="button_ChangeMainSub" Content="{ex:Translate Switching CPS Views}" Grid.Column="1" HorizontalAlignment="Left" Height="45" Margin="345,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="165" Click="button_ChangeMainSub_Click" FontSize="14" FontWeight="Bold"/>
+		<Button x:Name="button_CpsReset" Content="{ex:Translate CPS  Reset}"   Grid.Column="1" HorizontalAlignment="Left" Height="45" Margin="24,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="130" Click="button_CpsReset_Click" FontSize="14" FontWeight="Bold" />
+        <Button x:Name="button_CpsStart" Content="{ex:Translate CPS  Start}"   Grid.Column="1" HorizontalAlignment="Left" Height="45" Margin="185,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="130" Click="button_CpsStart_Click" FontSize="14" FontWeight="Bold"/>
+        
+    </Grid>
+</Page>

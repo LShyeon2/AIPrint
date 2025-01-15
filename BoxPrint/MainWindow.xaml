@@ -1,0 +1,682 @@
+﻿<Window x:Class="BoxPrint.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BoxPrint"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:views="clr-namespace:BoxPrint.GUI.Views"
+        xmlns:uidictionary="clr-namespace:BoxPrint.GUI.UIControls"
+        xmlns:LoginUser="clr-namespace:BoxPrint.GUI.ETC"
+        xmlns:ex="clr-namespace:TranslationByMarkupExtension"
+        mc:Ignorable="d"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        WindowStyle="None"
+        Title="Stocker Control System" Height="1800" Width="1950" Background="#FFF3F3F3"  WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" WindowState="Maximized" Icon="Image/SCSIcon.ico"
+        Name="StockerControlSystem">
+    
+    
+    <Window.Resources>
+        <ResourceDictionary>
+
+            <uidictionary:NegativeVisibleConverter x:Key="NvisibleConverter"/>
+            
+            <!--툴팁-->
+            <Style TargetType="{x:Type ToolTip}" BasedOn="{StaticResource SK_ToolTipStyle}"/>
+
+            <!--자식선택시 부모 색상변경 기능.. 나중에 사용하는부분 변경해서 이기능 지우자-->
+            <Style x:Key="PathColorChange" TargetType="Path">
+                <Setter Property="Fill" Value="#FF495A69" />
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=Border,AncestorLevel=1}, Path=IsMouseOver}" Value="True" >
+                        <Setter Property="Fill" Value="#FFEC685B" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+
+            <!--상단 서브 메뉴 스타일 : 동적생성 때문에 여기서 만든다-->
+            <Style x:Key="TextSubMenuStyle" TargetType="{x:Type uidictionary:SK_ButtonControl}">
+                <Setter Property="Tag" Value="{Binding Path=(uidictionary:SK_ButtonControl.TagName), RelativeSource={RelativeSource self}}"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type uidictionary:SK_ButtonControl}">
+                            <Border Background="Transparent" Margin="0" IsHitTestVisible="{Binding Path=(uidictionary:SK_ButtonControl.UserAuthority), RelativeSource={RelativeSource TemplatedParent}}">
+                                <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="2"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="7"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="{Binding Path=(uidictionary:SK_ButtonControl.Content), RelativeSource={RelativeSource TemplatedParent}}"
+                                           HorizontalAlignment="Center" FontFamily="{StaticResource BoldFont}" FontSize="{TemplateBinding FontSize}"
+                                           Background="Transparent" VerticalAlignment="Center" IsHitTestVisible="False">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=(uidictionary:SK_ButtonControl.UserAuthority), RelativeSource={RelativeSource TemplatedParent}}" Value="true">
+                                                        <Setter Property="Foreground" Value="White" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=(uidictionary:SK_ButtonControl.UserAuthority), RelativeSource={RelativeSource TemplatedParent}}" Value="false">
+                                                        <Setter Property="Foreground" Value="#c5c7cc" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+
+                                    <!--230102 YSW 권한 잠김 아이콘-->
+                                    <Path Data="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z"
+                                        x:Name="LockIcon" Visibility="{Binding Path=(uidictionary:SK_ButtonControl.LockIcon), RelativeSource={RelativeSource TemplatedParent}}" Grid.Column="1" Stretch="Uniform" Margin="7,0,-7,0" Fill="#c5c7cc" />
+                                    <Rectangle x:Name="rectangleTextLine" IsHitTestVisible="False" Grid.Row="1" Fill="White" HorizontalAlignment="Stretch" RenderTransformOrigin="0.5,0.5">
+                                        <Rectangle.RenderTransform>
+                                            <ScaleTransform ScaleX="0"/>
+                                        </Rectangle.RenderTransform>
+                                    </Rectangle>
+                                </Grid>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard >
+                                                <DoubleAnimation Storyboard.TargetName="rectangleTextLine" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)" From="0" To="1" Duration="0:0:0.2"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard >
+                                                <DoubleAnimation Storyboard.TargetName="rectangleTextLine" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)" From="1" To="0" Duration="0:0:0.2"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!--언어 설정 스토리 보드-->
+            <!--국기 열기-->
+            <Storyboard x:Key="storyboardOpenLanguageChangeMenu">
+                <ThicknessAnimation BeginTime="0:0:0:0"   Duration="0:0:0:0.2" Storyboard.TargetProperty="Margin" To="0,0,0,200" Storyboard.TargetName="ellipsoLanguageItem0" AccelerationRatio="0.9" DecelerationRatio="0.1"/>
+                <ThicknessAnimation BeginTime="0:0:0:0.2" Duration="0:0:0:0.2" Storyboard.TargetProperty="Margin" To="0,0,0,150" Storyboard.TargetName="ellipsoLanguageItem1" AccelerationRatio="0.9" DecelerationRatio="0.1"/>
+                <ThicknessAnimation BeginTime="0:0:0:0.4" Duration="0:0:0:0.2" Storyboard.TargetProperty="Margin" To="0,0,0,100" Storyboard.TargetName="ellipsoLanguageItem2" AccelerationRatio="0.9" DecelerationRatio="0.1"/>
+                <ThicknessAnimation BeginTime="0:0:0:0.6" Duration="0:0:0:0.2" Storyboard.TargetProperty="Margin" To="0,0,0,50"  Storyboard.TargetName="ellipsoLanguageItem3" AccelerationRatio="0.9" DecelerationRatio="0.1"/>
+            </Storyboard>
+            <!--국기 닫기-->
+            <Storyboard x:Key="storyboardCloseLanguageChangeMenu">
+                <ThicknessAnimation BeginTime="0:0:0:0" Duration="0:0:0:0.15" Storyboard.TargetProperty="Margin" To="0,0,0,0" Storyboard.TargetName="ellipsoLanguageItem0" AccelerationRatio="0.9" DecelerationRatio="0.1"/>
+                <ThicknessAnimation BeginTime="0:0:0:0" Duration="0:0:0:0.15" Storyboard.TargetProperty="Margin" To="0,0,0,0" Storyboard.TargetName="ellipsoLanguageItem1" AccelerationRatio="0.9" DecelerationRatio="0.1"/>
+                <ThicknessAnimation BeginTime="0:0:0:0" Duration="0:0:0:0.15" Storyboard.TargetProperty="Margin" To="0,0,0,0" Storyboard.TargetName="ellipsoLanguageItem2" AccelerationRatio="0.9" DecelerationRatio="0.1"/>
+                <ThicknessAnimation BeginTime="0:0:0:0" Duration="0:0:0:0.15" Storyboard.TargetProperty="Margin" To="0,0,0,0" Storyboard.TargetName="ellipsoLanguageItem3" AccelerationRatio="0.9" DecelerationRatio="0.1"/>
+            </Storyboard>
+
+            <!--콤보박스 이미지 아이탬-->
+            <DataTemplate x:Key="ImageDataTemplate">
+                <WrapPanel Margin="0 5 0 5" Height="25">
+                    <Image Width="65" Height="65" Stretch="Fill" Source="{Binding Image}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,15,0"/>
+                    <Label Content="{Binding Name}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
+                </WrapPanel>
+            </DataTemplate>
+
+            <Style x:Key="NavigationTab" TargetType="{x:Type uidictionary:SK_ButtonControl}">
+                <Setter Property="Tag" Value="{Binding Path=(uidictionary:SK_ButtonControl.TagName), RelativeSource={RelativeSource self}}"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type uidictionary:SK_ButtonControl}">
+
+                            <Border Background="{TemplateBinding Background}" Margin="0" CornerRadius="0,0,5,5">
+                                <Grid MaxWidth="250" MinWidth="150">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="30"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <!--실행 버튼-->
+                                    <Grid x:Name="GridBtn" Background="Transparent" ToolTip="{ex:Translate Switch}" Tag="{TemplateBinding Tag}" MouseDown="NavigationTab_MouseDown">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="30"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Path Name="pathIcon" HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="False" RenderTransformOrigin="0.5,0.5"
+                                              Stretch="Uniform" Fill="{Binding Path=(uidictionary:SK_ButtonControl.IconFill), RelativeSource={RelativeSource TemplatedParent}}" 
+                                              Margin="{Binding Path=(uidictionary:SK_ButtonControl.ImageMargin), RelativeSource={RelativeSource TemplatedParent}}" 
+                                              Data="{Binding Path=(uidictionary:SK_ButtonControl.PathData), RelativeSource={RelativeSource TemplatedParent}}" >
+                                            <Path.RenderTransform>
+                                                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                            </Path.RenderTransform>
+                                        </Path>
+
+                                        <TextBlock Name="textblockText"  Text="{Binding Path=(uidictionary:SK_ButtonControl.DisplayName), RelativeSource={RelativeSource TemplatedParent}}" Grid.Column="1" RenderTransformOrigin="0.5,0.5"
+                                                   HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Center" FontFamily="{StaticResource BoldFont}" FontSize="{TemplateBinding FontSize}"                                        
+                                                   Background="Transparent" IsHitTestVisible="False" Foreground="{TemplateBinding Foreground}" >
+                                            <TextBlock.RenderTransform>
+                                                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                            </TextBlock.RenderTransform>
+                                        </TextBlock>
+                                    </Grid>
+
+                                    <!--삭제 버튼-->
+                                    <Grid x:Name="GridDeleteBtn" Grid.Column="2" Background="Transparent" ToolTip="{ex:Translate CLOSE}" Tag="{TemplateBinding Tag}" MouseDown="NavigationTabDelete_MouseDown">
+                                        <Path Data="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"
+                                              Name="pathIcon2" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" IsHitTestVisible="False"
+                                              Stretch="Uniform" Fill="{Binding Path=(uidictionary:SK_ButtonControl.IconFill), RelativeSource={RelativeSource TemplatedParent}}" 
+                                              Margin="11" >
+                                            <Path.RenderTransform>
+                                                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                            </Path.RenderTransform>
+                                        </Path>
+                                    </Grid>
+                                    <Border x:Name="borderLine" IsHitTestVisible="False" Grid.Column="2" HorizontalAlignment="Right" Height="15" Background="{StaticResource SK_LBlack}" Width="1"/>
+                                </Grid>
+                            </Border>
+
+                            <ControlTemplate.Triggers>
+                                <DataTrigger Binding="{Binding Path=(uidictionary:SK_ButtonControl.IsSelect), RelativeSource={RelativeSource self}}" Value="True">
+                                    <Setter Property="Background" Value="{Binding Path=(uidictionary:SK_ButtonControl.SelectColor), RelativeSource={RelativeSource self}}"/>
+                                </DataTrigger>
+
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter Property="Background" Value="{Binding Path=(uidictionary:SK_ButtonControl.MouseOverColor), RelativeSource={RelativeSource self}}"/>
+                                    <Setter TargetName="borderLine" Property="Opacity" Value="0"/>
+                                </Trigger>
+
+                                <Trigger SourceName="GridDeleteBtn" Property="IsMouseOver" Value="true">
+                                    <Setter TargetName="pathIcon2" Property="Fill" Value="{StaticResource SK_Red}"/>
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard >
+                                                <DoubleAnimation Storyboard.TargetName="pathIcon2" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)" From="1" To="1.2" Duration="0:0:0.2" />
+                                                <DoubleAnimation Storyboard.TargetName="pathIcon2" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)" From="1" To="1.2" Duration="0:0:0.2" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard >
+                                                <DoubleAnimation Storyboard.TargetName="pathIcon2" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"  To="1" Duration="0:0:0.2" />
+                                                <DoubleAnimation Storyboard.TargetName="pathIcon2" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"  To="1" Duration="0:0:0.2" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+
+                                <Trigger SourceName="GridBtn" Property="IsMouseOver" Value="true">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard >
+                                                <DoubleAnimation Storyboard.TargetName="pathIcon" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)" From="1" To="1.2" Duration="0:0:0.2" />
+                                                <DoubleAnimation Storyboard.TargetName="pathIcon" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)" From="1" To="1.2" Duration="0:0:0.2" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard >
+                                                <DoubleAnimation Storyboard.TargetName="pathIcon" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"  To="1" Duration="0:0:0.2" />
+                                                <DoubleAnimation Storyboard.TargetName="pathIcon" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"  To="1" Duration="0:0:0.2" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid  x:Name="MainGrid" Background="White" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Border Background="Transparent" PreviewMouseDown="System_MouseDown" PreviewMouseMove="System_MouseMove" Cursor="SizeAll">
+                <!--머리글-->
+                <TextBlock  x:Name="textblockHead" IsHitTestVisible="False" FontFamily="{StaticResource RegularFont}" Margin="10,0,0,0" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FFBFBFBF"/>
+            </Border>
+
+            <DockPanel HorizontalAlignment="Right" Grid.Column="1">
+                <uidictionary:SK_ButtonControl Grid.Column="3" 
+                                               Style="{StaticResource SK_IconButtonStyle_Box}"
+                                               Background="#FFBFBFBF"
+                                               MouseOverColor="#FFE5E5E5"
+                                               IconMouseOverColor="{StaticResource SK_LBlack}"
+                                               PathData="M416 256c0 17.7-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"
+                                               ImageMargin="9"
+                                               HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                               Height="20" Width="60" 
+                                               Click="Mimimize_Click"
+                                               ToolTip="{ex:Translate 최소화}"/>
+                <uidictionary:SK_ButtonControl Grid.Column="3" x:Name="btnMax" 
+                                               Style="{StaticResource SK_IconButtonStyle_Box}"
+                                               Background="#FFBFBFBF"
+                                               MouseOverColor="{StaticResource SK_Red}"
+                                               IconMouseOverColor="White"
+                                               PathData="M432 48H208c-17.7 0-32 14.3-32 32V96H128V80c0-44.2 35.8-80 80-80H432c44.2 0 80 35.8 80 80V304c0 44.2-35.8 80-80 80H416V336h16c17.7 0 32-14.3 32-32V80c0-17.7-14.3-32-32-32zM48 448c0 8.8 7.2 16 16 16H320c8.8 0 16-7.2 16-16V256H48V448zM64 128H320c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V192c0-35.3 28.7-64 64-64z"
+                                               ImageMargin="3"
+                                               HorizontalAlignment="Center" VerticalAlignment="Center"
+                                               Height="20" Width="60" 
+                                               Click="Maximize_Click"
+                                               ToolTip="{ex:Translate 이전 크기로 복원}"/>
+            </DockPanel>
+        </Grid>
+
+        <!--프레임-->
+        <Border Grid.Row="2" Tag="borderFrame" MouseEnter="MenuButton_MouseEnter" Background="Transparent" Grid.RowSpan="1">
+            <Frame x:Name="frame_content" Background="White" NavigationUIVisibility="Hidden"  Margin="3,3"/>
+        </Border>
+
+        <Popup x:Name="popupMain"   AllowsTransparency="True" Grid.RowSpan="6" Grid.ColumnSpan="5" HorizontalOffset="10" VerticalOffset="10">
+            <Grid>
+                <LoginUser:LoginUserStatePopupView x:Name="popupMain_UserControl"/>
+                <Border Background="Transparent" Tag="EXIT" Width="15" Height="15" HorizontalAlignment="Right" Margin="0,15,15,0" VerticalAlignment="Top" PreviewMouseDown="BorderButton_PreviewMouseDown">
+                    <Path  IsHitTestVisible="False" Style="{StaticResource PathColorChange}" Stretch="Fill"  Data="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z" />
+                </Border>
+            </Grid>
+        </Popup>
+
+        <!--상단 그리드-->
+        <Grid Background="{x:Null}" Grid.Row="1" Grid.ColumnSpan="2" Panel.ZIndex="10" Grid.RowSpan="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--상단그리드 경계선-->
+            <Border Grid.ColumnSpan="2" IsHitTestVisible="False" Grid.Row="1" Height="5" VerticalAlignment="Top">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFBFBFBF"/>
+                        <GradientStop Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+
+            <!--기능-->
+            <Grid Grid.ColumnSpan="1" Grid.Column="1" Grid.RowSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <!--DB, Core 접속상태-->
+                <Border Width="65" VerticalAlignment="Top" HorizontalAlignment="Left" BorderThickness="1,0,0,0" BorderBrush="#FFBFBFBF" Height="60">
+                    <StackPanel VerticalAlignment="Center">
+                        <DockPanel Margin="5,5,5,0" VerticalAlignment="Bottom">
+                            <TextBlock  x:Name="textblock_DBConectivity" Tag="0" Text="DB" Grid.Row="0" FontSize="{Binding UIFontSize_Small}" FontFamily="{StaticResource BoldFont}" Foreground="{StaticResource SK_LBlack}" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            <Path Data="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512z"
+                          Stretch="Uniform" Height="10" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right">
+                                <Path.Style>
+                                    <Style TargetType="Path">
+                                        <Setter Property="Fill" Value="{StaticResource SK_Red}"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Tag, ElementName=textblock_DBConectivity}" Value="1">
+                                                <Setter Property="Fill" Value="{StaticResource SK_Green}"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Path.Style>
+                            </Path>
+                        </DockPanel>
+                        <Separator Height="1" Background="{x:Null}"/>
+                        <DockPanel Margin="5,0,5,0" VerticalAlignment="Top">
+                            <TextBlock x:Name="textblock_CoreConectivity" Tag="0" Text="CORE" Grid.Row="0" FontSize="{Binding UIFontSize_Small}" FontFamily="{StaticResource BoldFont}" Foreground="{StaticResource SK_LBlack}" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            <Path Data="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512z"
+                          Stretch="Uniform" Height="10" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right">
+                                <Path.Style>
+                                    <Style TargetType="Path">
+                                        <Setter Property="Fill" Value="{StaticResource SK_Red}"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Tag, ElementName=textblock_CoreConectivity}" Value="1">
+                                                <Setter Property="Fill" Value="{StaticResource SK_Green}"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Path.Style>
+                            </Path>
+                        </DockPanel>
+                    </StackPanel>
+
+                </Border>
+
+
+                <!--중간메뉴-->
+                <ScrollViewer Grid.RowSpan="2" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Margin="65,0,0,0">
+                    <Grid HorizontalAlignment="Center" Grid.RowSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <!--상단 그리드 메뉴-->
+                        <!--기준정보관리-->
+                        <Border x:Name="MenuConfig_SubMenu" Background="{StaticResource SK_Red}" Margin="0" Opacity="1" VerticalAlignment="Top" Grid.Row="1">
+                            <StackPanel VerticalAlignment="Top">
+                                <Separator Height="10" Background="White" IsHitTestVisible="False" Margin="20,0,20,0"/>
+                                <uidictionary:SK_ButtonControl Style="{StaticResource TextSubMenuStyle}" TagName = "AlarmManager"   Content="{ex:Translate Stocker Alarm 관리}"     FontSize="{Binding UIFontSize_Medium}" Height="32" Click="PageBtn_Click" MouseEnter="SK_ButtonControl_MouseEnter" MouseLeave="SK_ButtonControl_MouseLeave" Loaded="TextSubMenu_Loaded"/>
+                                <uidictionary:SK_ButtonControl Style="{StaticResource TextSubMenuStyle}" TagName = "Config"         Content="{ex:Translate Stocker Config 관리}"    FontSize="{Binding UIFontSize_Medium}" Height="32" Click="PageBtn_Click" MouseEnter="SK_ButtonControl_MouseEnter" MouseLeave="SK_ButtonControl_MouseLeave" Loaded="TextSubMenu_Loaded"/>
+                                <uidictionary:SK_ButtonControl Style="{StaticResource TextSubMenuStyle}" TagName = "MapViewer"      Content="{ex:Translate Map 관리}"               FontSize="{Binding UIFontSize_Medium}" Height="32" Click="PageBtn_Click" MouseEnter="SK_ButtonControl_MouseEnter" MouseLeave="SK_ButtonControl_MouseLeave" Loaded="TextSubMenu_Loaded" x:Name="skBtn_MapViewer"/>
+                                <Separator Height="10" Background="Transparent" IsHitTestVisible="False"/>
+                            </StackPanel>
+                        </Border>
+                        <uidictionary:SK_ButtonControl x:Name="Menu_Config" MaxWidth="350" Style="{StaticResource SK_TextButtonStyle2}" FontSize="{Binding UIFontSize_Large}" ToolTip="{ex:Translate 정보 관리 메뉴}"  Content="{ex:Translate 기준 정보 관리}" Background="White" Foreground="{StaticResource SK_LBlack}" Click="MenuButton_Click" TagName="Config"     Grid.Column="0" LostFocus="Menu_LostFocus" MinWidth="150" MouseOverColor="{StaticResource SK_Red}" BorderThickness="0"/>
+
+                        <!--조회및반송-->
+                        <Border x:Name="MenuMonitoring_SubMenu" Background="{StaticResource SK_Red}" Margin="0" Opacity="1" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1">
+                            <StackPanel VerticalAlignment="Top">
+                                <Separator Height="10" Background="White" IsHitTestVisible="False" Margin="20,0,20,0"/>
+                                <uidictionary:SK_ButtonControl Style="{StaticResource TextSubMenuStyle}" TagName = "IOMonitor"   Content="{ex:Translate IO Monitor}"  FontSize="{Binding UIFontSize_Medium}" Height="32" Click="PageBtn_Click" MouseEnter="SK_ButtonControl_MouseEnter" MouseLeave="SK_ButtonControl_MouseLeave" Loaded="TextSubMenu_Loaded"/>
+                                <uidictionary:SK_ButtonControl Style="{StaticResource TextSubMenuStyle}" TagName = "TerminalMessage" Content="{ex:Translate Terminal Message}"      FontSize="{Binding UIFontSize_Medium}" Height="32" Click="PageBtn_Click" MouseEnter="SK_ButtonControl_MouseEnter" MouseLeave="SK_ButtonControl_MouseLeave" Loaded="TextSubMenu_Loaded"/>
+                                <!--<uidictionary:SK_ButtonControl Style="{StaticResource TextSubMenuStyle}" TagName = "StoredCarrier"   Content="{ex:Translate 보관된 캐리어 조회}"     FontSize="{Binding UIFontSize_Medium}" Height="32" Click="PageBtn_Click" MouseEnter="SK_ButtonControl_MouseEnter" MouseLeave="SK_ButtonControl_MouseLeave" Loaded="TextSubMenu_Loaded"/>-->
+                                <Separator Height="10" Background="Transparent" IsHitTestVisible="False"/>
+                            </StackPanel>
+                        </Border>
+                        <uidictionary:SK_ButtonControl x:Name="Menu_Monitoring" MaxWidth="350" Style="{StaticResource SK_TextButtonStyle2}" FontSize="{Binding UIFontSize_Large}" ToolTip="{ex:Translate 모니터링 메뉴}"   Content="{ex:Translate 조회 및 반송}"   Background="White" Foreground="{StaticResource SK_LBlack}" Click="MenuButton_Click" TagName="Monitoring" Grid.Column="1" LostFocus="Menu_LostFocus" MinWidth="150" MouseOverColor="{StaticResource SK_Red}" BorderThickness="0"/>
+
+                        <!--로그-->
+                        <Border x:Name="MenuLog_SubMenu" Background="{StaticResource SK_Red}" Margin="0" Opacity="1" VerticalAlignment="Top" Grid.Row="1" Grid.Column="2">
+                            <StackPanel VerticalAlignment="Top">
+                                <Separator Height="10" Background="White" IsHitTestVisible="False" Margin="20,0,20,0"/>
+                                <uidictionary:SK_ButtonControl Style="{StaticResource TextSubMenuStyle}" TagName = "AlarmLog"       Content="{ex:Translate Alarm Log}"              FontSize="{Binding UIFontSize_Medium}" Height="32" Click="PageBtn_Click" MouseEnter="SK_ButtonControl_MouseEnter" MouseLeave="SK_ButtonControl_MouseLeave" Loaded="TextSubMenu_Loaded"/>
+                                <uidictionary:SK_ButtonControl Style="{StaticResource TextSubMenuStyle}" TagName = "BCRLog"         Content="{ex:Translate BCR Log}"                FontSize="{Binding UIFontSize_Medium}" Height="32" Click="PageBtn_Click" MouseEnter="SK_ButtonControl_MouseEnter" MouseLeave="SK_ButtonControl_MouseLeave" Loaded="TextSubMenu_Loaded"/>
+                                <uidictionary:SK_ButtonControl Style="{StaticResource TextSubMenuStyle}" TagName = "HSMSLog"        Content="{ex:Translate HSMS Log}"               FontSize="{Binding UIFontSize_Medium}" Height="32" Click="PageBtn_Click" MouseEnter="SK_ButtonControl_MouseEnter" MouseLeave="SK_ButtonControl_MouseLeave" Loaded="TextSubMenu_Loaded"/>
+                                <uidictionary:SK_ButtonControl Style="{StaticResource TextSubMenuStyle}" TagName = "OperatorLog"    Content="{ex:Translate Operator Log}"           FontSize="{Binding UIFontSize_Medium}" Height="32" Click="PageBtn_Click" MouseEnter="SK_ButtonControl_MouseEnter" MouseLeave="SK_ButtonControl_MouseLeave" Loaded="TextSubMenu_Loaded"/>
+                                <uidictionary:SK_ButtonControl Style="{StaticResource TextSubMenuStyle}" TagName = "TransferLog"    Content="{ex:Translate Transfer Log}"           FontSize="{Binding UIFontSize_Medium}" Height="32" Click="PageBtn_Click" MouseEnter="SK_ButtonControl_MouseEnter" MouseLeave="SK_ButtonControl_MouseLeave" Loaded="TextSubMenu_Loaded"/>
+                                <uidictionary:SK_ButtonControl Style="{StaticResource TextSubMenuStyle}" TagName = "UtilizationLog" Content="{ex:Translate Utilization Log}"        FontSize="{Binding UIFontSize_Medium}" Height="32" Click="PageBtn_Click" MouseEnter="SK_ButtonControl_MouseEnter" MouseLeave="SK_ButtonControl_MouseLeave" Loaded="TextSubMenu_Loaded"/>
+                                <Separator Height="10" Background="Transparent" IsHitTestVisible="False"/>
+                            </StackPanel>
+                        </Border>
+                        <uidictionary:SK_ButtonControl x:Name="Menu_Log" MaxWidth="350" Style="{StaticResource SK_TextButtonStyle2}" FontSize="{Binding UIFontSize_Large}" ToolTip="{ex:Translate 로그 메뉴}"       Content="{ex:Translate Log}"            Background="White" Foreground="{StaticResource SK_LBlack}" Click="MenuButton_Click" TagName="Log"        Grid.Column="2" LostFocus="Menu_LostFocus" MinWidth="150" MouseOverColor="{StaticResource SK_Red}" BorderThickness="0"/>
+
+                    </Grid>
+                </ScrollViewer>
+
+                <!--상태표시-->
+                <Border Margin="0" Grid.Column="1" BorderBrush="#FFBFBFBF" BorderThickness="1,0,1,0" VerticalAlignment="Top" Height="60" >
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <!--MCS 접속 상태-->
+                        <Label FontSize="{Binding UIFontSize_Medium}" IsHitTestVisible="False" Content="MCS" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontFamily="{StaticResource BoldFont}" Foreground="{StaticResource SK_LBlack}"/>
+                        <Grid Grid.Column="1">
+                            <Border IsEnabled="False" CornerRadius="8" Height="18" Width="90" MouseDown="btnMCSState_Click" Cursor="Hand" x:Name="btnMCSState" Tag="MCSState" ToolTipService.ShowOnDisabled="True">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="Background" Value="#FFA7C80F"/>
+                                        <Setter Property="ToolTip" Value="{ex:Translate 클릭시 MCS 상태를 변경할수 있습니다.}"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsEnabled" Value="False">
+                                                <Setter Property="ToolTip" Value="{ex:Translate 사용권한없음}"/>
+                                            </Trigger>
+                                            <DataTrigger Binding="{Binding Tag, ElementName=textblock_MCSConectivity}" Value="0">
+                                                <Setter Property="Background" Value="#FFEA002C"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Path=(uidictionary:SK_ButtonControl.UserAuthority), RelativeSource={RelativeSource TemplatedParent}}" Value="true">
+                                                <Setter Property="Background" Value="Blue"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+
+                                <TextBlock x:Name="textblock_MCSConectivity" IsHitTestVisible="False" FontSize="{Binding UIFontSize_Small}" Tag="0"  Text="{ex:Translate Disconnect}" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="{StaticResource BoldFont}" FontWeight="Bold" Foreground="Black"/>
+                            </Border>
+
+                            <!--자물쇠 아이콘 : 위 보더의 IsHitTestVisible 상태를 보고 Visibility 를 변경한다-->
+                            <Path Style="{StaticResource pahtLockIcon}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="12" Height="12" Visibility="{Binding Path=IsEnabled, ElementName=btnMCSState, Converter={StaticResource NvisibleConverter}}" />
+                        </Grid>
+
+                        <!--SCS 접속 상태-->
+                        <Label  FontSize="{Binding UIFontSize_Medium}" Content="SCS" Foreground="{StaticResource SK_LBlack}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontFamily="{StaticResource BoldFont}"/>
+
+                        <Grid Grid.Row="1" Grid.Column="1" >
+                            <Border IsEnabled="False"  CornerRadius="8" Height="18" MouseDown="btnSCSState_Click" Width="90" Cursor="Hand" x:Name="btnSCSState" Tag="SCSState" ToolTipService.ShowOnDisabled="True">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="Background" Value="#FFA7C80F"/>
+                                        <Setter Property="ToolTip" Value="{ex:Translate 클릭시 SCS 상태를 변경할수 있습니다.}"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsEnabled" Value="False">
+                                                <Setter Property="ToolTip" Value="{ex:Translate 사용권한없음}"/>
+                                            </Trigger>
+                                            <DataTrigger Binding="{Binding Tag, ElementName=textblock_SCSConectivity}" Value="0">
+                                                <Setter Property="Background" Value="#FFEAC02C"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                                <TextBlock x:Name="textblock_SCSConectivity" FontSize="{Binding UIFontSize_Small}" Tag="0" Text="{ex:Translate Disconnect}" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="{StaticResource BoldFont}" FontWeight="Bold" Foreground="Black"/>
+                            </Border>
+                            
+                            <!--자물쇠 아이콘 : 위 보더의 IsHitTestVisible 상태를 보고 Visibility 를 변경한다-->
+                            <Path Style="{StaticResource pahtLockIcon}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="12" Height="12" Visibility="{Binding Path=IsEnabled, ElementName=btnSCSState, Converter={StaticResource NvisibleConverter}}" />
+                        </Grid>
+
+
+                        
+                        
+                        <!--System 상태-->
+                        <Label  FontSize="{Binding UIFontSize_Medium}" Content="SYS"  Foreground="{StaticResource SK_LBlack}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3" FontWeight="Bold" FontFamily="{StaticResource BoldFont}"/>
+                        <Grid Grid.Column="4">
+                            <Border IsEnabled="False" CornerRadius="8" Height="18" Width="90" MouseDown="btnBoothState_Click" Cursor="Hand" x:Name="btnBoothState" Tag="BoothState" ToolTipService.ShowOnDisabled="True">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="Background" Value="#FFA7C80F"/>
+                                        <Setter Property="ToolTip" Value="{ex:Translate 클릭시 SYSTEM 상태를 변경할수 있습니다.}"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsEnabled" Value="False">
+                                                <Setter Property="ToolTip" Value="{ex:Translate 사용권한없음}"/>
+                                            </Trigger>
+                                            <DataTrigger Binding="{Binding Tag, ElementName=textblock_SystemType}" Value="2">
+                                                <Setter Property="Background" Value="#FFEAC02C"/> <!--Paused 상태노란색으로 표기 요청--> 
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                                <TextBlock IsHitTestVisible="False" FontSize="{Binding UIFontSize_Small}" x:Name="textblock_SystemType" Tag="0" Text="{ex:Translate PAUSED}" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="{StaticResource BoldFont}" FontWeight="Bold" Foreground="Black"/>
+                            </Border>
+                            
+                            <!--자물쇠 아이콘 : 위 보더의 IsHitTestVisible 상태를 보고 Visibility 를 변경한다-->
+                            <Path Style="{StaticResource pahtLockIcon}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="12" Height="12" Visibility="{Binding Path=IsEnabled, ElementName=btnBoothState, Converter={StaticResource NvisibleConverter}}" />
+                        </Grid>
+                       
+                        <!--PLC 접속 상태-->
+                        <Label  FontSize="{Binding UIFontSize_Medium}" Content="PLC" Foreground="{StaticResource SK_LBlack}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="3" FontWeight="Bold" FontFamily="{StaticResource BoldFont}"/>
+                        <Grid Grid.Row="1" Grid.Column="4">
+                            <Border IsEnabled="False" CornerRadius="8" Height="18" Width="90" MouseDown="btnPLCState_Click" Cursor="Hand" x:Name="btnPLCState" Tag="PLCState" ToolTipService.ShowOnDisabled="True">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="Background" Value="#FFA7C80F"/>
+                                        <Setter Property="ToolTip" Value="{ex:Translate 클릭시 PLC 상태를 변경할수 있습니다.}"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsEnabled" Value="False">
+                                                <Setter Property="ToolTip" Value="{ex:Translate 사용권한없음}"/>
+                                            </Trigger>
+                                            <DataTrigger Binding="{Binding Tag, ElementName=textblock_PLCConectivity}" Value="0">
+                                                <Setter Property="Background" Value="#FFEA002C"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                                <TextBlock x:Name="textblock_PLCConectivity" FontSize="{Binding UIFontSize_Small}" Tag="0" Text="{ex:Translate Disconnect}" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="{StaticResource BoldFont}" FontWeight="Bold" Foreground="Black"/>
+                            </Border>
+
+                            <!--자물쇠 아이콘 : 위 보더의 IsHitTestVisible 상태를 보고 Visibility 를 변경한다-->
+                            <Path Style="{StaticResource pahtLockIcon}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="12" Height="12" Visibility="{Binding Path=IsEnabled, ElementName=btnPLCState, Converter={StaticResource NvisibleConverter}}" />
+                        </Grid>
+                    </Grid>
+                </Border>
+
+                <!--끝 메뉴-->
+                <Grid Grid.Column="2" VerticalAlignment="Top" Height="60">
+                    <Grid Grid.Column="3">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition Width="60"/>
+                        </Grid.ColumnDefinitions>
+
+                        <uidictionary:SK_ButtonControl x:Name="HomeButton" Style="{StaticResource SK_IconButtonStyle}" Background="#FFBFBFBF" ToolTip="{ex:Translate Home}"   TagName="MainPage" Content="{ex:Translate Home}" Grid.Column="0" Click="PageBtn_Click" MouseOverColor="{StaticResource SK_LBlack}" ImageMargin="15" PathData="M575.8 255.5C575.8 273.5 560.8 287.6 543.8 287.6H511.8L512.5 447.7C512.5 450.5 512.3 453.1 512 455.8V472C512 494.1 494.1 512 472 512H456C454.9 512 453.8 511.1 452.7 511.9C451.3 511.1 449.9 512 448.5 512H392C369.9 512 352 494.1 352 472V384C352 366.3 337.7 352 320 352H256C238.3 352 224 366.3 224 384V472C224 494.1 206.1 512 184 512H128.1C126.6 512 125.1 511.9 123.6 511.8C122.4 511.9 121.2 512 120 512H104C81.91 512 64 494.1 64 472V360C64 359.1 64.03 358.1 64.09 357.2V287.6H32.05C14.02 287.6 0 273.5 0 255.5C0 246.5 3.004 238.5 10.01 231.5L266.4 8.016C273.4 1.002 281.4 0 288.4 0C295.4 0 303.4 2.004 309.5 7.014L564.8 231.5C572.8 238.5 576.9 246.5 575.8 255.5L575.8 255.5z"/>
+                        <uidictionary:SK_ButtonControl Style="{StaticResource SK_IconButtonStyle}" Background="#FFBFBFBF" ToolTip="{ex:Translate Alarm}"  TagName="Alarm" Content="{ex:Translate Alarm}" Grid.Column="1" Click="PageBtn_Click" MouseOverColor="{StaticResource SK_LBlack}" ImageMargin="15" PathData="M256,32 L256,49.88 C328.5,61.39 384,124.2 384,200 L384,233.4 C384,278.8 399.5,322.9 427.8,358.4 L442.7,377 C448.5,384.2 449.6,394.1 445.6,402.4 441.6,410.7 433.2,416 424,416 L24,416 C14.77,416 6.365,410.7 2.369,402.4 -1.628,394.1 -0.504,384.2 5.26,377 L20.17,358.4 C48.54,322.9 64,278.8 64,233.4 L64,200 C64,124.2 119.5,61.39 192,49.88 L192,32 C192,14.33 206.3,0 224,0 241.7,0 256,14.33 256,32 L256,32 z M288,448 C288,464.1 281.3,481.3 269.3,493.3 257.3,505.3 240.1,512 224,512 207,512 190.7,505.3 178.7,493.3 166.7,481.3 160,464.1 160,448 L288,448 z"/>
+
+                        <Border x:Name="borderAlarmCounter" IsHitTestVisible="False" CornerRadius="10" Grid.Column="1" Width="20" Height="20" HorizontalAlignment="Right" Background="#FFEA002C" VerticalAlignment="Top" Margin="0,5,5,0">
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ElementName=textblockAlarmCounter, Path=Text}" Value="0">
+                                            <Setter Property="Visibility" Value="Hidden"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+
+                            <TextBlock x:Name="textblockAlarmCounter" Text="10" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontFamily="{StaticResource BoldFont}"/>
+                        </Border>
+
+                        <uidictionary:SK_ButtonControl x:Name="UserBtn" Style="{StaticResource SK_IconButtonStyle}" Background="#FFBFBFBF" ImageMargin="13" ToolTip="{ex:Translate User}" TagName="Login" Content="{ex:Translate Login}" Click="PageBtn_Click" Grid.Column="2" MouseOverColor="{StaticResource SK_LBlack}" PathData="M208,256 C243.35,256 272,227.35 272,192 272,156.65 243.35,128 208,128 172.65,128 144,156.65 144,192 144,227.3 172.7,256 208,256 z M464,250.66696 L368,250.66696 C354.75,250.66696 344,261.41696 344,274.66696 344,287.91696 354.75,298.66696 368,298.66696 L464,298.66696 C477.25,298.66696 488,287.91696 488,274.66696 488,261.41696 477.3,250.66696 464,250.66696 z M240,288 L176,288 C131.8,288 96,323.8 96,368 96,376.8 103.2,384 112,384 L304,384 C312.836,384 320,376.836 320,368 320,323.8 284.2,288 240,288 z M464,152 L368,152 C354.75,152 344,162.75 344,176 344,189.25 354.75,200 368,200 L464,200 C477.25,200 488,189.25 488,176 488,162.75 477.3,152 464,152 z M528,416 C528,424.822 520.822,432 512,432 L64,432 C55.178,432 48,424.822 48,416 L48,96 C48,87.178 55.178,80 64,80 L512,80 C520.822,80 528,87.178 528,96 L528,416 z"/>
+                        <uidictionary:SK_ButtonControl x:Name="EXITBtn" Style="{StaticResource SK_IconButtonStyle}" IsEnabled="False" Background="#FFBFBFBF" ImageMargin="17" ToolTip="{ex:Translate EXIT}" TagName="EXIT" Content="{ex:Translate EXIT}" Click="PageBtn_Click" Grid.Column="3" MouseOverColor="{StaticResource SK_Red}"    PathData="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <!--로고-->
+            <Grid Background="Transparent">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+
+                <uidictionary:SK_ButtonControl x:Name="gridHeader" Cursor="Hand" Click="PageBtn_Click" Style="{StaticResource SK_IconButtonStyle_Logo}" ToolTip="{ex:Translate Home}" Background="Transparent" TagName="MainPage" Content="{ex:Translate Home}" Width="100" Height="60" RenderTransformOrigin="0.5,0.5" Margin="0,-4,0,0">
+                    <uidictionary:SK_ButtonControl.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="0.9" ScaleY="0.9"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </uidictionary:SK_ButtonControl.RenderTransform>
+                </uidictionary:SK_ButtonControl>
+
+                <TextBlock Visibility="Collapsed" x:Name="textblock_EQPID" MouseDown="TextBlock_MouseDown" Grid.Column="1" Text="SCS" FontSize="20" Foreground="#FFF47725" FontWeight="Bold" FontFamily="{StaticResource ExtraBoldFont}" Margin="0,10,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+        </Grid>
+
+        <!--나중에 수정하자-->
+        <Grid  Grid.Row="3" Background="#e8e8e8" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition   Width="30"/>
+                <ColumnDefinition   Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock  Visibility="Collapsed" x:Name="textTime" TextWrapping="Wrap" Text="time"  FontSize="18" FontFamily="{StaticResource BoldFont}" Margin="20,0" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Column="2" Grid.Row="5"/>
+
+            <Path Data="M0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128zm64 32v64c0 17.7 14.3 32 32 32H416c17.7 0 32-14.3 32-32V160c0-17.7-14.3-32-32-32H96c-17.7 0-32 14.3-32 32zM80 320c-13.3 0-24 10.7-24 24s10.7 24 24 24h56c13.3 0 24-10.7 24-24s-10.7-24-24-24H80zm136 0c-13.3 0-24 10.7-24 24s10.7 24 24 24h48c13.3 0 24-10.7 24-24s-10.7-24-24-24H216z" 
+                HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="False" Stretch="Uniform" Fill="{StaticResource SK_LBlack}"  Height="11" ToolTip="{ex:Translate Tab}">
+            </Path>
+            <Border HorizontalAlignment="Right" Height="15" Background="{StaticResource SK_LBlack}" Width="1"/>
+            
+            <DockPanel x:Name="dockpanelNavigation" Grid.Column="1" HorizontalAlignment="Left">
+
+            </DockPanel>
+
+
+        </Grid>
+
+        <!--언어선택-->
+        <Grid Grid.Row="2" Grid.RowSpan="2"   Background="#B2E8E8E8" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="130" Margin="0,0">
+
+            <!--헝가리 국기-->
+            <uidictionary:SK_ButtonControl x:Name="ellipsoLanguageItem3" Background="Transparent" Style="{StaticResource SK_EllipseButtonStyle_ImageText}" VerticalAlignment="Bottom" ImagePath="Image/hu.png"  ImageMargin="3" TagName = "HU"  DisplayName ="Magyar"   FontSize="{Binding UIFontSize_Large}" Height="30" Click="LanguageChange_Click" Margin="0,0,0,0" Foreground="{StaticResource SK_LBlack}">
+                <uidictionary:SK_ButtonControl.Effect>
+                    <DropShadowEffect BlurRadius="10" Direction="280" Opacity="0.6" />
+                </uidictionary:SK_ButtonControl.Effect>
+            </uidictionary:SK_ButtonControl>
+
+            <!--중국 국기-->
+            <uidictionary:SK_ButtonControl x:Name="ellipsoLanguageItem2" Background="Transparent" Style="{StaticResource SK_EllipseButtonStyle_ImageText}" VerticalAlignment="Bottom" ImagePath="Image/cn.png"  ImageMargin="4" TagName = "CN"  DisplayName ="中文"   FontSize="{Binding UIFontSize_Medium}" Height="30"  Click="LanguageChange_Click" Margin="0,0,0,0" Foreground="{StaticResource SK_LBlack}">
+                <uidictionary:SK_ButtonControl.Effect>
+                    <DropShadowEffect BlurRadius="10" Direction="280" Opacity="0.6" />
+                </uidictionary:SK_ButtonControl.Effect>
+            </uidictionary:SK_ButtonControl>
+
+            <!--미국 국기-->
+            <uidictionary:SK_ButtonControl x:Name="ellipsoLanguageItem1" Background="Transparent" Style="{StaticResource SK_EllipseButtonStyle_ImageText}" VerticalAlignment="Bottom" ImagePath="Image/us.png"  ImageMargin="4" TagName = "US"  DisplayName ="English"   FontSize="{Binding UIFontSize_Medium}" Height="30"  Click="LanguageChange_Click" Margin="0,0,0,0" Foreground="{StaticResource SK_LBlack}">
+                <uidictionary:SK_ButtonControl.Effect>
+                    <DropShadowEffect BlurRadius="10" Direction="280" Opacity="0.6" />
+                </uidictionary:SK_ButtonControl.Effect>
+            </uidictionary:SK_ButtonControl>
+
+            <!--한국 국기-->
+            <uidictionary:SK_ButtonControl x:Name="ellipsoLanguageItem0" Background="Transparent" Style="{StaticResource SK_EllipseButtonStyle_ImageText}" VerticalAlignment="Bottom" ImagePath="Image/kr.png"  ImageMargin="4" TagName = "KR"  DisplayName ="한국어"   FontSize="{Binding UIFontSize_Medium}" Height="30" Click="LanguageChange_Click" Margin="0,0,0,0" Foreground="{StaticResource SK_LBlack}">
+                <uidictionary:SK_ButtonControl.Effect>
+                    <DropShadowEffect BlurRadius="10" Direction="280" Opacity="0.6" />
+                </uidictionary:SK_ButtonControl.Effect>
+            </uidictionary:SK_ButtonControl>
+
+            
+            <!--선택 된 국가-->
+            <Border Background="#e8e8e8" VerticalAlignment="Bottom">
+                <uidictionary:SK_ButtonControl x:Name="ellipseSelectLanguage" Background="{Binding RelativeSource={RelativeSource AncestorType=Grid,AncestorLevel=1}, Path=Background}" Style="{StaticResource SK_EllipseButtonStyle_ImageText}" VerticalAlignment="Bottom" ImagePath="Image/kr.png"  ImageMargin="4" TagName = "Select"  DisplayName ="한국어"   FontSize="{Binding UIFontSize_Medium}" Height="30" Click="LanguageChange_Click" Margin="0,0,0,0" Foreground="{StaticResource SK_LBlack}" BorderBrush="Black" BorderThickness="1"/>
+            </Border>
+
+        </Grid>
+
+    </Grid>
+
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Close"
+                        Executed="Executed_Close"
+                        CanExecute="CanExecute_Close"/>
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Modifiers="Alt" Key="F4" Command="ApplicationCommands.Close" />
+    </Window.InputBindings>
+
+</Window>

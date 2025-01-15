@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="BoxPrint.GUI.ETC.ucNumericUpDown"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BoxPrint.GUI.ETC"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style x:Key="updownBorder" TargetType="{x:Type Border}">
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource SK_Orange}"/>
+                    <Setter Property="Cursor" Value="Hand"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Border Background="Transparent"
+            BorderBrush="Black"
+            Focusable="False">
+        <Grid Focusable="False">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <TextBox x:Name="PART_TextBox"
+                     Text="0"
+                     HorizontalAlignment="Stretch"
+                     HorizontalContentAlignment="Left"
+                     VerticalContentAlignment="Center"
+                     PreviewTextInput="PART_TextBox_PreviewTextInput"
+                     TextChanged="PART_TextBox_TextChanged"/>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Border x:Name="PART_IncreaseButton"
+                        Tag="Increase"
+                        Grid.Row="0" Width="20"
+                        Style="{StaticResource updownBorder}"
+                        MouseLeftButtonDown="IncreaseDecrease_Click">
+                    <Path Margin="2"
+                          Data="M 0 4 L 8 4 L 4 0 Z"
+                          Fill="Black"
+                          Stretch="Uniform"/>
+                </Border>
+                <Border x:Name="PART_DecreaseButton"
+                        Tag="Decrease"
+                        Grid.Row="1" Width="20"
+                        Style="{StaticResource updownBorder}"
+                        MouseLeftButtonDown="IncreaseDecrease_Click">
+                    <Path Margin="2"
+                          Data="M 0 0 L 4 4 L 8 0 Z"
+                          Fill="Black"
+                          Stretch="Uniform"/>
+                </Border>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

@@ -1,0 +1,373 @@
+
+//241202 HoN PlayBack ProductEmpty 추가
+	alter table PB_ShelfLog add column PB_ProductEmpty int default 1;
+	alter table PB_ShelfSnap add column PB_ProductEmpty int default 1;
+	->기본값은 FULL(1)로 생성 진행함.
+		-> 어차피 지금은 FULL로 보임. 프로그램 재실행하면서 스냅이 찍히면 정상적으로 디스플레이 진행됨.
+//241202 HoN PlayBack 초기 IO DetailView 값 없는 현상 개선
+//241129 HoN PlayBack Snap Log 추가
+
+//241030 HoN 화재 관련 추가 수정
+-. PLC로 알려주는 Bit 화재 발생하면 무조건 전 Crane ON 처리. -> OFF시점은 Operator가 수동으로 해야함. 이를 수행하지 않아 발생하는 문제는 오퍼레이터 조작미스로 처리
+	-> 241030 화재시나리오 수정 시연 후 C&C 조범석, 박종원, 정지윤 매니저 요청
+	-> OFF 케이스 전부 주석 처리
+	-> 기존 ON케이스 RMManager에서 전 크레인 ON하는것으로 변경
+	-> 쉘프에서 FireAlarm이 발생하였을때 추가
+-. 화재수조 가용조건 변경 
+	-> 화재수조는 적재조건, 완료조건 Carrier Sensor 무시 요청
+	-> 241030 화재시나리오 수정 시연 후 C&C 조범석, 박종원, 정지윤 매니저 요청.  제어 최슬기 매니저 협의 진행. 
+-. 대기 로직 변경
+	1) 화재 쉘프에서 취출된 화물은 화재 수조 앞에서 대기한다. 
+		1-1) 적재 가능한 화재수조가 없다면 제자리에서 대기한다. (듀얼 크레인의 경우 회피는 가능해야한다.)
+		1-2) 적재 가능한 화재수조가 없는데 실 화재가 발생하면 수동포트 -> 자동포트 순으로 검색하여 배출한다.
+		1-3) 지정시간 이상 대기하여도 화재가 발생하지않았다고 판단되면 수동포트 -> 자동포트 순으로 검색하여 배출한다.
+		1-4) 지정시간 이상 대기하여도 화재가 발생하지 않았는데, 모든 포트 배출이 불가능한 상태라면 집결지로 이동한다.
+	2) 화재 수조앞에서 대기중 실제 화재가 발생하면 수조에 적재한다.
+	3) 화재 수조앞에서 대기중 실제 화재가 발생하지 않았다고 판단되면 수동포트 -> 자동포트 순으로 검색하고 검색되는 포트로 이동하여 배출한다.
+		3-1) 지정시간 이상 대기하여도 화재가 발생하지 않았는데, 모든 포트 배출이 불가능한 상태라면 집결지로 이동한다.
+//241029 HoN CraneCommand 전송시 인터락 추가
+//241027 HoN Sensor <-> InslotData MisMatch 관련 우측 정보창에 PLC 정보가 아닌 Inslot 정보 기입 요청 (조범석 매니저 요청)
+//241024 HoN PIO Log 기재방식 변경
+//241023 HoN Crane InSlot 강제 Add, Del 기능 추가
+-. 상황 재현 Test 사용
+
+//241023 HoN Alarm Clear 시점 변경
+-. AlarmClear I/F 진행시 내부 Alarm Clear 완료상태이나 PLC Alarm Code는 초기화가 되지않는 시점이 발생
+-. 이로인해 Scheduler, ModuleBase Thread Alarm Check 조건이 Alarm 유무, Alarm Code로 나뉘어 구현되어있어 시점차에 의해 내부 알람은 클리어 되어있으나 PLC Alarm Code를 체크하는 부분에서 Alarm 발생됨.
+-. AlarmClear는 PLC Alarm Code 0변경시점에 진행하는것으로 수정
+
+//241018 HoN 화재시나리오 운영 추가 (조범석 매니저 요청)
+1. 화재 발생 수행 후 크레인들 베이 중심으로 모여야한다.
+	1.1) 화재 발생시 화재를 제외한 나머지 '반송'작업은 전부 진행하지 않도록 막아준다. ('반송'이 핵심 밀어내기를 위한 Move는 가능해야한다.)
+	1.2) 위치 - 싱글크레인 : 정중앙 / 듀얼 크레인 : 정중앙을 기준으로 4베이씩 떨어진 거리로
+	1.3) 중앙에 모여있더라도 화재가 발생하면 즉시 수행하여야하며 수행간에 밀어내기가 필요하다면 밀어내기 수행한다.
+2. Disable Shelf도 화재 발생하면 수행해야한다.
+3. 화재 발생시 클라이언트 화면에서 식별이 가능해야한다.
+4. 포트 관련 조건 변경
+	4.1) 화재수조 적재 불가로 포트에 적재시 알람 발생 추가
+	4.2) 화재수조 적재 불가시 자동포트 검색 필요. (사이즈가 맞지않는 포트, 브릿지, 랙간이동 포트 제외)
+	4.3) 화재수조는 사이즈 불문하고 투입가능 하여야한다. (사이즈 Unknown 포함) - 제어측 가능여부 확인필요.
+	4.4) 수동포트는 Long/Short 구분하지 않고 투입가능해야한다. (사이즈 Unknown 포함) - 제어측 가능여부 확인필요.
+5. 화재 작업 발생시 적재가능한 포트가 없다면 크레인에서 들고 대기하여야한다.
+	5.1) 이 후 발생한 화재작업은 포트 해소 대기
+	5.2) 적재가능한곳이 생기면 들고있는 캐리어 즉시 적재 후 다음 화재 쉘프 취출 후 반복
+6. 크레인 운영 추가
+	6.1) 화재 쉘프 크레인 취출 후 60초 대기
+	6.2) 60초 대기과정에서 실제 화재가 발생하면 수조 -> 수동 -> 자동포트 순으로 검색하여 적재. (적재가능 포트 없으면 대기)
+	6.3) 60초 대기시에도 실제 화재가 발생하지 않는다면 수동 -> 자동포트 순으로 검색하여 적재. (적재가능 포트 없으면 대기)
+
+//241001 HoN PIO Log 개선
+//240906 HoN 화재수조 자재 유무 템플릿 추가
+//240813 HoN 폰트 사이즈 바인딩 이상 수정
+//240808 HoN 시뮬레이션 관련 수정
+
+//240719 HoN ProductEmpty 구분 추가
+
+//230719 HHJ SCS 개선
+//- IO View Open상태에서 Shelf Click시 IO View 자동 Close
+
+//230517 HHJ SCS 개선
+//- BCR Path 변경
+
+//230426 HHJ SCS 개선
+//- 바인딩 에러 개선
+//- 불필요 바인딩 제거
+
+//230405 HHJ SCS 개선
+//- Memo 기능 추가
+
+//230331 HHJ SCS 개선
+//- FireShutter 추가
+
+//230329 HHJ SCS 개선
+//- LayOut CV 생성기준 변경
+//- 플레이백 보완
+//- Playback 좌측 컨트롤 위치 변경 추가
+
+//230321 HHJ SCS 개선
+//- CraneOrder Window 추가
+
+//230317 HHJ SCS 개선
+//230314 HHJ SCS 개선
+//230307 HHJ SCS 개선
+//230217 HHJ SCS 개선
+//230215 HHJ SCS 개선
+//230214 HHJ SCS 개선
+//230118 HHJ SCS 개선
+//230106 HHJ SCS 개선
+//230105 HHJ SCS 개선
+//230103 HHJ SCS 개선
+//230102 HHJ SCS 개선
+//221230 HHJ SCS 개선
+//221228 HHJ SCS 개선
+//221226 HHJ SCS 개선
+//221024 RGJ One Crane 모드 추가. 
+//221014 HHJ SCS 개선
+//- C/V CarrierExist 실시간 반영
+//- MxCom DataType Raw 추가
+//Shelf 생성 페이지 오류 수정
+
+//220929 HHJ SCS 개선
+//- HSMS Client 사용을 위한 구조 변경
+//- GlobalData.Current.HSMS => GlobalData.Current.HSMS로 호출 변경
+
+//220928 HHJ SCS 개선
+//- 회전 기능 보완
+//- CarrierSearchView Window Manual Move 기능 추가
+
+//220919 HHJ SCS 개선
+//- ForkAxisPosition Biding Item 변경
+//- Layout Slide 배율 바인딩으로 변경
+//- ForkPosition 관련 개선
+//- UI 화면 개선
+//- Layout 회전기능 추가
+
+//220914 HHJ SCS 개선
+//- CV 좌우 끝단 보이지않는 현상, 쉘프, CV 기이하게 커지는 현상 개선
+//- RM Fork Position UI 연동
+//- Move 버튼 추가
+
+//220905 HHJ SCS 개선
+//- 방화수조 UI 개선
+
+//220902 HHJ SCS 개선
+//- ShelfBusy Color Animation 제거
+//- CV Able, Disable UI 반응 추가
+//- Direction 변경에 따른 UI 반응 추가
+//- Port 추가를 위한 Shelf DeadZone 설정시 UI Key Exception 발생관련 추가
+
+//220823 HHJ SCS 개선
+//- Log 화면 선택초기화 시 검색된 로그도 초기화
+//- 그룹 검색 기능 추가
+//- 그룹 수정 Popup 수정
+//- Not Use User LogIn 방지 추가
+
+//220628 HHJ SCS 개선
+//- PLCDataItems 개선
+
+//220624 HHJ SCS 개선
+//- SearchView Popup으로 변경
+
+//220621 HHJ SCS 개선
+//- ConfigPage 추가
+//- Crane, CV Menu 추가
+//- IO MonitorPage 이동 추가
+//- MCS 우선순위 변경 관련 추가
+//- 레이아웃 상태 추가
+//- Manual 개선
+//- Manual Interlock 추가
+//- 색상 변경
+
+//220620 HHJ SCS 개선
+//- Search Page 추가
+
+//220615 HHJ SCS 개선
+//- PLC 이상현상 수정
+
+//220613 RGJ 
+//-로봇 스케쥴링 변경. 해당 목적지로 이동후 GET,PUT 명령 내림
+//-목표 이상시 대체 보관 로직 추가
+
+//220610 HHJ SCS 개선
+//- CV UIControl 추가
+//- 범례 추가
+//- Crane UIControl 변경
+
+//220609 HHJ SCS 개선
+//- Shelf UIControl 변경
+
+//220608 HHJ SCS 개선
+//- MCProtocol, MXComponent 추가
+
+//220603 HHJ SCS 개선
+//- 0번지와 끝번지에 C/V가 있는경우 포지션을 찾지못하는 현상 개선
+
+//220602 RGJ 
+//-BoothState 삭제 하고 SCState 로 기존 로직 변경.
+
+//220525 HHJ SCS 개선
+//- ShelfItem 개선
+//- 로그인 화면 개선
+//- ShelfDead 설정 관련 추가
+//- CV 사이즈관련 개선
+//- 쉘프 생성시 내부 리스트에 업데이트 하지않고 글로벌 리스트에 업데이트
+
+//220524 HHJ SCS 개선
+//- 이상 개선
+//- Shelf Xml제거
+
+//220523 HHJ SCS 개선
+//- ShelfSetterControl 신규 추가
+
+//220523 조숭진 hsms s2계열 메세지 추가
+
+//220520 RGJ 
+//Tray 대신 CarrierItem 도입
+
+//220517 조숭진 hsms 메세지 추가
+
+//220520 HHJ SCS 개선
+//- CV UserControl 관련 개선
+
+//220519 HHJ SCS 개선
+//- CVUserControl ToolTip 추가
+//- 기자재 종류 바인딩 추가
+//- RototManual 명령 추가
+
+//220516 HHJ SCS 개선
+//- 검색 관련 수정
+
+//220513 HHJ SCS 개선
+//- Popup 화면 구성
+//- 연기감지 템플릿 추가
+
+//220512 HHJ SCS 개선
+//-Terminal Message Display 추가
+
+//220512 조숭진 화재감지 db추가
+//app.config mainsection에 FIRERACKTYPE="501" 추가해야 함.
+
+//220506 RGJ
+//MCS 사양 구현중
+
+
+//220509 HHJ SCS 개선
+//- ShelfControl 변경
+//- CraneControl 기존 소스에 적용
+
+//220506 HHJ SCS 개선
+//- DeadZone 설정 추가
+//- Crane Control 변경
+
+//220504 RGJ
+//스케쥴러 우선순위(Priority) 최소값 우선을 -> 최대값 우선 순서로 변경 99(Highest) ~ 1(Lowest)
+//MCSJobList -> MCSJobManager 네이밍 변경.
+
+//220503 RGJ
+//Shelf Rack Tag 순서 Bank,Level,Bay => Bank,Bay,Level 로 수정. SK사양 순서대로 변경하여 혼동 방지
+
+//220502 RGJ
+//화재감지 서버 구현
+
+
+//220426 HHJ SCS 개선
+//- 세로 숫자 표현 방식 변경
+
+//220426 RGJ 
+//포트 GET PUT 작업 추가.
+//ShelfTeachDataListItem 클래스 => ShelfItem 으로 간소화
+//ShelfTeachDataList 클래스 => ShelfItemList 으로 간소화
+
+//220421 RGJ 
+//방화 시퀀스 추가.
+
+//220421 HHJ SCS 개선
+//- xml, db 별도 사용으로 변경
+//- LayOut 설정 관리 추가
+
+//220420 RGJ 스케쥴러 개선
+//스케쥴러 동일 우선순위 잡이 여러개 있을경우 가까운 소스 작업 부터 진행.
+//플레이 백 쉘프 스냅샷 저장 로직 추가.
+//소모품 관리 기능 삭제.
+
+//220420 HHJ SCS 개선
+//- Path Draw 방식 변경
+//- ShelfTagHelper 추가
+//- MCS Job Path 제거
+
+//220418 HHJ SCS 개선
+//- 쉘프 가로사이즈 변경
+//- Row 구성 위치 변경 하부 1, 상부 Max
+//- LayOut 설정 관리 추가
+
+//220413 HHJ SCS 개선
+//- UI 실행 초기부하 감소
+
+
+//220412 HHJ SCS 개선
+//- Source, Destination 표식 추가
+
+//220411 HHJ SCS 개선
+//- 메뉴얼 반송 추가
+//- 컨텍스트 메뉴 선택 쉘프 태그 디스플레이 추가
+//- 쉘프 그리드 세로 숫자 추가
+//- 검색기능 추가
+
+//220407 HHJ SCS 개선
+//- Pallet 검색 기능 추가
+
+//220408 RGJ SerachView 추가.
+
+//220406 HHJ SCS 개선
+//- Login Event 추가
+//- Shelf Animation 이상현상 개선
+
+//220405 HHJ SCS 개선
+//- User Page 추가
+
+//220401 HHJ SCS 개선
+//- Disable 범례 변경
+//- Xml, DB 혼용에 따른 초기 생성 불가능 현상 조치
+
+//220331 HHJ SCS UI 기능 추가
+//- ShelfColor 변경 추가
+//- 범례 추가
+
+//220331 RGJ 쉘프 관리 ShelfManager 에서 통합관리토록 변경.
+
+//220330 RGJ 스케쥴러 데드락 프로세스 추가.
+
+//220329 HHJ SCS 개발
+//- 커맨드 디폴트 생성추가
+//- BusyJob BackColor 변경
+//- McsJobUpdate Exception 수정
+//- LayOutView 구성 변경
+//- 범례 추가 및 색상 지정
+//- McsJob Draw 방식 변경
+//- McsJobManager 작업중 항목 취득 
+
+//220328 HHJ SCS 개발
+//- LayoutView DataGrid Theme 공유 수정
+
+//220325 HHJ SCS 개발
+//- Layoutview 수정
+
+//220324 HHJ SCS 개발
+//- 확인 창, 입력창 추가
+
+//220322 HHJ SCS 개발
+//- Shelf Control 기능 추가
+//- ActiveJobList 한줄만 보이게 변경
+
+//220321 HHJ SCS 개발
+//- ShelfData UI 연동
+
+//220318 HHJ SCS 개발
+//- ActiveJob 연동 RouteLine 추가
+//- McsJob 연동 RouteLine 추가
+
+//220316 HHJ SCS 개발
+//- Layoutview C/V 회전, Port 겹침 추가
+
+//220315 HHJ SCS 개발
+//- MXComponentNet, SharedMemory 개선
+
+//SK SCS 개발 
+//220315 RGJ  신규 개발 시작.
+
+//220315 RGJ  SHELF 트레이 유무와 쉘프 작업 상태 분리 (eCarrierExist <=>  eShelfRunState)
+//220317 RGJ  RM_TPLC (톱텍 PLC 랙마스터 추가)
+
+//220318 조숭진 SQLite.Interop.dll파일 bin폴더에 생성.
+//220318 조숭진 oracledbmanager 추가
+//220318 조숭진 eqpid추가
+//220318 조숭진 trayid, shelf사용/미사용, shelf 단/장폭 겸용 추가
+
+//220321 RGJ 듀얼랙마 스케쥴링 개발
+
+//220322 조숭진 job관련 db 저장
+//220322 조숭진 jog관련 db 불러와 joblist에 저장
+
+//220322 RGJ OPENHSMS 연동 추가.
+
+//220324 조숭진 db관련 로그추가.

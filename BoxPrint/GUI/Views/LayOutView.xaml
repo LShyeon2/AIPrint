@@ -1,0 +1,883 @@
+﻿<Page x:Class="BoxPrint.GUI.Views.LayOutView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BoxPrint.GUI.Views"
+      xmlns:UIControl="clr-namespace:BoxPrint.GUI.UIControls" 
+      mc:Ignorable="d" 
+      d:DesignHeight="899.7" d:DesignWidth="1800"
+      xmlns:vm="clr-namespace:BoxPrint.GUI.ViewModels"
+      d:DataContext="{d:DesignInstance vm:ViewModelLayOutView}"
+      Title="LayOutView"  Loaded="Page_Loaded"
+      FontFamily="{StaticResource BoldFont}"
+      xmlns:uidictionary="clr-namespace:BoxPrint.GUI.UIControls"
+      xmlns:ex="clr-namespace:TranslationByMarkupExtension"
+      Unloaded="Page_Unloaded"
+      xmlns:uc="clr-namespace:BoxPrint.GUI.UserControls"
+      xmlns:firm="clr-namespace:BoxPrint">
+
+    <Page.Resources>
+        <!--디바이스 맵 오픈 애니-->
+        <Storyboard x:Key="DeviceMapOpen" >
+
+            <ThicknessAnimation Duration="0:0:0.3" Storyboard.TargetName="gridDeviceMap" Storyboard.TargetProperty="Margin" To="-40,0,0,0"/>
+
+            <ColorAnimation Duration="0:0:0:0" Storyboard.TargetName="PLCTB" Storyboard.TargetProperty="BorderBrush.Color"  To="White"/>
+            <ThicknessAnimation Duration="0:0:0.0" Storyboard.TargetName="PLCiconText" Storyboard.TargetProperty="BorderThickness" To="1,1,0,1"/>
+            <ColorAnimation Duration="0:0:0:0" Storyboard.TargetName="PLCiconText" Storyboard.TargetProperty="Background.Color"  To="#FFF47725"/>
+            <ColorAnimation Duration="0:0:0:0" Storyboard.TargetName="PLCiconText" Storyboard.TargetProperty="BorderBrush.Color"  To="White"/>
+        </Storyboard>
+        <!--디바이스 맵 닫기 애니-->
+        <Storyboard x:Key="DeviceMapClose" >
+
+            <ThicknessAnimation Duration="0:0:0.3" Storyboard.TargetName="gridDeviceMap" Storyboard.TargetProperty="Margin" To="-40,0,-440,0"/>
+
+            <ColorAnimation Storyboard.TargetName="PLCiconText" Storyboard.TargetProperty="Background.Color" Duration="0:0:0:0" To="White"/>
+            <ColorAnimation Storyboard.TargetName="PLCiconText" Storyboard.TargetProperty="BorderBrush.Color" Duration="0:0:0:0" To="Black"/>
+
+        </Storyboard>
+
+        <!--유닛 데이터 오픈 애니-->
+        <Storyboard x:Key="UnitDataOpen" >
+            <ThicknessAnimation Duration="0:0:0.3" Storyboard.TargetName="gridUnitData" Storyboard.TargetProperty="Margin" To="0,0,0,0"/>
+
+            <ColorAnimation Duration="0:0:0:0" Storyboard.TargetName="StateTB" Storyboard.TargetProperty="BorderBrush.Color"  To="White"/>
+            <ThicknessAnimation Duration="0:0:0.0" Storyboard.TargetName="StateiconText" Storyboard.TargetProperty="BorderThickness" To="1,1,0,1"/>
+            <ColorAnimation Duration="0:0:0:0" Storyboard.TargetName="StateiconText" Storyboard.TargetProperty="Background.Color"  To="#FFF47725"/>
+            <ColorAnimation Duration="0:0:0:0" Storyboard.TargetName="StateiconText" Storyboard.TargetProperty="BorderBrush.Color"  To="White"/>
+
+
+        </Storyboard>
+        <!--유닛 데이터 닫기 애니-->
+        <Storyboard x:Key="UnitDataClose" >
+            <ThicknessAnimation Duration="0:0:0.3" Storyboard.TargetName="gridUnitData" Storyboard.TargetProperty="Margin" To="0,0,-300,0"/>
+
+            <ColorAnimation Storyboard.TargetName="StateiconText" Storyboard.TargetProperty="Background.Color" Duration="0:0:0:0" To="White"/>
+            <ColorAnimation Storyboard.TargetName="StateiconText" Storyboard.TargetProperty="BorderBrush.Color" Duration="0:0:0:0" To="Black"/>
+
+
+        </Storyboard>
+
+        <!--툴팁-->
+        <Style TargetType="{x:Type ToolTip}" BasedOn="{StaticResource SK_ToolTipStyle}"/>
+
+        <!--Y type-->
+        <Style x:Key="GridSplitterVerticalGripStyle" TargetType="{x:Type GridSplitter}">
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="Cursor" Value="SizeWE" />
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="Background"
+                    Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type GridSplitter}">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                Width="{TemplateBinding Width}">
+                            <Border Height="50" Width="4" VerticalAlignment="Center"
+                                    HorizontalAlignment="Center" BorderThickness="1 0"
+                                    Background="White" BorderBrush="#A0A0A0">
+                            </Border>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="VerticalGridSplitter" TargetType="{x:Type GridSplitter}"
+                BasedOn="{StaticResource GridSplitterVerticalGripStyle}">
+            <Setter Property="Width" Value="6" />
+            <Setter Property="Margin" Value="2 2" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
+        <!--X type-->
+        <Style x:Key="GridSplitterPreviewStyle" >
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Fill="#80000000"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="GridSplitterStyle1" TargetType="{x:Type GridSplitter}">
+            <Setter Property="Background"
+                Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+            <Setter Property="PreviewStyle" Value="{StaticResource GridSplitterPreviewStyle}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type GridSplitter}">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="5">
+                            <Canvas RenderOptions.EdgeMode="Aliased" UseLayoutRounding="True"
+                                Height="6" VerticalAlignment="Center"
+                                Width="50" HorizontalAlignment="Center">
+                                <Line X1="0" X2="50" Y1="0" Y2="0"
+                                  Stroke="White" StrokeThickness="1"/>
+                                <Line X1="0" X2="50" Y1="1" Y2="1"
+                                  Stroke="#A0A0A0" StrokeThickness="1"/>
+                                <Line X1="0" X2="50" Y1="4" Y2="4"
+                                  Stroke="White" StrokeThickness="1"/>
+                                <Line X1="0" X2="50" Y1="5" Y2="5"
+                                  Stroke="#A0A0A0" StrokeThickness="1"/>
+                            </Canvas>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <GridSplitter x:Key="RowSplitter" HorizontalAlignment="Stretch"
+                      BorderBrush="White" BorderThickness="1"
+                      Style="{DynamicResource GridSplitterStyle1}" Margin="5,1,5,1">
+            <GridSplitter.Background>
+                <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
+                    <GradientStop Color="#A0A0A0" Offset="0"/>
+                    <GradientStop Color="#E5E5E5" Offset="0.15"/>
+                    <GradientStop Color="#ECECEC" Offset="0.8"/>
+                    <GradientStop Color="#E5E5E5" Offset="1"/>
+                </LinearGradientBrush>
+            </GridSplitter.Background>
+        </GridSplitter>
+        <GridSplitter x:Key="ColSplitter" Width="8" Style="{StaticResource VerticalGridSplitter}"/>
+
+        <Style x:Key="{ComponentResourceKey ResourceId=DataGridSelectAllButtonStyle, TypeInTargetAssembly={x:Type DataGrid}}" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Rectangle x:Name="Border" Fill="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" SnapsToDevicePixels="True"/>
+                            <Polygon x:Name="Arrow" Fill="Black" HorizontalAlignment="Right" Margin="8,8,3,3" Opacity="0.15" Points="0,10 10,10 10,0" Stretch="Uniform" VerticalAlignment="Bottom"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Stroke" TargetName="Border" Value="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Fill" TargetName="Border" Value="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Visibility" TargetName="Arrow" Value="Collapsed"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--//220328 HHJ SCS 개발     //- LayoutView DataGrid Theme 공유 수정-->
+        <Style TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+
+            <Setter Property="Height" Value="30" />
+
+
+            <Setter Property="BorderThickness" Value="0.5" />
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+
+        <Style TargetType="{x:Type DataGridRow}">
+            <Setter Property="Background" Value="Transparent" />
+            <!--<Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="Black"/>-->
+        </Style>
+
+        <Style TargetType="{x:Type DataGrid}">
+            <Setter Property="AutoGenerateColumns" Value="False" />
+            <Setter Property="CanUserResizeColumns" Value="False" />
+
+            <Setter Property="CanUserAddRows" Value="False" />
+            <!--<Setter Property="CanUserSortColumns" Value="False" />-->
+            <Setter Property="CanUserReorderColumns" Value="False" />
+            <Setter Property="GridLinesVisibility" Value="All" />
+
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="VerticalContentAlignment" Value="Stretch" />
+
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+
+            <Setter Property="FontSize" Value="12"/>
+
+            <Setter Property="HorizontalScrollBarVisibility" Value="Disabled"/>
+
+            <Style.Triggers>
+                <Trigger Property="IsGrouping" Value="True">
+                    <Setter Property="ScrollViewer.CanContentScroll" Value="True" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="IsEnabled" Value="False"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="PathColorChange" TargetType="Path">
+            <Setter Property="Fill" Value="{StaticResource SK_LBlack}" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=Border,AncestorLevel=1}, Path=IsMouseOver}" Value="True" >
+                    <Setter Property="Fill" Value="{StaticResource SK_Orange}" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <!--//220513 HHJ SCS 개선     //- Popup 화면 구성-->
+        <Style x:Key="CustomToolTip" TargetType="{x:Type ToolTip}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="StaysOpen" Value="True"/>
+            <Setter Property="ToolTipService.ShowDuration" Value="100000"/>
+        </Style>
+
+        <SolidColorBrush x:Key="TabItem.Selected.Background" Color="#FFFFFF"/>
+        <SolidColorBrush x:Key="TabItem.Selected.Border" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="DefaultColor" Color="#FFDDDDDD"/>
+
+        <Style x:Key="headerStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+
+        <Style x:Key="CustomTabControlStyle" TargetType="{x:Type TabControl}">
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabControl}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <Border>
+                                <local:UniformTabPanel x:Name="HeaderPanel" />
+                            </Border>
+
+                            <Border x:Name="Border" Grid.Row="1"
+                                    BorderThickness="1,0,1,1"
+                                    Background="Transparent"
+                                    BorderBrush="Black">
+                                <ContentPresenter x:Name="PART_SelectedContentHost" ContentSource="SelectedContent" />
+                            </Border>
+                        </Grid>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Resources>
+                <Style TargetType="{x:Type TabItem}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type TabItem}">
+                                <Border Name="Border" BorderThickness="1,1,1,1" BorderBrush="Black">
+                                    <ContentPresenter x:Name="ContentSite"
+                                                          VerticalAlignment="Center"
+                                                          HorizontalAlignment="Center"
+                                                          ContentSource="Header"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter TargetName="Border" Property="BorderThickness" Value="1,1,1,0" />
+                                        <Setter TargetName="Border" Property="Background" Value="{StaticResource TabItem.Selected.Background}"/>
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="False">
+                                        <Setter TargetName="Border" Property="BorderThickness" Value="1,1,1,1" />
+                                        <Setter TargetName="Border" Property="Background" Value="{StaticResource TabItem.Selected.Border}"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <!--//230105 HHJ SCS 개선     //Crane Busy Path 이상 수정-->
+        <SolidColorBrush x:Key="Rm1Busy" Color="{StaticResource ShelfBusyRM1}"/>
+        <SolidColorBrush x:Key="Rm2Busy" Color="{StaticResource ShelfBusyRM2}"/>
+
+        <!--텝 아이탬 스타일-->
+        <Style x:Key="TabItemFocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Stroke="{StaticResource SK_LBlack}" StrokeDashArray="1 2" StrokeThickness="1" Margin="3,3,3,1" SnapsToDevicePixels="true"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="styleTabItem" TargetType="{x:Type TabItem}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource TabItemFocusVisual}"/>
+            <Setter Property="Foreground" Value="{StaticResource SK_LBlack}"/>
+            <Setter Property="Padding" Value="6,3,6,3"/>
+            <Setter Property="BorderBrush" Value="{StaticResource SK_LBlack}"/>
+            <Setter Property="Background" Value="#FFBFBFBF"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Grid SnapsToDevicePixels="true">
+                            <Border x:Name="Bd" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1,1,1,0" Padding="{TemplateBinding Padding}" Margin="-2,0,5,0" Cursor="Hand">
+                                <ContentPresenter x:Name="Content" HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" ContentSource="Header" RecognizesAccessKey="True"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <!--<Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="Bd" Value="{StaticResource SK_Orange}"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>-->
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter Property="Panel.ZIndex" Value="1"/>
+                                <Setter Property="Background" TargetName="Bd" Value="{Binding Path=Background, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TabControl}}}"/>
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="false"/>
+                                    <Condition Property="IsMouseOver" Value="true"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background" TargetName="Bd" Value="{StaticResource SK_Orange}"/>
+                            </MultiTrigger>
+                            <Trigger Property="TabStripPlacement" Value="Bottom">
+                                <Setter Property="BorderThickness" TargetName="Bd" Value="1,0,1,1"/>
+                            </Trigger>
+                            <Trigger Property="TabStripPlacement" Value="Left">
+                                <Setter Property="BorderThickness" TargetName="Bd" Value="1,1,0,1"/>
+                            </Trigger>
+                            <Trigger Property="TabStripPlacement" Value="Right">
+                                <Setter Property="BorderThickness" TargetName="Bd" Value="0,1,1,1"/>
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="true"/>
+                                    <Condition Property="TabStripPlacement" Value="Top"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Margin" Value="-2,-2,-2,-1"/>
+                                <Setter Property="Margin" TargetName="Content" Value="0,0,0,1"/>
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="true"/>
+                                    <Condition Property="TabStripPlacement" Value="Bottom"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Margin" Value="-2,-1,-2,-2"/>
+                                <Setter Property="Margin" TargetName="Content" Value="0,1,0,0"/>
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="true"/>
+                                    <Condition Property="TabStripPlacement" Value="Left"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Margin" Value="-2,-2,-1,-2"/>
+                                <Setter Property="Margin" TargetName="Content" Value="0,0,1,0"/>
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="true"/>
+                                    <Condition Property="TabStripPlacement" Value="Right"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Margin" Value="-1,-2,-2,-2"/>
+                                <Setter Property="Margin" TargetName="Content" Value="1,0,0,0"/>
+                            </MultiTrigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="Bd" Value="gray"/>
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="black"/>
+                                <Setter Property="Foreground" Value="Red"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--점선보드 : 동적생성때문에 여기서 만듬-->
+        <uidictionary:ThicknessMaxConverter x:Key="ThicknessMaxConverter" />
+        <Style x:Key="DashedBorderStyle" TargetType="{x:Type uidictionary:DashedBorderControl}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type uidictionary:DashedBorderControl}">
+                        <Border BorderThickness="{TemplateBinding BorderThickness}" 
+                                CornerRadius="{Binding Path=(uidictionary:DashedBorderControl.FrameCornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                                Background="{TemplateBinding Background}">
+                            <Border.BorderBrush>
+                                <VisualBrush>
+                                    <VisualBrush.Visual>
+                                        <Rectangle StrokeDashArray="{Binding Path=(uidictionary:DashedBorderControl.StrokeDashArray), RelativeSource={RelativeSource TemplatedParent}}"
+                                               Stroke="{TemplateBinding BorderBrush}"
+                                               StrokeThickness="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}},  Path=BorderThickness, Converter={StaticResource ThicknessMaxConverter}}"
+                                               RadiusX="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=CornerRadius.TopRight}"
+                                               RadiusY="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=CornerRadius.BottomLeft}"
+                                               Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=ActualWidth}"
+                                               Height="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=ActualHeight}"/>
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Border.BorderBrush>
+
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="0" Direction="300" Opacity="0.3" ShadowDepth="1" />
+                            </Border.Effect>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--켄텍스트메뉴 스타일-->
+        <Style x:Key="ContextMenuStyle" TargetType="{x:Type ContextMenu}">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ContextMenu}">
+                        <Border BorderThickness="1,1,2,2" ClipToBounds="True" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="0" BorderBrush="{TemplateBinding BorderBrush}" x:Name="Border" Background="#f8f8f8">
+                            <StackPanel ClipToBounds="True" Orientation="Vertical" IsItemsHost="True" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--켄텍스트메뉴 아이탬 라인용-->
+        <Style TargetType="{x:Type MenuItem}" x:Key="MenuItemStyle_Line" >
+            <Setter Property="IsHitTestVisible" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type MenuItem}">
+                        <Border Margin="{TemplateBinding Margin}" HorizontalAlignment="Stretch" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--켄텍스트메뉴 아이탬-->
+        <Style TargetType="{x:Type MenuItem}" x:Key="MenuItemStyle" >
+            <Setter Property="Foreground" Value="{StaticResource SK_LBlack}"/>
+            <Setter Property="FontFamily" Value="{StaticResource BoldFont}"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type MenuItem}">
+                        <Border x:Name="Bd" Padding="0,5,0,5" Margin="{TemplateBinding Margin}" HorizontalAlignment="Stretch" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" Uid="Border_38">
+                            <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <ContentPresenter x:Name="Icon" Margin="0" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center" ContentSource="Icon" Grid.Column="0"/>
+                                <ContentPresenter x:Name="HeaderHost" Margin="0" Grid.Column="1" VerticalAlignment="Center" ContentSource="Header" RecognizesAccessKey="True" TextOptions.TextFormattingMode="Display" TextBlock.FontSize="{TemplateBinding FontSize}"/>
+                                <!--<ContentPresenter x:Name="ContentPresenter"  Content="{TemplateBinding Header}" Grid.Column="1" ContentSource="Header" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Uid="ContentPresenter_33" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsHighlighted" Value="True">
+                                <Setter Property="Background" TargetName="Bd" Value="{StaticResource SK_Orange}"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--//SuHwan_20230213 : 쉘프 컨텍트메뉴.. 삭제 후 다시 추가-->
+        <ContextMenu x:Key="ShelfContextMenu" Style="{StaticResource ContextMenuStyle}" BorderBrush="{StaticResource SK_LBlack}">
+            <MenuItem IsHitTestVisible="False" Margin="0,5,0,5" FontFamily="{StaticResource ExtraBoldFont}"/>
+            <MenuItem IsHitTestVisible="False" Style="{StaticResource MenuItemStyle_Line}" BorderBrush="{StaticResource SK_MouseOverGray}" Height="1" BorderThickness="0,1,0,0"/>
+            <MenuItem Header="Install" Tag="Install" Click="ShelfMenuItem_Click" FontSize="13" Style="{StaticResource MenuItemStyle}">
+                <MenuItem.Icon>
+                    <Path Data="M45,0 L55,0 55.511223,0.025817871 C58.032501,0.28186798 60,2.411171 60,5 L60,40.000001 95,40.000001 C97.761421,39.999999 100,42.238576 100,45 L100,55.000001 99.974182,55.511221 C99.718132,58.032503 97.588829,60 95,60 L60,60 60,95 C60,97.588837 58.032501,99.718136 55.511223,99.974186 L55,100 45,100 C42.238575,100 40,97.761425 40,95 L40,60 4.9999995,60 C2.4111652,60 0.2818644,58.032503 0.025814772,55.511221 L0,55.000001 0,45 C0,42.238576 2.2385762,39.999999 4.9999995,40.000001 L40,40.000001 40,5 C40,2.2385788 42.238575,0 45,0 z"
+                          Stretch="Uniform" Fill="{Binding RelativeSource={RelativeSource AncestorLevel=1, AncestorType=MenuItem}, Path=Foreground}" Margin="0"/>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Header="Delete" Tag="Delete" Click="ShelfMenuItem_Click" FontSize="13" Style="{StaticResource MenuItemStyle}">
+                <MenuItem.Icon>
+                    <Path Data="M170.5 51.6L151.5 80h145l-19-28.4c-1.5-2.2-4-3.6-6.7-3.6H177.1c-2.7 0-5.2 1.3-6.7 3.6zm147-26.6L354.2 80H368h48 8c13.3 0 24 10.7 24 24s-10.7 24-24 24h-8V432c0 44.2-35.8 80-80 80H112c-44.2 0-80-35.8-80-80V128H24c-13.3 0-24-10.7-24-24S10.7 80 24 80h8H80 93.8l36.7-55.1C140.9 9.4 158.4 0 177.1 0h93.7c18.7 0 36.2 9.4 46.6 24.9zM80 128V432c0 17.7 14.3 32 32 32H336c17.7 0 32-14.3 32-32V128H80zm80 64V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16z"
+                          Stretch="Uniform" Fill="{Binding RelativeSource={RelativeSource AncestorLevel=1, AncestorType=MenuItem}, Path=Foreground}" Margin="2"/>
+                </MenuItem.Icon>
+            </MenuItem>
+
+            <MenuItem IsHitTestVisible="False" Style="{StaticResource MenuItemStyle_Line}" BorderBrush="{StaticResource SK_MouseOverGray}" Height="1" BorderThickness="0,1,0,0"/>
+            <MenuItem Header="Enable" Tag="Enable" Click="ShelfMenuItem_Click" FontSize="13" Style="{StaticResource MenuItemStyle}">
+                <MenuItem.Icon>
+                    <Path Data="M243.8 339.8C232.9 350.7 215.1 350.7 204.2 339.8L140.2 275.8C129.3 264.9 129.3 247.1 140.2 236.2C151.1 225.3 168.9 225.3 179.8 236.2L224 280.4L332.2 172.2C343.1 161.3 360.9 161.3 371.8 172.2C382.7 183.1 382.7 200.9 371.8 211.8L243.8 339.8zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z"
+                          Stretch="Uniform" Fill="{Binding RelativeSource={RelativeSource AncestorLevel=1, AncestorType=MenuItem}, Path=Foreground}" Margin="2"/>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Header="Disable" Tag="Disable" Click="ShelfMenuItem_Click" FontSize="13" Style="{StaticResource MenuItemStyle}">
+                <MenuItem.Icon>
+                    <Path Data="M175 175C184.4 165.7 199.6 165.7 208.1 175L255.1 222.1L303 175C312.4 165.7 327.6 165.7 336.1 175C346.3 184.4 346.3 199.6 336.1 208.1L289.9 255.1L336.1 303C346.3 312.4 346.3 327.6 336.1 336.1C327.6 346.3 312.4 346.3 303 336.1L255.1 289.9L208.1 336.1C199.6 346.3 184.4 346.3 175 336.1C165.7 327.6 165.7 312.4 175 303L222.1 255.1L175 208.1C165.7 199.6 165.7 184.4 175 175V175zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z"
+                          Stretch="Uniform" Fill="{Binding RelativeSource={RelativeSource AncestorLevel=1, AncestorType=MenuItem}, Path=Foreground}" Margin="2"/>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem IsHitTestVisible="False" Style="{StaticResource MenuItemStyle_Line}" BorderBrush="{StaticResource SK_MouseOverGray}" Height="1" BorderThickness="0,1,0,0"/>
+            <MenuItem Header="Comment" Tag="Comment" Click="ShelfMenuItem_Click" FontSize="13" Style="{StaticResource MenuItemStyle}">
+                <MenuItem.Icon>
+                    <Path Data="M123.6 391.3c12.9-9.4 29.6-11.8 44.6-6.4c26.5 9.6 56.2 15.1 87.8 15.1c124.7 0 208-80.5 208-160s-83.3-160-208-160S48 160.5 48 240c0 32 12.4 62.8 35.7 89.2c8.6 9.7 12.8 22.5 11.8 35.5c-1.4 18.1-5.7 34.7-11.3 49.4c17-7.9 31.1-16.7 39.4-22.7zM21.2 431.9c1.8-2.7 3.5-5.4 5.1-8.1c10-16.6 19.5-38.4 21.4-62.9C17.7 326.8 0 285.1 0 240C0 125.1 114.6 32 256 32s256 93.1 256 208s-114.6 208-256 208c-37.1 0-72.3-6.4-104.1-17.9c-11.9 8.7-31.3 20.6-54.3 30.6c-15.1 6.6-32.3 12.6-50.1 16.1c-.8 .2-1.6 .3-2.4 .5c-4.4 .8-8.7 1.5-13.2 1.9c-.2 0-.5 .1-.7 .1c-5.1 .5-10.2 .8-15.3 .8c-6.5 0-12.3-3.9-14.8-9.9c-2.5-6-1.1-12.8 3.4-17.4c4.1-4.2 7.8-8.7 11.3-13.5c1.7-2.3 3.3-4.6 4.8-6.9c.1-.2 .2-.3 .3-.5z"
+                          Stretch="Uniform" Fill="{Binding RelativeSource={RelativeSource AncestorLevel=1, AncestorType=MenuItem}, Path=Foreground}" Margin="2"/>
+                </MenuItem.Icon>
+            </MenuItem>
+        </ContextMenu>
+
+        <!--//SuHwan_20230317 : 블타입으로 비져불 설정-->
+        <uidictionary:PositiveVisibleConverter x:Key="PvisibleConverter"/>
+    </Page.Resources>
+
+    <Grid x:Name="grdLayOutViewMain" Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" ClipToBounds="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="8.5*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1.5*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <ContentControl Content="{Binding LayOutControl}"
+                            Grid.Row="0" Grid.Column="0" Margin="0,0,0,0" ClipToBounds="True"/>
+
+            
+            <!--알람 발생시 경고 테두리-->
+            <Rectangle IsHitTestVisible="False" Grid.Row="0" Grid.Column="0" StrokeThickness="8" Visibility="{Binding AlarmExist, Converter={StaticResource PvisibleConverter}, UpdateSourceTrigger=PropertyChanged}">
+                <Rectangle.Stroke>
+                    <VisualBrush  TileMode="Tile" Viewport="0,0,30,30" ViewportUnits="Absolute"  Viewbox="0,0,17,30"  ViewboxUnits="Absolute">
+                        <VisualBrush.Transform>
+                            <RotateTransform Angle="135" CenterX=".5" CenterY=".5" />
+                        </VisualBrush.Transform>
+                        <VisualBrush.Visual>
+                            <Canvas>
+                                <Border Background="#FFF5BB01">
+                                    <Path  Stroke="Black" StrokeThickness="15" >
+                                        <Path.Data>
+                                            <LineGeometry StartPoint="15,0" EndPoint="15,30" />
+                                        </Path.Data>
+                                    </Path>
+                                </Border>
+                            </Canvas>
+                        </VisualBrush.Visual>
+                    </VisualBrush>
+                </Rectangle.Stroke>
+            </Rectangle>
+            
+            
+            <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" Margin="10,2" Background="#FFBFBFBF" Style="{StaticResource SK_RowGridSplitterStyle2}" ToolTip="{ex:Translate 크기 조정}"/>
+
+            <!--아래-->
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="6*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <!--//221226 HHJ SCS 개선     //Terminal Message LayOut 화면에서 삭제-->
+                    <!--<ColumnDefinition Width="1*"/>-->
+                </Grid.ColumnDefinitions>
+
+                <Grid x:Name="grdMCSJob" Grid.Column="0" Margin="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!--<Label Grid.Column="0" Content="MCS&#10;JOB&#10;LIST"/>-->
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="330"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="360"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="{ex:Translate Transfer List}" 
+                               Grid.Column="0" VerticalContentAlignment="Bottom" FontSize="15"/>
+
+                        <!--슬라이더-->
+                        <Grid HorizontalAlignment="Center" ClipToBounds="True" Margin="0" Opacity="0.8" Grid.Column="1" Grid.ColumnSpan="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock  Grid.Column="0" 
+                                        Text="{Binding ScalePercent, StringFormat={}{0}%}"
+                                        TextAlignment="Center" VerticalAlignment="Center"/>
+
+                            <uidictionary:SK_ButtonControl Grid.Column="1" 
+                                                           Style="{StaticResource SK_IconButtonStyle}"
+                                                           Background="{StaticResource SK_LBlack}"
+                                                           MouseOverColor="{StaticResource SK_Red}"
+                                                           PathData="M4.9999995,1.1368684E-13 L95,1.1368684E-13 C97.761421,-5.9604633E-07 100,2.2385756 100,4.9999999 L100,14.999999 99.974182,15.51122 C99.718132,18.032501 97.588829,19.999999 95,19.999999 L4.9999995,19.999999 C2.4111652,19.999999 0.2818644,18.032501 0.025814772,15.51122 L7.5245268E-08,15 0,4.9999999 C0,2.2385756 2.2385762,-5.9604633E-07 4.9999995,1.1368684E-13 z"
+                                                           ImageMargin="4"
+                                                           HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                           Tag="{x:Static firm:eZoomCommandProperty.eMinus}"
+                                                           Command="{Binding ScaleCommand}"
+                                                           CommandParameter="{Binding Path=Tag, RelativeSource={RelativeSource Mode=Self}}" Height="26" Width="26"/>
+
+                            <Slider Style="{StaticResource SK_Slider}"  
+                                    Value="{Binding ScaleValue, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                                    TickFrequency="{Binding ScaleTick, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                                    Maximum="{Binding ScaleMax, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                                    Minimum="{Binding ScaleMin, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                                    IsSnapToTickEnabled="True"  TickPlacement="None" Margin="0,-4,0,-8" Orientation="Horizontal" RenderTransformOrigin="0.5,0.25" Grid.Column="2">
+                                <Slider.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Slider.RenderTransform>
+                            </Slider>
+
+                            <uidictionary:SK_ButtonControl Grid.Column="3" 
+                                                           Style="{StaticResource SK_IconButtonStyle}"
+                                                           Background="{StaticResource SK_LBlack}"
+                                                           MouseOverColor="{StaticResource SK_Red}"
+                                                           PathData="M45,0 L55,0 55.511223,0.025817871 C58.032501,0.28186798 60,2.411171 60,5 L60,40.000001 95,40.000001 C97.761421,39.999999 100,42.238576 100,45 L100,55.000001 99.974182,55.511221 C99.718132,58.032503 97.588829,60 95,60 L60,60 60,95 C60,97.588837 58.032501,99.718136 55.511223,99.974186 L55,100 45,100 C42.238575,100 40,97.761425 40,95 L40,60 4.9999995,60 C2.4111652,60 0.2818644,58.032503 0.025814772,55.511221 L0,55.000001 0,45 C0,42.238576 2.2385762,39.999999 4.9999995,40.000001 L40,40.000001 40,5 C40,2.2385788 42.238575,0 45,0 z"
+                                                           ImageMargin="4"
+                                                           HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                           Tag="{x:Static firm:eZoomCommandProperty.ePlus}"
+                                                           Command="{Binding ScaleCommand}"
+                                                           CommandParameter="{Binding Path=Tag, RelativeSource={RelativeSource Mode=Self}}" Height="26" Width="26"/>
+
+                            <uidictionary:SK_ButtonControl Grid.Column="4" 
+                                                           Style="{StaticResource SK_IconButtonStyle}"
+                                                           Background="{StaticResource SK_LBlack}"
+                                                           MouseOverColor="{StaticResource SK_Red}"
+                                                           PathData="M10,0 L35,0 C37.761423,0 40,2.2385762 40,4.9999995 L40,15.000001 C40,17.761423 37.761423,20 35,20 L30,20 49.999999,40 69.999999,20 65.000001,20 C62.238576,20 60,17.761423 60,15.000001 L60,4.9999995 C60,2.2385762 62.238576,0 65.000001,0 L90,0 C95.522848,0 100,4.4771523 100,9.999999 L100,35 C100,37.588837 98.032501,39.718136 95.511223,39.974186 L95.25,39.987377 95.25,40 95,40 85,40 C82.238577,40 80,37.761425 80,35 L80,30.000002 60,50 80,70 80,65 C80,62.238575 82.238577,60 85,60 L95,60 95.25,60 95.25,60.012623 95.511223,60.025814 C98.032501,60.281864 100,62.411163 100,65 L100,90 C100,95.52285 95.522848,100 90,100 L65.000001,100 C62.238576,100 60,97.761421 60,95 L60,85 C60,82.238579 62.238576,80 65.000001,80 L69.999999,80 50,60 30,80 35,80 C37.761423,80 40,82.238579 40,85 L40,95 C40,97.761421 37.761423,100 35,100 L10,100 C4.4771538,100 0,95.52285 0,90 L0,65 C0,62.238575 2.238575,60 5,60 L15,60 15.25,60 15.25,60.012623 15.511223,60.025814 C18.032501,60.281864 20,62.411163 20,65 L20,70 40,50 20,30.000002 20,35 C20,37.588837 18.032501,39.718136 15.511223,39.974186 L15.25,39.987377 15.25,40 15,40 5,40 C2.238575,40 0,37.761425 0,35 L0,9.999999 C0,4.4771523 4.4771538,0 10,0 z"
+                                                           ImageMargin="4"
+                                                           Height="26"
+                                                           HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                           Tag="{x:Static firm:eZoomCommandProperty.eOrigin}"
+                                                           Command="{Binding ScaleCommand}"
+                                                           CommandParameter="{Binding Path=Tag, RelativeSource={RelativeSource Mode=Self}}" Width="26"/>
+
+                            <uidictionary:SK_ButtonControl Grid.Column="5"
+                                                           Style="{StaticResource SK_IconButtonStyle}"
+                                                           Background="{StaticResource SK_LBlack}"
+                                                           MouseOverColor="{StaticResource SK_Red}"
+                                                           PathData="M140,40 L160,70 150,70 C150,108.65993 118.65993,140 80,140 54.629417,140 32.411243,126.50296 20.134134,106.29755 L19.367023,105 44.305878,105 44.644661,105.35534 C53.692879,114.40356 66.192879,120 80,120 107.61423,120 130,97.614235 130,70 L120,70 z M80,0 C105.37057,0 127.58875,13.49704 139.86586,33.702454 L140.63298,35 115.69412,35 115.35534,34.644661 C106.30711,25.596439 93.807114,20 80,20 52.385761,20 30.000002,42.385761 30.000004,70 L40,70 20.000002,99.999996 0,70 10,70 C10.000001,31.340069 41.340069,0 80,0 z"
+                                                           ImageMargin="4"
+                                                           Height="26"
+                                                           HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                           Tag="{x:Static firm:eZoomCommandProperty.eRotate}"
+                                                           Command="{Binding ScaleCommand}"
+                                                           CommandParameter="{Binding Path=Tag, RelativeSource={RelativeSource Mode=Self}}"/>
+                        </Grid>
+
+
+                        <Grid Grid.Column="2" x:Name="gridJobControl" Background="Transparent">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <uidictionary:SK_ButtonControl x:Name="btnJobDelete" IsEnabled="False" Content="{ex:Translate Delete}" Width="165" Height="26" FontSize="{Binding UIFontSize_Medium}" Margin="0"
+                                                            Style="{StaticResource SK_TextButtonStyle2}" Command="{Binding JobDelete}" FrameCornerRadius="3" BorderBrush="{StaticResource SK_LBlack}" BorderThickness="1"
+                                                            ToolTip="{ex:Translate 선택한 잡 삭제}"/>
+
+                            <!--자물쇠 아이콘 : 위 버튼 IsHitTestVisible 상태를 보고 Visibility 를 변경한다-->
+                            <Path Style="{StaticResource pahtLockIcon}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="17" Height="17" Visibility="{Binding Path=IsEnabled, ElementName=btnJobDelete, Converter={StaticResource NvisibleConverter}}" />
+
+
+                            <uidictionary:SK_ButtonControl x:Name="btnJobPriorityChange" Grid.Column="1" IsEnabled="False" Content="{ex:Translate Priority Change}" Width="165" Height="26"
+                                                               FontSize="{Binding UIFontSize_Medium}" Style="{StaticResource SK_TextButtonStyle2}" Command="{Binding JobPriorityChange}" FrameCornerRadius="3"
+                                                               ToolTip="{ex:Translate 선택한 잡 우선순위 변경}"/>
+
+
+                            <!--자물쇠 아이콘 : 위 버튼 IsHitTestVisible 상태를 보고 Visibility 를 변경한다-->
+                            <Path Style="{StaticResource pahtLockIcon}" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="17" Height="17" Visibility="{Binding Path=IsEnabled, ElementName=btnJobPriorityChange, Converter={StaticResource NvisibleConverter}}" />
+                        </Grid>
+                        
+                    </Grid>
+
+                    <DataGrid x:Name="DGMcsJobManager" Grid.Row="1" Background="{x:Null}" Style="{StaticResource SK_DataGridStyle}"
+                              CanUserSortColumns="True" Grid.ColumnSpan="2"
+                              BorderBrush="Black" Margin="0,0,0,-2"
+                              SelectedItem="{Binding SelectJobItem, UpdateSourceTrigger=PropertyChanged}"
+                              ItemsSource="{Binding McsJobList, UpdateSourceTrigger=PropertyChanged}">
+                    </DataGrid>
+                </Grid>
+            </Grid>
+
+            <!--디바이스맵 모니터링-->
+            <Grid x:Name="gridDeviceMapMain" Margin="30" 
+                  MinHeight="35" MinWidth="35" Width="300" Height="800"
+                  HorizontalAlignment="Right" VerticalAlignment="Top"
+                  Grid.RowSpan="3">
+                <!--<Grid.Effect>
+                    <DropShadowEffect BlurRadius="15" Direction="300" Opacity="0.8" />
+                </Grid.Effect>-->
+
+                <Border Margin="3" Background="#f4f4f4" CornerRadius="5" Visibility="Visible">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="9" Direction="300" Opacity="0.7" ShadowDepth="4" />
+                    </Border.Effect>
+
+                    <Grid Background="Transparent">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <!--상단 아디 및 펼치기닫기 아이콘-->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="30"/>
+                            </Grid.ColumnDefinitions>
+                            <DockPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0">
+                                <TextBlock Text="ID : " TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" />
+                                <TextBlock x:Name="textblockDeviceMapID" Text="{Binding SelectUnitID, UpdateSourceTrigger=PropertyChanged}"
+                                   TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15"/>
+                            </DockPanel>
+                            <uidictionary:SK_ButtonControl x:Name="btnDeviceMapOpen" Grid.Column="1" Style="{StaticResource SK_IconButtonStyle_DeviceMapZoom}" ImageMargin="2" Background="Transparent" IconFill="{StaticResource SK_LBlack}" IconMouseOverColor="{StaticResource SK_Orange}" 
+                                                           Click="DeviceMapButton_Click" PreviewMouseRightButtonDown="btnDeviceMapOpen_PreviewMouseRightButtonDown"/>
+                        </Grid>
+
+                        <ContentControl Content="{Binding IOView, UpdateSourceTrigger=PropertyChanged}"
+                                Grid.Row="1" SizeChanged="gridDeviceMapFrame_SizeChanged"/>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Column="1" Margin="0,0,0,0" x:Name="gridUnitData" Background="Transparent">
+            <TabControl x:Name="TC_LayoutView" BorderThickness="1" Width="300" BorderBrush="{StaticResource SK_LBlack}">
+                <TabItem  Header="{ex:Translate Status}" FontSize="{Binding UIFontSize_Large}" FontFamily="{StaticResource BoldFont}" Width="100" Style="{DynamicResource styleTabItem}" >
+                    <ContentControl Content="{Binding DataViewControl}"/>
+                </TabItem>
+
+                <TabItem  Header="{ex:Translate 범례}" FontSize="{Binding UIFontSize_Large}" FontFamily="{StaticResource BoldFont}" Width="100" Style="{DynamicResource styleTabItem}" MouseDoubleClick="TabItem_MouseDoubleClick" >
+                    <Border>
+                        <uc:ControlSystemLegendView/>
+                    </Border>
+                </TabItem>
+
+                <TabItem x:Name='TabItem_Test' Header="{ex:Translate TEST}" Visibility="Collapsed" FontSize="{Binding UIFontSize_Large}" FontFamily="{StaticResource BoldFont}" Width="90" Style="{DynamicResource styleTabItem}" >
+                    <StackPanel Grid.Row="3"
+                                VerticalAlignment="Center"
+                                Margin="3">
+                        <Grid Height="125" Background="Transparent" Margin="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.2*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{ex:Translate Send Counter :}"         Background="Transparent" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="0"/>
+                            <TextBlock x:Name="lable_SimulTransferCount"            Background="Transparent" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="0"/>
+                            <TextBlock Text="{ex:Translate Yield Action Counter :}" Background="Transparent" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="1"/>
+                            <TextBlock x:Name="lable_SimulWithDrawCount"            Background="Transparent" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1"/>
+                            <TextBlock Text="{ex:Translate HandOver Counter :}"     Background="Transparent" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="2"/>
+                            <TextBlock x:Name="lable_SimulHandOverCount"            Background="Transparent" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="2"/>
+                            <TextBlock Text="{ex:Translate Push Counter :}"         Background="Transparent" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="3"/>
+                            <TextBlock x:Name="lable_SimulPushCount"                Background="Transparent" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="3"/>
+                            <TextBlock Text="{ex:Translate  Shelf LoadRate :}"      Background="Transparent" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="4"/>
+                            <TextBlock x:Name="lable_LoadRate"                      Background="Transparent" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="4"/>
+                            <TextBlock Text="{ex:Translate  Shelf UNKID Count :}"   Background="Transparent" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="5"/>
+                            <TextBlock x:Name="lable_UNKCount"                      Background="Transparent" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="5"/>
+                            <TextBlock Text="Full"   Background="Transparent" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="5"/>
+                            <TextBlock x:Name="lable_FullCount"                      Background="Transparent" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="5"/>
+                            <TextBlock Text="Empty"   Background="Transparent" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="5"/>
+                            <TextBlock x:Name="lable_EmptyCount"                      Background="Transparent" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="5"/>
+                        </Grid>
+                        
+                        <Button x:Name="btn_tempJob" Content="{ex:Translate 작업 임시 생성}" 
+                            HorizontalAlignment="Stretch" Height="25" Click="btn_tempJob_Click"/>
+                        <Button x:Name="btn_HandOffJob" Content="{ex:Translate 핸드 오프 작업 임시 생성}" 
+                            HorizontalAlignment="Stretch" Height="25" Click="btn_HandOffJob_Click"/>
+                        <Button x:Name="btn_CycleJob" Content="{ex:Translate 사이클 작업 시작}" 
+                            HorizontalAlignment="Stretch" Height="25" Click="btn_CycleJob_Click"/>
+                        <Button x:Name="btn_ClearAllJob" Content="{ex:Translate 전체 작업 삭제}" 
+                            HorizontalAlignment="Stretch" Height="25" Click="btn_ClearAllJob_Click"/>
+                        <Button x:Name="btn_PortGetMode" Content="{ex:Translate 포트 로드 시작}"
+                            HorizontalAlignment="Stretch" Height="25" Click="btn_PortGetMode_Click"/>
+                        <Button x:Name="btn_UnloadTest" Content="{ex:Translate 전체 쉘프 언로드}"
+                            HorizontalAlignment="Stretch" Height="25" Click="btn_UnloadTest_Click"/>
+                        <Button x:Name="btn_RMFlagReset" Content="{ex:Translate RM Remove Carrier Exist Flag}"
+                            HorizontalAlignment="Stretch" Height="25" Click="btn_RMFlagReset_Click"/>
+                        <Button x:Name="btn_BCRReadTest" Content="{ex:Translate BCR ReadTest}"
+                            HorizontalAlignment="Stretch" Height="25" Click="btn_BCRReadTest_Click"/>
+                        <Button x:Name="btn_BcrFlag" Content="{ex:Translate BCR TestMode : [0] Normal}"
+                            HorizontalAlignment="Stretch" Height="25" Click="btn_BcrFlag_Click"/>
+                        <Button x:Name="btn_PLCSimul" Content="{ex:Translate PLC 시뮬창 오픈}"
+                            HorizontalAlignment="Stretch" Height="25" Click="btn_PLCSimul_Click"/>                  
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+
+            <!--<Border BorderThickness="3,1,1,0" CornerRadius="10" Margin="50">
+                <Border.BorderBrush>
+                    <VisualBrush>
+                        <VisualBrush.Visual>
+                            <Rectangle StrokeDashArray="3.0 1.0"
+                           Stroke="Red"
+                           StrokeThickness="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}},
+                                                     Path=BorderThickness,
+                                                     Converter={StaticResource ThicknessMaxConverter}}"
+                           RadiusX="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=CornerRadius.TopRight}"
+                           RadiusY="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=CornerRadius.BottomLeft}"
+                           Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=ActualWidth}"
+                           Height="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=ActualHeight}"/>
+                        </VisualBrush.Visual>
+                    </VisualBrush>
+                </Border.BorderBrush>
+            </Border>-->
+        </Grid>
+
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10" IsHitTestVisible="False" Opacity="1">
+            <TextBlock Text="{Binding ControlSystemEqpID}" TextAlignment="Left" VerticalAlignment="Bottom"
+                        FontSize="35" FontFamily="{StaticResource ExtraBoldFont}" Foreground="{StaticResource SK_Red}" />
+
+            <TextBlock Text="{Binding ControlSystemName}" TextAlignment="Left" VerticalAlignment="Bottom"
+                        FontSize="18" FontFamily="{StaticResource ExtraBoldFont}" Foreground="{StaticResource SK_Orange}" Margin="0,5"/>
+
+            <TextBlock Text="{Binding TotalCarrierInSTK}" TextAlignment="Left" VerticalAlignment="Bottom"
+                        FontSize="18" FontFamily="{StaticResource ExtraBoldFont}" Foreground="{StaticResource SK_Orange}" Margin="0,5"/>
+
+            <TextBlock Text="{Binding ShelfLoadRatio}" TextAlignment="Left" VerticalAlignment="Bottom"
+                        FontSize="18" FontFamily="{StaticResource ExtraBoldFont}" Foreground="{StaticResource SK_Orange}" Margin="0,5"/>
+
+            <TextBlock Text="{Binding ShelfUNKIDCount}" TextAlignment="Left" VerticalAlignment="Bottom"
+                        FontSize="18" FontFamily="{StaticResource ExtraBoldFont}" Foreground="{StaticResource SK_Orange}" Margin="0,5"/>
+
+            <TextBlock Text="{Binding ShelfProductFullCount}" TextAlignment="Left" VerticalAlignment="Bottom"
+                        FontSize="18" FontFamily="{StaticResource ExtraBoldFont}" Foreground="{StaticResource SK_Orange}" Margin="0,5"/>
+
+            <TextBlock Text="{Binding ShelfProductEmptyCount}" TextAlignment="Left" VerticalAlignment="Bottom"
+                        FontSize="18" FontFamily="{StaticResource ExtraBoldFont}" Foreground="{StaticResource SK_Orange}" Margin="0,5"/>
+            
+            <TextBlock Text="{Binding ShelfProductNoneCount}" TextAlignment="Left" VerticalAlignment="Bottom"
+                        FontSize="18" FontFamily="{StaticResource ExtraBoldFont}" Foreground="{StaticResource SK_Orange}" Margin="0,5"/>
+            
+        </StackPanel>
+    </Grid>
+</Page>

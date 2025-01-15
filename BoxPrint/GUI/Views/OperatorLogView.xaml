@@ -1,0 +1,277 @@
+﻿<Page x:Class="BoxPrint.GUI.Views.OperatorLogView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BoxPrint.GUI.Views"
+      xmlns:uidictionary="clr-namespace:BoxPrint.GUI.UIControls"
+      xmlns:ex="clr-namespace:TranslationByMarkupExtension"
+      mc:Ignorable="d" 
+      d:DesignHeight="820" d:DesignWidth="1160" 
+      Title="Operator Log"
+      xmlns:uc="clr-namespace:BoxPrint.GUI.UserControls.Views"
+      xmlns:vm="clr-namespace:BoxPrint.GUI.ViewModels"
+      d:DataContext="{d:DesignInstance vm:ViewModelOperatorLogView}"
+      Loaded="Page_Loaded">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <Style TargetType="{x:Type ToolTip}" BasedOn="{StaticResource SK_ToolTipStyle}"/>
+
+            <!--달력 스타일-->
+            <Style TargetType="Calendar" x:Key="DateTimeCalendar">
+                <Setter Property="Background" Value="White"/>
+                <Setter Property="BorderBrush" Value="{StaticResource SK_Orange}"/>
+                <Setter Property="BorderThickness" Value="2"/>
+            </Style>
+
+            <!--돋보기 버튼-->
+            <Style x:Key="buttonStyle_MagnifyingGlass" TargetType="{x:Type local:ButtonControl}">
+                <Setter Property="Tag" Value="{Binding Path=(local:ButtonControl.TagName), RelativeSource={RelativeSource self}}"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type local:ButtonControl}">
+                            <Border x:Name="buttonBorder" Cursor="Hand" Background="Transparent" >
+                                <Path x:Name="pathMagnifyingGlass" Margin="5" IsHitTestVisible="False" HorizontalAlignment="Stretch" Stretch="Uniform" Fill="{StaticResource SK_Red}" 
+                                Data="M500.3 443.7l-119.7-119.7c27.22-40.41 40.65-90.9 33.46-144.7C401.8 87.79 326.8 13.32 235.2 1.723C99.01-15.51-15.51 99.01 1.724 235.2c11.6 91.64 86.08 166.7 177.6 178.9c53.8 7.189 104.3-6.236 144.7-33.46l119.7 119.7c15.62 15.62 40.95 15.62 56.57 0C515.9 484.7 515.9 459.3 500.3 443.7zM79.1 208c0-70.58 57.42-128 128-128s128 57.42 128 128c0 70.58-57.42 128-128 128S79.1 278.6 79.1 208z"/>
+                            </Border>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard >
+                                                <ThicknessAnimation Duration="0:0:0.2" Storyboard.TargetName="pathMagnifyingGlass" Storyboard.TargetProperty="Margin" From="5" To="0"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard >
+                                                <ThicknessAnimation Duration="0:0:0.2" Storyboard.TargetName="pathMagnifyingGlass" Storyboard.TargetProperty="Margin" From="0" To="5"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+
+                                <Trigger Property="IsPressed" Value="true">
+                                    <Setter Property="Border.BorderThickness" TargetName="buttonBorder" Value="5"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!--초기화 버튼-->
+            <Style x:Key="buttonStyle_Initialization" TargetType="{x:Type local:ButtonControl}">
+                <Setter Property="Tag" Value="{Binding Path=(local:ButtonControl.TagName), RelativeSource={RelativeSource self}}"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type local:ButtonControl}">
+                            <Border x:Name="buttonBorder" Cursor="Hand" Background="Transparent" >
+                                <Path x:Name="pathArrow" Margin="5" IsHitTestVisible="False" HorizontalAlignment="Stretch" Stretch="Uniform" Fill="#FFBFBFBF" 
+                                Data="M480 256c0 123.4-100.5 223.9-223.9 223.9c-48.84 0-95.17-15.58-134.2-44.86c-14.12-10.59-16.97-30.66-6.375-44.81c10.59-14.12 30.62-16.94 44.81-6.375c27.84 20.91 61 31.94 95.88 31.94C344.3 415.8 416 344.1 416 256s-71.69-159.8-159.8-159.8c-37.46 0-73.09 13.49-101.3 36.64l45.12 45.14c17.01 17.02 4.955 46.1-19.1 46.1H35.17C24.58 224.1 16 215.5 16 204.9V59.04c0-24.04 29.07-36.08 46.07-19.07l47.6 47.63C149.9 52.71 201.5 32.11 256.1 32.11C379.5 32.11 480 132.6 480 256z" RenderTransformOrigin="0.5,0.5">
+                                    <Path.RenderTransform>
+                                        <RotateTransform Angle="0"/>
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Border>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter TargetName="pathArrow" Property="Fill" Value="Black"/>
+                                </Trigger>
+
+                                <Trigger Property="IsPressed" Value="true">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard >
+                                                <DoubleAnimation Storyboard.TargetName="pathArrow" Storyboard.TargetProperty="(RenderTransform).(RotateTransform.Angle)" From="0" To="-360" Duration="0:0:0.5"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!--원형 버튼-->
+            <Style x:Key="TextButtonStyle" TargetType="{x:Type local:ButtonControl}">
+                <Setter Property="Tag" Value="{Binding Path=(local:ButtonControl.TagName), RelativeSource={RelativeSource self}}"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type local:ButtonControl}">
+                            <Border x:Name="buttonBorder" Cursor="Hand" Background="#FF939393" CornerRadius="100">
+                                <Path x:Name="buttonPath" Margin="15" IsHitTestVisible="False" HorizontalAlignment="Stretch" Stretch="Uniform" Fill="White" 
+                                    Data="{Binding Path=(local:ButtonControl.PathData), RelativeSource={RelativeSource TemplatedParent}}">
+                                </Path>
+                            </Border>
+                            
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard >
+                                                <ThicknessAnimation Duration="0:0:0.2" Storyboard.TargetName="buttonPath" Storyboard.TargetProperty="Margin" From="15" To="10"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard >
+                                                <ThicknessAnimation Duration="0:0:0.2" Storyboard.TargetName="buttonPath" Storyboard.TargetProperty="Margin" From="10" To="15"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+                                
+                                <Trigger Property="IsPressed" Value="true">
+                                    <Setter Property="Border.BorderThickness" TargetName="buttonBorder" Value="4"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            
+            <Style x:Key="CustomListViewStyle" TargetType="{x:Type ListView}">
+                <Style.Resources>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="Height" Value="30"/>
+                    </Style>
+                </Style.Resources>
+            </Style>
+
+            <Style x:Key="CustomGridViewHeaderStyle" TargetType="{x:Type GridViewColumnHeader}">
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="IsHitTestVisible" Value="False"/>
+            </Style>
+
+            <Style TargetType="{x:Type TextBox}">
+                <Setter Property="VerticalAlignment" Value="Stretch"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="CharacterCasing" Value="Upper"/>
+            </Style>
+
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--머리글-->
+        <Grid Grid.Row="0">
+            <DockPanel>
+                <TextBlock Text="{ex:Translate Log > Operator Log}" FontFamily="{StaticResource BoldFont}" Margin="10,0,0,0" FontSize="{Binding UIFontSize_Medium}" HorizontalAlignment="Left" Foreground="{StaticResource SK_LBlack}"/>
+            </DockPanel>
+        </Grid>
+
+        <!--검색 기능-->
+        <Grid Grid.Row="1" Background="#FFF2F2F2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <DockPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0">
+                <TextBlock Text="{ex:Translate 시작일시}" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="{StaticResource BoldFont}" FontSize="{Binding UIFontSize_Large}"/>
+                <!--<DatePicker SelectedDate="{Binding SearchStart}" x:Name="DatePick_Start" Background="White" BorderBrush="Black" Foreground="Black" Width="150" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" TextBlock.TextAlignment="Center" VerticalContentAlignment="Center" FontSize="{Binding UIFontSize_Medium}" FontFamily="{StaticResource BoldFont}" CalendarStyle="{StaticResource DateTimeCalendar}"/>-->
+                <uc:DateTimePicker SelectedDate="{Binding SearchStart}" Background="White" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="{Binding UIFontSize_Medium}" FontFamily="{StaticResource BoldFont}"/>
+                <TextBlock Text="{ex:Translate 종료일시}" VerticalAlignment="Center" Margin="10,0,10,0" FontFamily="{StaticResource BoldFont}" FontSize="{Binding UIFontSize_Large}"/>
+                <!--<DatePicker SelectedDate="{Binding SearchEnd}" x:Name="DatePick_End" Background="White" BorderBrush="Black" Foreground="Black" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center" TextBlock.TextAlignment="Center" VerticalContentAlignment="Center" FontSize="{Binding UIFontSize_Medium}" FontFamily="{StaticResource BoldFont}" CalendarStyle="{StaticResource DateTimeCalendar}"/>-->
+                <uc:DateTimePicker SelectedDate="{Binding SearchEnd}" Background="White" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="{Binding UIFontSize_Medium}" FontFamily="{StaticResource BoldFont}"/>
+            </DockPanel>
+
+            <DockPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0">
+                <TextBlock Text="PC IP" VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="{StaticResource BoldFont}" FontSize="{Binding UIFontSize_Large}"/>
+                <TextBox x:Name="PC_IP" Style="{StaticResource SK_TextBox}" BorderThickness="1" Background="White" BorderBrush="Black" Width="150" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Text="{Binding PCIP}"/>
+                <TextBlock Text="{ex:Translate User ID}" VerticalAlignment="Center" Margin="10,0,10,0" FontFamily="{StaticResource BoldFont}" FontSize="{Binding UIFontSize_Large}"/>
+                <TextBox x:Name="User_ID" Style="{StaticResource SK_TextBox}" BorderThickness="1" Background="White" BorderBrush="Black" Width="150" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Text="{Binding UserID}"/>
+                <TextBlock Text="{ex:Translate ACTION}" VerticalAlignment="Center" Margin="10,0,10,0" FontFamily="{StaticResource BoldFont}" FontSize="{Binding UIFontSize_Large}"/>
+                <ComboBox x:Name="comboBoxCategory" Style="{StaticResource SK_ComboBox_style}" BorderThickness="1" Background="White" BorderBrush="Black" Width="150" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" ToolTip="{ex:Translate 검색 아이템}" FontSize="{Binding UIFontSize_Medium}" Text="{Binding Action}">
+                    <ComboBoxItem Style="{StaticResource comboBoxItem_style}" Content="ALL"/>
+                    <ComboBoxItem Style="{StaticResource comboBoxItem_style}" Content="POPUP"/>
+                    <ComboBoxItem Style="{StaticResource comboBoxItem_style}" Content="BUTTON"/>
+                    <ComboBoxItem Style="{StaticResource comboBoxItem_style}" Content="CLICK"/>
+                    <ComboBoxItem Style="{StaticResource comboBoxItem_style}" Content="CLOSE"/>
+                    <ComboBoxItem Style="{StaticResource comboBoxItem_style}" Content="SAVE"/>
+                    <ComboBoxItem Style="{StaticResource comboBoxItem_style}" Content="DELETE"/>
+                    <ComboBoxItem Style="{StaticResource comboBoxItem_style}" Content="MENU"/>
+                    <ComboBoxItem Style="{StaticResource comboBoxItem_style}" Content="KEYIN"/>
+                </ComboBox>
+            </DockPanel>
+
+            <DockPanel Grid.Column="3" HorizontalAlignment="Right" Margin="0,0,10,0">
+                <local:ButtonControl Style="{StaticResource buttonStyle_MagnifyingGlass}" x:Name="btnFind" TagName="Find" Width="35" Height="35" Margin="0,0,30,0"  ToolTip="{ex:Translate 검색}"
+                                     Command="{Binding LogFindCommand}" Click="ButtonControl_Click"/>
+                <local:ButtonControl Style="{StaticResource buttonStyle_Initialization}" x:Name="btnInit" TagName="INIT" Width="35" Height="35" ToolTip="{ex:Translate 설정 초기화}"
+                                     Command="{Binding LogInitCommand}" Click="ButtonControl_Click"/>
+            </DockPanel>
+        </Grid>
+
+        <!--버튼-->
+        <Grid Grid.Row="2">
+            <DockPanel VerticalAlignment="Bottom" Margin="10,0,0,10" HorizontalAlignment="Left">
+                <Border Background="{StaticResource SK_Orange}" Width="8" CornerRadius="4"/>
+                <TextBlock Text="{ex:Translate Operator Log}" HorizontalAlignment="Left" FontFamily="{StaticResource BoldFont}" TextAlignment="Center" Foreground="Black" Margin="5,0,0,0" VerticalAlignment="Center" FontSize="{Binding UIFontSize_Large}"/>
+            </DockPanel>
+
+            <DockPanel HorizontalAlignment="Right">
+                <Border Height="20" VerticalAlignment="Top" Margin="0,5,0,0">
+                    <Path x:Name="LockIcon" Grid.Column="1" Stretch="Uniform" Fill="#c5c7cc" Data="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z" />
+                </Border>
+                
+                <DockPanel x:Name="ModifyAuthorityDockPanel" HorizontalAlignment="Right">
+                    <uidictionary:SK_ButtonControl Style="{StaticResource SK_EllipseButtonStyle}" x:Name="btnExport" TagName="Export" Height="35" Width="35" Margin="15,0,10,5" ImageMargin="9" ToolTip="{ex:Translate Export}"
+                                                   PathData="M384 128h-128V0L384 128zM256 160H384v304c0 26.51-21.49 48-48 48h-288C21.49 512 0 490.5 0 464v-416C0 21.49 21.49 0 48 0H224l.0039 128C224 145.7 238.3 160 256 160zM255 295L216 334.1V232c0-13.25-10.75-24-24-24S168 218.8 168 232v102.1L128.1 295C124.3 290.3 118.2 288 112 288S99.72 290.3 95.03 295c-9.375 9.375-9.375 24.56 0 33.94l80 80c9.375 9.375 24.56 9.375 33.94 0l80-80c9.375-9.375 9.375-24.56 0-33.94S264.4 285.7 255 295z" VerticalAlignment="Bottom" Background="#FF939393"
+                                                   Command="{Binding LogExportCommand}" Click="ButtonControl_Click"/>
+                </DockPanel>
+            </DockPanel>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <DataGrid x:Name="LogGrid" Grid.Row="0" Style="{StaticResource SK_DataGridStyle}" BorderBrush="{StaticResource SK_LBlack}"
+                      ItemsSource="{Binding OperatorListData}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{ex:Translate NumberOrder}" Width="2*"  Binding="{Binding NumberOrder}"/>
+                    <DataGridTextColumn Header="{ex:Translate SAVE DTTM}"   Width="5*"  Binding="{Binding SaveDttm}"/>
+                    <DataGridTextColumn Header="{ex:Translate User ID}"     Width="5*"  Binding="{Binding UserID}"/>
+                    <DataGridTextColumn Header="{ex:Translate ACTION}"      Width="5*"  Binding="{Binding KRAction}" Visibility="Visible"/>
+                    <DataGridTextColumn Header="{ex:Translate ACTION}"      Width="5*"  Binding="{Binding USAction}" Visibility="Hidden"/>
+                    <DataGridTextColumn Header="{ex:Translate ACTION}"      Width="5*"  Binding="{Binding CNAction}" Visibility="Hidden"/>
+                    <DataGridTextColumn Header="{ex:Translate ACTION}"      Width="5*"  Binding="{Binding HUAction}" Visibility="Hidden"/>
+                    <DataGridTextColumn Header="{ex:Translate Category}"    Width="5*" Binding="{Binding KRCategory}" Visibility="Visible"/>
+                    <DataGridTextColumn Header="{ex:Translate Category}"    Width="5*" Binding="{Binding USCategory}" Visibility="Hidden"/>
+                    <DataGridTextColumn Header="{ex:Translate Category}"    Width="5*" Binding="{Binding CNCategory}" Visibility="Hidden"/>
+                    <DataGridTextColumn Header="{ex:Translate Category}"    Width="5*" Binding="{Binding HUCategory}" Visibility="Hidden"/>
+                    <DataGridTextColumn Header="{ex:Translate Message}"     Width="20*" Binding="{Binding KRMessage}" Visibility="Visible"/>
+                    <DataGridTextColumn Header="{ex:Translate Message}"     Width="20*" Binding="{Binding USMessage}" Visibility="Hidden"/>
+                    <DataGridTextColumn Header="{ex:Translate Message}"     Width="20*" Binding="{Binding CNMessage}" Visibility="Hidden"/>
+                    <DataGridTextColumn Header="{ex:Translate Message}"     Width="20*" Binding="{Binding HUMessage}" Visibility="Hidden"/>
+                    <DataGridTextColumn Header="PC IP"                      Width="5*"  Binding="{Binding PCIP}"/>
+                    <DataGridTextColumn Header="{ex:Translate PC LOC}"      Width="5*"  Binding="{Binding PCLoc}"/>
+                    <DataGridTextColumn Header="{ex:Translate PC NAME}"     Width="5*"  Binding="{Binding PCName}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+        <uc:LoadingSpinner Grid.Row="1" Grid.RowSpan="3"
+                           Width="150"
+                           Background="Transparent"
+                           Foreground="Red"
+                           Visibility="{Binding SpinnerVisible, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+    </Grid>
+</Page>

@@ -1,0 +1,139 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="Port_In_Arrow"                  Color="#89B5EB"/>
+    <SolidColorBrush x:Key="Port_Out_Arrow"                 Color="#FF6D6D"/>
+    <!--//220621 HHJ SCS 개선     //- 색상 변경
+        //리소스 바이딩에서도 사용하기 위해서 컬러도 만들어주고 해당 컬러로 바인딩시켜서 솔리드 컬러 만듦.
+        //위에서 기존 솔리드 컬러중에서는 겹치는것들은 SK 색상으로 변경함.-->
+    <!--//SuHwan_20220620 : SK 색상 추가-->
+    <!--<SolidColorBrush x:Key="SK_Red"                         Color="#FFEA002C"/>
+    <SolidColorBrush x:Key="SK_Orange"                      Color="#FFF47725"/>
+    <SolidColorBrush x:Key="SK_Yellow"                      Color="#FFFECC00"/>
+    <SolidColorBrush x:Key="SK_Green"                       Color="#FFA7C80F"/>
+    <SolidColorBrush x:Key="SK_Teal"                        Color="#FF009A93"/>
+    <SolidColorBrush x:Key="SK_Blue"                        Color="#FF0069B4"/> 
+    <SolidColorBrush x:Key="SK_Navy"                        Color="#FF0A306D"/>
+    <SolidColorBrush x:Key="SK_Purple"                      Color="#FF662483"/>-->
+    <Color x:Key="SK_Red_Color">#FFEA002C</Color>
+    <SolidColorBrush x:Key="SK_Red"                         Color="{StaticResource SK_Red_Color}"/>
+
+    <Color x:Key="SK_Orange_Color">#FFF47725</Color>
+    <SolidColorBrush x:Key="SK_Orange"                      Color="{StaticResource SK_Orange_Color}"/>
+
+    <Color x:Key="SK_Yellow_Color">#FFFECC00</Color>
+    <SolidColorBrush x:Key="SK_Yellow"                      Color="{StaticResource SK_Yellow_Color}"/>
+
+    <Color x:Key="SK_Green_Color">#FFA7C80F</Color>
+    <SolidColorBrush x:Key="SK_Green"                       Color="{StaticResource SK_Green_Color}"/>
+
+    <Color x:Key="SK_Teal_Color">#FF009A93</Color>
+    <SolidColorBrush x:Key="SK_Teal"                        Color="{StaticResource SK_Teal_Color}"/>
+
+    <Color x:Key="SK_Blue_Color">#FF0069B4</Color>
+    <SolidColorBrush x:Key="SK_Blue"                        Color="{StaticResource SK_Blue_Color}"/>
+
+    <Color x:Key="SK_Navy_Color">#FF0A306D</Color>
+    <SolidColorBrush x:Key="SK_Navy"                        Color="{StaticResource SK_Navy_Color}"/>
+
+    <Color x:Key="SK_Purple_Color">#FF662483</Color>
+    <SolidColorBrush x:Key="SK_Purple"                      Color="{StaticResource SK_Purple_Color}"/>
+
+    <Color x:Key="SK_MouseOverGray_Color">#FFBFBFBF</Color>
+    <SolidColorBrush x:Key="SK_MouseOverGray"                      Color="{StaticResource SK_MouseOverGray_Color}"/>
+
+    <Color x:Key="SK_LBlack_Color">#FF4B494A</Color>
+    <SolidColorBrush x:Key="SK_LBlack"                      Color="{StaticResource SK_LBlack_Color}"/>
+
+
+    <!--그라데이션이 필요하면 이걸 사용해야함-->
+    <!--<LinearGradientBrush x:Key="" EndPoint="" StartPoint="">
+        <GradientStop Color="" Offset=""/>
+        <GradientStop Color="" Offset=""/>
+    </LinearGradientBrush>-->
+    
+    <!--스토리보드에서는 직접적으로 리소스의 값을 사용할 수 없음.
+    이를 우회하기 위해 브러시와 컬라를 만들어줘서 리소스생성하도록 만들어 놓음.
+    실제 호출하는 상황에서는 컬러만 호출하면 되며, 굳이 다 만들어놓지는 않고 필요한 색상만 생성 진행함.
+    컬러가 필요한곳은 xxxxBrush가 없는것을, 컬러가 필요한곳은 xxxxBrush가 있는것을 사용함.
+    참조1 : https://social.msdn.microsoft.com/Forums/en-US/9336022f-badb-4b40-a86c-a50ab1a64ba5/quotcannot-freeze-this-storyboard-timeline-tree-for-use-across-threadsquot?forum=wpf
+    참조2 : https://stackoverflow.com/questions/10195683/dynamicresource-color-not-working-->
+    <Color x:Key="ShelfExist">CadetBlue</Color>
+    <SolidColorBrush x:Key="ShelfExistBrush" Color="{StaticResource ShelfExist}"/>
+
+    <Color x:Key="ShelfEmpty">Transparent</Color>
+    <SolidColorBrush x:Key="ShelfEmptyBrush" Color="{StaticResource ShelfEmpty}"/>
+
+    <SolidColorBrush x:Key="eShelfBusyRm.Unknown" Color="Transparent"/>
+
+    <Color x:Key="ShelfBusyRM1">ForestGreen</Color>
+    <SolidColorBrush x:Key="ShelfBusyRM1Brush" Color="{StaticResource ShelfBusyRM1}"/>
+
+    <Color x:Key="ShelfBusyRM2">Plum</Color>
+    <SolidColorBrush x:Key="ShelfBusyRM2Brush" Color="{StaticResource ShelfBusyRM2}"/>
+
+    <SolidColorBrush x:Key="ShelfDisableStroke" Color="{StaticResource SK_Red_Color}"/>
+    <SolidColorBrush x:Key="ShelfError" Color="{StaticResource SK_Red_Color}"/>
+
+    <SolidColorBrush x:Key="eShelfType.Unknown" Color="Black"/>
+    <!--SuHwan_20220707 : 요거 생깔 임시로 바꿈-->
+    <SolidColorBrush x:Key="eShelfType.Short" Color="#FF9EA6AC"/> 
+    <SolidColorBrush x:Key="eShelfType.Long" Color="DarkBlue"/>
+    <SolidColorBrush x:Key="eShelfType.Both" Color="DarkOliveGreen"/>
+    <SolidColorBrush x:Key="eShelfType.FireWaterPool" Color="#FF57B7DB"/>
+
+    <SolidColorBrush x:Key="eCarrierSize.Unknown" Color="Black"/>
+    <SolidColorBrush x:Key="eCarrierSize.Short" Color="IndianRed"/>
+    <SolidColorBrush x:Key="eCarrierSize.Long" Color="DarkBlue"/>
+
+    <!--//220609 HHJ SCS 개선     //- Shelf UIControl 변경-->
+    <SolidColorBrush x:Key="eShelfStatus.EMPTY"             Color="#CEDAE0"/>
+    <SolidColorBrush x:Key="eShelfStatus.RESERVED_PUT"      Color="#D688A1"/>
+    <SolidColorBrush x:Key="eShelfStatus.RESERVED_GET"      Color="#71D2E7"/>
+    <SolidColorBrush x:Key="eShelfStatus.OCCUPIED"          Color="#1F3C9A"/>
+    <SolidColorBrush x:Key="eShelfStatus.BLOCKED_PUT"       Color="{StaticResource SK_Orange_Color}"/>
+    <SolidColorBrush x:Key="eShelfStatus.BLOCKED_GET"       Color="HotPink"/>
+    <!--//221228 HHJ SCS 개선     //Disable Color Red -> Black 변경-->
+    <!--<SolidColorBrush x:Key="eShelfStatus.NOT_USE"           Color="{StaticResource SK_Red_Color}"/>-->
+    <SolidColorBrush x:Key="eShelfStatus.NOT_USE"           Color="Black"/>
+    <SolidColorBrush x:Key="eShelfStatus.DOUBLE_STORAGE"    Color="Transparent"/>
+    <SolidColorBrush x:Key="eShelfStatus.SOURCE_EMPTY"      Color="CadetBlue"/>
+
+    <SolidColorBrush x:Key="eShelfStatus.UNKSHELF"          Color="Gold"/>
+
+    <!--//220610 HHJ SCS 개선     //- Crane UIControl 변경-->
+    <SolidColorBrush x:Key="eCraneUIState.ONLINE"             Color="White"/>
+    <SolidColorBrush x:Key="eCraneUIState.OFFLINE"            Color="DarkGray"/>
+    <SolidColorBrush x:Key="eCraneUIState.HOMING"             Color="Orange"/>
+    <SolidColorBrush x:Key="eCraneUIState.PUTTING"            Color="LimeGreen"/>
+    <SolidColorBrush x:Key="eCraneUIState.GETTING"            Color="Aqua"/>
+    <SolidColorBrush x:Key="eCraneUIState.MOVING"             Color="Yellow"/>
+    <SolidColorBrush x:Key="eCraneUIState.RACK_TO_RACK"       Color="{StaticResource SK_Teal_Color}"/>
+    <SolidColorBrush x:Key="eCraneUIState.DIRECT_GETTING"     Color="{StaticResource SK_Teal_Color}"/>
+    <SolidColorBrush x:Key="eCraneUIState.FIRE_UNLOADING"     Color="{StaticResource SK_Red_Color}"/>
+    <SolidColorBrush x:Key="eCraneUIState.ERROR"              Color="{StaticResource SK_Red_Color}"/>
+
+    <SolidColorBrush x:Key="eConveyorUIState.Alarm"             Color="#FF0000"/>
+    <SolidColorBrush x:Key="eConveyorUIState.AlarmClear"        Color="Transparent"/>
+    <SolidColorBrush x:Key="eConveyorUIState.Online"            Color="#F0F0F0"/>
+    <SolidColorBrush x:Key="eConveyorUIState.Manual"            Color="#E9B583"/>
+    <SolidColorBrush x:Key="eConveyorUIState.TrackPause"        Color="#F0F0F0"/>
+
+    <!--//221228 HHJ SCS 개선     //Port 화살표 색상 변경-->
+    <SolidColorBrush x:Key="ePortInOutType.Unknown"         Color="Transparent"/>
+    <SolidColorBrush x:Key="ePortInOutType.INPUT"           Color="{StaticResource SK_Blue_Color}"/>
+    <SolidColorBrush x:Key="ePortInOutType.OUTPUT"          Color="{StaticResource SK_Red_Color}"/>
+    <!--일단 Both는 노란색으로...-->
+    <SolidColorBrush x:Key="ePortInOutType.BOTH"            Color="{StaticResource SK_Yellow_Color}"/>
+
+    <!--//230517 HHJ SCS 개선     //- BCR Path 변경-->
+    <SolidColorBrush x:Key="eBCRState.NoBCR"                Color="Transparent"/>
+    <SolidColorBrush x:Key="eBCRState.OFFLine"              Color="Gray"/>
+    <SolidColorBrush x:Key="eBCRState.ManualBCR"            Color="Green"/>
+    <SolidColorBrush x:Key="eBCRState.AutoBCROnline"        Color="Red"/>
+
+    <SolidColorBrush x:Key="eCraneSCState.OFFLINE"          Color="Transparent"/>
+    <SolidColorBrush x:Key="eCraneSCState.IDLE"             Color="DarkGray"/>
+    <SolidColorBrush x:Key="eCraneSCState.BUSY"             Color="LimeGreen"/>
+    <SolidColorBrush x:Key="eCraneSCState.ERROR"            Color="{StaticResource SK_Red_Color}"/>
+</ResourceDictionary>

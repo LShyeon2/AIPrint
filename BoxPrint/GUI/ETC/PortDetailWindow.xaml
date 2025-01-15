@@ -1,0 +1,303 @@
+﻿<Window
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Stockerfirmware.GUI.Views"
+      xmlns:i="http://schemas.Microsoft.com/expression/2010/interactivity"
+      xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="Stockerfirmware.GUI.Views.PortDetailWindow"
+      xmlns:ex="clr-namespace:TranslationByMarkupExtension"
+      mc:Ignorable="d" 
+      Height="800" Width="1100"
+      ResizeMode="NoResize"
+      Title="Port View" KeyDown="Window_KeyDown">
+
+
+    <Grid x:Name="grdMain" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="19*"/>
+            <RowDefinition Height="203*"/>
+            <RowDefinition Height="27*"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="16*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <Border HorizontalAlignment="Center" BorderThickness="2" CornerRadius="5" Margin="85,0,85,15" BorderBrush="#FFA3B2B8" Background="AliceBlue" Grid.Row="1" Grid.Column="1" Width="233">
+            <Label Content="{ex:Translate INPUT}"  FontSize="18" Margin="82,0,82,8" FontWeight="Bold" HorizontalAlignment="Center"/>
+        </Border>
+        <Border HorizontalAlignment="Center" BorderThickness="2" CornerRadius="5" Margin="85,0,85,15" BorderBrush="#FFA3B2B8" Background="#FFFFEFE9" Grid.Row="1" Grid.Column="2" Width="241">
+            <Label Content="{ex:Translate OUTPUT}" FontSize="18" Margin="82,0,82,8" FontWeight="Bold" HorizontalAlignment="Center" Width="85"/>
+        </Border>
+
+        <DataGrid x:Name="dataGrid_Input" AutoGenerateColumns="False" RowHeight="25" Grid.Row="2"  Grid.Column="1" IsReadOnly="True" 
+                  CanUserResizeColumns="False" CanUserSortColumns="False" CanUserReorderColumns="False" Margin="10,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{ex:Translate NAME}" Width="2*"  Binding="{Binding ModuleID}" />
+                <DataGridTextColumn Header="{ex:Translate I/O DESCRIPTION}" Width="7*"  Binding="{Binding Description}" />
+                <!--<DataGridTextColumn Header="BOARD" Width="2*"  Binding="{Binding Board}"     />-->
+                <DataGridTextColumn Header="{ex:Translate ADDRESS}" Width="3*"  Binding="{Binding Address}"     />
+                <DataGridTextColumn Header="{ex:Translate STATUS}"  Width="3*"   Binding="{Binding IOStatus}"      />
+            </DataGrid.Columns>
+
+            <DataGrid.Resources>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}" >
+                    <Setter Property="Background" Value="White" />
+                    <Setter Property="Foreground" Value="Black" />
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="BorderThickness" Value="1 1 1 1"/>
+                    <Setter Property="Margin" Value="-1,-1,0,0" />
+                    <Setter Property="Height" Value="60" />
+                    <Setter Property="Width" Value="auto"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <EventSetter Event="MouseDoubleClick" Handler="DataGridCell_DoubleClick"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="{x:Null}" />
+                            <Setter Property="BorderBrush" Value="{x:Null}" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+
+            </DataGrid.Resources>
+
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IOStatus}" Value="ON">
+                            <Setter Property="Background" Value="Cyan"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IOStatus}" Value="OFF">
+                            <Setter Property="Background" Value="LightGray"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+        </DataGrid>
+
+        <DataGrid x:Name="dataGrid_Output" AutoGenerateColumns="False"  RowHeight="25" Grid.Row="2" Grid.Column="2" IsReadOnly="True"
+                   CanUserResizeColumns="False" CanUserSortColumns="False" CanUserReorderColumns="False" Margin="10,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{ex:Translate NAME}" Width="2*"  Binding="{Binding ModuleID}"/>
+                <DataGridTextColumn Header="{ex:Translate I/O DESCRIPTION}" Width="7*"  Binding="{Binding Description}" />
+                <!--<DataGridTextColumn Header="BOARD" Width="2*"  Binding="{Binding Board}"     />-->
+                <DataGridTextColumn Header="{ex:Translate ADDRESS}" Width="3*"  Binding="{Binding Address}"     />
+                <DataGridTextColumn Header="{ex:Translate STATUS}"  Width="3*"    Binding="{Binding IOStatus}"      />
+            </DataGrid.Columns>
+
+            <DataGrid.Resources>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}" >
+                    <Setter Property="Background" Value="White" />
+                    <Setter Property="Foreground" Value="Black" />
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="BorderThickness" Value="1 1 1 1"/>
+                    <Setter Property="Margin" Value="-1,-1,0,0" />
+                    <Setter Property="Height" Value="60" />
+                    <Setter Property="Width" Value="auto"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <EventSetter Event="MouseDoubleClick" Handler="DataGridCell_DoubleClick"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="{x:Null}" />
+                            <Setter Property="BorderBrush" Value="{x:Null}" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.Resources>
+
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IOStatus}" Value="ON">
+                            <Setter Property="Background" Value="Cyan"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IOStatus}" Value="OFF">
+                            <Setter Property="Background" Value="LightGray"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+        </DataGrid>
+        <Grid Grid.Row="3" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="209"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="button_InputPageLeft" Tag ="InputLeft" Grid.Column="0"  Background="AliceBlue" BorderThickness="1" Click="PageMove_Click" Margin="81,12,10,30">
+                <StackPanel>
+                    <Image Height="27" Width="70" Source="/image/Arrow_Left1.png" Margin="5" RenderTransformOrigin="0.5,0.508"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="button_InputPageRight" Tag ="InputRight" Grid.Column="2" Background="AliceBlue" BorderThickness="1" Click="PageMove_Click" Margin="0,12,99,30">
+                <StackPanel>
+                    <Image Height="27" Width="70" Source="/image/Arrow_Right2.png" Margin="5" RenderTransformOrigin="0.5,0.508"/>
+                </StackPanel>
+            </Button>
+            <Label Name="Label_InputPage" Content="1 / 2"  HorizontalAlignment="Center"  VerticalAlignment="Center"  FontSize="50" Grid.Column="2" Margin="0,-10,209,30" Height="61" Width="0"/>
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.Column="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="button_OutputPageLeft" Tag ="OutputLeft" Grid.Column="0"  Background="AliceBlue" BorderThickness="1" Click="PageMove_Click" Margin="81,12,10,30">
+                <StackPanel>
+                    <Image Height="27" Width="70" Source="/image/Arrow_Left1.png" Margin="5" RenderTransformOrigin="0.5,0.508"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="button_OutputPageRight" Tag ="OutputRight" Grid.Column="2" Background="AliceBlue" BorderThickness="1" Click="PageMove_Click" Margin="0,12,92,30">
+                <StackPanel>
+                    <Image Height="27" Width="70" Source="/image/Arrow_Right2.png" Margin="5" RenderTransformOrigin="0.5,0.508"/>
+                </StackPanel>
+            </Button>
+            <Label Name="Label_OutputPage" Content="1 / 2"  HorizontalAlignment="Center"  VerticalAlignment="Center"  FontSize="50" Grid.Column="1" Margin="190,-10,190,30"/>
+        </Grid>
+        <StackPanel Grid.Column="3" Grid.RowSpan="4">
+            <Button x:Name="button_FL"            Content="{ex:Translate C/V FORWARD}"         FontWeight="Bold"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="35" MouseLeftButtonDown="button_FL_MouseLeftButtonDown" MouseLeftButtonUp="button_FL_MouseLeftButtonUp" Margin="14,0,0,0">
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="#FF333333" Opacity="0.6"/>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.6">
+                        <GradientStop Color="#FFB44848" Offset="1"/>
+                        <GradientStop Color="#FFFFE3D6" Offset="0.43"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="button_RL"            Content="{ex:Translate C/V BACKWARD}"        FontWeight="Bold"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="35" MouseLeftButtonDown="button_RL_MouseLeftButtonDown" MouseLeftButtonUp="button_RL_MouseLeftButtonUp"  Margin="14,0,0,0">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.6">
+                        <GradientStop Color="#FFFFE3D6" Offset="0.47"/>
+                        <GradientStop Color="#FFB44848" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="#FF333333" Opacity="0.6"/>
+                </Button.BorderBrush>
+            </Button>
+            <Button x:Name="button_StopperFWD"    Content="{ex:Translate Stopper F}"       FontWeight="Bold"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="35" Click="button_StopperFWD_Click" Margin="14,0,0,0">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.6">
+                        <GradientStop Color="#FFFFE3D6" Offset="0.47"/>
+                        <GradientStop Color="#FFB44848" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="#FF333333" Opacity="0.6"/>
+                </Button.BorderBrush>
+            </Button>
+
+            <Button x:Name="button_StopperBWD"    Content="{ex:Translate Stopper B}"       FontWeight="Bold"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="35" Click="button_StopperBWD_Click" Margin="14,0,0,0">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.6">
+                        <GradientStop Color="#FFFFE3D6" Offset="0.47"/>
+                        <GradientStop Color="#FFB44848" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="#FF333333" Opacity="0.6"/>
+                </Button.BorderBrush>
+            </Button>
+            <Button x:Name="button_RFID_Read"     Content="{ex:Translate RFID Read}"       FontWeight="Bold"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="35" Click="button_RFID_Read_Click" Margin="14,0,0,0" >
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.6">
+                        <GradientStop Color="#FFFFE3D6" Offset="0.47"/>
+                        <GradientStop Color="#FFB44848" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="#FF333333" Opacity="0.6"/>
+                </Button.BorderBrush>
+            </Button>
+            <Button x:Name="button_Door_Open"     Content="{ex:Translate Door Open}"       FontWeight="Bold"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="35" Click="button_Door_Open_Click" Margin="14,0,0,0">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.6">
+                        <GradientStop Color="#FFFFE3D6" Offset="0.47"/>
+                        <GradientStop Color="#FFB44848" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="#FF333333" Opacity="0.6"/>
+                </Button.BorderBrush>
+            </Button>
+            <Button x:Name="button_ErrorReset"    Content="{ex:Translate CV Error Reset}"  FontWeight="Bold"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="35" Click="button_ErrorReset_Click" Margin="14,0,0,0">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.6">
+                        <GradientStop Color="#FFFFE3D6" Offset="0.47"/>
+                        <GradientStop Color="#FFB44848" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="#FF333333" Opacity="0.6"/>
+                </Button.BorderBrush>
+            </Button>
+            <Label  Content="{ex:Translate 현재 동작}" FontWeight="Bold" FontSize="12" HorizontalAlignment="Left" Height="26" Margin="15,5,0,0" Width="66"/>
+            <TextBox x:Name="tb_CurrentAction" IsReadOnly="True" Height="30" TextWrapping="Wrap" Text="" Margin="14,0,11,0"/>
+            <Label  Content="{ex:Translate 최근 동작 결과}" FontWeight="Bold" FontSize="12" HorizontalAlignment="Left" Height="26" Margin="15,5,0,0" Width="66"/>
+            <TextBox x:Name="tb_LastActionResult" IsReadOnly="True" Height="30" TextWrapping="Wrap" Text="" Margin="14,0,11,0"/>
+
+            <Grid Background="#FFE6F6FF" Height="370" Margin="13,15,10,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Label Content="{ex:Translate Mode}" FontWeight="Bold"  HorizontalAlignment="Center" FontSize="14" Grid.Row="0" Margin="10,0"/>
+                <Label Content="{ex:Translate Contain}" FontWeight="Bold" HorizontalAlignment="Center"  FontSize="14" Grid.Row="1" Margin="10,0"/>
+                <Label Content="{ex:Translate Request}" FontWeight="Bold" HorizontalAlignment="Center"   FontSize="14" Grid.Row="2" Margin="10,0"/>
+                <Label Content="{ex:Translate Tray Size}" FontWeight="Bold" HorizontalAlignment="Center"  FontSize="14" Grid.Row="3" Margin="10,0"/>
+                <Label Content="{ex:Translate Ready}" FontWeight="Bold" HorizontalAlignment="Center"   FontSize="14" Grid.Row="4" Margin="17,0"/>
+                <Label Content="{ex:Translate Complete}" FontWeight="Bold"  HorizontalAlignment="Center"   FontSize="14" Grid.Row="5" Margin="5,0"/>
+                <Label Content="{ex:Translate RFID RD}" FontWeight="Bold" HorizontalAlignment="Center"  FontSize="14" Grid.Row="6" Margin="10,0" x:Name="lbl_RFIDReady"/>
+                <Label Content="{ex:Translate RFID CP}" FontWeight="Bold"  HorizontalAlignment="Center"   FontSize="14" Grid.Row="7" Margin="12,0" x:Name="lbl_RFIDComplete"/>
+                <Label Content="{ex:Translate CarrierID}" FontWeight="Bold"  HorizontalAlignment="Center"   FontSize="14" Grid.Row="8" Margin="12,0"/>
+                <Label Content="{ex:Translate State}" FontWeight="Bold" HorizontalAlignment="Center"  FontSize="14" Grid.Row="9" Margin="21,0"/>
+                <Label Content="{ex:Translate ErrorCode}" FontWeight="Bold" HorizontalAlignment="Center" FontSize="14" Grid.Row="10" Margin="3,0"/>
+                <Label Content="{ex:Translate Step}" FontWeight="Bold" HorizontalAlignment="Center"  FontSize="14" Grid.Row="11" Margin="23,0"/>
+
+                <TextBox x:Name="tb_Mode" IsReadOnly="True"  FontSize="14" Grid.Column="1" Grid.Row="0"/>
+                <TextBox x:Name="tb_Contain" IsReadOnly="True"  FontSize="14" Grid.Column="1" Grid.Row="1"/>
+                <TextBox x:Name="tb_Request" IsReadOnly="True"   FontSize="14" Grid.Column="1" Grid.Row="2"/>
+                <TextBox x:Name="tb_Size" IsReadOnly="True" FontSize="14" Grid.Column="1" Grid.Row="3"/>
+                <TextBox x:Name="tb_Ready" IsReadOnly="True"   FontSize="14" Grid.Column="1" Grid.Row="4"/>
+                <TextBox x:Name="tb_Complete" IsReadOnly="True"   FontSize="14" Grid.Column="1" Grid.Row="5"/>
+                <TextBox x:Name="tb_RFIDReady" IsReadOnly="True"  FontSize="14" Grid.Column="1" Grid.Row="6"/>
+                <TextBox x:Name="tb_RFIDComplete" IsReadOnly="True" FontSize="14" Grid.Column="1" Grid.Row="7"/>
+                <TextBox x:Name="tb_CarrierID" IsReadOnly="True"  FontSize="14" Grid.Column="1" Grid.Row="8"/>
+                <TextBox x:Name="tb_PortState" IsReadOnly="True"  FontSize="14" Grid.Column="1" Grid.Row="9"/>
+                <TextBox x:Name="tb_ErrorCode" IsReadOnly="True" FontSize="14" Grid.Column="1" Grid.Row="10"/>
+                <TextBox x:Name="tb_Step" IsReadOnly="True"  FontSize="14" Grid.Column="1" Grid.Row="11"/>
+            </Grid>
+
+
+
+        </StackPanel>
+
+    </Grid>
+</Window>

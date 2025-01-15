@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<IOPointList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!--BOOTH I/O Input -->
+  <IOPoint group="Booth" moduleID="T0POC01"  name="SWITCH_EMS1"              description="SWITCH_EMS1"                 direction="In"    active="true"  board="0" address="0X01" />
+  <IOPoint group="Booth" moduleID="T0POC01"  name="SWITCH_EMS2"              description="SWITCH_EMS2"                 direction="In"    active="true"  board="0" address="0X02" />
+  <IOPoint group="Booth" moduleID="T0POC01"  name="SWITCH_EMS3"              description="SWITCH_EMS3"                 direction="In"    active="true"  board="0" address="0X03" />
+  <IOPoint group="Booth" moduleID="T0POC01"  name="SWITCH_EMS4"              description="SWITCH_EMS4"                 direction="In"    active="true"  board="0" address="0X04" />
+  <IOPoint group="Booth" moduleID="T0POC01"  name="SWITCH_EMS5"              description="SWITCH_EMS5"                 direction="In"    active="true"  board="0" address="0X05" />
+  <IOPoint group="Booth" moduleID="T0POC01"  name="SWITCH_EMS6"              description="SWITCH_EMS6"                 direction="In"    active="true"  board="0" address="0X06" /> 
+  <IOPoint group="Booth" moduleID="T0POC01"  name="SWITCH_EMS7"              description="SWITCH_EMS7"                 direction="In"    active="true"  board="0" address="0X07" />
+  <IOPoint group="Booth" moduleID="T0POC01"  name="SWITCH_EMS8"              description="SWITCH_EMS8"                 direction="In"    active="true"  board="0" address="0X08" />
+  <IOPoint group="Booth" moduleID="T0POC01"  name="SWITCH_EMS9"              description="SWITCH_EMS9"                 direction="In"    active="true"  board="0" address="0X09" /> <!--메뉴얼-->
+  <IOPoint group="Booth" moduleID="T0POC01"  name="SWITCH_EMS11"             description="SWITCH_EMS11"                direction="In"    active="true"  board="0" address="0X0A" /> <!--로컬1-->
+  <IOPoint group="Booth" moduleID="T0POC01"  name="SWITCH_EMS12"             description="SWITCH_EMS12"                direction="In"    active="true"  board="0" address="0X0B" /> <!--로컬2-->
+  <IOPoint group="Booth" moduleID="T0POC01"  name="AIR_SUPPLY_CHECK"         description="AIR_SUPPLY_CHECK"            direction="In"    active="true"  board="0" address="0X0C" /> <!--공압체크-->
+
+
+  <IOPoint group="Booth" moduleID="T0POC01"  name="DOOR_OPEN_SOL_BOOTH"       description="DOOR_OPEN_SOL1(BOOTH)"        direction="Out"   active="true"   board="0" address="0X01" />
+  <IOPoint group="Booth" moduleID="T0POC01"  name="DOOR_OPEN_SOL_OHT_IN"      description="DOOR_OPEN_SOL2(OHT_IN)"       direction="Out"   active="true"   board="0" address="0X02" />
+  <IOPoint group="Booth" moduleID="T0POC01"  name="DOOR_OPEN_SOL_OHT_OUT1"     description="DOOR_OPEN_SOL3(OHT_OUT)1"    direction="Out"   active="true"   board="0" address="0X03" />
+  <IOPoint group="Booth" moduleID="T0POC01"  name="DOOR_OPEN_SOL_OHT_OUT2"     description="DOOR_OPEN_SOL3(OHT_OUT)2"    direction="Out"   active="true"   board="0" address="0X04" />
+  <IOPoint group="Booth" moduleID="T0POC01"  name="DOOR_OPEN_SOL_OHT_OUT3"     description="DOOR_OPEN_SOL3(OHT_OUT)3"    direction="Out"   active="true"   board="0" address="0X05" />
+  <IOPoint group="Booth" moduleID="T0POC01"  name="DOOR_OPEN_SOL_OHT_OUT4"     description="DOOR_OPEN_SOL3(OHT_OUT)4"    direction="Out"   active="true"   board="0" address="0X06" />
+  <IOPoint group="Booth" moduleID="T0POC01"  name="DOOR_OPEN_SOL_OHT_OUT5"     description="DOOR_OPEN_SOL3(OHT_OUT)5"    direction="Out"   active="true"   board="0" address="0X07" />
+  <IOPoint group="Booth" moduleID="T0POC01"  name="DOOR_OPEN_SOL_OHT_OUT6"     description="DOOR_OPEN_SOL3(OHT_OUT)6"    direction="Out"   active="true"   board="0" address="0X08" />
+  <IOPoint group="Booth" moduleID="T0POC01"  name="DOOR_OPEN_SOL_OHT_OUT7"     description="DOOR_OPEN_SOL3(OHT_OUT)7"    direction="Out"   active="true"   board="0" address="0X09" />
+  <IOPoint group="Booth" moduleID="T0POC01"  name="DOOR_OPEN_SOL_OHT_OUT8"     description="DOOR_OPEN_SOL3(OHT_OUT)8"    direction="Out"   active="true"   board="0" address="0X0A" />
+  <IOPoint group="Booth" moduleID="T0POC01"  name="DOOR_OPEN_SOL_OHT_OUT9"     description="DOOR_OPEN_SOL3(OHT_OUT)9"    direction="Out"   active="true"   board="0" address="0X0B" />
+
+  <!-- RM1 I/O INPUT-->
+  <IOPoint group="Robot" moduleID="RM1"    name="DI_EMS_L"                    description="EMS Button 체크_LEFT"                 direction="In"   address="100"  active="true"   board="0" />
+  <IOPoint group="Robot" moduleID="RM1"    name="DI_EMS_R"                    description="EMS Button 체크_RIGHT"                direction="In"   address="101"  active="true"   board="0" />
+  <IOPoint group="Robot" moduleID="RM1"    name="DI_RM_Safety_Reset"          description="Safety Reset 입력"                    direction="In"   address="102"  active="true"   board="0" />
+  <IOPoint group="Robot" moduleID="RM1"    name="DI_RM_Servo_Motor_MC_Power"  description="MC 상태"                              direction="In"   address="103"  active="true"   board="0" />
+  <IOPoint group="Robot" moduleID="RM1"    name="DI_EMS_HTP"                  description="EMS HTP"                              direction="In"   address="104"  active="true"   board="0" />
+  <IOPoint group="Robot" moduleID="RM1"    name="DI_RM_Panel_Door"            description="RM 전장 박스 잠김 확인 센서"          direction="In"   address="105"  active="true"   board="0" />
+  <IOPoint group="Robot" moduleID="RM1"    name="DI_RM_Panel_Left_Fan"        description="Left Fan"                             direction="In"   address="106"  active="true"   board="0" />
+  <IOPoint group="Robot" moduleID="RM1"    name="DI_RM_Panel_Right_Fan"       description="Right Fan"                            direction="In"   address="107"  active="true"   board="0" />
+  <IOPoint group="Robot" moduleID="RM1"    name="DI_TPUse_Key_HP"             description="Use Key HP"                           direction="In"   address="108"  active="true"   board="0" />
+  <IOPoint group="Robot" moduleID="RM1"    name="DI_TPUse_Key_OP"             description="Use Key OP"                           direction="In"   address="109"  active="true"   board="0" />
+  <IOPoint group="Robot" moduleID="RM1"    name="DI_DeadMan_Key_HP"           description="DeadMan Key HP"                       direction="In"   address="110"  active="true"   board="0" />
+  <IOPoint group="Robot" moduleID="RM1"    name="DI_TPConnect_HP"             description="TPConnect HP"                         direction="In"   address="112"  active="true"   board="0" />
+  <IOPoint group="Robot" moduleID="RM1"    name="DI_DeadMan_Key_OP"           description="DeadMan_Key OP"                       direction="In"   address="113"  active="true"   board="0" />
+  <IOPoint group="Robot" moduleID="RM1"    name="DI_TPConnect_OP"             description="TPConnect OP"                         direction="In"   address="115"  active="true"   board="0" />
+ 
+</IOPointList>

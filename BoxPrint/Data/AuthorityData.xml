@@ -1,0 +1,74 @@
+<AuthorityLevels>
+  <AuthorityLevel Level="Admin">
+    <Authority Name="AlarmManager" Name_KOR="알람매니저" Name_CHN="警报经理" Name_HUN="RiadóKezelő" Read="True" Modify="True" />
+    <Authority Name="Config" Name_KOR="구성" Name_CHN="配置" Name_HUN="Konfig" Read="True" Modify="True" />
+    <Authority Name="MapViewer" Name_KOR="맵뷰어" Name_CHN="映射查看器" Name_HUN="TérképNéző" Read="True" Modify="True" />
+    <Authority Name="CarrierSearch" Name_KOR="캐리어조회" Name_CHN="载体搜索" Name_HUN="HordozóKeresés" Read="True" Modify="True" />
+    <Authority Name="TerminalMessage" Name_KOR="터미널메시지" Name_CHN="终端口信" Name_HUN="TerminálÜzenet" Read="True" Modify="True" />
+    <Authority Name="StoredCarrier" Name_KOR="보관 캐리어" Name_CHN="StoredCarrier" Name_HUN="StoredCarrier" Read="True" Modify="True" />
+    <Authority Name="IOMonitor" Name_KOR="IO모니터" Name_CHN="入出力监控" Name_HUN="IOMegfigyelés" Read="True" Modify="True" />
+    <Authority Name="SmokeDetect" Name_KOR="연기감지" Name_CHN="烟雾觉察" Name_HUN="FüstÉszlelés" Read="True" Modify="True" />
+    <Authority Name="AlarmLog" Name_KOR="알람로그" Name_CHN="警报日志" Name_HUN="RiadóNapló" Read="True" Modify="True" />
+    <Authority Name="BCRLog" Name_KOR="BCR로그" Name_CHN="BCR日志" Name_HUN="BCRNapló" Read="True" Modify="True" />
+    <Authority Name="HSMSLog" Name_KOR="HMSM로그" Name_CHN="HSMS日志" Name_HUN="HSMSNapló" Read="True" Modify="True" />
+    <Authority Name="OperatorLog" Name_KOR="오퍼레이터로그" Name_CHN="操作员日志" Name_HUN="OperátorNapló" Read="True" Modify="True" />
+    <Authority Name="TransferLog" Name_KOR="반송로그" Name_CHN="转移日志" Name_HUN="TranszferNapló" Read="True" Modify="True" />
+    <Authority Name="UtilizationLog" Name_KOR="가동률로그" Name_CHN="运转率日志" Name_HUN="Üzemidő napló" Read="True" Modify="True" />
+    <Authority Name="PlayBack" Name_KOR="플레이백" Name_CHN="回放" Name_HUN="Lejatszas" Read="True" Modify="True" />
+    <Authority Name="MCSState" Name_KOR="MCS상태" Name_CHN="MCS状态" Name_HUN="MCSállapot" Read="True" Modify="True" />
+    <Authority Name="SCSState" Name_KOR="SCS상태" Name_CHN="SCS状态" Name_HUN="SCSállapot" Read="True" Modify="True" />
+    <Authority Name="PLCState" Name_KOR="PLC상태" Name_CHN="PLC状态" Name_HUN="PLCállapot" Read="True" Modify="True" />
+    <Authority Name="BoothState" Name_KOR="Booth상태" Name_CHN="Booth状态" Name_HUN="Boothállapot" Read="True" Modify="True" />
+    <Authority Name="AlarmClear" Name_KOR="알람클리어" Name_CHN="警报清除" Name_HUN="RiadóTörlés" Read="True" Modify="True" />
+    <Authority Name="JobControl" Name_KOR="명령어제어" Name_CHN="工作控制" Name_HUN="munkaellenőrzés" Read="True" Modify="True" />
+    <Authority Name="EXIT" Name_KOR="나가기" Name_CHN="退出" Name_HUN="kilépés" Read="True" Modify="True" />
+  </AuthorityLevel>
+  <AuthorityLevel Level="Manager">
+    <Authority Name="AlarmManager" Name_KOR="알람매니저" Name_CHN="警报经理" Name_HUN="RiadóKezelő" Read="True" Modify="True" />
+    <Authority Name="Config" Name_KOR="구성" Name_CHN="配置" Name_HUN="Konfig" Read="False" Modify="False" />
+    <Authority Name="MapViewer" Name_KOR="맵뷰어" Name_CHN="映射查看器" Name_HUN="TérképNéző" Read="True" Modify="True" />
+    <Authority Name="CarrierSearch" Name_KOR="캐리어조회" Name_CHN="载体搜索" Name_HUN="HordozóKeresés" Read="True" Modify="True" />
+    <Authority Name="TerminalMessage" Name_KOR="터미널메시지" Name_CHN="终端口信" Name_HUN="TerminálÜzenet" Read="True" Modify="True" />
+    <Authority Name="StoredCarrier" Name_KOR="보관 캐리어" Name_CHN="StoredCarrier" Name_HUN="StoredCarrier" Read="True" Modify="True" />
+    <Authority Name="IOMonitor" Name_KOR="IO모니터" Name_CHN="入出力监控" Name_HUN="IOMegfigyelés" Read="True" Modify="True" />
+    <Authority Name="SmokeDetect" Name_KOR="연기감지" Name_CHN="烟雾觉察" Name_HUN="FüstÉszlelés" Read="True" Modify="True" />
+    <Authority Name="AlarmLog" Name_KOR="알람로그" Name_CHN="警报日志" Name_HUN="RiadóNapló" Read="True" Modify="True" />
+    <Authority Name="BCRLog" Name_KOR="BCR로그" Name_CHN="BCR日志" Name_HUN="BCRNapló" Read="True" Modify="True" />
+    <Authority Name="HSMSLog" Name_KOR="HMSM로그" Name_CHN="HSMS日志" Name_HUN="HSMSNapló" Read="True" Modify="True" />
+    <Authority Name="OperatorLog" Name_KOR="오퍼레이터로그" Name_CHN="操作员日志" Name_HUN="OperátorNapló" Read="True" Modify="True" />
+    <Authority Name="TransferLog" Name_KOR="반송로그" Name_CHN="转移日志" Name_HUN="TranszferNapló" Read="True" Modify="True" />
+    <Authority Name="UtilizationLog" Name_KOR="가동률로그" Name_CHN="运转率日志" Name_HUN="Üzemidő napló" Read="True" Modify="True" />
+    <Authority Name="PlayBack" Name_KOR="플레이백" Name_CHN="回放" Name_HUN="Lejatszas" Read="True" Modify="True" />
+    <Authority Name="MCSState" Name_KOR="MCS상태" Name_CHN="MCS状态" Name_HUN="MCSállapot" Read="True" Modify="True" />
+    <Authority Name="SCSState" Name_KOR="SCS상태" Name_CHN="SCS状态" Name_HUN="SCSállapot" Read="True" Modify="True" />
+    <Authority Name="PLCState" Name_KOR="PLC상태" Name_CHN="PLC状态" Name_HUN="PLCállapot" Read="True" Modify="True" />
+    <Authority Name="BoothState" Name_KOR="Booth상태" Name_CHN="Booth状态" Name_HUN="Boothállapot" Read="True" Modify="True" />
+    <Authority Name="AlarmClear" Name_KOR="알람클리어" Name_CHN="警报清除" Name_HUN="RiadóTörlés" Read="True" Modify="True" />
+    <Authority Name="JobControl" Name_KOR="명령어제어" Name_CHN="工作控制" Name_HUN="munkaellenőrzés" Read="True" Modify="True" />
+    <Authority Name="EXIT" Name_KOR="나가기" Name_CHN="退出" Name_HUN="kilépés" Read="True" Modify="True" />
+  </AuthorityLevel>
+  <AuthorityLevel Level="Operator">
+    <Authority Name="AlarmManager" Name_KOR="알람매니저" Name_CHN="警报经理" Name_HUN="RiadóKezelő" Read="False" Modify="False" />
+    <Authority Name="Config" Name_KOR="구성" Name_CHN="配置" Name_HUN="Konfig" Read="False" Modify="False" />
+    <Authority Name="MapViewer" Name_KOR="맵뷰어" Name_CHN="映射查看器" Name_HUN="TérképNéző" Read="True" Modify="False" />
+    <Authority Name="CarrierSearch" Name_KOR="캐리어조회" Name_CHN="载体搜索" Name_HUN="HordozóKeresés" Read="True" Modify="False" />
+    <Authority Name="TerminalMessage" Name_KOR="터미널메시지" Name_CHN="终端口信" Name_HUN="TerminálÜzenet" Read="False" Modify="False" />
+    <Authority Name="StoredCarrier" Name_KOR="보관 캐리어" Name_CHN="StoredCarrier" Name_HUN="StoredCarrier" Read="False" Modify="False" />
+    <Authority Name="IOMonitor" Name_KOR="IO모니터" Name_CHN="入出力监控" Name_HUN="IOMegfigyelés" Read="False" Modify="False" />
+    <Authority Name="SmokeDetect" Name_KOR="연기감지" Name_CHN="烟雾觉察" Name_HUN="FüstÉszlelés" Read="False" Modify="False" />
+    <Authority Name="AlarmLog" Name_KOR="알람로그" Name_CHN="警报日志" Name_HUN="RiadóNapló" Read="False" Modify="False" />
+    <Authority Name="BCRLog" Name_KOR="BCR로그" Name_CHN="BCR日志" Name_HUN="BCRNapló" Read="False" Modify="False" />
+    <Authority Name="HSMSLog" Name_KOR="HMSM로그" Name_CHN="HSMS日志" Name_HUN="HSMSNapló" Read="False" Modify="False" />
+    <Authority Name="OperatorLog" Name_KOR="오퍼레이터로그" Name_CHN="操作员日志" Name_HUN="OperátorNapló" Read="False" Modify="False" />
+    <Authority Name="TransferLog" Name_KOR="반송로그" Name_CHN="转移日志" Name_HUN="TranszferNapló" Read="False" Modify="False" />
+    <Authority Name="UtilizationLog" Name_KOR="가동률로그" Name_CHN="运转率日志" Name_HUN="Üzemidő napló" Read="False" Modify="False" />
+    <Authority Name="PlayBack" Name_KOR="플레이백" Name_CHN="回放" Name_HUN="Lejatszas" Read="False" Modify="False" />
+    <Authority Name="MCSState" Name_KOR="MCS상태" Name_CHN="MCS状态" Name_HUN="MCSállapot" Read="True" Modify="False" />
+    <Authority Name="SCSState" Name_KOR="SCS상태" Name_CHN="SCS状态" Name_HUN="SCSállapot" Read="True" Modify="False" />
+    <Authority Name="PLCState" Name_KOR="PLC상태" Name_CHN="PLC状态" Name_HUN="PLCállapot" Read="True" Modify="False" />
+    <Authority Name="BoothState" Name_KOR="Booth상태" Name_CHN="Booth状态" Name_HUN="Boothállapot" Read="True" Modify="False" />
+    <Authority Name="AlarmClear" Name_KOR="알람클리어" Name_CHN="警报清除" Name_HUN="RiadóTörlés" Read="True" Modify="False" />
+    <Authority Name="JobControl" Name_KOR="명령어제어" Name_CHN="工作控制" Name_HUN="munkaellenőrzés" Read="True" Modify="True" />
+    <Authority Name="EXIT" Name_KOR="나가기" Name_CHN="退出" Name_HUN="kilépés" Read="True" Modify="True" />
+  </AuthorityLevel>
+</AuthorityLevels>

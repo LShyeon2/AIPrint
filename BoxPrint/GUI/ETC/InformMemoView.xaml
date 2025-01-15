@@ -1,0 +1,66 @@
+﻿<Window x:Class="BoxPrint.GUI.ETC.InformMemoView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BoxPrint.GUI.ETC"
+        
+        xmlns:uidictionary="clr-namespace:BoxPrint.GUI.UIControls"
+        xmlns:ex="clr-namespace:TranslationByMarkupExtension"
+        mc:Ignorable="d"
+        
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ShowInTaskbar="False" Topmost="True"
+        ResizeMode="NoResize" SizeToContent="WidthAndHeight"
+        TextOptions.TextRenderingMode="ClearType" UseLayoutRounding="True" AllowsTransparency="True" 
+        KeyDown="Window_KeyDown">
+
+    <Window.Background>
+        <SolidColorBrush Opacity="0" Color="White"/>
+    </Window.Background>
+
+    <Window.Resources>
+        <!--툴팁-->
+        <Style TargetType="{x:Type ToolTip}" BasedOn="{StaticResource SK_ToolTipStyle}"/>
+    </Window.Resources>
+
+    <Border Name="MainBorder" Background="White" CornerRadius="5" Margin="30" Width="350" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" MinHeight="200">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="15" Direction="280" Opacity="0.8" />
+        </Border.Effect>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="10" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="1" Text="Inform Memo" Margin="10,0,0,0"
+                       FontFamily="{StaticResource ExtraBoldFont}" FontSize="20" Foreground="{StaticResource SK_LBlack}"/>
+
+            <TextBox x:Name="txtInformMemo" Grid.Row="2" Margin="10,5,10,5" TextWrapping="Wrap" AcceptsReturn="True"
+                     FontFamily="{StaticResource BoldFont}" FontSize="13" Foreground="{StaticResource SK_LBlack}"/>
+
+            <Grid Grid.Row="3">
+                <Grid.Effect>
+                    <DropShadowEffect BlurRadius="7" Direction="280" Opacity="0.8" ShadowDepth="3" />
+                </Grid.Effect>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <uidictionary:SK_ButtonControl x:Name="Button_Yes" Background="{StaticResource SK_Teal}"  MinWidth="70" FrameCornerRadius="3" Margin="10,5"
+                                               DockPanel.Dock="Right" Style="{StaticResource SK_TextButtonStyle2}" ToolTip="{ex:Translate SAVE}"  Content="{ex:Translate SAVE}" Foreground="White" MouseOverColor="White" Click="Button_Click" TagName="Yes" BorderBrush="{x:Null}"/>
+
+
+                <uidictionary:SK_ButtonControl x:Name="Button_No" Background="{StaticResource SK_Red}" MinWidth="70" FrameCornerRadius="3" Margin="10,5"
+                                               DockPanel.Dock="Right" Style="{StaticResource SK_TextButtonStyle2}" ToolTip="{ex:Translate CANCEL}"  Content="{ex:Translate CANCEL}" Foreground="White" MouseOverColor="White" Click="Button_Click" TagName="No" Grid.Column="1" BorderBrush="{x:Null}" />
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

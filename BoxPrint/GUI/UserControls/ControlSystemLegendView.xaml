@@ -1,0 +1,479 @@
+﻿<UserControl x:Class="BoxPrint.GUI.UserControls.ControlSystemLegendView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BoxPrint.GUI.UserControls"
+             mc:Ignorable="d" 
+             xmlns:UIControl="clr-namespace:BoxPrint.GUI.UIControls" 
+             xmlns:vm="clr-namespace:BoxPrint.GUI.ViewModels"
+             d:DataContext="{d:DesignInstance vm:ControlSystemLegendViewModel}"
+             FontFamily="{StaticResource BoldFont}"
+             xmlns:uidictionary="clr-namespace:BoxPrint.GUI.UIControls"
+             xmlns:ex="clr-namespace:TranslationByMarkupExtension">
+
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="DefaultColor" Color="#FFDDDDDD"/>
+
+        <Style x:Key="HeaderBorder" TargetType="{x:Type Border}">
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Background" Value="{StaticResource SK_Yellow}"/>
+
+            <Style.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="TextAlignment" Value="Center"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="FontSize" Value="20"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style x:Key="BodyBorder" TargetType="{x:Type Border}">
+            <Setter Property="Background" Value="Transparent"/>
+
+            <Style.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="TextAlignment" Value="Left"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="FontSize" Value="17"/>
+                </Style>
+
+                <Style TargetType="{x:Type TextBox}">
+                    <Setter Property="TextAlignment" Value="Left"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="FontSize" Value="17"/>
+                    <Setter Property="IsEnabled" Value="False"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style x:Key="ButtonBorder" TargetType="{x:Type Border}">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Background" Value="{StaticResource DefaultColor}"/>
+
+            <Style.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="TextAlignment" Value="Center"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="FontSize" Value="17"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+    </UserControl.Resources>
+    <Viewbox Stretch="Uniform">
+        <Grid Margin="10,0,10,0" IsHitTestVisible="False" Width="250">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="1" Style="{StaticResource HeaderBorder}">
+                <TextBlock Text="{ex:Translate SC}" FontSize="{Binding UIFontSize_Large}" Margin="0,2" FontFamily="{StaticResource ExtraBoldFont}"/>
+            </Border>
+
+            <Border Grid.Row="2" Style="{StaticResource BodyBorder}">
+                <StackPanel Orientation="Vertical" Margin="5">
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <UIControl:UIControlRM CraneState="ONLINE"
+                                               Selector="False"
+                                               Style="{DynamicResource SK_RMStyleNew}"
+                                               Width="40" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center" CraneSCStatus="AUTO_RUN"/>
+                        <TextBlock Text="{ex:Translate 온라인}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <UIControl:UIControlRM CraneState="OFFLINE"
+                                               Selector="False"
+                                               Style="{DynamicResource SK_RMStyleNew}"
+                                               Width="40" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center" CraneSCStatus="AUTO_RUN"/>
+                        <TextBlock Text="{ex:Translate 오프라인}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <UIControl:UIControlRM CraneState="HOMING"
+                                               Selector="False"
+                                               Style="{DynamicResource SK_RMStyleNew}"
+                                               Width="40" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center" CraneSCStatus="AUTO_RUN"/>
+                        <TextBlock Text="{ex:Translate 홈 복귀}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <UIControl:UIControlRM CraneState="PUTTING"
+                                               Selector="False"
+                                               Style="{DynamicResource SK_RMStyleNew}"
+                                               Width="40" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center" CraneSCStatus="AUTO_RUN"/>
+                        <TextBlock Text="{ex:Translate 입고}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <UIControl:UIControlRM CraneState="GETTING"
+                                               Selector="False"
+                                               Style="{DynamicResource SK_RMStyleNew}"
+                                               Width="40" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center" CraneSCStatus="AUTO_RUN"/>
+                        <TextBlock Text="{ex:Translate 출고}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <UIControl:UIControlRM CraneState="MOVING"
+                                               Selector="False"
+                                               Style="{DynamicResource SK_RMStyleNew}"
+                                               Width="40" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center" CraneSCStatus="AUTO_RUN"/>
+                        <TextBlock Text="{ex:Translate 이동}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <UIControl:UIControlRM CraneState="RACK_TO_RACK"
+                                               Selector="False"
+                                               Style="{DynamicResource SK_RMStyleNew}"
+                                               Width="40" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center" CraneSCStatus="AUTO_RUN"/>
+                        <TextBlock Text="{ex:Translate 랙투랙}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <UIControl:UIControlRM CraneState="DIRECT_GETTING"
+                                               Selector="False"
+                                               Style="{DynamicResource SK_RMStyleNew}"
+                                               Width="40" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center" CraneSCStatus="AUTO_RUN"/>
+                        <TextBlock Text="{ex:Translate 직출고}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <UIControl:UIControlRM CraneState="FIRE_UNLOADING"
+                                               Selector="False"
+                                               Style="{DynamicResource SK_RMStyleNew}"
+                                               Width="40" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center" CraneSCStatus="AUTO_RUN"/>
+                        <TextBlock Text="{ex:Translate 화재출고}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <UIControl:UIControlRM CraneState="ERROR"
+                                               Selector="False"
+                                               Style="{DynamicResource SK_RMStyleNew}"
+                                               Width="40" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center" CraneSCStatus="AUTO_RUN"/>
+                        <TextBlock Text="{ex:Translate 에러}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Row="4" Style="{StaticResource HeaderBorder}">
+                <TextBlock Text="{ex:Translate Shelf}" FontSize="{Binding UIFontSize_Large}" Margin="0,2" FontFamily="{StaticResource ExtraBoldFont}"/>
+            </Border>
+            <Border Grid.Row="5" Style="{StaticResource BodyBorder}">
+                <StackPanel Orientation="Vertical" Margin="5">
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <UIControl:UIControlShelf ShelfType="Short" DeadZone="False" ShelfStatus="EMPTY"
+                                                                  Style="{DynamicResource SK_ShelfStyleNew}"
+                                                                  Width="28" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center" Selector="False"/>
+                        <TextBlock Text="{ex:Translate 단폭전용}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <UIControl:UIControlShelf ShelfType="Long" DeadZone="False" ShelfStatus="EMPTY"
+                                                                  Style="{DynamicResource SK_ShelfStyleNew}"
+                                                                  Width="28" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center" Selector="False"/>
+                        <TextBlock Text="{ex:Translate 장폭전용}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <UIControl:UIControlShelf ShelfType="Both" DeadZone="False" ShelfStatus="EMPTY"
+                                                                  Style="{DynamicResource SK_ShelfStyleNew}"
+                                                                  Width="28" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center" Selector="False"/>
+                        <TextBlock Text="{ex:Translate 혼합사용}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <UIControl:UIControlShelf ShelfType="Short" DeadZone="False" ShelfStatus="EMPTY"
+                                                                  Style="{DynamicResource SK_ShelfStyleNew}"
+                                                                  Width="28" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center" Selector="False"/>
+                        <TextBlock Text="{ex:Translate 대기}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <UIControl:UIControlShelf ShelfType="Short" DeadZone="False" ShelfStatus="RESERVED_PUT"
+                                                                  Style="{DynamicResource SK_ShelfStyleNew}"
+                                                                  Width="28" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center" Selector="False"/>
+                        <TextBlock Text="{ex:Translate 입고예약}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <UIControl:UIControlShelf ShelfType="Short" DeadZone="False" ShelfStatus="RESERVED_GET"
+                                                                  Style="{DynamicResource SK_ShelfStyleNew}"
+                                                                  Width="28" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center" Selector="False"/>
+                        <TextBlock Text="{ex:Translate 출고예약}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <UIControl:UIControlShelf ShelfType="Short" DeadZone="False" ShelfStatus="OCCUPIED"
+                                                                  Style="{DynamicResource SK_ShelfStyleNew}"
+                                                                  Width="28" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center" Selector="False"/>
+                        <TextBlock Text="{ex:Translate 적재}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>
+                    <!--<Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <UIControl:UIControlShelf ShelfType="Short" DeadZone="False" ShelfStatus="BLOCKED_PUT"
+                                                                  Style="{DynamicResource SK_ShelfStyleNew}"
+                                                                  Width="28" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center" Selector="False"/>
+                        <TextBlock Text="{ex:Translate 입고금지}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <UIControl:UIControlShelf ShelfType="Short" DeadZone="False" ShelfStatus="BLOCKED_GET"
+                                                                  Style="{DynamicResource SK_ShelfStyleNew}"
+                                                                  Width="28" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center" Selector="False"/>
+                        <TextBlock Text="{ex:Translate 출고금지}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>-->
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <UIControl:UIControlShelf ShelfType="Short" DeadZone="False" ShelfStatus="NOT_USE"
+                                                                  Style="{DynamicResource SK_ShelfStyleNew}"
+                                                                  Width="28" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center" Selector="False"/>
+                        <TextBlock Text="{ex:Translate 사용금지}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <UIControl:UIControlShelf ShelfType="Short" DeadZone="False" ShelfStatus="DOUBLE_STORAGE"
+                                                                  Style="{DynamicResource SK_ShelfStyleNew}"
+                                                                  Width="28" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center" Selector="False"/>
+                        <TextBlock Text="{ex:Translate 더블에러}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <UIControl:UIControlShelf ShelfType="Short" DeadZone="False" ShelfStatus="SOURCE_EMPTY"
+                                                                  Style="{DynamicResource SK_ShelfStyleNew}"
+                                                                  Width="28" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center" Selector="False"/>
+                        <TextBlock Text="{ex:Translate 공출고}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <UIControl:UIControlShelf ShelfType="Short" DeadZone="False" ShelfStatus="UNKSHELF"
+                                                                  Style="{DynamicResource SK_ShelfStyleNew}"
+                                                                  Width="28" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center" Selector="False"/>
+                        <TextBlock Text="{ex:Translate UNKSHELF}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Row="7" Style="{StaticResource HeaderBorder}">
+                <TextBlock Text="{ex:Translate CV}" FontSize="{Binding UIFontSize_Large}" Margin="0,2" FontFamily="{StaticResource ExtraBoldFont}"/>
+            </Border>
+            <Border Grid.Row="8" Style="{StaticResource BodyBorder}">
+                <StackPanel Orientation="Vertical" Margin="5">
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
+                            <UIControl:UIControlCV ConveyorUIState="Online"
+                                                   Selector="False"
+                                                   PortInOutType="INPUT"
+                                                   Style="{DynamicResource SK_CVStyleNew}"
+                                                   Width="23" Height="23"
+                                                   RenderTransformOrigin="0.5, 0.5" HorizontalAlignment="Center"/>
+                            <UIControl:UIControlCV ConveyorUIState="Online"
+                                                   Selector="False"
+                                                   PortInOutType="OUTPUT"
+                                                   Style="{DynamicResource SK_CVStyleNew}"
+                                                   Width="23" Height="23"
+                                                   RenderTransformOrigin="0.5, 0.5" HorizontalAlignment="Center"/>
+                            <!--<UIControl:UIControlCV ConveyorUIState="Online"
+                                                   Selector="False"
+                                                   PortInOutType="BOTH"
+                                                   Style="{DynamicResource SK_CVStyleNew}"
+                                                   Width="23" Height="23"
+                                                   RenderTransformOrigin="0.5, 0.5" HorizontalAlignment="Center"/>-->
+                        </StackPanel>
+
+                        <TextBlock Text="{ex:Translate IN/OUT}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <UIControl:UIControlCV ConveyorUIState="Online"
+                                               Selector="False"
+                                               Style="{DynamicResource SK_CVStyleNew}"
+                                               Width="23" Height="23"
+                                               RenderTransformOrigin="0.5, 0.5" HorizontalAlignment="Center"/>
+                    
+                        <TextBlock Text="{ex:Translate 온라인}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <UIControl:UIControlCV ConveyorUIState="Alarm"
+                                               Selector="False"
+                                               Style="{DynamicResource SK_CVStyleNew}"
+                                               Width="23" Height="23"
+                                               RenderTransformOrigin="0.5, 0.5" HorizontalAlignment="Center"/>
+                    
+                        <TextBlock Text="{ex:Translate 에러}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <UIControl:UIControlCV ConveyorUIState="Manual"
+                                               Selector="False"
+                                               Style="{DynamicResource SK_CVStyleNew}"
+                                               Width="23" Height="23"
+                                               RenderTransformOrigin="0.5, 0.5" HorizontalAlignment="Center"/>
+
+                        <TextBlock Text="{ex:Translate Manual}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <UIControl:UIControlCV ConveyorUIState="Online"
+                                               IsTrackPause="True"
+                                               Selector="False"
+                                               Style="{DynamicResource SK_CVStyleNew}"
+                                               Width="23" Height="23"
+                                               RenderTransformOrigin="0.5, 0.5" HorizontalAlignment="Center"/>
+                    
+                        <TextBlock Text="{ex:Translate TrackPause}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>
+
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <UIControl:UIControlCV ConveyorUIState="Online"
+                                               Selector="False"
+                                               PortAccessMode="MANUAL"
+                                               Style="{DynamicResource SK_CVStyleNew}"
+                                               Width="23" Height="23"
+                                               RenderTransformOrigin="0.5, 0.5" HorizontalAlignment="Center"/>
+
+                        <TextBlock Text="{ex:Translate Manual Port}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Row="10" Style="{StaticResource HeaderBorder}">
+                <TextBlock Text="{ex:Translate Active}" FontSize="{Binding UIFontSize_Large}" Margin="0,2" FontFamily="{StaticResource ExtraBoldFont}"/>
+            </Border>
+            <Border Grid.Row="11" Style="{StaticResource BodyBorder}">
+                <StackPanel Orientation="Vertical" Margin="5">
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Ellipse x:Name="RM1Active" Fill="{StaticResource ShelfBusyRM1Brush}" Height="18" Width="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Text="{ex:Translate Crane1}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Ellipse x:Name="RM2Active" Fill="{StaticResource ShelfBusyRM2Brush}" Height="18" Width="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Text="{ex:Translate Crane2}" Grid.Column="1" FontSize="{Binding UIFontSize_Medium}"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Viewbox>
+</UserControl>

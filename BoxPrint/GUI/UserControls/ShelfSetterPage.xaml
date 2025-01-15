@@ -1,0 +1,249 @@
+﻿<Window x:Class="BoxPrint.GUI.UserControls.ShelfSetterPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:local="clr-namespace:BoxPrint.GUI.UserControls"
+        mc:Ignorable="d"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        d:DesignHeight="600" d:DesignWidth="1200">
+
+    <Window.Resources>
+        <Style x:Key="CustomToolTip" TargetType="{x:Type ToolTip}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="StaysOpen" Value="True"/>
+            <Setter Property="ToolTipService.ShowDuration" Value="50000"/>
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="grdSetter">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Border x:Name="bdMain">
+            <Grid x:Name="grdMain" Grid.Column="0" HorizontalAlignment="Center">
+                <Grid x:Name="grdMainLayOut">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid x:Name="gridFrontLevel" Grid.Column="0" Grid.Row="0" ShowGridLines="False"
+                                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    
+                    <Viewbox Grid.Column="0" Grid.Row="1">
+                        <TextBlock x:Name="txtFrontText" Text="{Binding Path=FrontBank, Mode=TwoWay}" Grid.Column="0" Grid.Row="1" Margin="0,0,20,0"
+                                           TextAlignment="Right"/>
+                    </Viewbox>
+
+                    <Viewbox Grid.Column="0" Grid.Row="3">
+                        <TextBlock x:Name="txtRearText" Text="{Binding Path=RearBank, Mode=TwoWay}" Grid.Column="0" Grid.Row="3" Margin="0,0,20,0"
+                                           TextAlignment="Right"/>
+                    </Viewbox>
+                    
+                    <Grid x:Name="gridRearLevel" Grid.Column="0" Grid.Row="4" ShowGridLines="False"
+                                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+                    <Grid x:Name="GridFrontCV" Grid.Column="1" Grid.Row="0" ShowGridLines="False" Tag="Front"
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <Grid x:Name="GridFrontShelf" Grid.Column="1" Grid.Row="0" ShowGridLines="False" Tag="Front"
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                          MouseLeftButtonDown="Grid_MouseLeftButtonDown"
+                          MouseLeftButtonUp="Grid_MouseLeftButtonUp"
+                          MouseMove="Grid_MouseMove"/>
+                    <Grid x:Name="GridFrontXArray" Grid.Column="1" Grid.Row="1" ShowGridLines="False"
+                                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+                    <Grid x:Name="grdRM" Grid.Column="1" Grid.Row="2"
+                                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="30">
+                        <Canvas x:Name="CanvasRMfirme" Canvas.Left="0" Canvas.Top="0" Background="Beige"/>
+                    </Grid>
+                    <Grid x:Name="GridRearXArray" Grid.Column="1" Grid.Row="3" ShowGridLines="False"
+                                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <Grid x:Name="GridRearCV" Grid.Column="1" Grid.Row="4" ShowGridLines="False" Tag="Rear"
+                                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <Grid x:Name="GridRearShelf" Grid.Column="1" Grid.Row="4" ShowGridLines="False" Tag="Rear"
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                          MouseLeftButtonDown="Grid_MouseLeftButtonDown"
+                          MouseLeftButtonUp="Grid_MouseLeftButtonUp"
+                          MouseMove="Grid_MouseMove"/>
+                </Grid>
+            </Grid>
+        </Border>
+        <!--//220418 HHJ SCS 개선     //- LayOut 설정 관리 추가-->
+        <Grid x:Name="grdShelfSetter" Grid.Column="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Width="Auto">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" Text="Bay"/>
+                    <TextBox x:Name="txtGrdX" Grid.Column="1" IsEnabled="True" Width="100" HorizontalAlignment="Left"/>
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" Text="Level"/>
+                    <TextBox x:Name="txtGrdY" Grid.Column="1" IsEnabled="True" Width="100" HorizontalAlignment="Left"/>
+                </Grid>
+
+                <Button Content="SetGrid" Width="100" HorizontalAlignment="Left" Click="SetGrid_Click"/>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" Text="Type"/>
+                    <ComboBox x:Name="cbbType" Grid.Column="1" Width="100" HorizontalAlignment="Left"
+                              SelectionChanged="cbbType_SelectionChanged"/>
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" Text="Floor"/>
+                    <ComboBox x:Name="cbbFloor" Grid.Column="1" Width="100" HorizontalAlignment="Left" SelectionChanged="cbbFloor_SelectionChanged"/>
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" Text="ZoneName"/>
+                    <ComboBox x:Name="cbbZoneName" Grid.Column="1" Width="100" HorizontalAlignment="Left" SelectionChanged="cbbZoneName_SelectionChanged"/>
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" Text="Priority"/>
+                    <TextBox x:Name="txtShelfPriority" Grid.Column="1" IsEnabled="True" Width="100" HorizontalAlignment="Left"/>
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" Text="Enable"/>
+                    <ComboBox x:Name="cbbEnable" Grid.Column="1" Width="100" HorizontalAlignment="Left"
+                              SelectionChanged="cbbEnable_SelectionChanged"/>
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" Text="DeadZone"/>
+                    <ComboBox x:Name="cbbDeadZone" Grid.Column="1" Width="100" HorizontalAlignment="Left"
+                              SelectionChanged="cbbDeadZone_SelectionChanged"/>
+                </Grid>
+
+                <Button Content="SaveData" Width="100" HorizontalAlignment="Left" Click="SaveData_Click"/>
+            </StackPanel>
+
+            <Border Grid.Row="1" VerticalAlignment="Bottom"
+                    BorderThickness="2" BorderBrush="DarkSlateGray" CornerRadius="10" Panel.ZIndex="1"
+                    Background="Transparent">
+
+                <Grid Margin="5,10,5,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel HorizontalAlignment="Left" Orientation="Vertical" IsHitTestVisible="False" Grid.Column="0">
+                        <Ellipse x:Name="RM1Active" Fill="{StaticResource ShelfBusyRM1Brush}" Height="20" Width="20" Margin="2"/>
+                        <Ellipse x:Name="RM2Active" Fill="{StaticResource ShelfBusyRM2Brush}" Height="20" Width="20" Margin="2"/>
+                        <Border Background="{StaticResource ShelfExistBrush}" Height="20" Width="20" Margin="2" 
+                            BorderBrush="Black" BorderThickness="1"/>
+                        <Border Background="{StaticResource ShelfEmptyBrush}" Height="20" Width="20" Margin="2" 
+                            BorderBrush="Black" BorderThickness="1"/>
+                        <Border Height="20" Width="20" Margin="2" BorderBrush="Black" BorderThickness="1">
+                            <Grid x:Name="grdDisableLegend">
+                                <Line StrokeThickness="2" Stroke="{StaticResource ShelfDisableStroke}"
+                                      X1="0" 
+                                      Y1="0"
+                                      X2="{Binding ElementName=grdDisableLegend, Path=ActualWidth}"
+                                      Y2="{Binding ElementName=grdDisableLegend, Path=ActualHeight}"/>
+
+                                <Line StrokeThickness="2" Stroke="{StaticResource ShelfDisableStroke}"
+                                      X1="0" 
+                                      Y1="{Binding ElementName=grdDisableLegend, Path=ActualHeight}"
+                                      X2="{Binding ElementName=grdDisableLegend, Path=ActualWidth}"
+                                      Y2="0"/>
+                            </Grid>
+                        </Border>
+                        <Border Background="{StaticResource ShelfError}" Height="20" Width="20" Margin="2" 
+                            BorderBrush="Black" BorderThickness="1"/>
+                        <Border Background="{StaticResource ShelfEmptyBrush}" Height="20" Width="20" Margin="2"
+                            BorderBrush="{StaticResource eShelfType.Short}" BorderThickness="3"/>
+                        <Border Background="{StaticResource ShelfEmptyBrush}" Height="20" Width="20" Margin="2" 
+                            BorderBrush="{StaticResource eShelfType.Long}" BorderThickness="3"/>
+                        <Border Background="{StaticResource ShelfEmptyBrush}" Height="20" Width="20" Margin="2"
+                            BorderBrush="{StaticResource eShelfType.Both}" BorderThickness="3"/>
+                        <Border Background="{StaticResource ShelfEmptyBrush}" Height="20" Width="20" Margin="2"
+                            BorderBrush="{StaticResource eShelfType.FireWaterPool}" BorderThickness="3"/>
+                    </StackPanel>
+
+                    <StackPanel HorizontalAlignment="Left" Orientation="Vertical" IsHitTestVisible="False" Grid.Column="1">
+                        <StackPanel.Resources>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Height" Value="20"/>
+                                <Setter Property="Margin" Value="5, 2, 2, 2"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="TextAlignment" Value="Left"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                            </Style>
+                        </StackPanel.Resources>
+                        <TextBlock Text="RM1 Active"/>
+                        <TextBlock Text="RM2 Active"/>
+                        <TextBlock Text="Shelf Exist"/>
+                        <TextBlock Text="Shelf Empty"/>
+                        <TextBlock Text="Shelf Disable"/>
+                        <TextBlock Text="Shelf Error"/>
+                        <TextBlock Text="Shelf Short Type"/>
+                        <TextBlock Text="Shelf Long Type"/>
+                        <TextBlock Text="Shelf Both Type"/>
+                        <TextBlock Text="Shelf FireWaterPool Type"/>
+                    </StackPanel>
+                </Grid>
+
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

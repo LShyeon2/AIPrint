@@ -1,0 +1,136 @@
+﻿<Window x:Class="BoxPrint.GUI.ETC.RobotSpeedPopupView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BoxPrint.GUI.ETC"
+        xmlns:ex="clr-namespace:TranslationByMarkupExtension"
+        mc:Ignorable="d"
+        Title="RobotSpeedPopupView" Height="330" Width="300" Background="White"  Loaded="Window_Loaded">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="78"/>
+            <RowDefinition Height="162"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="gridHeader" Cursor="Hand" Background="#FF4D4D4D" />
+        <TextBlock Text="{ex:Translate Crane Speed Setting}" Foreground="#FFFFFEFE" FontWeight="Bold" FontSize="16" Margin="40,10,0,10" HorizontalAlignment="Left" IsHitTestVisible="False" Width="160"/>
+        <Rectangle Fill="#FFBABABA" Height="2" VerticalAlignment="Bottom" Margin="20,0,20,77" Grid.Row="1"/>
+        <Grid Margin="10,15,10,10" Grid.Row="1" Height="Auto" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label   Grid.Column="0" Grid.Row="0" Content="{ex:Translate RM Name}"  VerticalAlignment="Stretch" HorizontalAlignment="Right" />
+            <ComboBox  x:Name="cbRMCount" Grid.Column="1"  Grid.Row="0" HorizontalAlignment="Stretch" ></ComboBox>
+            <Label   Grid.Column="0" Grid.Row="1" Content="{ex:Translate Current Speed mm/s}" VerticalAlignment="Stretch" HorizontalAlignment="Right" />
+            <Label  x:Name="lblCurSpeed" Grid.Column="1"  Grid.Row="1"  VerticalAlignment="Stretch" />
+        </Grid>
+        <StackPanel  Grid.Row="2" Margin="20,10" >
+            <Label Content="{ex:Translate Set RM Speed Change}"/>
+            <Slider Name="sdRMspeed" Margin="10" Foreground="#FF333333" Minimum="1" Maximum="2000" IsSelectionRangeEnabled="True" SelectionStart="1" SelectionEnd="1000" TickPlacement="BottomRight" TickFrequency="1" />
+            <StackPanel Orientation="Horizontal">
+                <Label Content="{ex:Translate Value :}" />
+                <TextBlock Text="{Binding Value, ElementName=sdRMspeed, StringFormat={}{0:0}}"  VerticalAlignment="Center"/>
+            </StackPanel>
+        </StackPanel>
+        <Rectangle Fill="#FFBABABA" Height="2" VerticalAlignment="Top" Margin="20,0" Grid.Row="2" Visibility="Hidden"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Top" Margin="163,113,36,0" Height="49" Width="93">
+            <!--<Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="25" Content="닫기" Command="{Binding CancelCommand}"/>-->
+            <Button x:Name="btnSave"  Margin="10,0,10,0" VerticalAlignment="Stretch" Click="btnSave_Click"  Width="30" Height="42" ToolTip="{ex:Translate SAVE}">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Name="border111" BorderThickness="0" Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" TargetName="border111">
+                                                <Setter.Value>
+                                                    <ImageBrush ImageSource="/image/Save.png"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                        <Trigger Property="IsMouseOver" Value="false">
+                                            <Setter Property="Background" TargetName="border111">
+                                                <Setter.Value>
+                                                    <ImageBrush ImageSource="/image/Save2.png"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="true">
+                                            <Setter Property="Background" TargetName="border111">
+                                                <Setter.Value>
+                                                    <ImageBrush ImageSource="/image/Save3.png"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="btnClose"  Margin="10,3,10,4" VerticalAlignment="Stretch" Click="btnClose_Click" Width="30" Height="42" ToolTip="{ex:Translate EXIT}">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Name="border111" BorderThickness="0" Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" TargetName="border111">
+                                                <Setter.Value>
+                                                    <ImageBrush ImageSource="/image/exit.png"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                        <Trigger Property="IsMouseOver" Value="false">
+                                            <Setter Property="Background" TargetName="border111">
+                                                <Setter.Value>
+                                                    <ImageBrush ImageSource="/image/exit2.png"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="true">
+                                            <Setter Property="Background" TargetName="border111">
+                                                <Setter.Value>
+                                                    <ImageBrush ImageSource="/image/exit3.png"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+        </StackPanel>
+        <Button  x:Name="btnRefresh" Command="{Binding SearchCommand}" HorizontalAlignment="Right" Width="25" ToolTip="{ex:Translate Refresh}" Margin="0,8,25,8" Click="btnRefresh_Click" Background="{x:Null}">
+            <Path Stretch="Fill" Fill="White" Data="F1 M 4037.8,1846.28L 4023.94,1825.64L 4032.28,1825.64C 4032.19,1813.73 4022.52,1804.11 4010.59,1804.11C 4005.34,1804.11 4000.52,1805.98 3996.76,1809.09L 3990.24,1800.51C 3995.85,1795.95 4003,1793.21 4010.8,1793.21C 4028.74,1793.21 4043.29,1807.72 4043.38,1825.64L 4051.65,1825.64L 4051.63,1825.67L 4051.83,1825.67L 4050.32,1827.63L 4037.8,1846.28 Z M 3983.51,1805.84L 3997.37,1826.48L 3988.92,1826.48C 3989.28,1838.14 3998.84,1847.48 4010.59,1847.48C 4015.76,1847.48 4020.51,1845.67 4024.24,1842.65L 4031.05,1851.32C 4025.49,1855.74 4018.45,1858.38 4010.8,1858.38C 3993.05,1858.38 3978.62,1844.19 3978.22,1826.48L 3969.66,1826.48L 3983.51,1805.84 Z M 4023.41,1838.69L 4017.57,1838.69L 4013.53,1831.91C 4012.71,1830.53 4012.01,1829.63 4011.43,1829.2C 4010.85,1828.77 4010.23,1828.56 4009.56,1828.56L 4007.76,1828.56L 4007.76,1838.69L 4002.69,1838.69L 4002.69,1812.64L 4011.47,1812.64C 4017.44,1812.64 4020.42,1815.01 4020.42,1819.75C 4020.42,1821.49 4019.92,1823 4018.92,1824.28C 4017.92,1825.56 4016.49,1826.47 4014.64,1827L 4014.64,1827.07C 4015.83,1827.47 4017.14,1828.8 4018.58,1831.05L 4023.41,1838.69 Z M 4007.76,1816.62L 4007.76,1824.58L 4010.65,1824.58C 4011.97,1824.58 4013.02,1824.18 4013.81,1823.37C 4014.6,1822.57 4015,1821.57 4015,1820.36C 4015,1817.87 4013.58,1816.62 4010.74,1816.62L 4007.76,1816.62 Z " Width="21" Height="17"/>
+        </Button>
+    </Grid>
+</Window>

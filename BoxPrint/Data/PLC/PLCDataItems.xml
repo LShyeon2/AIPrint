@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ArrayOfPLCDataItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<!--설정값
+		PLCNum, BaseAddress는 유닛에 개별설정 해주도록 한다.
+		ModuleType : 유닛 타입
+		Area : PLCtoPC, PCtoPLC
+		DataType : Bool, String, int
+		Device : D, L, B
+		ItemName : 호출 명
+		AddressOffset : BaseAddress에서 플러스되는 옵셋
+		BitOffset : D, W로 Bit사용시 1워드내 옵셋
+		Size : Word 사이즈 -->
+	<!--PC가 써야하는 Case가 하나라도 존재하면 PCtoPLC로 설정해준다.-->
+	<!--최대 960 Word Max -->
+
+	<!--Batch Read-->
+	
+	<PLCDataItem	ModuleType="BOOTH"				Area="PLCtoPC"	DataType="Raw"		Device="D"	ItemName="PLC_Area_BatchRead"		   AddressOffset="0"		BitOffset="0"	Size="50"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Raw"		Device="D"	ItemName="PC_Area_BatchRead"		   AddressOffset="0"		BitOffset="0"	Size="50"/>
+																																		   
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Raw"		Device="D"	ItemName="PLC_Area_BatchRead"		   AddressOffset="0"		BitOffset="0"	Size="200"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Raw"		Device="D"	ItemName="PC_Area_BatchRead"		   AddressOffset="0"		BitOffset="0"	Size="200"/>
+										  																								   
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Raw"		Device="D"	ItemName="Area_BatchRead"			   AddressOffset="0"		BitOffset="0"	Size="800"/>
+
+
+	<!--Booth PC Area-->
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_InterlockRelease"			AddressOffset="0"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_HeartBeat"					AddressOffset="1"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_TimeSync_YY"				AddressOffset="2"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_TimeSync_MM"				AddressOffset="3"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_TimeSync_DD"				AddressOffset="4"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_TimeSync_hh"				AddressOffset="5"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_TimeSync_mm"				AddressOffset="6"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_TimeSync_ss"				AddressOffset="7"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_SCSVersion1"				AddressOffset="8"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_SCSVersion2"				AddressOffset="9"		BitOffset="0"	Size="1"/>
+	
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_TowerLamp_HPRed"			AddressOffset="10"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_TowerLamp_HPYellow"		AddressOffset="11"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_TowerLamp_HPGreen"			AddressOffset="12"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_TowerLamp_HPBlue"			AddressOffset="13"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_TowerLamp_HPWhite"			AddressOffset="14"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_TowerLamp_OPRed"			AddressOffset="15"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_TowerLamp_OPYellow"		AddressOffset="16"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_TowerLamp_OPGreen"			AddressOffset="17"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_TowerLamp_OPBlue"			AddressOffset="18"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_TowerLamp_OPWhite"			AddressOffset="19"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_BuzzerHP"					AddressOffset="20"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_BuzzerOP"					AddressOffset="21"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_Crane1_Availability"		AddressOffset="25"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_Crane2_Availability"		AddressOffset="26"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_SystemStart"				AddressOffset="28"		BitOffset="0"	Size="1"/>
+	
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Bool"		Device="D"	ItemName="PC_PauseReq"					AddressOffset="29"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Bool"		Device="D"	ItemName="PC_ResumeReq"					AddressOffset="29"		BitOffset="1"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Bool"		Device="D"	ItemName="PC_TimeSyncReq"				AddressOffset="29"		BitOffset="2"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Bool"		Device="D"	ItemName="PC_PauseResponse"				AddressOffset="29"		BitOffset="3"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Bool"		Device="D"	ItemName="PC_ResumeResponse"			AddressOffset="29"		BitOffset="4"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Bool"		Device="D"	ItemName="PC_RM1ReportComp"				AddressOffset="29"		BitOffset="8"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PCtoPLC"	DataType="Bool"		Device="D"	ItemName="PC_RM2ReportComp"				AddressOffset="29"		BitOffset="9"	Size="1"/>
+	 <!--Booth PLC Area-->
+	<PLCDataItem	ModuleType="BOOTH"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_HeartBeat"				AddressOffset="1"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_FireShutterOperation"		AddressOffset="3"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_PauseResponse"			AddressOffset="29"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_ResumeResponse"			AddressOffset="29"		BitOffset="1"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_TimeSyncResponse"			AddressOffset="29"		BitOffset="2"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_PauseReq"					AddressOffset="29"		BitOffset="3"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_ResumeReq"				AddressOffset="29"		BitOffset="4"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_PauseState"				AddressOffset="29"		BitOffset="8"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_AutoState"			    AddressOffset="29"		BitOffset="9"	Size="1"/>
+	<PLCDataItem	ModuleType="BOOTH"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_DoorOpenState"		    AddressOffset="29"		BitOffset="10"	Size="1"/>
+	
+
+	<!--CV 트랙킹 데이터-->
+	<PLCDataItem	ModuleType="CV"					Area="PCtoPLC"	DataType="String"	Device="D"	ItemName="PC_CarrierID"					AddressOffset="0"		BitOffset="0"	Size="20"/>
+	<PLCDataItem	ModuleType="CV"					Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_DestCPUNum"				AddressOffset="20"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_DestTrackNum"				AddressOffset="21"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_TrayType"					AddressOffset="22"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_TrayStackCount"			AddressOffset="23"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_Polarity"					AddressOffset="24"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_ProductEmpty"				AddressOffset="25"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_WinderDirection"			AddressOffset="26"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_ProductQuantiry"			AddressOffset="27"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_CellPackingLine"			AddressOffset="28"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_InnerTrayType"				AddressOffset="29"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_PalletSize"				AddressOffset="30"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_UnCoatedPart"				AddressOffset="31"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_CoreType"					AddressOffset="32"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_ProductEnd"				AddressOffset="33"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_ValidationNG"				AddressOffset="34"		BitOffset="0"	Size="1"/>
+	
+	<!--NON Tracking Data PC Write-->
+	
+	<PLCDataItem	ModuleType="CV"					Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_TrackPause"				AddressOffset="37"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_SCSMode"					AddressOffset="38"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_ErrorCode"					AddressOffset="39"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_Buzzer"					AddressOffset="40"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_McsSelect"					AddressOffset="41"		BitOffset="0"	Size="1"/>
+	
+	<PLCDataItem	ModuleType="CV"					Area="PCtoPLC"	DataType="Bool"		Device="D"	ItemName="PC_BCRReadComplete"			AddressOffset="42"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PCtoPLC"	DataType="Bool"		Device="D"	ItemName="PC_BCRReadFail"				AddressOffset="42"		BitOffset="1"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PCtoPLC"	DataType="Bool"		Device="D"	ItemName="PC_TransferPossible"			AddressOffset="42"		BitOffset="2"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PCtoPLC"	DataType="Bool"		Device="D"	ItemName="PC_PortEnable"				AddressOffset="42"		BitOffset="3"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PCtoPLC"	DataType="Bool"		Device="D"	ItemName="PC_PortTypeChange"			AddressOffset="42"		BitOffset="5"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PCtoPLC"	DataType="Bool"		Device="D"	ItemName="PC_VehicleJobAssign "			AddressOffset="42"		BitOffset="6"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PCtoPLC"	DataType="Bool"		Device="D"	ItemName="PC_CIMAlarmClear"				AddressOffset="42"		BitOffset="8"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PCtoPLC"	DataType="Bool"		Device="D"	ItemName="PC_CIMReportComp"				AddressOffset="42"		BitOffset="9"	Size="1"/>
+
+	<!--NON Tracking Data PLC Write-->
+	<!--44 Word-->
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_ErrorCode"				AddressOffset="43"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_KeySwitch"				AddressOffset="44"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_CVBusy"					AddressOffset="44"		BitOffset="1"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_PortAccessMode"			AddressOffset="44"		BitOffset="2"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_BCRReadRequest"			AddressOffset="44"		BitOffset="3"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_CarrierInPos"				AddressOffset="44"		BitOffset="4"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_SCLoadingHS"				AddressOffset="44"		BitOffset="5"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_SCUnloadingHS"			AddressOffset="44"		BitOffset="6"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_AGVAccessAble"			AddressOffset="44"		BitOffset="9"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_LoadRequest"				AddressOffset="44"		BitOffset="10"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_LoadComplete"				AddressOffset="44"		BitOffset="11"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_UnloadRequest"			AddressOffset="44"		BitOffset="12"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_UnloadComplete"			AddressOffset="44"		BitOffset="13"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_NGUnloadRequest"			AddressOffset="44"		BitOffset="14"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_Timeout"					AddressOffset="44"		BitOffset="15"	Size="1"/>
+	<!--45 Word-->
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_CarrierSensor"			AddressOffset="45"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_EmptyBobinSensor"			AddressOffset="45"		BitOffset="1"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_MaterialSensor"			AddressOffset="45"		BitOffset="2"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_PortTypeChange"			AddressOffset="45"		BitOffset="5"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_AlarmClear"				AddressOffset="45"		BitOffset="8"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_FireShutterOn"			AddressOffset="45"		BitOffset="10"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_DataForceClear"		    AddressOffset="45"		BitOffset="12"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_PortSizeShort"	    	AddressOffset="45"		BitOffset="14"	Size="1"/>
+
+	<!--46 Word-->
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_CVPosition"				AddressOffset="46"		BitOffset="0"	Size="1"/>
+	<!--47 Word-->
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_MGSensorPos1"				AddressOffset="47"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_MGSensorPos2"				AddressOffset="47"		BitOffset="1"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_MGSensorPos3"				AddressOffset="47"		BitOffset="2"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_MGSensorPos4"				AddressOffset="47"		BitOffset="3"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_MGSensorPos5"				AddressOffset="47"		BitOffset="4"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_MGSensorPos6"				AddressOffset="47"		BitOffset="5"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_MGRemainPos1"				AddressOffset="47"		BitOffset="8"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_MGRemainPos2"				AddressOffset="47"		BitOffset="9"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_MGRemainPos3"				AddressOffset="47"		BitOffset="10"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_MGRemainPos4"				AddressOffset="47"		BitOffset="11"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_MGRemainPos5"				AddressOffset="47"		BitOffset="12"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_MGRemainPos6"				AddressOffset="47"		BitOffset="13"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_PortType"					AddressOffset="48"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_AGVLoadReq"				AddressOffset="49"		BitOffset="8"	Size="1"/>
+	<PLCDataItem	ModuleType="CV"					Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_AGVUnloadReq"				AddressOffset="49"		BitOffset="9"	Size="1"/>
+
+
+
+
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="String"	Device="D"	ItemName="PLC_CarrierID_FORK1"			AddressOffset="0"		BitOffset="0"	Size="20"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="String"	Device="D"	ItemName="PLC_CarrierID_FORK2"			AddressOffset="20"		BitOffset="0"	Size="20"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_PalletSize"				AddressOffset="40"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_CraneJobState"			AddressOffset="41"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_CraneCommandState"		AddressOffset="42"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_CommandNumber_FORK1"		AddressOffset="43"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_SourceBank_FORK1"			AddressOffset="44"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_SourceBay_FORK1"			AddressOffset="45"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_SourceLevel_FORK1"		AddressOffset="46"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_SourceWorkPlace_FORK1"	AddressOffset="47"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_DestBank_FORK1"			AddressOffset="48"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_DestBay_FORK1"			AddressOffset="49"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_DestLevel_FORK1"			AddressOffset="50"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_DestWorkPlace_FORK1"		AddressOffset="51"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_CommandUseFork"			AddressOffset="52"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_CommandNumber_FORK2"		AddressOffset="53"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_SourceBank_FORK2"			AddressOffset="54"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_SourceBay_FORK2"			AddressOffset="55"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_SourceLevel_FORK2"		AddressOffset="56"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_SourceWorkPlace_FORK2"	AddressOffset="57"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_DestBank_FORK2"			AddressOffset="58"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_DestBay_FORK2"			AddressOffset="59"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_DestLevel_FORK2"			AddressOffset="60"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_DestWorkPlace_FORK2"		AddressOffset="61"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_CommandAck"				AddressOffset="62"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_OnlineMode"				AddressOffset="63"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_SCMODE"					AddressOffset="64"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_CraneActionState"			AddressOffset="65"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_CarrierExistFork1"		AddressOffset="66"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_CarrierExistFork2"		AddressOffset="66"		BitOffset="1"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_ActiveState"				AddressOffset="67"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_FireCommand"				AddressOffset="68"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_FireState"				AddressOffset="68"		BitOffset="1"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_WaterPool_First_Put"		AddressOffset="68"		BitOffset="2"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_WaterPool_Second_Put"		AddressOffset="68"		BitOffset="3"	Size="1"/>
+	
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_WarningCode"				AddressOffset="69"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_ErrorCode"				AddressOffset="70"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_Fork1_Extend"				AddressOffset="71"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_Fork2_Extend"				AddressOffset="72"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_Fork1_ErrorRecommandReady"	AddressOffset="73"	BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_Fork1_ErrorDoubleStorage"		AddressOffset="73"	BitOffset="1"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_Fork1_EmptyRetrieve"			AddressOffset="73"	BitOffset="2"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_Fork2_ErrorRecommandReady"	AddressOffset="74"	BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_Fork2_ErrorDoubleStorage"		AddressOffset="74"	BitOffset="1"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_Fork2_EmptyRetrieve"			AddressOffset="74"	BitOffset="2"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_CV1Forking"				AddressOffset="75"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_CV2Forking"				AddressOffset="75"		BitOffset="1"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_CV3Forking"				AddressOffset="75"		BitOffset="2"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_CV4Forking"				AddressOffset="75"		BitOffset="3"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_CV5Forking"				AddressOffset="75"		BitOffset="4"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_CV6Forking"				AddressOffset="75"		BitOffset="5"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_CV7Forking"				AddressOffset="75"		BitOffset="6"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_CV8Forking"				AddressOffset="75"		BitOffset="7"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_CV9Forking"				AddressOffset="75"		BitOffset="8"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_CV10Forking"				AddressOffset="75"		BitOffset="9"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_CV11Forking"				AddressOffset="75"		BitOffset="10"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_CV12Forking"				AddressOffset="75"		BitOffset="11"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_CV13Forking"				AddressOffset="75"		BitOffset="12"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_CV14Forking"				AddressOffset="75"		BitOffset="13"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_CV15Forking"				AddressOffset="75"		BitOffset="14"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_CV16Forking"				AddressOffset="75"		BitOffset="15"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Int32"	Device="D"	ItemName="PLC_RM_XPosition"				AddressOffset="77"		BitOffset="0"	Size="2"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_FireJobCancelAble"		AddressOffset="79"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_FireJobCancelBlock"		AddressOffset="79"		BitOffset="1"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Int32"	Device="D"	ItemName="PLC_RM_ZPosition"				AddressOffset="80"		BitOffset="0"	Size="2"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Int32"	Device="D"	ItemName="PLC_RM_FPosition"				AddressOffset="82"		BitOffset="0"	Size="2"/>
+
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_RM_Current_Bank"			AddressOffset="84"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_RM_Current_Bay"			AddressOffset="85"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_RM_Current_Level"			AddressOffset="86"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_RM_Current_WorkPlace"		AddressOffset="87"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_RM_X_VibrationData"		AddressOffset="88"		BitOffset="0"	Size="1"	DecimalPoint="3"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Short"	Device="D"	ItemName="PLC_RM_Z_VibrationData"		AddressOffset="89"		BitOffset="0"	Size="1"	DecimalPoint="3"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_RM_Front_DoubleStorage"	AddressOffset="90"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PLCtoPC"	DataType="Bool"		Device="D"	ItemName="PLC_RM_Rear_DoubleStorage"	AddressOffset="90"		BitOffset="1"	Size="1"/>
+
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="String"	Device="D"	ItemName="PC_CarrierID_FORK1"			AddressOffset="0"		BitOffset="0"	Size="20"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="String"	Device="D"	ItemName="PC_CarrierID_FORK2"			AddressOffset="20"		BitOffset="0"	Size="20"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_PalletSize"				AddressOffset="40"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_CraneCommand"				AddressOffset="42"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_CommandNumber_FORK1"		AddressOffset="43"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_SourceBank_FORK1"			AddressOffset="44"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_SourceBay_FORK1"			AddressOffset="45"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_SourceLevel_FORK1"			AddressOffset="46"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_SourceWorkPlace_FORK1"		AddressOffset="47"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_DestBank_FORK1"			AddressOffset="48"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_DestBay_FORK1"				AddressOffset="49"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_DestLevel_FORK1"			AddressOffset="50"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_DestWorkPlace_FORK1"		AddressOffset="51"		BitOffset="0"	Size="1"/>
+	
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_CommandUseFork"			AddressOffset="52"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_CommandNumber_FORK2"		AddressOffset="53"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_SourceBank_FORK2"			AddressOffset="54"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_SourceBay_FORK2"			AddressOffset="55"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_SourceLevel_FORK2"			AddressOffset="56"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_SourceWorkPlace_FORK2"		AddressOffset="57"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_DestBank_FORK2"			AddressOffset="58"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_DestBay_FORK2"				AddressOffset="59"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_DestLevel_FORK2"			AddressOffset="60"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_DestWorkPlace_FORK2"		AddressOffset="61"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_CommandWriteComplete"		AddressOffset="62"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_CarrierStability"			AddressOffset="63"		BitOffset="0"	Size="1"/>
+
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Bool"		Device="D"	ItemName="PC_EMG_STOP"					AddressOffset="64"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Bool"		Device="D"	ItemName="PC_ActiveCommand"				AddressOffset="64"		BitOffset="1"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Bool"		Device="D"	ItemName="PC_PauseCommand"				AddressOffset="64"		BitOffset="2"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Bool"		Device="D"	ItemName="PC_ErrorReset"				AddressOffset="64"		BitOffset="3"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Bool"		Device="D"	ItemName="PC_RemoveFork1Data"			AddressOffset="64"		BitOffset="4"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Bool"		Device="D"	ItemName="PC_RemoveFork2Data"			AddressOffset="64"		BitOffset="5"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Bool"		Device="D"	ItemName="PC_RemoveAllForkData"			AddressOffset="64"		BitOffset="6"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Bool"		Device="D"	ItemName="PC_EmptyRetrievalReset"		AddressOffset="64"		BitOffset="11"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Bool"		Device="D"	ItemName="PC_FireOccurred"				AddressOffset="64"		BitOffset="14"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Bool"		Device="D"	ItemName="PC_FireReset"					AddressOffset="64"		BitOffset="15"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_AlarmCode"					AddressOffset="65"		BitOffset="0"	Size="1"/>
+	<PLCDataItem	ModuleType="CRANE"				Area="PCtoPLC"	DataType="Short"	Device="D"	ItemName="PC_OneRackComp"					AddressOffset="66"		BitOffset="0"	Size="1"/>
+</ArrayOfPLCDataItem>

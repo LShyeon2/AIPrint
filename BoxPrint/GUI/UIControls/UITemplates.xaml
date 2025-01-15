@@ -1,0 +1,1816 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:u="clr-namespace:BoxPrint.GUI.UIControls">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="BrushesDictionary.xaml"/>
+        <ResourceDictionary Source="FontDictionary.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    <u:EnumToBrushConverter x:Key="brushConverter"/>
+    <u:PositiveVisibleConverter x:Key="PvisibleConverter"/>
+    <u:NegativeVisibleConverter x:Key="NvisibleConverter"/>
+    <u:StringCodeToBrushConverter x:Key="stringcodeConverter"/>
+    <u:CraneForkPositionToYPositionConverter x:Key="YPositionConverter"/>
+    <u:InformMemoExistVisibleConverter x:Key="MemoVisibleConverter"/>
+
+    <u:UnkonwnCarrierCheckConverter x:Key="idUnkConverter"/>
+
+    <u:FireSizeConverter x:Key="FireSizeConverter"/>
+
+    <!--//230214 HHJ SCS 개선-->
+    <RotateTransform x:Key="Angle0" Angle="0"/>
+    <RotateTransform x:Key="Angle90" Angle="90"/>
+    <RotateTransform x:Key="Angle180" Angle="180"/>
+    <RotateTransform x:Key="Angle270" Angle="270"/>
+    <RotateTransform x:Key="AngleMinus90" Angle="-90"/>
+    <RotateTransform x:Key="AngleMinus180" Angle="-180"/>
+    <RotateTransform x:Key="AngleMinus270" Angle="-270"/>
+    
+    <!--//220513 HHJ SCS 개선 //- 연기감지 템플릿 추가-->
+    <!--화재 이미지-->
+    <!--//SuHwan_20230317 : 화재감지 이미지 변경-->
+    <Style x:Key="FireImage" TargetType="{x:Type Path}">
+        <Setter Property="Stretch" Value="Uniform"/>
+        <!--<Setter Property="Data" Value="M323.5,51.25 C302.8,70.5 284,90.75 267.4,111.1 240.1,73.62 206.2,35.5 168,0 69.75,91.12 0,210 0,281.6 0,408.9 100.2,512 224,512 347.8,512 448,408.9 448,281.6 448,228.4 396,118.5 323.5,51.25 z"/>-->
+        <Setter Property="Data">
+            <Setter.Value>
+                <PathGeometry>
+                    <PathFigure IsClosed="True" StartPoint="61.7511680864922,41.7555110020434">
+                        <BezierSegment Point3="70.3758723709038,49.8953052457884" Point2="70.0122943253109,44.4336365375064" Point1="65.8533913832403,41.7515013151959"/>
+                        <BezierSegment Point3="57.2769055572237,69.6032539539247" Point2="61.4594867045725,69.6032539539247" Point1="70.3758723709038,55.3148982308842"/>
+                        <BezierSegment Point3="53.4898638160551,50.7874345806202" Point2="52.9707610964574,56.3622841255161" Point1="60.2439945685153,60.0332341131016"/>
+                        <BezierSegment Point3="61.7511680864922,41.7555110020434" Point2="57.3842820484733,41.7597805760012" Point1="53.0816232593983,44.8079742187667"/>
+                    </PathFigure>
+                    <PathFigure IsClosed="True" StartPoint="9.07055916919916,36.2595409078512">
+                        <BezierSegment Point3="9.68463707229579,36.7461683842033" Point2="9.68463590103502,36.4774079852383" Point1="9.40970354639472,36.2595409078512"/>
+                        <BezierSegment Point3="9.07055916919916,37.2327958605554" Point2="9.40970354639472,37.2327958605554" Point1="9.68463590103502,37.0149250704952"/>
+                        <BezierSegment Point3="8.45647892358125,36.7461683842033" Point2="8.45648009484202,37.0149250704952" Point1="8.73141244948218,37.2327958605554"/>
+                        <BezierSegment Point3="9.07055916919916,36.2595409078512" Point2="8.73141244948218,36.2595409078512" Point1="8.45648009484202,36.4774079852383"/>
+                    </PathFigure>
+                    <PathFigure IsClosed="True" StartPoint="47.8348393714909,27.2569307389995">
+                        <BezierSegment Point3="48.4489172745874,27.7435582153517" Point2="48.4489172745874,27.4748015290598" Point1="48.1739849199472,27.2569307389995"/>
+                        <BezierSegment Point3="47.8348393714909,28.2301856917039" Point2="48.1739849199472,28.2301856917039" Point1="48.4489172745874,28.0123149016436"/>
+                        <BezierSegment Point3="47.2207614683943,27.7435582153517" Point2="47.2207614683943,28.0123149016436" Point1="47.4956938230348,28.2301856917039"/>
+                        <BezierSegment Point3="47.8348393714909,27.2569307389995" Point2="47.4956938230348,27.2569307389995" Point1="47.2207614683943,27.4748015290598"/>
+                    </PathFigure>
+                    <PathFigure IsClosed="True" StartPoint="40.0813702932088,26.3744190835918">
+                        <BezierSegment Point3="51.4415257128976,59.0599828730708" Point2="56.8658774002226,42.7579624152734" Point1="27.6971770031343,43.4068002879674"/>
+                        <BezierSegment Point3="49.4714746715134,66.2978240492067" Point2="42.3327019219504,72.4422384727551" Point1="42.6025369502469,67.6512344417733"/>
+                        <BezierSegment Point3="52.7844510075563,76.063683678468" Point2="39.8763903095641,87.6898969233408" Point1="56.8658774002226,69.1169531927978"/>
+                        <BezierSegment Point3="45.7834747308166,110.340839778534" Point2="68.8915712308784,107.898494967715" Point1="55.8461310288539,75.6574207220221"/>
+                        <BezierSegment Point3="70.9309603987753,110.349582172777" Point2="70.9309603987753,110.349582172777" Point1="45.7834747308166,110.340839778534"/>
+                        <BezierSegment Point3="0.0732712397056108,110.340907819688" Point2="0.0732712397056108,110.340907819688" Point1="72.0395795491903,110.346752023468"/>
+                        <BezierSegment Point3="16.4004102097649,110.340839778535" Point2="16.4004113810254,110.340839778535" Point1="0.0732712397056108,110.340907819688"/>
+                        <BezierSegment Point3="12.2428846702176,80.6337985162343" Point2="-4.62067330691976,93.6511577621154" Point1="-4.67865539408336,106.590000493187"/>
+                        <BezierSegment Point3="6.30741884655111,60.032636372748" Point2="2.21361017911986,69.116218083542" Point1="16.3025068746434,68.7485075235991"/>
+                        <BezierSegment Point3="16.5420566163409,41.3586819477075" Point2="25.5780033984519,53.0804111310269" Point1="7.15678310258306,55.673070933873"/>
+                        <BezierSegment Point3="25.1385206352461,45.1910997970343" Point2="23.4944595427094,43.9717800154557" Point1="18.186118880138,40.139362166129"/>
+                        <BezierSegment Point3="40.0813702932088,26.3744190835918" Point2="31.0340095760742,28.5779053638418" Point1="24.6958684407241,36.3064876580225"/>
+                    </PathFigure>
+                    <PathFigure IsClosed="True" StartPoint="26.3671988236886,0.0564013653713047">
+                        <BezierSegment Point3="33.2758703912088,22.5628683129002" Point2="38.3280212120438,16.7282634574178" Point1="32.683350711616,6.35800061826152"/>
+                        <BezierSegment Point3="24.0794292761592,37.1130807194499" Point2="21.9953560106035,31.933820196106" Point1="27.1384716184756,24.8211703537594"/>
+                        <BezierSegment Point3="19.6595413512559,16.8666459184016" Point2="11.4542514500924,19.7722543543395" Point1="10.7066299215888,31.8315694688246"/>
+                        <BezierSegment Point3="26.3671988236886,0.0564013653713047" Point2="18.6914616296322,3.82776407505842" Point1="26.5169538677372,13.5179912182023"/>
+                    </PathFigure>
+                </PathGeometry>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Fill">
+            <Setter.Value>
+                <!--<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FFEA002C" Offset="0.675"/>
+                    <GradientStop Color="#FFFFAE2E" Offset="0.993"/>
+                </LinearGradientBrush>-->
+                <RadialGradientBrush Center="0.5,0.5" RadiusX="1.5" RadiusY="1" GradientOrigin="0.5,0.5">
+                    <RadialGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform Y="0.5" X="-0.05"/>
+                        </TransformGroup>
+                    </RadialGradientBrush.RelativeTransform>
+                    <GradientStop Color="Black" Offset="0.76"/>
+                    <GradientStop Color="#FFEA002C" Offset="0.348"/>
+                    <GradientStop Color="#FFFFAE2E" Offset="0.172"/>
+                    <GradientStop Color="#00000000" Offset="1"/>
+                </RadialGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Stroke" Value="#FFEC685B"/>
+        <Setter Property="StrokeThickness" Value="0"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--//220513 HHJ SCS 개선 //- 연기감지 템플릿 추가-->
+    <!--방화수조 이미지-->
+    <Style x:Key="FireWaterPoolImage" TargetType="{x:Type Path}">
+        <Setter Property="Stretch" Value="Uniform"/>
+        <Setter Property="Data" Value="M16 319.1C16 245.9 118.3 89.43 166.9 19.3C179.2 1.585 204.8 1.585 217.1 19.3C265.7 89.43 368 245.9 368 319.1C368 417.2 289.2 496 192 496C94.8 496 16 417.2 16 319.1zM112 319.1C112 311.2 104.8 303.1 96 303.1C87.16 303.1 80 311.2 80 319.1C80 381.9 130.1 432 192 432C200.8 432 208 424.8 208 416C208 407.2 200.8 400 192 400C147.8 400 112 364.2 112 319.1z"/>
+        <Setter Property="Fill" Value="#FF57B7DB"/>
+        <Setter Property="Stroke" Value="White"/>
+        <Setter Property="StrokeThickness" Value="1"/>
+    </Style>
+
+    <!--//231101 HHJ Shelf NG State 추가-->
+    <Style x:Key="NGPath" TargetType="{x:Type Path}">
+        <Setter Property="Stretch" Value="Uniform"/>
+        <Setter Property="Data" Value="M0.05,2.0499997 L37.108105,2.2833317 113.0692,121.28329 112.24317,2.1186378 143.55798,2.0499997 143.55798,165.92094 109.6014,165.92094 30.956281,44.951713 30.626019,166.256 0.05,165.92094 z M258.15448,0.05 C278.04488,0.049999303 293.49413,2.7146492 305.45819,7.5014675 L306.086,7.7636364 306.086,40.147022 305.99444,40.061698 C296.9478,31.901782 283.20005,26.999999 262.91098,26.999997 222.78599,26.999999 204.33599,52.609317 204.33599,84.200004 204.33599,115.79069 217.28599,141.40001 262.91098,141.40001 267.78525,141.40001 273.62714,139.96971 279.70706,137.36816 L280.00299,137.23683 280.00299,100.733 246.00299,100.733 246.00299,74.166999 312.33598,74.166999 312.33598,88.999999 312.33598,100.733 312.33598,111.05652 312.336,153.54431 311.17047,154.34982 C297.61248,163.44513 279.9538,168.756 258.15448,168.756 196.78599,168.756 171.33599,130.98987 171.33599,84.402999 171.33599,37.816123 203.78578,0.049999303 258.15448,0.05 z"/>
+        <Setter Property="Fill" Value="Yellow"/>
+        <Setter Property="Stroke" Value="Black"/>
+        <Setter Property="StrokeThickness" Value="0.5"/>
+    </Style>
+
+    <!--//SuHwan_20221205 : 배경 상자-->
+    <Style x:Key="BackgroundBox" TargetType="{x:Type Path}">
+        <Setter Property="Stretch" Value="Fill"/>
+        <Setter Property="Data" Value="M0 96C0 60.7 28.7 32 64 32H384c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96z"/>
+    </Style>
+
+    <Style x:Key="SCState" TargetType="{x:Type Path}">
+        <Setter Property="Data" Value="M0.5,2 C0.5,1.4477153 0.94771525,1 1.5,1 L48.5,1 C49.052285,1 49.5,1.4477153 49.5,2 L49.5,49 C49.5,49.552285 49.052285,50 48.5,50 L1.5,50 C0.94771525,50 0.5,49.552285 0.5,49 z M10,0.5 L10,50.5 M20,0.5 L20,50.5 M30,0.5 L30,50.5 M40,0.5 L40,50.5"/>
+        <Setter Property="Stroke" Value="Black"/>
+        <Setter Property="Stretch" Value="Fill"/>
+    </Style>
+
+    <!--//220610 HHJ SCS 개선     //- Crane UIControl 변경-->
+    <Style x:Key="SK_RMStyleNew" TargetType="{x:Type u:UIControlRM}">
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type u:UIControlRM}">
+                    <ControlTemplate.Resources>
+                        <Storyboard x:Key="sbLStateError">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.StrokeThickness)" Storyboard.TargetName="LState">
+                                <EasingDoubleKeyFrame   KeyTime="0" Value="0"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                        <Storyboard x:Key="sbLStateNoneError">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.StrokeThickness)" Storyboard.TargetName="LState">
+                                <EasingDoubleKeyFrame   KeyTime="0" Value="0.5"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                        <Storyboard x:Key="sbRStateError">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.StrokeThickness)" Storyboard.TargetName="RState">
+                                <EasingDoubleKeyFrame   KeyTime="0" Value="0"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                        <Storyboard x:Key="sbRStateNoneError">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.StrokeThickness)" Storyboard.TargetName="RState">
+                                <EasingDoubleKeyFrame   KeyTime="0" Value="0.5"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </ControlTemplate.Resources>
+                    
+                    <Grid x:Name="RmMain">
+                        <!--//221129 YSW Layout RM UnitName 표시-->
+                        <Grid x:Name="TextParts" Margin="0,-8,0,-8" IsHitTestVisible="False" Panel.ZIndex="9999">
+                            <TextBlock FontSize="8" TextWrapping="NoWrap" Text="{Binding Path=ControlName, RelativeSource={RelativeSource TemplatedParent}}"
+                                       TextAlignment="Center"/>
+                        </Grid>
+                        <!--//241001 HDK Crane 작업가능상태 표시 개선-->
+                        <Grid x:Name="SCModeParts" IsHitTestVisible="False" Panel.ZIndex="9999" Opacity="0.8">
+                            <Path Data="M29.999998,0 L85,55 140,0 C162.42341,-2.4234113 173.78222,6.2177771 170,29.999998 L115,85 170,140 C173.40814,163.40818 162.96851,172.96855 140,170 L85,115 29.999998,170 C6.3335905,173.66648 -3.6663026,163.66637 0,140 L55,85 0,29.999998 C-3.1306463,6.8693423 6.7962374,-3.2037727 29.999998,0 z" 
+                                  Fill="Red" Margin="5" Stretch="Fill"/>
+                            <Grid.Style>
+                                <Style TargetType="{x:Type Grid}">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </Style>
+                            </Grid.Style>
+                        </Grid>
+                        
+                        <Border CornerRadius="1" BorderBrush="Black" BorderThickness="1"
+                                Background="White" ClipToBounds="False">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Path Style="{StaticResource SCState}"
+                                      x:Name="LState" Grid.Column="0" StrokeThickness="0.5"
+                                      Fill="{Binding Path=CraneState, Converter={StaticResource brushConverter}, RelativeSource={RelativeSource TemplatedParent}}"/>
+
+                                <Path Style="{StaticResource SCState}"
+                                      x:Name="RState" Grid.Column="2" StrokeThickness="0.5"
+                                      Fill="{Binding Path=CraneState, Converter={StaticResource brushConverter}, RelativeSource={RelativeSource TemplatedParent}}"/>
+
+                                <Border Grid.Column="1"
+                                        Background="{Binding Path=CraneSC_State, Converter={StaticResource brushConverter}, RelativeSource={RelativeSource TemplatedParent}}">
+                                    <Border x:Name="arm" Grid.Column="1" Panel.ZIndex="500">
+                                        <Border.RenderTransform>
+                                            <TransformGroup>
+                                                <!--//220919 HHJ SCS 개선     //- ForkAxisPosition Biding Item 변경-->
+                                                <!--<TranslateTransform Y="{Binding Path=UIForkAxisPosition, RelativeSource={RelativeSource Mode=TemplatedParent}}"/>-->
+                                                <TranslateTransform Y="{Binding Path=ForkAxisPosition, Converter={StaticResource YPositionConverter}, RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
+                                            </TransformGroup>
+                                        </Border.RenderTransform>
+
+                                        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="0.5*"/>
+                                                <ColumnDefinition Width="0.5*"/>
+                                                <ColumnDefinition Width="3*"/>
+                                                <ColumnDefinition Width="1*"/>
+                                                <ColumnDefinition Width="3*"/>
+                                                <ColumnDefinition Width="0.5*"/>
+                                                <ColumnDefinition Width="0.5*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="0.5*"/>
+                                                <RowDefinition Height="0.5*"/>
+                                                <RowDefinition Height="8*"/>
+                                                <RowDefinition Height="0.5*"/>
+                                                <RowDefinition Height="0.5*"/>
+                                            </Grid.RowDefinitions>
+
+                                            <Border Grid.Column="2" Grid.Row="2" CornerRadius="1"
+                                                    BorderThickness="0" Background="#FFB3BBC4"/>
+                                            <Border Grid.Column="4" Grid.Row="2" CornerRadius="1"
+                                                    BorderThickness="0" Background="#FFB3BBC4"/>
+
+                                            <Border x:Name="LoadMaterial"
+                                                    Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="5" Grid.RowSpan="3"
+                                                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Opacity="0" IsHitTestVisible="False" CornerRadius="1"
+                                                    BorderBrush="{Binding Path=SlotList[0].MaterialType, Converter={StaticResource brushConverter}, RelativeSource={RelativeSource TemplatedParent}}">
+                                                <!--230911 HHJ UNK Mark 회전 추가 RenderTransformOrigin="0.5,0.5" 추가--> 
+                                                <Path x:Name="UnkMark" Visibility="Collapsed" Fill="Red" StrokeThickness="0" Stretch="Uniform" RenderTransformOrigin="0.5,0.5"
+                                                      Data="M80 160c0-35.3 28.7-64 64-64h32c35.3 0 64 28.7 64 64v3.6c0 21.8-11.1 42.1-29.4 53.8l-42.2 27.1c-25.2 16.2-40.4 44.1-40.4 74V320c0 17.7 14.3 32 32 32s32-14.3 32-32v-1.4c0-8.2 4.2-15.8 11-20.2l42.2-27.1c36.6-23.6 58.8-64.1 58.8-107.7V160c0-70.7-57.3-128-128-128H144C73.3 32 16 89.3 16 160c0 17.7 14.3 32 32 32s32-14.3 32-32zm80 320a40 40 0 1 0 0-80 40 40 0 1 0 0 80z"/>
+                                            </Border>
+                                        </Grid>
+                                    </Border>
+                                </Border>
+                                
+                            </Grid>
+                        </Border>
+
+                        <!--Selector-->
+                        <Rectangle Stroke="{StaticResource SK_Orange}" StrokeThickness="3" StrokeDashArray="1"  Margin="0" Panel.ZIndex="9999"
+                                   Visibility="{Binding Path=Selector, Converter={StaticResource PvisibleConverter}, RelativeSource={RelativeSource TemplatedParent}}" />
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding Path=CraneState, RelativeSource={RelativeSource Self}}" Value="ERROR">
+                            <DataTrigger.ExitActions>
+                                <BeginStoryboard Storyboard="{StaticResource sbLStateNoneError}"/>
+                                <BeginStoryboard Storyboard="{StaticResource sbRStateNoneError}"/>
+                            </DataTrigger.ExitActions>
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard Storyboard="{StaticResource sbLStateError}"/>
+                                <BeginStoryboard Storyboard="{StaticResource sbRStateError}"/>
+                            </DataTrigger.EnterActions>
+                        </DataTrigger>
+
+                        <!--//241001 HDK Crane 작업가능상태 표시 개선-->
+                        <DataTrigger Binding="{Binding Path=CraneSCStatus,RelativeSource={RelativeSource Self}}" Value="AUTO_RUN">
+                            <Setter TargetName="SCModeParts" Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding Path=SlotList[0].MaterialExist, RelativeSource={RelativeSource Self}}" Value="True">
+                            <Setter TargetName="LoadMaterial" Property="Opacity" Value="1"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=SlotList[0].MaterialExist, RelativeSource={RelativeSource Self}}" Value="False">
+                            <Setter TargetName="LoadMaterial" Property="Opacity" Value="0"/>
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding Path=LayOutAngle, RelativeSource={RelativeSource Self}}" Value="eAngle0">
+                            <Setter TargetName="RmMain" Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                            <Setter TargetName="TextParts" Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                            <Setter TargetName="RmMain" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+                            <Setter TargetName="TextParts" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+
+                            <!--230911 HHJ UNK Mark 회전 추가 Start-->
+                            <Setter TargetName="UnkMark" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+                            <!--230911 HHJ UNK Mark 회전 추가 End-->
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=LayOutAngle, RelativeSource={RelativeSource Self}}" Value="eAngle90">
+                            <Setter TargetName="RmMain" Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                            <Setter TargetName="TextParts" Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                            <Setter TargetName="RmMain" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+                            <Setter TargetName="TextParts" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+
+                            <!--230911 HHJ UNK Mark 회전 추가 Start-->
+                            <Setter TargetName="UnkMark" Property="RenderTransform" Value="{StaticResource AngleMinus90}"/>
+                            <!--230911 HHJ UNK Mark 회전 추가 End-->
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=LayOutAngle, RelativeSource={RelativeSource Self}}" Value="eAngle180">
+                            <Setter TargetName="RmMain" Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                            <Setter TargetName="TextParts" Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                            <Setter TargetName="RmMain" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+                            <Setter TargetName="TextParts" Property="RenderTransform" Value="{StaticResource Angle180}"/>
+
+                            <!--230911 HHJ UNK Mark 회전 추가 Start-->
+                            <Setter TargetName="UnkMark" Property="RenderTransform" Value="{StaticResource Angle180}"/>
+                            <!--230911 HHJ UNK Mark 회전 추가 End-->
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=LayOutAngle, RelativeSource={RelativeSource Self}}" Value="eAngle270">
+                            <Setter TargetName="RmMain" Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                            <Setter TargetName="TextParts" Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                            <Setter TargetName="RmMain" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+                            <Setter TargetName="TextParts" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+
+                            <!--230911 HHJ UNK Mark 회전 추가 Start-->
+                            <Setter TargetName="UnkMark" Property="RenderTransform" Value="{StaticResource AngleMinus270}"/>
+                            <!--230911 HHJ UNK Mark 회전 추가 End-->
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding Path=SlotList[0].MaterialName, Converter={StaticResource idUnkConverter}, RelativeSource={RelativeSource Self}}" Value="True">
+                            <Setter TargetName="LoadMaterial" Property="Background" Value="Gold"/>
+                            <Setter TargetName="UnkMark" Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=SlotList[0].MaterialName, Converter={StaticResource idUnkConverter}, RelativeSource={RelativeSource Self}}" Value="False">
+                            <Setter TargetName="LoadMaterial" Property="Background" Value="Blue"/>
+                            <Setter TargetName="UnkMark" Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!--//220609 HHJ SCS 개선     //- Shelf UIControl 변경-->
+    <Style x:Key="SK_ShelfStyleNew" TargetType="{x:Type u:UIControlShelf}">
+        <!--옆으로 긴 타입으로 개발을 진행중에 있음. 보내준것은 위아래로 긴 타입이지만, 90도 돌려서 사용한다.-->
+        <Setter Property="Width" Value="50"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type u:UIControlShelf}">
+                    <ControlTemplate.Resources>
+                        <!--//220513 YSW SCS 개선 //- 연기감지 템플릿 추가--> <!--221006 화재감지 테스트-->
+                        <!--화재 스토리 보드-->
+                        <Storyboard x:Key="sbFire" RepeatBehavior="Forever" AutoReverse="True">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="pathFire">
+                                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="10"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-10"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+
+                        <!--//SuHwan_20230317 : 화재 애니변경-->
+                        <Storyboard x:Key="Storyboard2" RepeatBehavior="Forever">
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[2].(BezierSegment.Point2)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="25.9870257679748,105.821920980723"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="54.4611852826055,79.5394087027303"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="51.8488160124529,84.5623270374679"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="39.8763903095641,87.6898969233408"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[2].(BezierSegment.Point3)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="49.3951224297163,90.6101398317684"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="59.0666969670503,86.35216509449"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="55.2287705633463,86.473823360047"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="52.7844510075563,76.063683678468"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[3].(BezierSegment.Point1)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="48.9377809176165,89.6183169270781"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="69.2201301245485,96.0934366493842"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="61.8966679852965,93.7781887167756"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="55.8461310288539,75.6574207220221"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[3].(BezierSegment.Point2)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="62.9046233707541,103.992340181453"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="48.3986285875398,102.240049283032"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="57.0179791800189,101.77974713928"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="68.8915712308784,107.837791680427"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[1].(BezierSegment.Point2)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="48.3716753887286,67.9009513595766"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="55.9895807518207,74.2047477277688"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="46.7503145269308,82.8906448940393"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="42.3327019219504,72.4422384727551"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[1].(BezierSegment.Point3)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="50.0091906543089,73.0916230103616"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="62.1370380900133,67.2521159247394"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="50.2138800625064,80.5532135083689"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="49.4714746715134,66.2978240492067"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[2].(BezierSegment.Point1)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="55.9654966182692,78.5457022775015"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="67.5233465029858,76.0663505117275"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="50.3251842451056,82.583415642241"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="56.8658774002226,69.1169531927978"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[0].(BezierSegment.Point2)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="39.1129629712488,60.1647568802762"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="56.3033899563834,88.2986669207073"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="36.0105044939864,70.2492296136484"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="56.8658774002226,42.7579624152734"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[0].(BezierSegment.Point3)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="40.7981672854195,57.8440250361765"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="55.5358046756421,85.62222690966"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="37.1137579378639,75.7680630803011"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="51.4415257128976,59.0599828730708"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[1].(BezierSegment.Point1)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="45.3849680057897,61.9104876992648"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="45.5571960260125,72.1183704902807"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="39.6156867787335,80.641810864903"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="42.6025369502469,67.6512344417733"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[0].(BezierSegment.Point1)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="38.0361928035741,62.9288066925211"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="52.9260147211239,89.7585432903696"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="37.4688702730576,66.7852100612118"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="27.6971770031343,43.4068002879674"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.StartPoint)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="37.3184473460609,65.9544494905319"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="50.1627077104568,87.9336978282915"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="40.4911331731232,64.5756773332913"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="40.0813702932088,26.3744190835918"/>
+                            </PointAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="pathFire">
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.25" Value="-0.16700000000000159"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.75" Value="-0.16700000000000159"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-0.073"/>
+                            </DoubleAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.StartPoint)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="61.7511680864922,41.7555110020434"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="70.1327180977317,28.6566350310656"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="70.2158731698134,83.4374813703369"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="47.8599518682352,48.5575890359407"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="61.7511680864922,41.7555110020434"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[0].(BezierSegment.Point1)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="65.8533913832403,41.7515013151959"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="70.1327180977317,28.6566350310656"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="70.2158731698134,83.4374813703369"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="54.614702338754,43.4480216296975"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="65.8533913832403,41.7515013151959"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[0].(BezierSegment.Point2)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="70.0122943253109,44.4336365375064"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="70.2478558898424,28.7934984437358"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="70.3693902259484,83.5439306889821"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="43.2544401837901,51.0718206167903"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="70.0122943253109,44.4336365375064"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[0].(BezierSegment.Point3)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="70.3758723709038,49.8953052457884"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="70.2478558898424,28.7934984437358"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="70.3693902259484,83.5439306889821"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="63.3651745391986,58.4928589925251"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="70.3758723709038,49.8953052457884"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[1].(BezierSegment.Point1)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="70.3758723709038,55.3148982308842"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="70.2478558898424,28.7934984437358"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="70.3693902259484,83.5439306889821"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="70.1710973617672,75.6058545912126"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="70.3758723709038,55.3148982308842"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[1].(BezierSegment.Point2)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="61.4594867045725,69.6032539539247"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="70.1199250097194,28.8898097341312"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="70.1966835377911,83.65038000758"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="57.5826987576179,68.4686810713801"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="61.4594867045725,69.6032539539247"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[1].(BezierSegment.Point3)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="57.2769055572237,69.6032539539247"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="70.1199250097194,28.8898097341312"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="70.1966835377911,83.65038000758"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="53.4889105936671,79.3366498402157"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="57.2769055572237,69.6032539539247"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[2].(BezierSegment.Point1)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="60.2439945685153,60.0332341131016"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="70.1199250097194,28.8898097341312"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="70.1966835377911,83.65038000758"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="55.3467552450383,71.9036631013892"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="60.2439945685153,60.0332341131016"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[2].(BezierSegment.Point2)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="52.9707610964574,56.3622841255161"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="69.9664079535705,28.74787730618"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="69.9983906736002,83.554068719303"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="42.9317660939017,72.8197065175516"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="52.9707610964574,56.3622841255161"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[2].(BezierSegment.Point3)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="53.4898638160551,50.7874345806202"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="69.9664079535705,28.74787730618"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="69.9983906736002,83.554068719303"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="43.5458343184928,67.7101391113084"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="53.4898638160551,50.7874345806202"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[3].(BezierSegment.Point1)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="53.0816232593983,44.8079742187667"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="69.9664079535705,28.74787730618"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="69.9983906736002,83.554068719303"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="49.9935506767156,59.0725370674204"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="53.0816232593983,44.8079742187667"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[3].(BezierSegment.Point2)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="57.3842820484733,41.7597805760012"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="70.1327180977317,28.6566350310656"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="70.2158731698134,83.4374813703369"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="43.4591295919878,51.7206545731387"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="57.3842820484733,41.7597805760012"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[3].(BezierSegment.Point3)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="61.7511680864922,41.7555110020434"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="70.1327180977317,28.6566350310656"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="70.2158731698134,83.4374813703369"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="47.8599518682352,48.5575890359407"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="61.7511680864922,41.7555110020434"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[1].(PathFigure.StartPoint)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="9.07055915574771,71.3073256122226"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="0.116147406158066,35.0015505361681"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="10.2103543990697,17.8796648324442"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="0.364839294449681,27.0696030662278"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="9.07055916919916,36.2595409078512"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[1].(PathFigure.Segments)[0].(BezierSegment.Point1)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="9.40970353243745,71.3073256122226"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="9.53186018324506,35.8936972261469"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="10.2103543990697,17.8796648324442"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="0.534411483047501,27.0696030662278"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="9.40970354639472,36.2595409078512"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[1].(PathFigure.Segments)[0].(BezierSegment.Point2)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="9.68463588666777,71.5251926896093"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="18.8964006082825,42.2720100838163"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="10.2674627439547,17.940736327256"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="0.700431832810182,27.2090723529991"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="9.68463590103502,36.4774079852383"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[1].(PathFigure.Segments)[0].(BezierSegment.Point3)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="9.68463705792847,71.7939530885747"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="18.4870217918872,43.8129907301438"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="10.2674627439547,17.940736327256"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="0.700432418440541,27.3434525524816"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="9.68463707229579,36.7461683842033"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[1].(PathFigure.Segments)[1].(BezierSegment.Point1)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="9.68463588666777,72.0627097748667"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="21.557512895256,49.0738004017769"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="10.2674627439547,17.940736327256"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="0.700431832810182,27.4778308956276"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="9.68463590103502,37.0149250704952"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[1].(PathFigure.Segments)[1].(BezierSegment.Point2)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="9.40970353243745,72.2805805649261"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="16.0703363594885,53.7549473306143"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="10.173521790931,18.0318764285119"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="0.515995178978125,27.6323363422883"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="9.40970354639472,37.2327958605554"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[1].(PathFigure.Segments)[1].(BezierSegment.Point3)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="9.07055915574771,72.2805805649261"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="10.0947560557883,53.3832915862818"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="10.173521790931,18.0318764285119"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="0.346422990380302,27.6323363422883"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="9.07055916919916,37.2327958605554"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[1].(PathFigure.Segments)[2].(BezierSegment.Point1)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="8.73141243653655,72.2805805649261"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="6.66620846847951,52.9777703635638"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="10.173521790931,18.0318764285119"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="0.176849630521849,27.6323363422883"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="8.73141244948218,37.2327958605554"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[1].(PathFigure.Segments)[2].(BezierSegment.Point2)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="8.45648008230645,72.0627097748667"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="3.16480273527806,49.387688608499"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="10.0947560557881,17.940736327249"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="5.8563035638351E-07,27.4778308956241"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="8.45648009484202,37.0149250704952"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[1].(PathFigure.Segments)[2].(BezierSegment.Point3)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="8.45647891104574,71.7939530885747"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="3.85172910576314,45.7594925991889"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="10.0947560557881,17.940736327249"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="2.87445262862177E-25,27.3434525524781"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="8.45647892358125,36.7461683842033"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[1].(PathFigure.Segments)[3].(BezierSegment.Point1)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="8.45648008230645,71.5251926896093"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="6.20565730003492,40.9743421711197"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="10.0947560557881,17.940736327249"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="5.8563035638351E-07,27.2090723529956"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="8.45648009484202,36.4774079852383"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[1].(PathFigure.Segments)[3].(BezierSegment.Point2)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="8.73141243653655,71.3073256122226"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="0.116147406158078,35.8936972261473"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="10.2103543990697,17.8796648324442"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="0.195265934591229,27.0696030662278"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="8.73141244948218,36.2595409078512"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[1].(PathFigure.Segments)[3].(BezierSegment.Point3)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="9.07055915574771,71.3073256122226"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="0.116147406158066,35.0015505361681"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="10.2103543990697,17.8796648324442"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="0.364839294449681,27.0696030662278"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="9.07055916919916,36.2595409078512"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[2].(PathFigure.StartPoint)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="47.8348393002244,42.9208400219823"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="47.8348393714908,62.629173455154"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="30.0894415987232,25.1043577004739"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="40.4335642770678,3.45880258885871E-10"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="47.8348393714909,27.2569307389995"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[2].(PathFigure.Segments)[0].(BezierSegment.Point1)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="48.1739848481749,42.9208400219823"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="48.1739849199472,62.629173455154"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="31.9316462725012,19.5081649501009"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="40.4335642770678,3.45880258885871E-10"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="48.1739849199472,27.2569307389995"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[2].(PathFigure.Segments)[0].(BezierSegment.Point2)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="48.448917202405,43.1387108120426"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="48.4489172745874,62.847044245214"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="46.9388495313458,29.214226070754"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="40.6446502292664,0.0760352296037995"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="48.4489172745874,27.4748015290598"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[2].(PathFigure.Segments)[0].(BezierSegment.Point3)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="48.448917202405,43.4074674983345"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="48.4489172745874,63.1158009315061"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="46.3247813067532,37.3246503466574"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="40.6446502292664,0.0760352296037995"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="48.4489172745874,27.7435582153517"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[2].(PathFigure.Segments)[1].(BezierSegment.Point1)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="48.448917202405,43.6762241846265"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="48.4489172745874,63.3845576177981"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="46.2224366026543,42.1909049121987"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="40.6446502292664,0.0760352296037995"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="48.4489172745874,28.0123149016436"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[2].(PathFigure.Segments)[1].(BezierSegment.Point2)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="48.1739848481749,43.8940949746866"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="48.1739849199472,63.6024284078575"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="41.2075461018146,49.1658697894753"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="40.4335642770678,0.197691596419892"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="48.1739849199472,28.2301856917039"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[2].(PathFigure.Segments)[1].(BezierSegment.Point3)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="47.8348393002244,43.8940949746866"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="47.8348393714908,63.6024284078575"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="35.0668638558883,49.0036613039571"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="40.4335642770678,0.197691596419892"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="47.8348393714909,28.2301856917039"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[2].(PathFigure.Segments)[2].(BezierSegment.Point1)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="47.4956937522742,43.8940949746866"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="47.4956938230348,63.6024284078575"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="28.2097686812707,44.7051364377287"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="40.4335642770678,0.197691596419892"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="47.4956938230348,28.2301856917039"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[2].(PathFigure.Segments)[2].(BezierSegment.Point2)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="47.2207613980437,43.6762241846265"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="47.2207614683943,63.3845576177981"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="28.1074239771719,41.0554455135723"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="40.2416679568853,0.106449321308305"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="47.2207614683943,28.0123149016436"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[2].(PathFigure.Segments)[2].(BezierSegment.Point3)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="47.2207613980437,43.4074674983345"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="47.2207614683943,63.1158009315061"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="26.8792875279869,38.0545885314881"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="40.2416679568853,0.106449321308305"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="47.2207614683943,27.7435582153517"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[2].(PathFigure.Segments)[3].(BezierSegment.Point1)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="47.2207613980437,43.1387108120426"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="47.2207614683943,62.847044245214"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="25.1394275583076,33.8371679080187"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="40.2416679568853,0.106449321308305"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="47.2207614683943,27.4748015290598"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[2].(PathFigure.Segments)[3].(BezierSegment.Point2)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="47.4956937522742,42.9208400219823"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="47.4956938230348,62.629173455154"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="38.1746732225261,29.5650910522206"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="40.4335642770678,3.45880258885871E-10"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="47.4956938230348,27.2569307389995"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[2].(PathFigure.Segments)[3].(BezierSegment.Point3)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="47.8348393002244,42.9208400219823"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="47.8348393714908,62.629173455154"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="30.0894415987232,25.1043577004739"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="40.4335642770678,3.45880258885871E-10"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="47.8348393714909,27.2569307389995"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[3].(BezierSegment.Point3)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="45.7834747308166,110.165075319105"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="45.7834747308166,110.332131575172"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="45.7834747308166,110.340839778534"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="45.7834747308166,110.280136491245"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[4].(PathFigure.StartPoint)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="26.3480091916719,-0.0109874637505295"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="26.3671988236886,0.0564013653713047"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="26.3671988236886,49.793579331699"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="26.3671988236886,0.0564013653713047"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[4].(PathFigure.Segments)[0].(BezierSegment.Point1)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="26.3480091916719,-0.0109874637505295"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="26.3671988236886,0.0564013653713047"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="26.3671988236886,49.793579331699"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="32.683350711616,6.35800061826152"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[4].(PathFigure.Segments)[0].(BezierSegment.Point2)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="26.5402706956626,0.0760352296021394"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="26.5018914316226,0.189045193366456"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="26.501891431623,49.8806020250555"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="38.3280212120438,16.7282634574178"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[4].(PathFigure.Segments)[0].(BezierSegment.Point3)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="26.5402706956626,0.0760352296021394"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="26.5018914316225,0.189045193366456"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="26.501891431623,49.8806020250555"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="33.2758703912088,22.5628683129002"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[4].(PathFigure.Segments)[1].(BezierSegment.Point1)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="26.5402706956626,0.0760352296021394"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="26.5018914316226,0.189045193366456"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="26.501891431623,49.8806020250555"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="27.1384716184756,24.8211703537594"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[4].(PathFigure.Segments)[1].(BezierSegment.Point2)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="26.3483743754745,0.091242275457176"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="26.3675640074963,0.280287466477369"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="26.3675640074926,49.9718443001671"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="21.9953560106035,31.933820196106"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[4].(PathFigure.Segments)[1].(BezierSegment.Point3)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="26.3483743754745,0.091242275457176"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="26.3675640074963,0.280287466477369"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="26.3675640074926,49.9718443001671"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="24.0794292761592,37.1130807194499"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[4].(PathFigure.Segments)[2].(BezierSegment.Point1)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="26.3483743754745,0.091242275457176"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="26.3675640074963,0.280287466477369"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="26.3675640074926,49.9718443001671"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="10.7066299215888,31.8315694688246"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[4].(PathFigure.Segments)[2].(BezierSegment.Point2)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="26.1948573193264,0.0608281837531549"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="26.2332365833633,0.189045193369666"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="26.2140469513447,49.8958090709089"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="11.4542514500924,19.7722543543395"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[4].(PathFigure.Segments)[2].(BezierSegment.Point3)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="26.1948573193264,0.0608281837531549"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="26.2332365833633,0.189045193369666"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="26.2140469513447,49.8958090709089"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="19.6595413512559,16.8666459184016"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[4].(PathFigure.Segments)[3].(BezierSegment.Point1)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="26.1948573193264,0.0608281837531549"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="26.2332365833633,0.189045193369666"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="26.2140469513447,49.8958090709089"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="26.5169538677372,13.5179912182023"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[4].(PathFigure.Segments)[3].(BezierSegment.Point2)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="26.3480091916719,-0.0109874637505295"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="26.3671988236886,0.0564013653713047"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="26.3671988236886,49.793579331699"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="18.6914616296322,3.82776407505842"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[4].(PathFigure.Segments)[3].(BezierSegment.Point3)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="26.3480091916719,-0.0109874637505295"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="26.3671988236886,0.0564013653713047"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="26.3671988236886,49.793579331699"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="26.3671988236886,0.0564013653713047"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[6].(BezierSegment.Point1)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="27.5013115942374,110.133422296707"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="0.0732709923146236,110.340737593615"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="0.0841303673146222,110.340737593604"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="0.160023750000009,110.280136491235"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[6].(BezierSegment.Point2)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="16.4004113566419,110.34944541814"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="16.4004113810254,110.194175872974"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="16.395088544681,110.340737593605"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="16.4004102097646,110.349122335039"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="16.4049053753512,110.403803681815"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[6].(BezierSegment.Point3)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="16.4004101853814,110.34944541814"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="16.4004102097647,110.194175872974"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="16.3950873734203,110.340737593605"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="16.4004102097646,110.349122335039"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="16.4049053753512,110.403803681815"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[7].(BezierSegment.Point2)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="-4.69405368648418,101.283994389379"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="-4.31203192422483,95.8092427467501"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="16.2354383017145,97.0984793952517"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="-4.62067330691976,93.6511577621154"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[7].(BezierSegment.Point3)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="0.832560334849466,80.1157865635148"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="8.86661960660294,83.0674432627507"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="8.55958549430675,89.3935761636147"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="12.2428846702176,80.6337985162343"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[7].(BezierSegment.Point1)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0" Value="-4.67865538702847,106.598606132793"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="20.5339158738629,92.7540441428826"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="-2.49291661585187,105.144024865445"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="-4.84757074263246,103.224533092497"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="-4.674160228497,106.652964396467"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[8].(BezierSegment.Point1)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="4.89218253927534,68.2304955708795"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="19.0811013790386,73.0124027587182"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="-2.84809239579236,76.0568084349464"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="16.3025068746434,68.7485075235991"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[8].(BezierSegment.Point2)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="19.9198476492702,69.1986192722716"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="2.72672438368568,69.4073108551537"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="1.87401214082248,68.2916046206112"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="2.21361017911986,69.116218083542"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[8].(BezierSegment.Point3)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="19.9198476492702,69.1986192722716"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="3.34000558526936,61.899235902643"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="18.4870217918875,68.711993805011"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="6.30741884655111,60.032636372748"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[9].(BezierSegment.Point1)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="26.2399125425095,67.8891300430377"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="6.10560866818311,55.053481203741"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="14.2029340947737,60.9183642550311"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="7.15678310258306,55.673070933873"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[9].(BezierSegment.Point2)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="28.7044536715528,64.5925098109046"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="11.7639379537615,48.9296870931209"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="13.0659155374128,55.0874676983912"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="25.5780033984519,53.0804111310269"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[9].(BezierSegment.Point3)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="26.6745981197892,58.979484459788"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="19.9198476492703,45.1106576515242"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="27.9027345689745,52.1667279181267"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="16.5420566163409,41.3586819477075"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[10].(BezierSegment.Point1)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="30.3887519043259,56.5173156745775"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="23.1199440258254,55.3425020727868"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="34.9240318749594,50.4927822308218"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="18.186118880138,40.139362166129"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[10].(BezierSegment.Point2)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="34.2596029071314,63.819792617601"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="31.5871439165302,54.7620625398483"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="35.3516565020516,45.6487151199001"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="23.4944595427094,43.9717800154557"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[10].(BezierSegment.Point3)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="33.8387274067031,66.2788664687051"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="43.2544401837901,54.4376455688122"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="34.4527956312957,40.3255082147708"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="25.1385206352461,45.1910997970343"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[11].(BezierSegment.Point1)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="35.2512851822583,67.2928884521612"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="68.4312373920878,60.6826722612579"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="46.5098561143048,47.565530481644"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="24.6958684407241,36.3064876580225"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[11].(BezierSegment.Point2)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="36.3855447378516,67.0708367901487"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="39.2231239725722,76.3708393387364"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="48.7801896804914,56.4928556389461"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="31.0340095760742,28.5779053638418"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[11].(BezierSegment.Point3)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="37.3184473460609,65.9544494905319"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="50.1627077104568,87.9336978282915"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="40.4911331731232,64.5756773332913"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="40.0813702932088,26.3744190835918"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[4].(BezierSegment.Point1)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="45.7834747308166,110.165075319105"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="45.7834747308166,110.332131575172"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="45.7834747308166,110.340839778534"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="45.7834747308166,110.280136491245"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[4].(BezierSegment.Point2)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="70.9409450332666,110.167905468414"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="70.9198334923199,110.349343612053"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="70.9088518759834,110.340516316603"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="71.0138258333308,110.291611182495"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[4].(BezierSegment.Point3)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="70.9409450332666,110.167905468414"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="70.9198334923199,110.349343612053"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="70.9088518759834,110.340516316603"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="71.0138258333308,110.291611182495"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[5].(BezierSegment.Point1)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="72.0495641836823,110.165075319105"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="72.0284526427355,110.346513462807"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="72.0174710263984,110.337686167294"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="72.1224449837465,110.288781033186"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[5].(BezierSegment.Point2)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="0.073279483178888,110.203442218409"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="0.0732709923146236,110.340737593615"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="0.0841303673146222,110.340737593604"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="0.160023750000009,110.280136491235"/>
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[3].(PathFigure.Segments)[5].(BezierSegment.Point3)" Storyboard.TargetName="pathFire">
+                                <EasingPointKeyFrame KeyTime="0:0:0.25" Value="0.073279483178888,110.203442218409"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="0.0732709923146236,110.340737593615"/>
+                                <EasingPointKeyFrame KeyTime="0:0:0.75" Value="0.0841303673146222,110.340737593604"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="0.160023750000009,110.280136491235"/>
+                            </PointAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="pathFire">
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.75" Value="0"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-0.125"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </ControlTemplate.Resources>
+
+                    <Viewbox>
+                        <Grid Background="Transparent" Margin="1">
+                            <Border x:Name="ShelfMainParts" Width="48" Height="48" >
+                                <!--Background="{Binding Path=ShelfStatus, Converter={StaticResource brushConverter}, RelativeSource={RelativeSource TemplatedParent}}">-->
+                                <!--//231101 HHJ Shelf NG State 추가-->
+                                <Path x:Name="ShelfNGParts" Style="{StaticResource NGPath}" Visibility="Collapsed"/>
+
+                                <!--//240719 HoN ProductEmpty 구분 추가-->
+                                <Border.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="Background" Value="{Binding Path=ShelfStatus, Converter={StaticResource brushConverter}, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        <Setter Property="BorderBrush" Value="{Binding Path=ShelfType, Converter={StaticResource brushConverter}, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        <Setter Property="BorderThickness" Value="1"/>
+                                        <Style.Triggers>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <!--화물이 감지될때만 진행함.-->
+                                                    <Condition Binding="{Binding Path=SlotList[0].MaterialExist, RelativeSource={RelativeSource TemplatedParent}}" Value="True"/>
+                                                    <Condition Binding="{Binding Path=SlotList[0].ProductEmpty, RelativeSource={RelativeSource TemplatedParent}}" Value="EMPTY"/>
+                                                </MultiDataTrigger.Conditions>
+                                                <!--//2024.07.24 lim, 흰색 바탕에 테두리로 변경-->
+                                                <Setter Property="Background" Value="White"/>
+                                                <Setter Property="BorderBrush" Value="{Binding Path=ShelfStatus, Converter={StaticResource brushConverter}, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                                <Setter Property="BorderThickness" Value="7"/>
+                                            </MultiDataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Resources>
+                            </Border>
+
+                            <Border x:Name="DeadZoneShelfParts" BorderThickness="1" Width="48" Height="48" IsHitTestVisible="False" RenderTransformOrigin="0.5,0.5"
+                                    BorderBrush="#000000"
+                                    Background="#808080">
+                                <Viewbox VerticalAlignment="Bottom" Margin="2">
+                                    <TextBlock Text="Dead Cell"/>
+                                </Viewbox>
+                            </Border>
+                            
+                            <!--//220513 YSW SCS 개선 //- 연기감지 템플릿 추가-->
+                            <!--221006 화재감지 테스트-->
+                            <!--//SuHwan_20230317 : 화재감지 이미지 변경-->
+                            <Grid x:Name="gridFire" Width="48" Height="48" RenderTransformOrigin="0.5,0.5"
+                                  Visibility="{Binding Path=FireSensorValue, Converter={StaticResource PvisibleConverter}, RelativeSource={RelativeSource TemplatedParent}}">
+                                <Path x:Name="pathFire" Style="{StaticResource FireImage}" Margin="0" Width="{TemplateBinding Width, Converter={StaticResource FireSizeConverter}}" Height="{TemplateBinding Height}"/>
+                            </Grid>
+
+                            <Grid x:Name="MemoParts" IsHitTestVisible="False" RenderTransformOrigin="0.5,0.5" Background="Transparent" Width="48" Height="48"
+                                  Visibility="{Binding Path=ShelfMemo, Converter={StaticResource MemoVisibleConverter}, RelativeSource={RelativeSource TemplatedParent}}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="5"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5"/>
+                                </Grid.RowDefinitions>
+                                <Path Grid.Column="3" Grid.Row="1" Data="M0,0 L100,0 L100,100 L0,100 z"
+                                      Stretch="Fill" Fill="Gold"
+                                      Stroke="Black" StrokeThickness="2"/>
+                            </Grid>
+                            
+                            <!--//230118 HHJ SCS 개선-->
+                            <Rectangle Stroke="{StaticResource SK_Orange}" StrokeThickness="3" StrokeDashArray="1"  Margin="0" Panel.ZIndex="9999"
+                                       Width="48" Height="48"
+                                       Visibility="{Binding Path=Selector, Converter={StaticResource PvisibleConverter}, RelativeSource={RelativeSource TemplatedParent}}"/>
+                        </Grid>
+                    </Viewbox>
+                    <ControlTemplate.Triggers>
+                        <!--//220513 YSW SCS 개선 //- 연기감지 템플릿 추가--><!--221006 화재감지 테스트-->
+                        <DataTrigger Binding="{Binding Path=FireSensorValue, RelativeSource={RelativeSource Self}}" Value="True">
+                            <DataTrigger.ExitActions>
+                                <StopStoryboard BeginStoryboardName="Storyboard2"/>
+                            </DataTrigger.ExitActions>
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard x:Name="Storyboard2" Storyboard="{StaticResource Storyboard2}"/>
+                            </DataTrigger.EnterActions>
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding Path=LayOutAngle, RelativeSource={RelativeSource Self}}" Value="eAngle0">
+                            <Setter TargetName="MemoParts" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+                            <Setter TargetName="gridFire" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+                            <Setter TargetName="DeadZoneShelfParts" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=LayOutAngle, RelativeSource={RelativeSource Self}}" Value="eAngle90">
+                            <Setter TargetName="MemoParts" Property="RenderTransform" Value="{StaticResource AngleMinus90}"/>
+                            <Setter TargetName="gridFire" Property="RenderTransform" Value="{StaticResource AngleMinus90}"/>
+                            <Setter TargetName="DeadZoneShelfParts" Property="RenderTransform" Value="{StaticResource AngleMinus90}"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=LayOutAngle, RelativeSource={RelativeSource Self}}" Value="eAngle180">
+                            <Setter TargetName="MemoParts" Property="RenderTransform" Value="{StaticResource AngleMinus180}"/>
+                            <Setter TargetName="gridFire" Property="RenderTransform" Value="{StaticResource AngleMinus180}"/>
+                            <Setter TargetName="DeadZoneShelfParts" Property="RenderTransform" Value="{StaticResource AngleMinus180}"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=LayOutAngle, RelativeSource={RelativeSource Self}}" Value="eAngle270">
+                            <Setter TargetName="MemoParts" Property="RenderTransform" Value="{StaticResource AngleMinus270}"/>
+                            <Setter TargetName="gridFire" Property="RenderTransform" Value="{StaticResource AngleMinus270}"/>
+                            <Setter TargetName="DeadZoneShelfParts" Property="RenderTransform" Value="{StaticResource AngleMinus270}"/>
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding Path=DeadZone, RelativeSource={RelativeSource Self}}" Value="True">
+                            <Setter TargetName="DeadZoneShelfParts" Property="Visibility" Value="Visible"/>
+
+                            <Setter TargetName="ShelfMainParts" Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=DeadZone, RelativeSource={RelativeSource Self}}" Value="False">
+                            <Setter TargetName="DeadZoneShelfParts" Property="Visibility" Value="Collapsed"/>
+
+                            <Setter TargetName="ShelfMainParts" Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+
+                        <!--//231101 HHJ Shelf NG State 추가-->
+                        <DataTrigger Binding="{Binding Path=ShelfNGState, RelativeSource={RelativeSource Self}}" Value="1">
+                            <Setter TargetName="ShelfNGParts" Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!--//220610 HHJ SCS 개선     //- CV UIControl 추가 //SuHwan_20230112 : 디자인 변경-->
+    <Style x:Key="SK_CVStyleNew" TargetType="{x:Type u:UIControlCV}">
+        <!--옆으로 긴 타입으로 개발을 진행중에 있음. 보내준것은 위아래로 긴 타입이지만, 90도 돌려서 사용한다.-->
+        <Setter Property="Width" Value="50"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type u:UIControlCV}">
+                    <ControlTemplate.Resources>
+                        
+                    </ControlTemplate.Resources>
+
+                    <Viewbox>
+                        <Grid x:Name="ConveyorMain" Background="Transparent" Margin="1">
+                            <!--Conveyor Background-->
+                            <Border x:Name="BackGroundParts" RenderTransformOrigin="0.5,0.5"
+                                    Width="48" Height="48" 
+                                    BorderBrush="#C2C7CC"
+                                    BorderThickness="1"
+                                    Background="{Binding Path=ConveyorUIState, Converter={StaticResource brushConverter}, RelativeSource={RelativeSource TemplatedParent}}">
+                                <Path Data="M70,209.16701 L330,209.16701 330,240 70,240 z M70,154.501 L330,154.501 330,185.49899 70,185.49899 z M70,104.832 L330,104.832 330,135.16701 70,135.16701 z M70,54.833002 L330,54.833002 330,85.165998 70,85.165998 z M350,4.5474735E-13 L365,4.5474735E-13 385,4.5474735E-13 C393.3125,-2.2351733E-06 400,6.6874959 400,14.999998 400,23.3125 393.3125,29.999998 385,30.000002 L380,30.000002 380,55.000002 385,55.000002 C393.3125,54.999998 400,61.687498 400,69.999998 400,78.312498 393.3125,84.999998 385,84.999998 L380,84.999998 380,105 385,105 C393.3125,105 400,111.6875 400,120 400,128.3125 393.3125,135 385,135 L380,135 380,155 385,155 C393.3125,155 400,161.6875 400,170 400,178.3125 393.3125,185 385,185 L380,185 380,210 385,210 C393.3125,210 400,216.6875 400,225 400,233.3125 393.3125,240 385,240 L365,240 350,240 350,225 350,170 350,120 350,69.999998 350,14.999998 z M70,4.5474735E-13 L330,4.5474735E-13 330,29.833002 70,29.833002 z M14.999998,4.5474735E-13 L35.000004,4.5474735E-13 50,4.5474735E-13 50,14.999998 50,69.999998 50,120 50,170 50,225 50,240 35.000004,240 14.999998,240 C6.6875,240 0,233.3125 0,225 0,216.6875 6.6875,210 14.999998,210 L19.999998,210 19.999998,185 14.999998,185 C6.6875,185 0,178.3125 0,170 0,161.6875 6.6875,155 14.999998,155 L19.999998,155 19.999998,135 14.999998,135 C6.6875,135 0,128.3125 0,120 0,111.6875 6.6875,105 14.999998,105 L19.999998,105 19.999998,84.999998 14.999998,84.999998 C6.6875,84.999998 0,78.312498 0,69.999998 0,61.687498 6.6875,54.999998 14.999998,55.000002 L19.999998,55.000002 19.999998,30.000002 14.999998,30.000002 C6.6875,29.999998 0,23.3125 0,14.999998 0,6.6874959 6.6875,-2.2351733E-06 14.999998,4.5474735E-13 z"
+                                      Stretch="Fill" Opacity="1"
+                                      Fill="{Binding Path=ConveyorUIState, Converter={StaticResource brushConverter}, RelativeSource={RelativeSource TemplatedParent}}"
+                                      Stroke="{StaticResource SK_LBlack}" StrokeThickness="0.5"
+                                      Visibility="Hidden"/>
+                            </Border>
+
+                            <!--ConveyorParts-->
+                            <Grid Visibility="{Binding Path=CVUSE, Converter={StaticResource NvisibleConverter}, RelativeSource={RelativeSource TemplatedParent}}"
+                                  Width="48" Height="48" 
+                                  Background="Gray"/>
+
+                            <Grid x:Name="ConveyorParts" Width="48" Height="48" 
+                                  Visibility="{Binding Path=CVUSE, Converter={StaticResource PvisibleConverter}, RelativeSource={RelativeSource TemplatedParent}}">
+                                
+                                <!--DirectionParts-->
+                                <Grid x:Name="DirectionParts" RenderTransformOrigin="0.5,0.5" RenderTransform="{StaticResource Angle0}" Margin="10"
+                                      Panel.ZIndex="5000">
+                                    <Path x:Name="InDirectionArrow" Data="M50,0 L100,50 75,50 75,100 25,100 25,50 0,50 z"
+                                          Stretch="Uniform" StrokeThickness="1" Opacity="1" RenderTransformOrigin="0.5,0.5" 
+                                          Fill="{StaticResource Port_In_Arrow}"
+                                          HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" RenderTransform="{StaticResource Angle180}">
+                                        <Path.Style>
+                                            <Style TargetType="{x:Type Path}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=PortAccessMode, RelativeSource={RelativeSource TemplatedParent}}" Value="MANUAL">
+                                                        <Setter Property="Stroke" Value="Black"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                                <Setter Property="Stroke" Value="White"/>
+                                            </Style>
+                                        </Path.Style>
+                                    </Path>
+                                    <Path x:Name="OutDirectionArrow" Data="M50,0 L100,50 75,50 75,100 25,100 25,50 0,50 z"
+                                          Stretch="Uniform" StrokeThickness="1" Opacity="1" RenderTransformOrigin="0.5,0.5" 
+                                          Fill="{StaticResource Port_Out_Arrow}"
+                                          HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
+                                        <Path.Style>
+                                            <Style TargetType="{x:Type Path}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=PortAccessMode, RelativeSource={RelativeSource TemplatedParent}}" Value="MANUAL">
+                                                        <Setter Property="Stroke" Value="Black"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                                <Setter Property="Stroke" Value="White"/>
+                                            </Style>
+                                        </Path.Style>
+                                    </Path>
+                                </Grid>
+                                <!--MaterialExist-->
+                                <Border x:Name="LoadMaterial"
+                                        VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Opacity="0" IsHitTestVisible="False" CornerRadius="3"
+                                        Panel.ZIndex="9999"
+                                        BorderBrush="{Binding Path=SlotList[0].MaterialType, Converter={StaticResource brushConverter}, RelativeSource={RelativeSource TemplatedParent}}"
+                                        BorderThickness="0.5" Margin="5">
+                                    <!--230911 HHJ UNK Mark 회전 추가 RenderTransformOrigin="0.5,0.5" 추가-->
+                                    <Path x:Name="UnkMark" Visibility="Collapsed" Fill="Red" StrokeThickness="0" Stretch="Uniform" RenderTransformOrigin="0.5,0.5"
+                                          Data="M80 160c0-35.3 28.7-64 64-64h32c35.3 0 64 28.7 64 64v3.6c0 21.8-11.1 42.1-29.4 53.8l-42.2 27.1c-25.2 16.2-40.4 44.1-40.4 74V320c0 17.7 14.3 32 32 32s32-14.3 32-32v-1.4c0-8.2 4.2-15.8 11-20.2l42.2-27.1c36.6-23.6 58.8-64.1 58.8-107.7V160c0-70.7-57.3-128-128-128H144C73.3 32 16 89.3 16 160c0 17.7 14.3 32 32 32s32-14.3 32-32zm80 320a40 40 0 1 0 0-80 40 40 0 1 0 0 80z"/>
+                                </Border>
+                            </Grid>
+
+                            <!--Pause-->
+                            <Grid x:Name="PauseParts" Visibility="Collapsed" Background="Transparent" RenderTransformOrigin="0.5,0.5"
+                                  Width="48" Height="48" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Path Grid.Column="0" Grid.Row="0" Data="M68.18182,20 C70.692204,20 72.727272,22.238576 72.727272,25 L72.727272,75 C72.727272,77.761425 70.692204,80 68.18182,80 65.671432,80 63.636364,77.761425 63.636364,75 L63.636364,25 C63.636364,22.238576 65.671432,20 68.18182,20 z M31.818181,20 C34.328568,20 36.363636,22.238576 36.363636,25 L36.363636,75 C36.363636,77.761425 34.328568,80 31.818181,80 29.307796,80 27.272728,77.761425 27.272728,75 L27.272728,25 C27.272728,22.238576 29.307796,20 31.818181,20 z M50,9.999999 C27.406533,10 9.09091,27.908609 9.09091,50 9.09091,72.091393 27.406533,90 50,90 72.593468,90 90.909088,72.091393 90.909088,50 90.909088,27.908609 72.593468,10 50,9.999999 z M50,0 C77.614235,0 100,22.385763 100,50 100,77.614235 77.614235,100 50,100 22.385764,100 0,77.614235 0,50 0,22.385763 22.385764,0 50,0 z"
+                                      Stretch="Uniform" Fill="{StaticResource SK_Red}" Opacity="1"/>
+                            </Grid>
+
+                            <!--Fire Shutter Parts-->
+                            <Grid x:Name="FireShutterParts" RenderTransformOrigin="0.5,0.5"  Visibility="Collapsed">
+                                <Border x:Name="LeftFireShutter" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
+                                    <Path Data="M0,46.853554 L3.1464458,50 0,50 z M0,43.353554 L6.6464466,50 3.8535532,50 0,46.146446 z M0,39.761055 L6.999998,46.761051 6.999998,49.646442 0,42.646446 z M0,36.178555 L6.999998,43.178555 6.999998,46.053947 0,39.053947 z M0,32.596054 L6.999998,39.59605 6.999998,42.471447 0,35.471447 z M0,29.013552 L6.999998,36.01355 6.999998,38.888947 0,31.888947 z M0,25.431053 L6.999998,32.431053 6.999998,35.306446 0,28.306448 z M0,21.848555 L6.999998,28.848555 6.999998,31.723948 0,24.723948 z M0,18.266054 L6.999998,25.266054 6.999998,28.141447 0,21.141447 z M0,14.683554 L6.999998,21.683556 6.999998,24.558947 0,17.558947 z M0,11.101054 L6.999998,18.101055 6.999998,20.976448 0,13.976447 z M0,7.5185542 L6.999998,14.518555 6.999998,17.393948 0,10.393947 z M0,3.9360528 L6.999998,10.936053 6.999998,13.811447 0,6.8114471 z M0,0.35355359 L6.999998,7.3535538 6.999998,10.228946 0,3.2289457 z M3.8535524,0 L6.999998,0 6.999998,3.1464465 z M0.35355032,0 L3.1464432,0 6.999998,3.8535557 6.999998,6.6464462 z"
+                                    Stretch="None" Opacity="1" StrokeThickness="0.5" RenderTransformOrigin="0.5,0.5" Width="3" HorizontalAlignment="Left">
+                                        <Path.Style>
+                                            <Style TargetType="{x:Type Path}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=FireShutterAction, RelativeSource={RelativeSource TemplatedParent}}" Value="True">
+                                                        <Setter Property="Fill" Value="Red"/>
+                                                        <Setter Property="Stroke" Value="Yellow"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                                <Setter Property="Fill" Value="Gray"/>
+                                                <Setter Property="Stroke" Value="Black"/>
+                                            </Style>
+                                        </Path.Style>
+                                    </Path>
+                                    <Border.RenderTransform>
+                                        <RotateTransform Angle="180"/>
+                                    </Border.RenderTransform>
+                                </Border>
+
+                                <Border x:Name="TopFireShutter" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
+                                    <Path Data="M0,46.853554 L3.1464458,50 0,50 z M0,43.353554 L6.6464466,50 3.8535532,50 0,46.146446 z M0,39.761055 L6.999998,46.761051 6.999998,49.646442 0,42.646446 z M0,36.178555 L6.999998,43.178555 6.999998,46.053947 0,39.053947 z M0,32.596054 L6.999998,39.59605 6.999998,42.471447 0,35.471447 z M0,29.013552 L6.999998,36.01355 6.999998,38.888947 0,31.888947 z M0,25.431053 L6.999998,32.431053 6.999998,35.306446 0,28.306448 z M0,21.848555 L6.999998,28.848555 6.999998,31.723948 0,24.723948 z M0,18.266054 L6.999998,25.266054 6.999998,28.141447 0,21.141447 z M0,14.683554 L6.999998,21.683556 6.999998,24.558947 0,17.558947 z M0,11.101054 L6.999998,18.101055 6.999998,20.976448 0,13.976447 z M0,7.5185542 L6.999998,14.518555 6.999998,17.393948 0,10.393947 z M0,3.9360528 L6.999998,10.936053 6.999998,13.811447 0,6.8114471 z M0,0.35355359 L6.999998,7.3535538 6.999998,10.228946 0,3.2289457 z M3.8535524,0 L6.999998,0 6.999998,3.1464465 z M0.35355032,0 L3.1464432,0 6.999998,3.8535557 6.999998,6.6464462 z"
+                                    Stretch="None" Opacity="1" StrokeThickness="0.5" RenderTransformOrigin="0.5,0.5" Width="3" HorizontalAlignment="Left">
+                                        <Path.Style>
+                                            <Style TargetType="{x:Type Path}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=FireShutterAction, RelativeSource={RelativeSource TemplatedParent}}" Value="True">
+                                                        <Setter Property="Fill" Value="Red"/>
+                                                        <Setter Property="Stroke" Value="Yellow"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                                <Setter Property="Fill" Value="Gray"/>
+                                                <Setter Property="Stroke" Value="Black"/>
+                                            </Style>
+                                        </Path.Style>
+                                    </Path>
+                                    <Border.RenderTransform>
+                                        <RotateTransform Angle="270"/>
+                                    </Border.RenderTransform>
+                                </Border>
+
+                                <Border x:Name="RightFireShutter" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
+                                    <Path Data="M0,46.853554 L3.1464458,50 0,50 z M0,43.353554 L6.6464466,50 3.8535532,50 0,46.146446 z M0,39.761055 L6.999998,46.761051 6.999998,49.646442 0,42.646446 z M0,36.178555 L6.999998,43.178555 6.999998,46.053947 0,39.053947 z M0,32.596054 L6.999998,39.59605 6.999998,42.471447 0,35.471447 z M0,29.013552 L6.999998,36.01355 6.999998,38.888947 0,31.888947 z M0,25.431053 L6.999998,32.431053 6.999998,35.306446 0,28.306448 z M0,21.848555 L6.999998,28.848555 6.999998,31.723948 0,24.723948 z M0,18.266054 L6.999998,25.266054 6.999998,28.141447 0,21.141447 z M0,14.683554 L6.999998,21.683556 6.999998,24.558947 0,17.558947 z M0,11.101054 L6.999998,18.101055 6.999998,20.976448 0,13.976447 z M0,7.5185542 L6.999998,14.518555 6.999998,17.393948 0,10.393947 z M0,3.9360528 L6.999998,10.936053 6.999998,13.811447 0,6.8114471 z M0,0.35355359 L6.999998,7.3535538 6.999998,10.228946 0,3.2289457 z M3.8535524,0 L6.999998,0 6.999998,3.1464465 z M0.35355032,0 L3.1464432,0 6.999998,3.8535557 6.999998,6.6464462 z"
+                                    Stretch="None" Opacity="1" StrokeThickness="0.5" RenderTransformOrigin="0.5,0.5" Width="3" HorizontalAlignment="Left">
+                                        <Path.Style>
+                                            <Style TargetType="{x:Type Path}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=FireShutterAction, RelativeSource={RelativeSource TemplatedParent}}" Value="True">
+                                                        <Setter Property="Fill" Value="Red"/>
+                                                        <Setter Property="Stroke" Value="Yellow"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                                <Setter Property="Fill" Value="Gray"/>
+                                                <Setter Property="Stroke" Value="Black"/>
+                                            </Style>
+                                        </Path.Style>
+                                    </Path>
+                                    <Border.RenderTransform>
+                                        <RotateTransform Angle="0"/>
+                                    </Border.RenderTransform>
+                                </Border>
+
+                                <Border x:Name="BottomFireShutter" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
+                                    <Path Data="M0,46.853554 L3.1464458,50 0,50 z M0,43.353554 L6.6464466,50 3.8535532,50 0,46.146446 z M0,39.761055 L6.999998,46.761051 6.999998,49.646442 0,42.646446 z M0,36.178555 L6.999998,43.178555 6.999998,46.053947 0,39.053947 z M0,32.596054 L6.999998,39.59605 6.999998,42.471447 0,35.471447 z M0,29.013552 L6.999998,36.01355 6.999998,38.888947 0,31.888947 z M0,25.431053 L6.999998,32.431053 6.999998,35.306446 0,28.306448 z M0,21.848555 L6.999998,28.848555 6.999998,31.723948 0,24.723948 z M0,18.266054 L6.999998,25.266054 6.999998,28.141447 0,21.141447 z M0,14.683554 L6.999998,21.683556 6.999998,24.558947 0,17.558947 z M0,11.101054 L6.999998,18.101055 6.999998,20.976448 0,13.976447 z M0,7.5185542 L6.999998,14.518555 6.999998,17.393948 0,10.393947 z M0,3.9360528 L6.999998,10.936053 6.999998,13.811447 0,6.8114471 z M0,0.35355359 L6.999998,7.3535538 6.999998,10.228946 0,3.2289457 z M3.8535524,0 L6.999998,0 6.999998,3.1464465 z M0.35355032,0 L3.1464432,0 6.999998,3.8535557 6.999998,6.6464462 z"
+                                    Stretch="None" Opacity="1" StrokeThickness="0.5" RenderTransformOrigin="0.5,0.5" Width="3" HorizontalAlignment="Left">
+                                        <Path.Style>
+                                            <Style TargetType="{x:Type Path}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=FireShutterAction, RelativeSource={RelativeSource TemplatedParent}}" Value="True">
+                                                        <Setter Property="Fill" Value="Red"/>
+                                                        <Setter Property="Stroke" Value="Yellow"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                                <Setter Property="Fill" Value="Gray"/>
+                                                <Setter Property="Stroke" Value="Black"/>
+                                            </Style>
+                                        </Path.Style>
+                                    </Path>
+                                    <Border.RenderTransform>
+                                        <RotateTransform Angle="90"/>
+                                    </Border.RenderTransform>
+                                </Border>
+
+                                <TextBlock x:Name="ShutterState" FontSize="6" Text="S/T" 
+                                    VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="2,4,2,2" RenderTransformOrigin="0.5,0.5"
+                                    Background="#B2FFFFFF" Visibility="Collapsed">
+                                    <TextBlock.Style>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Path=FireShutterAction, RelativeSource={RelativeSource TemplatedParent}}" Value="True">
+                                                    <Setter Property="Foreground" Value="Red"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                            <Setter Property="Foreground" Value="Black"/>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </Grid>
+
+                            <!--WaterPool-->
+                            <Border x:Name="WaterPoolParts" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5"
+                                    Width="48" Height="48" 
+                                    BorderBrush="{StaticResource SK_Blue}" BorderThickness="2" CornerRadius="2">
+                                <Border.Style>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="Background" Value="White"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=WaterPoolExist, RelativeSource={RelativeSource TemplatedParent}}" Value="True">
+                                                <Setter Property="Background" Value="{StaticResource SK_Red}"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                                <Path Style="{StaticResource FireWaterPoolImage}" Margin="3"/>
+                            </Border>
+
+                            <!--UnitID-->
+                            <Grid x:Name="IDParts" HorizontalAlignment="Center" IsHitTestVisible="False" RenderTransformOrigin="0.5,0.5" Margin="0"
+                                  Width="48" Height="48" >
+                                <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center" Orientation="Horizontal" Height="9">
+                                    <Path x:Name="BcrPath" Data="M0,0 L50,25 0,50 0,25 z" Stretch="Uniform" Margin="1"
+                                          Fill="{Binding Path=PortBCRState, Converter={StaticResource brushConverter}, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                    <TextBlock Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0"
+                                               Text="{Binding Path=TrackID, RelativeSource={RelativeSource TemplatedParent}}" 
+                                               FontFamily="{StaticResource ExtraBoldFont}"/>
+                                </StackPanel>
+                            </Grid>
+
+                            <!--Selector-->
+                            <Rectangle Stroke="{StaticResource SK_Orange}" StrokeThickness="3" StrokeDashArray="1"  Margin="0" Panel.ZIndex="9999"
+                                       Width="48" Height="48"
+                                       Visibility="{Binding Path=Selector, Converter={StaticResource PvisibleConverter}, RelativeSource={RelativeSource TemplatedParent}}"/>
+                        </Grid>
+                    </Viewbox>
+                    <ControlTemplate.Triggers>
+                        <!--//230217 HHJ SCS 개선     //CV UI State 관련 추가
+                            Binding Value CVState > ConveyorUIState 변경
+                            StoryBoard Name 변경-->
+                        <DataTrigger Binding="{Binding Path=IsTrackPause, RelativeSource={RelativeSource Self}}" Value="True">
+                            <Setter TargetName="PauseParts" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="ConveyorParts" Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=IsTrackPause, RelativeSource={RelativeSource Self}}" Value="False">
+                            <Setter TargetName="PauseParts" Property="Visibility" Value="Collapsed"/>
+                            <Setter TargetName="ConveyorParts" Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+
+                        <!--//220830 HHJ SCS 개선     //- 방화수조타입 추가-->
+                        <!--//230217 HHJ SCS 개선     //기존 CVModuleType Binding 처리할 수 있도록 변경
+                            Binding Value CVState > CVModuleType 변경-->
+                        <DataTrigger Binding="{Binding Path=CVModuleType, RelativeSource={RelativeSource Self}}" Value="WaterPool">
+                            <Setter TargetName="WaterPoolParts" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="BackGroundParts" Property="Visibility" Value="Collapsed"/>
+                            <Setter TargetName="ConveyorParts" Property="Visibility" Value="Collapsed"/>
+                            <Setter TargetName="PauseParts" Property="Visibility" Value="Collapsed"/>
+                            <Setter TargetName="IDParts" Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+
+                        <!--//230214 HHJ SCS 개선-->
+                        <DataTrigger Binding="{Binding Path=PortInOutType, RelativeSource={RelativeSource Self}}" Value="INPUT">
+                            <Setter TargetName="InDirectionArrow" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="OutDirectionArrow" Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=PortInOutType, RelativeSource={RelativeSource Self}}" Value="OUTPUT">
+                            <Setter TargetName="InDirectionArrow" Property="Visibility" Value="Collapsed"/>
+                            <Setter TargetName="OutDirectionArrow" Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=PortInOutType, RelativeSource={RelativeSource Self}}" Value="Unknown">
+                            <Setter TargetName="InDirectionArrow" Property="Visibility" Value="Collapsed"/>
+                            <Setter TargetName="OutDirectionArrow" Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=LayOutAngle, RelativeSource={RelativeSource Self}}" Value="eAngle0"/>
+                                <Condition Binding="{Binding Path=CVWay, RelativeSource={RelativeSource Self}}" Value="BottomToTop"/>
+                            </MultiDataTrigger.Conditions>
+
+                            <MultiDataTrigger.Setters>
+                                <Setter TargetName="DirectionParts" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+                                <Setter TargetName="BackGroundParts" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+                                <Setter TargetName="PauseParts" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+
+                                <Setter TargetName="FireShutterParts" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+                                <Setter TargetName="ShutterState" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+                                <Setter TargetName="ShutterState" Property="VerticalAlignment" Value="Bottom"/>
+                                <Setter TargetName="ShutterState" Property="HorizontalAlignment" Value="Right"/>
+
+                                <!--230911 HHJ UNK Mark 회전 추가 Start-->
+                                <Setter TargetName="UnkMark" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+                                <!--230911 HHJ UNK Mark 회전 추가 End-->
+                            </MultiDataTrigger.Setters>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=LayOutAngle, RelativeSource={RelativeSource Self}}" Value="eAngle0"/>
+                                <Condition Binding="{Binding Path=CVWay, RelativeSource={RelativeSource Self}}" Value="TopToBottom"/>
+                            </MultiDataTrigger.Conditions>
+
+                            <MultiDataTrigger.Setters>
+                                <Setter TargetName="DirectionParts" Property="RenderTransform" Value="{StaticResource Angle180}"/>
+                                <Setter TargetName="BackGroundParts" Property="RenderTransform" Value="{StaticResource Angle180}"/>
+                                <Setter TargetName="PauseParts" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+
+                                <Setter TargetName="FireShutterParts" Property="RenderTransform" Value="{StaticResource Angle180}"/>
+                                <Setter TargetName="ShutterState" Property="RenderTransform" Value="{StaticResource AngleMinus180}"/>
+                                <Setter TargetName="ShutterState" Property="VerticalAlignment" Value="Top"/>
+                                <Setter TargetName="ShutterState" Property="HorizontalAlignment" Value="Left"/>
+
+                                <!--230911 HHJ UNK Mark 회전 추가 Start-->
+                                <Setter TargetName="UnkMark" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+                                <!--230911 HHJ UNK Mark 회전 추가 End-->
+                            </MultiDataTrigger.Setters>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=LayOutAngle, RelativeSource={RelativeSource Self}}" Value="eAngle0"/>
+                                <Condition Binding="{Binding Path=CVWay, RelativeSource={RelativeSource Self}}" Value="LeftToRight"/>
+                            </MultiDataTrigger.Conditions>
+
+                            <MultiDataTrigger.Setters>
+                                <Setter TargetName="DirectionParts" Property="RenderTransform" Value="{StaticResource Angle90}"/>
+                                <Setter TargetName="BackGroundParts" Property="RenderTransform" Value="{StaticResource Angle90}"/>
+
+                                <Setter TargetName="PauseParts" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+
+                                <Setter TargetName="FireShutterParts" Property="RenderTransform" Value="{StaticResource Angle90}"/>
+                                <Setter TargetName="ShutterState" Property="RenderTransform" Value="{StaticResource AngleMinus90}"/>
+                                <Setter TargetName="ShutterState" Property="VerticalAlignment" Value="Top"/>
+                                <Setter TargetName="ShutterState" Property="HorizontalAlignment" Value="Right"/>
+
+                                <!--230911 HHJ UNK Mark 회전 추가 Start-->
+                                <Setter TargetName="UnkMark" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+                                <!--230911 HHJ UNK Mark 회전 추가 End-->
+                            </MultiDataTrigger.Setters>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=LayOutAngle, RelativeSource={RelativeSource Self}}" Value="eAngle0"/>
+                                <Condition Binding="{Binding Path=CVWay, RelativeSource={RelativeSource Self}}" Value="RightToLeft"/>
+                            </MultiDataTrigger.Conditions>
+
+                            <MultiDataTrigger.Setters>
+                                <Setter TargetName="DirectionParts" Property="RenderTransform" Value="{StaticResource Angle270}"/>
+                                <Setter TargetName="BackGroundParts" Property="RenderTransform" Value="{StaticResource Angle270}"/>
+
+                                <Setter TargetName="PauseParts" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+
+                                <Setter TargetName="FireShutterParts" Property="RenderTransform" Value="{StaticResource Angle270}"/>
+                                <Setter TargetName="ShutterState" Property="RenderTransform" Value="{StaticResource AngleMinus270}"/>
+                                <Setter TargetName="ShutterState" Property="VerticalAlignment" Value="Bottom"/>
+                                <Setter TargetName="ShutterState" Property="HorizontalAlignment" Value="Left"/>
+
+                                <!--230911 HHJ UNK Mark 회전 추가 Start-->
+                                <Setter TargetName="UnkMark" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+                                <!--230911 HHJ UNK Mark 회전 추가 End-->
+                            </MultiDataTrigger.Setters>
+                        </MultiDataTrigger>
+
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=LayOutAngle, RelativeSource={RelativeSource Self}}" Value="eAngle90"/>
+                                <Condition Binding="{Binding Path=CVWay, RelativeSource={RelativeSource Self}}" Value="BottomToTop"/>
+                            </MultiDataTrigger.Conditions>
+
+                            <MultiDataTrigger.Setters>
+                                <Setter TargetName="DirectionParts" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+                                <Setter TargetName="BackGroundParts" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+
+                                <Setter TargetName="IDParts" Property="RenderTransform" Value="{StaticResource AngleMinus90}"/>
+
+                                <Setter TargetName="PauseParts" Property="RenderTransform" Value="{StaticResource AngleMinus90}"/>
+                                <Setter TargetName="WaterPoolParts" Property="RenderTransform" Value="{StaticResource AngleMinus90}"/>
+
+
+                                <Setter TargetName="FireShutterParts" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+                                <Setter TargetName="ShutterState" Property="RenderTransform" Value="{StaticResource AngleMinus90}"/>
+                                <Setter TargetName="ShutterState" Property="VerticalAlignment" Value="Top"/>
+                                <Setter TargetName="ShutterState" Property="HorizontalAlignment" Value="Right"/>
+
+                                <!--230911 HHJ UNK Mark 회전 추가 Start-->
+                                <Setter TargetName="UnkMark" Property="RenderTransform" Value="{StaticResource AngleMinus90}"/>
+                                <!--230911 HHJ UNK Mark 회전 추가 End-->
+                            </MultiDataTrigger.Setters>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=LayOutAngle, RelativeSource={RelativeSource Self}}" Value="eAngle90"/>
+                                <Condition Binding="{Binding Path=CVWay, RelativeSource={RelativeSource Self}}" Value="TopToBottom"/>
+                            </MultiDataTrigger.Conditions>
+
+                            <MultiDataTrigger.Setters>
+                                <Setter TargetName="DirectionParts" Property="RenderTransform" Value="{StaticResource Angle180}"/>
+                                <Setter TargetName="BackGroundParts" Property="RenderTransform" Value="{StaticResource Angle180}"/>
+
+                                <Setter TargetName="IDParts" Property="RenderTransform" Value="{StaticResource AngleMinus90}"/>
+
+                                <Setter TargetName="PauseParts" Property="RenderTransform" Value="{StaticResource AngleMinus90}"/>
+                                <Setter TargetName="WaterPoolParts" Property="RenderTransform" Value="{StaticResource AngleMinus90}"/>
+
+                                <Setter TargetName="FireShutterParts" Property="RenderTransform" Value="{StaticResource Angle180}"/>
+                                <Setter TargetName="ShutterState" Property="RenderTransform" Value="{StaticResource Angle90}"/>
+                                <Setter TargetName="ShutterState" Property="VerticalAlignment" Value="Bottom"/>
+                                <Setter TargetName="ShutterState" Property="HorizontalAlignment" Value="Left"/>
+
+                                <!--230911 HHJ UNK Mark 회전 추가 Start-->
+                                <Setter TargetName="UnkMark" Property="RenderTransform" Value="{StaticResource AngleMinus90}"/>
+                                <!--230911 HHJ UNK Mark 회전 추가 End-->
+                            </MultiDataTrigger.Setters>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=LayOutAngle, RelativeSource={RelativeSource Self}}" Value="eAngle90"/>
+                                <Condition Binding="{Binding Path=CVWay, RelativeSource={RelativeSource Self}}" Value="LeftToRight"/>
+                            </MultiDataTrigger.Conditions>
+
+                            <MultiDataTrigger.Setters>
+                                <Setter TargetName="DirectionParts" Property="RenderTransform" Value="{StaticResource Angle90}"/>
+                                <Setter TargetName="BackGroundParts" Property="RenderTransform" Value="{StaticResource Angle90}"/>
+
+                                <Setter TargetName="IDParts" Property="RenderTransform" Value="{StaticResource AngleMinus90}"/>
+
+                                <Setter TargetName="PauseParts" Property="RenderTransform" Value="{StaticResource AngleMinus90}"/>
+                                <Setter TargetName="WaterPoolParts" Property="RenderTransform" Value="{StaticResource AngleMinus90}"/>
+
+                                <Setter TargetName="FireShutterParts" Property="RenderTransform" Value="{StaticResource Angle90}"/>
+                                <Setter TargetName="ShutterState" Property="RenderTransform" Value="{StaticResource Angle180}"/>
+                                <Setter TargetName="ShutterState" Property="VerticalAlignment" Value="Top"/>
+                                <Setter TargetName="ShutterState" Property="HorizontalAlignment" Value="Left"/>
+
+                                <!--230911 HHJ UNK Mark 회전 추가 Start-->
+                                <Setter TargetName="UnkMark" Property="RenderTransform" Value="{StaticResource AngleMinus90}"/>
+                                <!--230911 HHJ UNK Mark 회전 추가 End-->
+                            </MultiDataTrigger.Setters>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=LayOutAngle, RelativeSource={RelativeSource Self}}" Value="eAngle90"/>
+                                <Condition Binding="{Binding Path=CVWay, RelativeSource={RelativeSource Self}}" Value="RightToLeft"/>
+                            </MultiDataTrigger.Conditions>
+
+                            <MultiDataTrigger.Setters>
+                                <Setter TargetName="DirectionParts" Property="RenderTransform" Value="{StaticResource Angle270}"/>
+                                <Setter TargetName="BackGroundParts" Property="RenderTransform" Value="{StaticResource Angle270}"/>
+
+                                <Setter TargetName="IDParts" Property="RenderTransform" Value="{StaticResource AngleMinus90}"/>
+
+                                <Setter TargetName="PauseParts" Property="RenderTransform" Value="{StaticResource AngleMinus90}"/>
+                                <Setter TargetName="WaterPoolParts" Property="RenderTransform" Value="{StaticResource AngleMinus90}"/>
+
+
+                                <Setter TargetName="FireShutterParts" Property="RenderTransform" Value="{StaticResource Angle270}"/>
+                                <Setter TargetName="ShutterState" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+                                <Setter TargetName="ShutterState" Property="VerticalAlignment" Value="Bottom"/>
+                                <Setter TargetName="ShutterState" Property="HorizontalAlignment" Value="Right"/>
+
+                                <!--230911 HHJ UNK Mark 회전 추가 Start-->
+                                <Setter TargetName="UnkMark" Property="RenderTransform" Value="{StaticResource AngleMinus90}"/>
+                                <!--230911 HHJ UNK Mark 회전 추가 End-->
+                            </MultiDataTrigger.Setters>
+                        </MultiDataTrigger>
+
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=LayOutAngle, RelativeSource={RelativeSource Self}}" Value="eAngle180"/>
+                                <Condition Binding="{Binding Path=CVWay, RelativeSource={RelativeSource Self}}" Value="BottomToTop"/>
+                            </MultiDataTrigger.Conditions>
+
+                            <MultiDataTrigger.Setters>
+                                <Setter TargetName="DirectionParts" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+                                <Setter TargetName="BackGroundParts" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+
+                                <Setter TargetName="IDParts" Property="RenderTransform" Value="{StaticResource AngleMinus180}"/>
+
+                                <Setter TargetName="PauseParts" Property="RenderTransform" Value="{StaticResource Angle180}"/>
+                                <Setter TargetName="WaterPoolParts" Property="RenderTransform" Value="{StaticResource AngleMinus180}"/>
+
+
+                                <Setter TargetName="FireShutterParts" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+                                <Setter TargetName="ShutterState" Property="RenderTransform" Value="{StaticResource Angle180}"/>
+                                <Setter TargetName="ShutterState" Property="VerticalAlignment" Value="Top"/>
+                                <Setter TargetName="ShutterState" Property="HorizontalAlignment" Value="Left"/>
+
+                                <!--230911 HHJ UNK Mark 회전 추가 Start-->
+                                <Setter TargetName="UnkMark" Property="RenderTransform" Value="{StaticResource Angle180}"/>
+                                <!--230911 HHJ UNK Mark 회전 추가 End-->
+                            </MultiDataTrigger.Setters>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=LayOutAngle, RelativeSource={RelativeSource Self}}" Value="eAngle180"/>
+                                <Condition Binding="{Binding Path=CVWay, RelativeSource={RelativeSource Self}}" Value="TopToBottom"/>
+                            </MultiDataTrigger.Conditions>
+
+                            <MultiDataTrigger.Setters>
+                                <Setter TargetName="DirectionParts" Property="RenderTransform" Value="{StaticResource Angle180}"/>
+                                <Setter TargetName="BackGroundParts" Property="RenderTransform" Value="{StaticResource Angle180}"/>
+
+                                <Setter TargetName="IDParts" Property="RenderTransform" Value="{StaticResource AngleMinus180}"/>
+
+                                <Setter TargetName="PauseParts" Property="RenderTransform" Value="{StaticResource Angle180}"/>
+                                <Setter TargetName="WaterPoolParts" Property="RenderTransform" Value="{StaticResource AngleMinus180}"/>
+
+                                <Setter TargetName="FireShutterParts" Property="RenderTransform" Value="{StaticResource Angle180}"/>
+                                <Setter TargetName="ShutterState" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+                                <Setter TargetName="ShutterState" Property="VerticalAlignment" Value="Bottom"/>
+                                <Setter TargetName="ShutterState" Property="HorizontalAlignment" Value="Right"/>
+
+                                <!--230911 HHJ UNK Mark 회전 추가 Start-->
+                                <Setter TargetName="UnkMark" Property="RenderTransform" Value="{StaticResource Angle180}"/>
+                                <!--230911 HHJ UNK Mark 회전 추가 End-->
+                            </MultiDataTrigger.Setters>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=LayOutAngle, RelativeSource={RelativeSource Self}}" Value="eAngle180"/>
+                                <Condition Binding="{Binding Path=CVWay, RelativeSource={RelativeSource Self}}" Value="LeftToRight"/>
+                            </MultiDataTrigger.Conditions>
+
+                            <MultiDataTrigger.Setters>
+                                <Setter TargetName="DirectionParts" Property="RenderTransform" Value="{StaticResource Angle90}"/>
+                                <Setter TargetName="BackGroundParts" Property="RenderTransform" Value="{StaticResource Angle90}"/>
+
+                                <Setter TargetName="IDParts" Property="RenderTransform" Value="{StaticResource AngleMinus180}"/>
+
+                                <Setter TargetName="PauseParts" Property="RenderTransform" Value="{StaticResource Angle180}"/>
+                                <Setter TargetName="WaterPoolParts" Property="RenderTransform" Value="{StaticResource AngleMinus180}"/>
+
+                                <Setter TargetName="FireShutterParts" Property="RenderTransform" Value="{StaticResource Angle90}"/>
+                                <Setter TargetName="ShutterState" Property="RenderTransform" Value="{StaticResource Angle90}"/>
+                                <Setter TargetName="ShutterState" Property="VerticalAlignment" Value="Bottom"/>
+                                <Setter TargetName="ShutterState" Property="HorizontalAlignment" Value="Left"/>
+
+                                <!--230911 HHJ UNK Mark 회전 추가 Start-->
+                                <Setter TargetName="UnkMark" Property="RenderTransform" Value="{StaticResource Angle180}"/>
+                                <!--230911 HHJ UNK Mark 회전 추가 End-->
+                            </MultiDataTrigger.Setters>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=LayOutAngle, RelativeSource={RelativeSource Self}}" Value="eAngle180"/>
+                                <Condition Binding="{Binding Path=CVWay, RelativeSource={RelativeSource Self}}" Value="RightToLeft"/>
+                            </MultiDataTrigger.Conditions>
+
+                            <MultiDataTrigger.Setters>
+                                <Setter TargetName="DirectionParts" Property="RenderTransform" Value="{StaticResource Angle270}"/>
+                                <Setter TargetName="BackGroundParts" Property="RenderTransform" Value="{StaticResource Angle270}"/>
+
+                                <Setter TargetName="IDParts" Property="RenderTransform" Value="{StaticResource AngleMinus180}"/>
+
+                                <Setter TargetName="PauseParts" Property="RenderTransform" Value="{StaticResource Angle180}"/>
+                                <Setter TargetName="WaterPoolParts" Property="RenderTransform" Value="{StaticResource AngleMinus180}"/>
+
+                                <Setter TargetName="FireShutterParts" Property="RenderTransform" Value="{StaticResource Angle270}"/>
+                                <Setter TargetName="ShutterState" Property="RenderTransform" Value="{StaticResource Angle270}"/>
+                                <Setter TargetName="ShutterState" Property="VerticalAlignment" Value="Top"/>
+                                <Setter TargetName="ShutterState" Property="HorizontalAlignment" Value="Right"/>
+
+                                <!--230911 HHJ UNK Mark 회전 추가 Start-->
+                                <Setter TargetName="UnkMark" Property="RenderTransform" Value="{StaticResource Angle180}"/>
+                                <!--230911 HHJ UNK Mark 회전 추가 End-->
+                            </MultiDataTrigger.Setters>
+                        </MultiDataTrigger>
+
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=LayOutAngle, RelativeSource={RelativeSource Self}}" Value="eAngle270"/>
+                                <Condition Binding="{Binding Path=CVWay, RelativeSource={RelativeSource Self}}" Value="BottomToTop"/>
+                            </MultiDataTrigger.Conditions>
+
+                            <MultiDataTrigger.Setters>
+                                <Setter TargetName="DirectionParts" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+                                <Setter TargetName="BackGroundParts" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+
+                                <Setter TargetName="IDParts" Property="RenderTransform" Value="{StaticResource AngleMinus270}"/>
+
+                                <Setter TargetName="PauseParts" Property="RenderTransform" Value="{StaticResource AngleMinus270}"/>
+                                <Setter TargetName="WaterPoolParts" Property="RenderTransform" Value="{StaticResource AngleMinus270}"/>
+
+                                <Setter TargetName="FireShutterParts" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+                                <Setter TargetName="ShutterState" Property="RenderTransform" Value="{StaticResource AngleMinus270}"/>
+                                <Setter TargetName="ShutterState" Property="VerticalAlignment" Value="Bottom"/>
+                                <Setter TargetName="ShutterState" Property="HorizontalAlignment" Value="Left"/>
+
+                                <!--230911 HHJ UNK Mark 회전 추가 Start-->
+                                <Setter TargetName="UnkMark" Property="RenderTransform" Value="{StaticResource AngleMinus270}"/>
+                                <!--230911 HHJ UNK Mark 회전 추가 End-->
+                            </MultiDataTrigger.Setters>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=LayOutAngle, RelativeSource={RelativeSource Self}}" Value="eAngle270"/>
+                                <Condition Binding="{Binding Path=CVWay, RelativeSource={RelativeSource Self}}" Value="TopToBottom"/>
+                            </MultiDataTrigger.Conditions>
+
+                            <MultiDataTrigger.Setters>
+                                <Setter TargetName="DirectionParts" Property="RenderTransform" Value="{StaticResource Angle180}"/>
+                                <Setter TargetName="BackGroundParts" Property="RenderTransform" Value="{StaticResource Angle180}"/>
+
+                                <Setter TargetName="IDParts" Property="RenderTransform" Value="{StaticResource AngleMinus270}"/>
+
+                                <Setter TargetName="PauseParts" Property="RenderTransform" Value="{StaticResource AngleMinus270}"/>
+                                <Setter TargetName="WaterPoolParts" Property="RenderTransform" Value="{StaticResource AngleMinus270}"/>
+
+                                <Setter TargetName="FireShutterParts" Property="RenderTransform" Value="{StaticResource Angle180}"/>
+                                <Setter TargetName="ShutterState" Property="RenderTransform" Value="{StaticResource AngleMinus90}"/>
+                                <Setter TargetName="ShutterState" Property="VerticalAlignment" Value="Top"/>
+                                <Setter TargetName="ShutterState" Property="HorizontalAlignment" Value="Right"/>
+
+                                <!--230911 HHJ UNK Mark 회전 추가 Start-->
+                                <Setter TargetName="UnkMark" Property="RenderTransform" Value="{StaticResource AngleMinus270}"/>
+                                <!--230911 HHJ UNK Mark 회전 추가 End-->
+                            </MultiDataTrigger.Setters>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=LayOutAngle, RelativeSource={RelativeSource Self}}" Value="eAngle270"/>
+                                <Condition Binding="{Binding Path=CVWay, RelativeSource={RelativeSource Self}}" Value="LeftToRight"/>
+                            </MultiDataTrigger.Conditions>
+
+                            <MultiDataTrigger.Setters>
+                                <Setter TargetName="DirectionParts" Property="RenderTransform" Value="{StaticResource Angle90}"/>
+                                <Setter TargetName="BackGroundParts" Property="RenderTransform" Value="{StaticResource Angle90}"/>
+
+                                <Setter TargetName="IDParts" Property="RenderTransform" Value="{StaticResource Angle90}"/>
+
+                                <Setter TargetName="PauseParts" Property="RenderTransform" Value="{StaticResource AngleMinus270}"/>
+                                <Setter TargetName="WaterPoolParts" Property="RenderTransform" Value="{StaticResource AngleMinus270}"/>
+
+                                <Setter TargetName="FireShutterParts" Property="RenderTransform" Value="{StaticResource Angle90}"/>
+                                <Setter TargetName="ShutterState" Property="RenderTransform" Value="{StaticResource Angle0}"/>
+                                <Setter TargetName="ShutterState" Property="VerticalAlignment" Value="Bottom"/>
+                                <Setter TargetName="ShutterState" Property="HorizontalAlignment" Value="Right"/>
+
+                                <!--230911 HHJ UNK Mark 회전 추가 Start-->
+                                <Setter TargetName="UnkMark" Property="RenderTransform" Value="{StaticResource AngleMinus270}"/>
+                                <!--230911 HHJ UNK Mark 회전 추가 End-->
+                            </MultiDataTrigger.Setters>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=LayOutAngle, RelativeSource={RelativeSource Self}}" Value="eAngle270"/>
+                                <Condition Binding="{Binding Path=CVWay, RelativeSource={RelativeSource Self}}" Value="RightToLeft"/>
+                            </MultiDataTrigger.Conditions>
+
+                            <MultiDataTrigger.Setters>
+                                <Setter TargetName="DirectionParts" Property="RenderTransform" Value="{StaticResource Angle270}"/>
+                                <Setter TargetName="BackGroundParts" Property="RenderTransform" Value="{StaticResource Angle270}"/>
+
+                                <Setter TargetName="IDParts" Property="RenderTransform" Value="{StaticResource Angle90}"/>
+
+                                <Setter TargetName="PauseParts" Property="RenderTransform" Value="{StaticResource AngleMinus270}"/>
+                                <Setter TargetName="WaterPoolParts" Property="RenderTransform" Value="{StaticResource AngleMinus270}"/>
+
+                                <Setter TargetName="FireShutterParts" Property="RenderTransform" Value="{StaticResource Angle270}"/>
+                                <Setter TargetName="ShutterState" Property="RenderTransform" Value="{StaticResource AngleMinus180}"/>
+                                <Setter TargetName="ShutterState" Property="VerticalAlignment" Value="Top"/>
+                                <Setter TargetName="ShutterState" Property="HorizontalAlignment" Value="Left"/>
+
+                                <!--230911 HHJ UNK Mark 회전 추가 Start-->
+                                <Setter TargetName="UnkMark" Property="RenderTransform" Value="{StaticResource AngleMinus270}"/>
+                                <!--230911 HHJ UNK Mark 회전 추가 End-->
+                            </MultiDataTrigger.Setters>
+                        </MultiDataTrigger>
+
+                        <DataTrigger Binding="{Binding Path=SlotList[0].MaterialExist, RelativeSource={RelativeSource Self}}" Value="True">
+                            <Setter TargetName="LoadMaterial" Property="Opacity" Value="1"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=SlotList[0].MaterialExist, RelativeSource={RelativeSource Self}}" Value="False">
+                            <Setter TargetName="LoadMaterial" Property="Opacity" Value="0"/>
+                        </DataTrigger>
+
+                        
+                        <DataTrigger Binding="{Binding Path=TopFireShutterExist, RelativeSource={RelativeSource Self}}" Value="True">
+                            <Setter TargetName="FireShutterParts" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="TopFireShutter" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="ShutterState" Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=BottomFireShutterExist, RelativeSource={RelativeSource Self}}" Value="True">
+                            <Setter TargetName="FireShutterParts" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="BottomFireShutter" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="ShutterState" Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=RightFireShutterExist, RelativeSource={RelativeSource Self}}" Value="True">
+                            <Setter TargetName="FireShutterParts" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="RightFireShutter" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="ShutterState" Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=LeftFireShutterExist, RelativeSource={RelativeSource Self}}" Value="True">
+                            <Setter TargetName="FireShutterParts" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="LeftFireShutter" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="ShutterState" Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding Path=PortBCRState, RelativeSource={RelativeSource Self}}" Value="NoBCR">
+                            <Setter TargetName="BcrPath" Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding Path=SlotList[0].MaterialName, Converter={StaticResource idUnkConverter}, RelativeSource={RelativeSource Self}}" Value="True">
+                            <Setter TargetName="LoadMaterial" Property="Background" Value="Gold"/>
+                            <Setter TargetName="UnkMark" Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=SlotList[0].MaterialName, Converter={StaticResource idUnkConverter}, RelativeSource={RelativeSource Self}}" Value="False">
+                            <Setter TargetName="LoadMaterial" Property="Background" Value="Blue"/>
+                            <Setter TargetName="UnkMark" Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="BackGroundParts" Property="BorderThickness" Value="3"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SK_RMRailStyle" TargetType="{x:Type u:UIControlRMRail}">
+        
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type u:UIControlRMRail}">
+                    <ControlTemplate.Resources>
+
+                    </ControlTemplate.Resources>
+
+                    <Border CornerRadius="3" BorderBrush="Black" BorderThickness="0.5"
+                            Background="{Binding Path=CraneSC_State, Converter={StaticResource brushConverter}, RelativeSource={RelativeSource TemplatedParent}}"/>
+
+                    <ControlTemplate.Triggers>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

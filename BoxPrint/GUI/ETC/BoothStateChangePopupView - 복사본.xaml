@@ -1,0 +1,74 @@
+﻿<Window x:Class="Stockerfirmware.GUI.ETC.BoothStateChangePopupView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Stockerfirmware.GUI.ETC"
+        mc:Ignorable="d"
+        Height="450" Width="400" Background="Transparent" >
+    
+    <Window.Resources>
+        <ControlTemplate x:Key="TextBoxBaseControlTemplate" TargetType="{x:Type TextBoxBase}">
+            <Border Background="{TemplateBinding Background}" 
+                x:Name="Bd" BorderBrush="Black"
+                BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5">
+                <ScrollViewer x:Name="PART_ContentHost"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" TargetName="Bd"/>
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                </Trigger>
+                <Trigger Property="Width" Value="Auto">
+                    <Setter Property="MinWidth" Value="100"/>
+                </Trigger>
+                <Trigger Property="Height" Value="Auto">
+                    <Setter Property="MinHeight" Value="20"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid IsHitTestVisible="False" HorizontalAlignment="Center" VerticalAlignment="Top" Width="100" Height="100" Panel.ZIndex="1" Grid.RowSpan="2">
+            <Ellipse  IsHitTestVisible="False" Fill="#FFAAD9DE"/>
+            <Path IsHitTestVisible="False" Stretch="Fill" Data="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z" Fill="White" Width="50" Height="55"/>
+        </Grid>
+
+
+        <Border Grid.Row="1" Background="White" CornerRadius="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+
+                <Border Width="15" Height="15" HorizontalAlignment="Right" Margin="0,15,15,0" VerticalAlignment="Top">
+                    <Path IsHitTestVisible="False" Stretch="Fill"  Data="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z" Fill="#FF495A69"/>
+                </Border>
+
+
+
+                <StackPanel Grid.Row="1" Margin="0,20,0,0">
+                    <TextBlock Text="Member Login" HorizontalAlignment="Center" FontFamily="/Stockerfirmware;component/Font/#NanumSquareRoundOTF Bold" FontSize="30" Foreground="#FF495A69"/>
+
+                    <TextBox Template="{StaticResource TextBoxBaseControlTemplate}" Text="Username" Width="300" Height="40" FontFamily="/Stockerfirmware;component/Font/#NanumSquareRoundOTF Regular" VerticalContentAlignment="Center" Padding="10,0,0,0" FontSize="15" Margin="0,20,0,0" BorderBrush="Black" SelectionBrush="{x:Null}"/>
+                    <TextBox Template="{StaticResource TextBoxBaseControlTemplate}" Text="Username" Width="300" Height="40" FontFamily="/Stockerfirmware;component/Font/#NanumSquareRoundOTF Regular" VerticalContentAlignment="Center" Padding="10,0,0,0" FontSize="15" Margin="0,20,0,0" BorderBrush="Black" SelectionBrush="{x:Null}"/>
+
+                </StackPanel>
+
+            </Grid>
+
+        </Border>
+
+
+
+
+    </Grid>
+</Window>

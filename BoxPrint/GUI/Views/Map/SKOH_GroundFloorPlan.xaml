@@ -1,0 +1,484 @@
+﻿<Page x:Class="BoxPrint.GUI.Views.Map.SKOH_GroundFloorPlan"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BoxPrint.GUI.Views.Map"
+      xmlns:ex="clr-namespace:TranslationByMarkupExtension"
+      mc:Ignorable="d" 
+      
+      Title="Page1" Height="820" Width="1400" RenderTransformOrigin="0.5,0.5">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/GUI/Views/Map/MapGUIControlDictionary.xaml"/>
+                <ResourceDictionary Source="/BoxPrint;component/GUI/UIControls/BrushesDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <Storyboard x:Key="storyboardSelectkiosk" RepeatBehavior="Forever" AutoReverse="True">
+                <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" Storyboard.TargetName="testPath">
+                    <SplineThicknessKeyFrame KeyTime="0:0:0:0" Value="0,0,0,0" />
+                    <SplineThicknessKeyFrame KeyTime="0:0:0:0.7" Value="0,-10,0,10" />
+                </ThicknessAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Key="Storyboard1" AutoReverse="True" RepeatBehavior="Forever">
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="testPath">
+                    <EasingDoubleKeyFrame KeyTime="0" Value="2.667"/>
+                    <EasingDoubleKeyFrame KeyTime="0:0:0.126" Value="-2.949"/>
+                    <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="-10">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <ExponentialEase EasingMode="EaseOut"/>
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="testPath">
+                    <EasingDoubleKeyFrame KeyTime="0" Value="0.852"/>
+                    <EasingDoubleKeyFrame KeyTime="0:0:0.126" Value="0.988"/>
+                    <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="testPath">
+                    <EasingDoubleKeyFrame KeyTime="0" Value="1.128"/>
+                    <EasingDoubleKeyFrame KeyTime="0:0:0.126" Value="1"/>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="testPath">
+                    <EasingDoubleKeyFrame KeyTime="0" Value="0.031"/>
+                    <EasingDoubleKeyFrame KeyTime="0:0:0.126" Value="0"/>
+                </DoubleAnimationUsingKeyFrames>
+
+            </Storyboard>
+        </ResourceDictionary>
+
+        <!--<Style x:Key="a1" TargetType="{x:Type local:MapGUIControl}">
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="100"/>
+            <Setter Property="Cursor" Value="Cross"/>
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type local:MapGUIControl}">
+                        <Grid>
+                            <Rectangle Fill="Lime"/>
+                            <TextBlock Text="{Binding Path=(local:MapGUIControl.TextBuffer), RelativeSource={RelativeSource TemplatedParent}}"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="a2" TargetType="{x:Type local:MapGUIControl}">
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="100"/>
+            <Setter Property="Cursor" Value="Cross"/>
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type local:MapGUIControl}">
+                        <Grid>
+                            <Rectangle Fill="#FF0074FF"/>
+                            <TextBlock Text="{Binding Path=(local:MapGUIControl.TextBuffer), RelativeSource={RelativeSource TemplatedParent}}"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>-->
+
+    </Page.Resources>
+
+    <Grid Background="Transparent" >
+        <Canvas>
+            <!--Line-->
+            <Path Opacity="0.3" Visibility="Visible"  Height="350.063" Stretch="Fill" Stroke="#29313b" Width="353.98" Canvas.Left="1023.01" Canvas.Top="10" StrokeThickness="2"
+                  Data="M0.5,0.5 L96.492398,0.5 295.5,0.5 295.5,283 0.5,283 z M0.5,204.287 L96.166999,204.287 96.166999,283 0.5,283 z M49.916998,162.417 L96.166999,162.417 96.166999,204.287 0.5,204.287 0.5,184.75 49.916998,184.75 z M96.175,130.425 L109.237,130.425 109.237,283 96.175,283 z M0.5,90.167 L96.166999,90.167 96.166999,162.417 49.916998,162.417 0.5,162.417 z M96.175,0.5 L109.237,0.5 109.237,130.417 96.175,130.417 z M0.5,0.5 L96.166999,0.5 96.166999,90.088 0.5,90.088 z"/>
+            <Path Opacity="0.3" Visibility="Visible" Height="797"  Stretch="Fill" Stroke="#29313b" Width="118.316" Canvas.Left="428" Canvas.Top="23" StrokeThickness="2"
+                  Data="M15.667,0.5 L81.334,0.5 L81.334,273.83399 L15.667,273.83399 z M15.667,273.838 L81.334,273.838 L81.334,353.487 L15.667,353.487 z M15.667,353.491 L81.334,353.491 L81.334,606.261 L15.667,606.261 z M15.667,606.26 L81.334,606.26 L81.334,639.732 L15.667,639.732 z M15.667,639.729 L81.334,639.729 L81.334,663.912 L15.667,663.912 z M81.338,0.5 L98.171,0.5 L98.171,170.12401 L81.338,170.12401 z M81.338,170.128 L98.171,170.128 L98.171,353.48701 L81.338,353.48701 z M81.338,353.491 L98.171,353.491 L98.171,465.193 L81.338,465.193 z M81.338,465.193 L98.171,465.193 L98.171,591.193 L81.338,591.193 z M0.5,0.5 L15.666,0.5 L15.666,170.12401 L0.5,170.12401 z M0.5,170.128 L15.666,170.128 L15.666,353.48701 L0.5,353.48701 z M0.5,353.491 L15.666,353.491 L15.666,506.86 L0.5,506.86 z M0.5,506.86 L15.666,506.86 L15.666,669.834 L0.5,669.834 z"/>
+            <Path Opacity="0.3" Visibility="Visible" Height="348.024" Stretch="Fill" Stroke="#29313b" StrokeThickness="2" VerticalAlignment="Top" Width="353.985"
+                  Data="M0.25,0.25 L50.253998,0.25 L50.253998,79.417 L0.25,79.417 z M0.25,79.419 L50.253998,79.419 L50.253998,102.336 L0.25,102.336 z M0.25,102.34 L50.253998,102.34 L50.253998,193.129 L0.25,193.129 z M0.25,193.132 L50.253998,193.132 L50.253998,241.549 L0.25,241.549 z M50.253,0.25 L293.75001,0.25 L293.75001,292.54899 L50.253,292.54899 z" Canvas.Left="1023.01" Canvas.Top="402"/>
+
+            <!--CellPacking 라인-->
+            <local:MapGUIControl Style="{StaticResource CellPacking3}"      Content="{ex:Translate Cell Packing}"      FontSize="12"    IsHitTestVisible="False" Opacity="0.5"    Height="51" Width="341" Canvas.Left="18" Canvas.Top="151" RenderTransformOrigin="0.5,0.5" />
+            <local:MapGUIControl Style="{StaticResource CellPacking3}"      Content="{ex:Translate Cell Packing}"      FontSize="12"    IsHitTestVisible="False" Opacity="0.5"    Height="51" Width="341" Canvas.Left="18" Canvas.Top="271" RenderTransformOrigin="0.5,0.5" />
+            <local:MapGUIControl Style="{StaticResource CellPacking3}"      Content="{ex:Translate Cell Packing}"      FontSize="12"    IsHitTestVisible="False" Opacity="0.5"    Height="51" Width="341" Canvas.Left="18" Canvas.Top="390" RenderTransformOrigin="0.5,0.5" />
+            <local:MapGUIControl Style="{StaticResource CellPacking3}"      Content="{ex:Translate Cell Packing}"      FontSize="12"    IsHitTestVisible="False" Opacity="0.5"    Height="51" Width="341" Canvas.Left="18" Canvas.Top="506" RenderTransformOrigin="0.5,0.5" />
+            <local:MapGUIControl Style="{StaticResource CellPacking3}"      Content="{ex:Translate Cell Packing}"      FontSize="12"    IsHitTestVisible="False" Opacity="0.5"    Height="51" Width="341" Canvas.Left="18" Canvas.Top="625" RenderTransformOrigin="0.5,0.5" />
+
+            <!--모듈 조립 라인-->
+            <local:MapGUIControl Style="{StaticResource ModuleAssembleLine1}" Content="{ex:Translate 모듈 조립 Line}"  FontSize="12"    IsHitTestVisible="False" Opacity="0.5"    Height="141" Width="427" Canvas.Left="586" Canvas.Top="65" />
+            <local:MapGUIControl Style="{StaticResource ModuleAssembleLine1}" Content="{ex:Translate 모듈 조립 Line}"  FontSize="12"    IsHitTestVisible="False" Opacity="0.5"    Height="141" Width="427" Canvas.Left="580" Canvas.Top="290" />
+            <local:MapGUIControl Style="{StaticResource ModuleAssembleLine1}" Content="{ex:Translate 모듈 조립 Line}"  FontSize="12"    IsHitTestVisible="False" Opacity="0.5"    Height="141" Width="427" Canvas.Left="580" Canvas.Top="501" />
+            <!--CellBuffer간 연결 컨베어-->
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      DisplayName=""                 DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="15" Width="24" Canvas.Left="463" Canvas.Top="352" RenderTransformOrigin="0.5,0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="15" Width="24" Canvas.Left="463" Canvas.Top="376" RenderTransformOrigin="0.5,0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="15" Width="24" Canvas.Left="463" Canvas.Top="400" RenderTransformOrigin="0.5,0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="15" Width="24" Canvas.Left="463" Canvas.Top="424" RenderTransformOrigin="0.5,0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="15" Width="24" Canvas.Left="482" Canvas.Top="352" RenderTransformOrigin="0.5,0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="15" Width="24" Canvas.Left="482" Canvas.Top="376" RenderTransformOrigin="0.5,0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="15" Width="24" Canvas.Left="482" Canvas.Top="400" RenderTransformOrigin="0.5,0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="15" Width="24" Canvas.Left="482" Canvas.Top="424" RenderTransformOrigin="0.5,0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+
+            <!--CellBuffer#1,2 컨베어-->
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"     DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"  Opacity="0.5" Height="15"   Width="20" Canvas.Left="442" Canvas.Top="48" />
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"     DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"  Opacity="0.5" Height="15"   Width="20" Canvas.Left="442" Canvas.Top="85" />
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"     DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"  Opacity="0.5" Height="15"   Width="20" Canvas.Left="442" Canvas.Top="175" />
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"     DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"  Opacity="0.5" Height="15"   Width="20" Canvas.Left="442" Canvas.Top="208" />
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"     DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"  Opacity="0.5" Height="15"   Width="20" Canvas.Left="442" Canvas.Top="242" />
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"     DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"  Opacity="0.5" Height="15"   Width="20" Canvas.Left="442" Canvas.Top="276" />
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"     DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"  Opacity="0.5" Height="15"   Width="20" Canvas.Left="509" Canvas.Top="48" />
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"     DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"  Opacity="0.5" Height="16"   Width="20" Canvas.Left="509" Canvas.Top="84" />
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"     DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"  Opacity="0.5" Height="16"   Width="20" Canvas.Left="509" Canvas.Top="174" />
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"     DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"  Opacity="0.5" Height="16"   Width="20" Canvas.Left="509" Canvas.Top="207" />
+            <!--CellBuffer#1,2-->
+            <local:MapGUIControl Style="{StaticResource RackMaster}"    IndexNumber="31"    DisplayName="셀버퍼창고01"    DisplayNameFontSize="12"    IsHitTestVisible="True"   Opacity="1"   Height="316"  Width="30" Canvas.Left="454" Canvas.Top="30" MainColor="#dbdbdb" SubColor="#555557" MouseOverColor="{StaticResource SK_Orange}" Foreground="{StaticResource SK_Orange}" Tag="RM" EQPID="M0STK011" SCSIP="10.97.48.21" Loaded="RackMaster_Loaded" />
+            <local:MapGUIControl Style="{StaticResource RackMaster}"    IndexNumber="32"    DisplayName="셀버퍼창고02"    DisplayNameFontSize="12"    IsHitTestVisible="True"   Opacity="1"   Height="316"  Width="30" Canvas.Left="486" Canvas.Top="30" MainColor="#dbdbdb" SubColor="#555557" MouseOverColor="{StaticResource SK_Orange}" Foreground="{StaticResource SK_Orange}" Tag="RM" EQPID="M0STK012" SCSIP="10.97.48.22" Loaded="RackMaster_Loaded" />
+
+            <!--CellBuffer#3,4 컨베어-->
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"     DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="15" Width="20" Canvas.Left="442" Canvas.Top="525" />
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"     DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="15" Width="20" Canvas.Left="442" Canvas.Top="552" />
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"     DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="15" Width="20" Canvas.Left="442" Canvas.Top="578" />
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"     DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="15" Width="20" Canvas.Left="442" Canvas.Top="647" />
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"     DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="15" Width="20" Canvas.Left="442" Canvas.Top="673" />
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"     DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="15" Width="20" Canvas.Left="442" Canvas.Top="700" />
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"     DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="15" Width="20" Canvas.Left="509" Canvas.Top="525" />
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"     DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="15" Width="20" Canvas.Left="509" Canvas.Top="552" />
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"     DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="15" Width="20" Canvas.Left="509" Canvas.Top="647" />
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"     DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="15" Width="20" Canvas.Left="509" Canvas.Top="673" />
+            <!--CellBuffer#3,4-->
+            <local:MapGUIControl Style="{StaticResource RackMaster}"    IndexNumber="33"    DisplayName="셀버퍼창고03"    DisplayNameFontSize="12"    IsHitTestVisible="True" Opacity="1"    Height="286" Width="30" Canvas.Left="454" Canvas.Top="445" MainColor="#dbdbdb" SubColor="#555557" MouseOverColor="{StaticResource SK_Orange}" Foreground="{StaticResource SK_Orange}" Tag="RM" EQPID="M0STK013" SCSIP="10.97.48.23" Loaded="RackMaster_Loaded"/>
+            <local:MapGUIControl Style="{StaticResource RackMaster}"    IndexNumber="34"    DisplayName="셀버퍼창고04"    DisplayNameFontSize="12"    IsHitTestVisible="True" Opacity="1"    Height="286" Width="30" Canvas.Left="486" Canvas.Top="445" MainColor="#dbdbdb" SubColor="#555557" MouseOverColor="{StaticResource SK_Orange}" Foreground="{StaticResource SK_Orange}" Tag="RM" EQPID="M0STK014" SCSIP="10.97.48.24" Loaded="RackMaster_Loaded"/>
+
+            <!--모듈 완제품 창고 #1,2,3 컨베어-->
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"    Height="15" Width="20" Canvas.Left="1176" Canvas.Top="41" RenderTransformOrigin="0.5,0.5" Opacity="0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="15" Width="20" Canvas.Left="1207" Canvas.Top="41" RenderTransformOrigin="0.5,0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"    Height="15" Width="20" Canvas.Left="1238" Canvas.Top="41" RenderTransformOrigin="0.5,0.5" Opacity="0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="8" Width="92" Canvas.Left="1164" Canvas.Top="335" RenderTransformOrigin="0.5,0.5"/>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"    Height="15" Width="20" Canvas.Left="1163" Canvas.Top="346" RenderTransformOrigin="0.5,0.5" Opacity="0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"    Height="15" Width="20" Canvas.Left="1185" Canvas.Top="346" RenderTransformOrigin="0.5,0.5" Opacity="0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <!--모듈 완제품 창고 #1,2,3-->
+            <local:MapGUIControl Style="{StaticResource RackMaster}"    IndexNumber="35"  DisplayName="북_모듈단폭창고01"    DisplayNameFontSize="12"    IsHitTestVisible="True" Opacity="1"    Height="286" Width="30" Canvas.Left="1164" Canvas.Top="48" MainColor="#dbdbdb" SubColor="#555557" MouseOverColor="{StaticResource SK_Orange}" Foreground="{StaticResource SK_Orange}" Tag="RM"  EQPID="M0STK031" SCSIP="10.97.48.25" Loaded="RackMaster_Loaded" />
+            <local:MapGUIControl Style="{StaticResource RackMaster}"    IndexNumber="36"  DisplayName="북_모듈단폭창고02"    DisplayNameFontSize="12"    IsHitTestVisible="True" Opacity="1"    Height="286" Width="30" Canvas.Left="1195" Canvas.Top="48" MainColor="#dbdbdb" SubColor="#555557" MouseOverColor="{StaticResource SK_Orange}" Foreground="{StaticResource SK_Orange}" Tag="RM"  EQPID="M0STK032" SCSIP="10.97.48.26" Loaded="RackMaster_Loaded" />
+            <local:MapGUIControl Style="{StaticResource RackMaster}"    IndexNumber="37"  DisplayName="북_모듈단폭창고03"    DisplayNameFontSize="12"    IsHitTestVisible="True" Opacity="1"    Height="286" Width="30" Canvas.Left="1226" Canvas.Top="48" MainColor="#dbdbdb" SubColor="#555557" MouseOverColor="{StaticResource SK_Orange}" Foreground="{StaticResource SK_Orange}" Tag="RM"  EQPID="M0STK033" SCSIP="10.97.48.27" Loaded="RackMaster_Loaded" />
+
+            <!--모듈 완제품 창고 #1,2,3 컨베어-->
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"    Height="15" Width="20" Canvas.Left="1269" Canvas.Top="41" RenderTransformOrigin="0.5,0.5" Opacity="0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"    Height="15" Width="20" Canvas.Left="1286" Canvas.Top="41" RenderTransformOrigin="0.5,0.5" Opacity="0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"    Height="15" Width="20" Canvas.Left="1311" Canvas.Top="41" RenderTransformOrigin="0.5,0.5" Opacity="0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"    Height="15" Width="20" Canvas.Left="1338" Canvas.Top="33" RenderTransformOrigin="0.5,0.5" Opacity="0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"    Height="15" Width="20" Canvas.Left="1338" Canvas.Top="53" RenderTransformOrigin="0.5,0.5" Opacity="0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"    Height="15" Width="20" Canvas.Left="1338" Canvas.Top="73" RenderTransformOrigin="0.5,0.5" Opacity="0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"     DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"  Opacity="0.5" Height="15"   Width="20" Canvas.Left="1356" Canvas.Top="73" />
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"     DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"  Opacity="0.5" Height="15"   Width="20" Canvas.Left="1356" Canvas.Top="51" />
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"     DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="8" Width="114" Canvas.Left="1263" Canvas.Top="335" RenderTransformOrigin="0.5,0.5"/>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"     DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"    Height="15" Width="20" Canvas.Left="1331" Canvas.Top="346" RenderTransformOrigin="0.5,0.5" Opacity="0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"    Height="15" Width="20" Canvas.Left="1359" Canvas.Top="346" RenderTransformOrigin="0.5,0.5" Opacity="0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"    Height="15" Width="20" Canvas.Left="1359" Canvas.Top="317" RenderTransformOrigin="0.5,0.5" Opacity="0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"    Height="15" Width="20" Canvas.Left="1359" Canvas.Top="297" RenderTransformOrigin="0.5,0.5" Opacity="0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <!--모듈 완제품 창고 #1,2,3-->
+            <local:MapGUIControl Style="{StaticResource RackMaster}"    IndexNumber="38"  DisplayName="북_모듈원자재창고01"    DisplayNameFontSize="12"    IsHitTestVisible="True" Opacity="1"    Height="286" Width="24" Canvas.Left="1263" Canvas.Top="48" MainColor="#dbdbdb" SubColor="#555557" MouseOverColor="{StaticResource SK_Orange}" Foreground="{StaticResource SK_Orange}" Tag="RM" EQPID="M0STK021" SCSIP="10.97.48.28" Loaded="RackMaster_Loaded" />
+            <local:MapGUIControl Style="{StaticResource RackMaster}"    IndexNumber="39"  DisplayName="북_모듈원자재창고02"    DisplayNameFontSize="12"    IsHitTestVisible="True" Opacity="1"    Height="286" Width="24" Canvas.Left="1288" Canvas.Top="48" MainColor="#dbdbdb" SubColor="#555557" MouseOverColor="{StaticResource SK_Orange}" Foreground="{StaticResource SK_Orange}" Tag="RM" EQPID="M0STK022" SCSIP="10.97.48.29" Loaded="RackMaster_Loaded" />
+            <local:MapGUIControl Style="{StaticResource RackMaster}"    IndexNumber="40"  DisplayName="북_모듈원자재창고03"    DisplayNameFontSize="12"    IsHitTestVisible="True" Opacity="1"    Height="286" Width="24" Canvas.Left="1313" Canvas.Top="48" MainColor="#dbdbdb" SubColor="#555557" MouseOverColor="{StaticResource SK_Orange}" Foreground="{StaticResource SK_Orange}" Tag="RM" EQPID="M0STK023" SCSIP="10.97.48.30" Loaded="RackMaster_Loaded" />
+            <local:MapGUIControl Style="{StaticResource RackMaster}"    IndexNumber="41"  DisplayName="북_모듈원자재창고04"    DisplayNameFontSize="12"    IsHitTestVisible="True" Opacity="1"    Height="216" Width="24" Canvas.Left="1338" Canvas.Top="118" MainColor="#dbdbdb" SubColor="#555557" MouseOverColor="{StaticResource SK_Orange}" Foreground="{StaticResource SK_Orange}" Tag="RM" EQPID="M0STK024" SCSIP="10.97.48.31" Loaded="RackMaster_Loaded" />
+
+            <!--모듈 완제품 창고 컨베어-->
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="8" Width="128" Canvas.Left="1087" Canvas.Top="419" RenderTransformOrigin="0.5,0.5"/>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="8" Width="125" Canvas.Left="1252" Canvas.Top="419" RenderTransformOrigin="0.5,0.5"/>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"    Height="15" Width="20" Canvas.Left="1195" Canvas.Top="402" RenderTransformOrigin="0.5,0.5" Opacity="0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"    Height="15" Width="20" Canvas.Left="1173" Canvas.Top="402" RenderTransformOrigin="0.5,0.5" Opacity="0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"    Height="15" Width="20" Canvas.Left="1359" Canvas.Top="402" RenderTransformOrigin="0.5,0.5" Opacity="0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"    Height="15" Width="20" Canvas.Left="1331" Canvas.Top="402" RenderTransformOrigin="0.5,0.5" Opacity="0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="15" Width="20" Canvas.Left="1103" Canvas.Top="724" RenderTransformOrigin="0.5,0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="15" Width="20" Canvas.Left="1138" Canvas.Top="724" RenderTransformOrigin="0.5,0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="15" Width="20" Canvas.Left="1173" Canvas.Top="724" RenderTransformOrigin="0.5,0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="15" Width="20" Canvas.Left="1204" Canvas.Top="724" RenderTransformOrigin="0.5,0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="15" Width="20" Canvas.Left="1221" Canvas.Top="724" RenderTransformOrigin="0.5,0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="15" Width="20" Canvas.Left="1262" Canvas.Top="724" RenderTransformOrigin="0.5,0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="15" Width="20" Canvas.Left="1279" Canvas.Top="724" RenderTransformOrigin="0.5,0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="15" Width="20" Canvas.Left="1305" Canvas.Top="724" RenderTransformOrigin="0.5,0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="22" Width="20" Canvas.Left="1334" Canvas.Top="661" RenderTransformOrigin="0.5,0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="22" Width="20" Canvas.Left="1334" Canvas.Top="681" RenderTransformOrigin="0.5,0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="22" Width="20" Canvas.Left="1334" Canvas.Top="701" RenderTransformOrigin="0.5,0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"  DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False" Opacity="0.5"    Height="22" Width="20" Canvas.Left="1334" Canvas.Top="721" RenderTransformOrigin="0.5,0.5" >
+                <local:MapGUIControl.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="-90"/>
+                    </TransformGroup>
+                </local:MapGUIControl.RenderTransform>
+            </local:MapGUIControl>
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"     DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"  Opacity="0.5" Height="15"   Width="20" Canvas.Left="1355" Canvas.Top="662" />
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"     DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"  Opacity="0.5" Height="15"   Width="20" Canvas.Left="1355" Canvas.Top="690" />
+            <local:MapGUIControl Style="{StaticResource Conveyor}"      IndexNumber="0"     DisplayName=""                  DisplayNameFontSize="5"     IsHitTestVisible="False"  Opacity="0.5" Height="15"   Width="20" Canvas.Left="1355" Canvas.Top="717" />
+
+            <!--Cell 완제품 창고 #1,2-->
+            <local:MapGUIControl Style="{StaticResource RackMaster}"    IndexNumber="42"  DisplayName="남_셀완제품창고01"    DisplayNameFontSize="12"    IsHitTestVisible="True" Opacity="1"    Height="304" Width="34" Canvas.Left="1087" Canvas.Top="427" MainColor="#dbdbdb" SubColor="#555557" MouseOverColor="{StaticResource SK_Orange}" Foreground="{StaticResource SK_Orange}" Tag="RM" EQPID="M0STK034" SCSIP="10.97.48.32" Loaded="RackMaster_Loaded" />
+            <local:MapGUIControl Style="{StaticResource RackMaster}"    IndexNumber="43"  DisplayName="남_셀완제품창고02"    DisplayNameFontSize="12"    IsHitTestVisible="True" Opacity="1"    Height="304" Width="34" Canvas.Left="1122" Canvas.Top="427" MainColor="#dbdbdb" SubColor="#555557" MouseOverColor="{StaticResource SK_Orange}" Foreground="{StaticResource SK_Orange}" Tag="RM" EQPID="M0STK035" SCSIP="10.97.48.33" Loaded="RackMaster_Loaded" />
+            
+            
+            
+
+            <!--모듈 완제품 창고 #4,5, 6-->
+            <local:MapGUIControl Style="{StaticResource RackMaster}"    IndexNumber="44"  DisplayName="남_모듈장폭창고01"    DisplayNameFontSize="12"    IsHitTestVisible="True" Opacity="1"    Height="294" Width="30" Canvas.Left="1161" Canvas.Top="437" MainColor="#dbdbdb" SubColor="#555557" MouseOverColor="{StaticResource SK_Orange}" Foreground="{StaticResource SK_Orange}" Tag="RM" EQPID="M0STK036" SCSIP="10.97.48.34" Loaded="RackMaster_Loaded" />
+            <local:MapGUIControl Style="{StaticResource RackMaster}"    IndexNumber="45"  DisplayName="남_모듈단폭창고04"    DisplayNameFontSize="12"    IsHitTestVisible="True" Opacity="1"    Height="294" Width="30" Canvas.Left="1192" Canvas.Top="437" MainColor="#dbdbdb" SubColor="#555557" MouseOverColor="{StaticResource SK_Orange}" Foreground="{StaticResource SK_Orange}" Tag="RM" EQPID="M0STK037" SCSIP="10.97.48.35" Loaded="RackMaster_Loaded" />
+            <local:MapGUIControl Style="{StaticResource RackMaster}"    IndexNumber="46"  DisplayName="남_모듈단폭창고05"    DisplayNameFontSize="12"    IsHitTestVisible="True" Opacity="1"    Height="294" Width="30" Canvas.Left="1223" Canvas.Top="437" MainColor="#dbdbdb" SubColor="#555557" MouseOverColor="{StaticResource SK_Orange}" Foreground="{StaticResource SK_Orange}" Tag="RM" EQPID="M0STK038" SCSIP="10.97.48.36" Loaded="RackMaster_Loaded" />
+            
+
+            <!--모듈 원자재 창고 #5,6,7,8-->
+            <local:MapGUIControl Style="{StaticResource RackMaster}"    IndexNumber="47"  DisplayName="남_모듈원자재창고05"    DisplayNameFontSize="12"    IsHitTestVisible="True" Opacity="1"    Height="304" Width="25" Canvas.Left="1255" Canvas.Top="427" MainColor="#dbdbdb" SubColor="#555557" MouseOverColor="{StaticResource SK_Orange}" Foreground="{StaticResource SK_Orange}" Tag="RM" EQPID="M0STK025" SCSIP="10.97.48.37" Loaded="RackMaster_Loaded" />
+            <local:MapGUIControl Style="{StaticResource RackMaster}"    IndexNumber="48"  DisplayName="남_모듈원자재창고06"    DisplayNameFontSize="12"    IsHitTestVisible="True" Opacity="1"    Height="304" Width="25" Canvas.Left="1281" Canvas.Top="427" MainColor="#dbdbdb" SubColor="#555557" MouseOverColor="{StaticResource SK_Orange}" Foreground="{StaticResource SK_Orange}" Tag="RM" EQPID="M0STK026" SCSIP="10.97.48.38" Loaded="RackMaster_Loaded" />
+            <local:MapGUIControl Style="{StaticResource RackMaster}"    IndexNumber="49"  DisplayName="남_모듈원자재창고07"    DisplayNameFontSize="12"    IsHitTestVisible="True" Opacity="1"    Height="304" Width="25" Canvas.Left="1307" Canvas.Top="427" MainColor="#dbdbdb" SubColor="#555557" MouseOverColor="{StaticResource SK_Orange}" Foreground="{StaticResource SK_Orange}" Tag="RM" EQPID="M0STK027" SCSIP="10.97.48.39" Loaded="RackMaster_Loaded" />
+            <local:MapGUIControl Style="{StaticResource RackMaster}"    IndexNumber="50"  DisplayName="남_모듈원자재창고08"    DisplayNameFontSize="12"    IsHitTestVisible="True" Opacity="1"    Height="219" Width="25" Canvas.Left="1333" Canvas.Top="427" MainColor="#dbdbdb" SubColor="#555557" MouseOverColor="{StaticResource SK_Orange}" Foreground="{StaticResource SK_Orange}" Tag="RM" EQPID="M0STK028" SCSIP="10.97.48.40" Loaded="RackMaster_Loaded" />
+
+            <!--키오스크-->
+            <local:MapGUIControl Style="{StaticResource kiosk}"      DisplayName="G_1"       DisplayNameFontSize="9"     Opacity="1"     Height="50"     Width="50"  Canvas.Left="404"     Canvas.Top="45"   Tag="kiosk" />
+            <local:MapGUIControl Style="{StaticResource kiosk}"      DisplayName="G_2"       DisplayNameFontSize="9"     Opacity="1"     Height="50"     Width="50"  Canvas.Left="403"    Canvas.Top="202"  Tag="kiosk" />
+            <local:MapGUIControl Style="{StaticResource kiosk}"      DisplayName="G_3"       DisplayNameFontSize="9"     Opacity="1"     Height="50"     Width="50"  Canvas.Left="418"     Canvas.Top="395"  Tag="kiosk" />
+            <local:MapGUIControl Style="{StaticResource kiosk}"      DisplayName="G_4"       DisplayNameFontSize="9"     Opacity="1"     Height="50"     Width="50"  Canvas.Left="403"     Canvas.Top="517"  Tag="kiosk" />
+            <local:MapGUIControl Style="{StaticResource kiosk}"      DisplayName="G_5"       DisplayNameFontSize="9"     Opacity="1"     Height="50"     Width="50"  Canvas.Left="403"     Canvas.Top="640"  Tag="kiosk" />
+            <local:MapGUIControl Style="{StaticResource kiosk}"      DisplayName="G_6"       DisplayNameFontSize="9"     Opacity="1"     Height="50"     Width="50"  Canvas.Left="516"     Canvas.Top="46"   Tag="kiosk" />
+            <local:MapGUIControl Style="{StaticResource kiosk}"      DisplayName="G_7"       DisplayNameFontSize="9"     Opacity="1"     Height="50"     Width="50"  Canvas.Left="517"     Canvas.Top="124"  Tag="kiosk" />
+            <local:MapGUIControl Style="{StaticResource kiosk}"      DisplayName="G_8"       DisplayNameFontSize="9"     Opacity="1"     Height="50"     Width="50"  Canvas.Left="501"     Canvas.Top="347"  Tag="kiosk" />
+            <local:MapGUIControl Style="{StaticResource kiosk}"      DisplayName="G_9"       DisplayNameFontSize="9"     Opacity="1"     Height="50"     Width="50"  Canvas.Left="516"     Canvas.Top="518"  Tag="kiosk" />
+            <local:MapGUIControl Style="{StaticResource kiosk}"      DisplayName="G_10"      DisplayNameFontSize="9"     Opacity="1"     Height="50"     Width="50"  Canvas.Left="516"     Canvas.Top="641"  Tag="kiosk" />
+            <local:MapGUIControl Style="{StaticResource kiosk}"      DisplayName="G_11"      DisplayNameFontSize="9"     Opacity="1"     Height="50"     Width="50"  Canvas.Left="1177"                      Tag="kiosk" />
+            <local:MapGUIControl Style="{StaticResource kiosk}"      DisplayName="G_12"      DisplayNameFontSize="9"     Opacity="1"     Height="50"     Width="50"  Canvas.Left="1283"                      Tag="kiosk" />
+            <local:MapGUIControl Style="{StaticResource kiosk}"      DisplayName="G_13"      DisplayNameFontSize="9"     Opacity="1"     Height="50"     Width="50"  Canvas.Left="1364"    Canvas.Top="12"   Tag="kiosk"/>
+            <local:MapGUIControl Style="{StaticResource kiosk}"      DisplayName="G_14"      DisplayNameFontSize="9"     Opacity="1"     Height="50"     Width="50"  Canvas.Left="1364"    Canvas.Top="286"  Tag="kiosk" />
+            <local:MapGUIControl Style="{StaticResource kiosk}"      DisplayName="G_15"      DisplayNameFontSize="9"     Opacity="1"     Height="50"     Width="50"  Canvas.Left="1283"    Canvas.Top="334"  Tag="kiosk" />
+            <local:MapGUIControl Style="{StaticResource kiosk}"      DisplayName="G_16"      DisplayNameFontSize="9"     Opacity="1"     Height="50"     Width="50"  Canvas.Left="1127"    Canvas.Top="334"  Tag="kiosk" />
+            <local:MapGUIControl Style="{StaticResource kiosk}"      DisplayName="G_17"      DisplayNameFontSize="9"     Opacity="1"     Height="50"     Width="50"  Canvas.Left="1127"    Canvas.Top="376"  Tag="kiosk" />
+            <local:MapGUIControl Style="{StaticResource kiosk}"      DisplayName="G_18"      DisplayNameFontSize="9"     Opacity="1"     Height="50"     Width="50"  Canvas.Left="1283"    Canvas.Top="376"  Tag="kiosk" />
+            <local:MapGUIControl Style="{StaticResource kiosk}"      DisplayName="G_19"      DisplayNameFontSize="9"     Opacity="1"     Height="50"     Width="50"  Canvas.Left="1106"    Canvas.Top="731"  Tag="kiosk" />
+            <local:MapGUIControl Style="{StaticResource kiosk}"      DisplayName="G_20"      DisplayNameFontSize="9"     Opacity="1"     Height="50"     Width="50"  Canvas.Left="1177"    Canvas.Top="731"  Tag="kiosk" />
+            <local:MapGUIControl Style="{StaticResource kiosk}"      DisplayName="G_21"      DisplayNameFontSize="9"     Opacity="1"     Height="50"     Width="50"  Canvas.Left="1358"    Canvas.Top="612"  Tag="kiosk" />
+            <local:MapGUIControl Style="{StaticResource kiosk}"      DisplayName="G_22"      DisplayNameFontSize="9"     Opacity="1"     Height="50"     Width="50"  Canvas.Left="1358"    Canvas.Top="683"  Tag="kiosk" />
+            
+        </Canvas>
+    </Grid>
+
+</Page>

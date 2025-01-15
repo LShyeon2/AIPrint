@@ -1,0 +1,122 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+                    xmlns:local="clr-namespace:BoxPrint.GUI.ThemeResources">
+    
+    <SolidColorBrush x:Key="MainHeaderBackground" Color="#FF6EA152"/>
+    <SolidColorBrush x:Key="MainFooterBackground" Color="#FF3C3C3C"/>
+    <SolidColorBrush x:Key="MainCenterBackground" Color="#FF302C2C"/>
+    <SolidColorBrush x:Key="MainHeaderForeground" Color="White"/>
+    <SolidColorBrush x:Key="MainHeaderForegroundFocused" Color="#FFD3FFBB"/>
+    <SolidColorBrush x:Key="MainHeaderForegroundDisabled" Color="#FF7F9B70"/>
+
+    <LinearGradientBrush x:Key="BackgroundGradientNormal" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FF679B4B" Offset="1"/>
+        <GradientStop Color="#FF75A859" Offset="0"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="BackgroundGradientMouseOver" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FF94C374" Offset="0"/>
+        <GradientStop Color="#FF76A656" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="BackgroundGradientPressed" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FF628731" Offset="0"/>
+        <GradientStop Color="#FF45661A" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="BackgroundGradientDisabled" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFB6B6B6" Offset="0"/>
+        <GradientStop Color="#FFAEAEAE" Offset="1"/>
+    </LinearGradientBrush>
+
+    <!-- Docking -->
+    <LinearGradientBrush x:Key="BackgroundGradientMouseOver_Docking" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FF94C374" Offset="0"/>
+        <GradientStop Color="#FF76A656" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="BackgroundGradientPressed_Docking" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FF628731" Offset="0"/>
+        <GradientStop Color="#FF45661A" Offset="1"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="BackgroundSolidHighlight_Docking" Color="#FFA7D18A"/>
+    <LinearGradientBrush x:Key="BackgroundGradientNormal_Docking" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FF679B4B" Offset="1"/>
+        <GradientStop Color="#FF75A859" Offset="0"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="BackgroundSolidFocused_Docking" Color="#FF537625"/>
+    <LinearGradientBrush x:Key="BorderGradientNormal_Docking" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFDFE4E8" Offset="0"/>
+        <GradientStop Color="#FFB4C1CC" Offset="1"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="BorderSolidNormal_Docking" Color="#FF8EC172"/>
+    <SolidColorBrush x:Key="ForegroundNormal_Docking" Color="#FFEBFFE0"/>
+    <SolidColorBrush x:Key="BasicNormal_Docking" Color="Gainsboro"/>
+    <SolidColorBrush x:Key="BasicHighlight_Docking" Color="#FFFAFAFA"/>
+
+    <LinearGradientBrush x:Key="BackgroundGradientNormal_Button" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FF679B4B" Offset="1"/>
+        <GradientStop Color="#FF75A859" Offset="0"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="BackgroundGradientMouseOver_Button" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FF94C374" Offset="0"/>
+        <GradientStop Color="#FF76A656" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="BackgroundGradientPressed_Button" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FF628731" Offset="0"/>
+        <GradientStop Color="#FF45661A" Offset="1"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="BackgroundSolidNormal_Button" Color="#FF6EA152"/>
+    <SolidColorBrush x:Key="BackgroundSolidHighlight_Button" Color="#FFA7D18A"/>
+    <SolidColorBrush x:Key="BackgroundSolidFocused_Button" Color="#FF537625"/>
+    <SolidColorBrush x:Key="BackgroundSolidStrong_Button" Color="#FFFFA100"/>
+    <SolidColorBrush x:Key="BackgroundSlider_Button" Color="#FF4B6D1F"/>
+    <SolidColorBrush x:Key="BorderSolidNormal_Button" Color="#FF8EC172"/>
+    <LinearGradientBrush x:Key="BorderGradientNormal_Button" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFDFE4E8" Offset="0"/>
+        <GradientStop Color="#FFB4C1CC" Offset="1"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="BorderSolidFocused_Button" Color="#FF7E9554"/>
+    <SolidColorBrush x:Key="ForegroundNormal_Button" Color="#FFEBFFE0"/>
+    <SolidColorBrush x:Key="ForegroundFocused_Button" Color="White"/>
+    <SolidColorBrush x:Key="ForegroundStrong_Button" Color="#FF4B6D1F"/>
+    <SolidColorBrush x:Key="BasicWhite_Button" Color="White"/>
+    <SolidColorBrush x:Key="BasicNormal_Button" Color="Gainsboro"/>
+    <SolidColorBrush x:Key="BasicHighlight_Button" Color="#FFFAFAFA"/>
+    <SolidColorBrush x:Key="BasicStrong_Button" Color="#FFACACAC"/>
+    <SolidColorBrush x:Key="IconNormal_Button" Color="White"/>
+
+    <SolidColorBrush x:Key="BackgroundSolidNormal" Color="#FF6EA152"/>
+    <SolidColorBrush x:Key="BackgroundSolidHighlight" Color="#FFA7D18A"/>
+    <SolidColorBrush x:Key="BackgroundSolidFocused" Color="#FF537625"/>
+    <SolidColorBrush x:Key="BackgroundSolidStrong" Color="#FFFFA100"/>
+    <SolidColorBrush x:Key="BackgroundSolidDisabled" Color="#FFFCFCFC"/>
+    <LinearGradientBrush x:Key="BorderGradientNormal" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFDFE4E8" Offset="0"/>
+        <GradientStop Color="#FFB4C1CC" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="BorderGradientFocused" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFF7F7F7" Offset="0"/>
+        <GradientStop Color="#FFB4C1CC" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="BorderGradientDisabled" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFF7F7F7" Offset="0"/>
+        <GradientStop Color="#FFB4C1CC" Offset="0.996"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="BorderSolidNormal" Color="#FF8EC172"/>
+    <SolidColorBrush x:Key="BorderSolidFocused" Color="#FF7E9554"/>
+    <SolidColorBrush x:Key="BorderSolidDisabled" Color="#FFB8B8B8"/>
+    <SolidColorBrush x:Key="ForegroundNormal" Color="#FFEBFFE0"/>
+    <SolidColorBrush x:Key="ForegroundFocused" Color="White"/>
+    <SolidColorBrush x:Key="ForegroundStrong" Color="#FF4B6D1F"/>
+    <SolidColorBrush x:Key="BackgroundSlider" Color="#FF4B6D1F"/>
+    <SolidColorBrush x:Key="ForegroundValue" Color="#FF850D83"/>
+    <SolidColorBrush x:Key="ForegroundDisabled" Color="#FF9B9B9B"/>
+    <SolidColorBrush x:Key="IconNormal" Color="White"/>
+    <SolidColorBrush x:Key="IconFocused" Color="#FF686868"/>
+    <SolidColorBrush x:Key="IconDisabled" Color="#FF8F8F8F"/>
+    <SolidColorBrush x:Key="BasicNormal" Color="Gainsboro"/>
+    <SolidColorBrush x:Key="BasicHighlight" Color="#FFFAFAFA"/>
+    <SolidColorBrush x:Key="BasicStrong" Color="#FFACACAC"/>
+    <SolidColorBrush x:Key="BasicWhite" Color="White"/>
+    <SolidColorBrush x:Key="BasicBlack" Color="Black"/>
+    <SolidColorBrush x:Key="MainThemeBackground" Color="#FF6EA152" />
+    <SolidColorBrush x:Key="MainThemeForeground" Color="#FFEBFFE0" />
+</ResourceDictionary>

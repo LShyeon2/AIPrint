@@ -1,0 +1,1271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1B8F2903-36D8-4970-A606-BC83ED21EB3A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BoxPrint</RootNamespace>
+    <AssemblyName>BoxPrint</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>게시\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>SCSIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Interop.ActUtlType64Lib">
+      <HintPath>DLL\MXComponent\Interop.ActUtlType64Lib.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>DLL\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Drawing, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Microsoft.Expression.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.21.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.21.5.0\lib\net462\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="OSG.Com.HSMS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\OSG.Com.HSMS.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="SharedMemory, Version=2.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharedMemory.2.2.3\lib\net45\SharedMemory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>DLL\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Alarm\AlarmData.cs" />
+    <Compile Include="Alarm\AlarmManager.cs" />
+    <Compile Include="Communication\AsyncSocket.cs" />
+    <Compile Include="Communication\AsyncSocketClient.cs" />
+    <Compile Include="Communication\AsyncSocketServer.cs" />
+    <Compile Include="Communication\ASyncTcpEvent.cs" />
+    <Compile Include="Communication\PLCProtocol\DataClass\PLCStateData.cs" />
+    <Compile Include="Communication\PLCProtocol\PLCMemoryMap.cs" />
+    <Compile Include="Communication\PLCProtocol\ProtocolManager_Client.cs" />
+    <Compile Include="Config\DBConfigSection.cs" />
+    <Compile Include="Config\DBSection.cs" />
+    <Compile Include="Config\PrintRecipe\RecipeData.cs" />
+    <Compile Include="Config\PrintRecipe\RecipeManager.cs" />
+    <Compile Include="GUI\ViewModels\PrintPage\PrintScenarioViewModel.cs" />
+    <Compile Include="Modules\Print\ScenarioData.cs" />
+    <Compile Include="DataBase\OracleDBManager_Client.cs" />
+    <Compile Include="DataBase\OracleDBManager_Log.cs" />
+    <Compile Include="DataList\ActiveZone.cs" />
+    <Compile Include="DataList\ClientReqList.cs" />
+    <Compile Include="DataList\ClientRequestSysStateInfo.cs" />
+    <Compile Include="DataList\ConnectClientList.cs" />
+    <Compile Include="DataList\EQPInfo.cs" />
+    <Compile Include="DataList\PLCDataInfo.cs" />
+    <Compile Include="DataList\UnitedLogList.cs" />
+    <Compile Include="GUI\ETC\CarrierKeyIn.xaml.cs">
+      <DependentUpon>CarrierKeyIn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ETC\CraneOrderView.xaml.cs">
+      <DependentUpon>CraneOrderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ETC\DateTimePicker\DateTimePicker.xaml.cs">
+      <DependentUpon>DateTimePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ETC\InformMemoView.xaml.cs">
+      <DependentUpon>InformMemoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ETC\ModeChangeInOutPopupView.xaml.cs">
+      <DependentUpon>ModeChangeInOutPopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ETC\ModeChangeShelfTypePopupView.xaml.cs">
+      <DependentUpon>ModeChangeShelfTypePopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ETC\LoadingPopup\CircularProgressBar.cs" />
+    <Compile Include="GUI\ETC\LoadingPopup\Converters.cs" />
+    <Compile Include="GUI\ETC\CraneManualCommand.xaml.cs">
+      <DependentUpon>CraneManualCommand.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ETC\LanguagePopup.xaml.cs">
+      <DependentUpon>LanguagePopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ETC\LoadingPopup\LodingPopup.xaml.cs">
+      <DependentUpon>LodingPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ETC\CircularProgressBar.xaml.cs">
+      <DependentUpon>CircularProgressBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ETC\ShelfStatusChangePopupView.xaml.cs">
+      <DependentUpon>ShelfStatusChangePopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ETC\UnitIODetailView.xaml.cs">
+      <DependentUpon>UnitIODetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\EventCollection\UIEventCollection.cs" />
+    <Compile Include="GUI\ExtensionCollection\GUIExtensionCollection.cs" />
+    <Compile Include="GUI\UserControls\BoothIOView.xaml.cs">
+      <DependentUpon>BoothIOView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\ControlSystemLegendView.xaml.cs">
+      <DependentUpon>ControlSystemLegendView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\ConveyorDataView.xaml.cs">
+      <DependentUpon>ConveyorDataView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\ConveyorIODetailView.xaml.cs">
+      <DependentUpon>ConveyorIODetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\ConveyorIOView.xaml.cs">
+      <DependentUpon>ConveyorIOView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\CraneDataView.xaml.cs">
+      <DependentUpon>CraneDataView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\CraneIODetailView.xaml.cs">
+      <DependentUpon>CraneIODetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\CraneIOView.xaml.cs">
+      <DependentUpon>CraneIOView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\ShelfDataView.xaml.cs">
+      <DependentUpon>ShelfDataView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\TerminalMessageControlView.xaml.cs">
+      <DependentUpon>TerminalMessageControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\ViewModels\LayOutControlViewModel.cs" />
+    <Compile Include="GUI\UserControls\Views\DateTimePicker.xaml.cs">
+      <DependentUpon>DateTimePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\Views\LayOutControlView.xaml.cs">
+      <DependentUpon>LayOutControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\Views\LoadingSpinner.xaml.cs">
+      <DependentUpon>LoadingSpinner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\Views\NumericUpDown.xaml.cs">
+      <DependentUpon>NumericUpDown.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ViewModels\BindingCommand\BindingDelegateCommand.cs" />
+    <Compile Include="GUI\ViewModels\BoothIOViewModel.cs" />
+    <Compile Include="GUI\ViewModels\CarrierInstallViewModel.cs" />
+    <Compile Include="GUI\ViewModels\ControlSystemLegendViewModel.cs" />
+    <Compile Include="GUI\ViewModels\ConveyorDataViewModel.cs" />
+    <Compile Include="GUI\ViewModels\ConveyorIODetailViewModel.cs" />
+    <Compile Include="GUI\ViewModels\CraneDataViewModel.cs" />
+    <Compile Include="GUI\ViewModels\CraneIODetailViewModel.cs" />
+    <Compile Include="GUI\ViewModels\CraneOrderViewModel.cs" />
+    <Compile Include="GUI\ViewModels\ModeChangeInOutPopupViewModel.cs" />
+    <Compile Include="GUI\ViewModels\ModeChangeShelfTypePopupViewModel.cs" />
+    <Compile Include="GUI\ViewModels\PortKeyInViewModel.cs" />
+    <Compile Include="GUI\ViewModels\PrintPage\PrintStateViewModel.cs" />
+    <Compile Include="GUI\ViewModels\PrintPage\RecipeManagementViewModel.cs" />
+    <Compile Include="GUI\ViewModels\PrintPage\RecipeModifyViewModel.cs" />
+    <Compile Include="GUI\ViewModels\ShelfDataViewModel.cs" />
+    <Compile Include="GUI\ViewModels\TerminalMessageControlViewModel.cs" />
+    <Compile Include="GUI\ViewModels\TerminalMessageViewModel.cs" />
+    <Compile Include="GUI\ViewModels\UnitIODetailViewModel.cs" />
+    <Compile Include="GUI\ViewModels\ViewModelOperatorLogView.cs" />
+    <Compile Include="GUI\ViewModels\ViewModelAlarmLogView.cs" />
+    <Compile Include="GUI\ViewModels\ViewModelAlarmManagerView.cs" />
+    <Compile Include="GUI\ViewModels\ViewModelBCRLogView.cs" />
+    <Compile Include="GUI\ViewModels\ViewModelCraneManualCommand.cs" />
+    <Compile Include="GUI\ViewModels\ViewModelHSMSLogView.cs" />
+    <Compile Include="GUI\ViewModels\ViewModelStoredCarrierView.cs" />
+    <Compile Include="GUI\ViewModels\ViewModelTransferLogView.cs" />
+    <Compile Include="GUI\Views\OperatorLogView.xaml.cs">
+      <DependentUpon>OperatorLogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Views\PrintMainView.xaml.cs">
+      <DependentUpon>PrintMainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Views\PrintPage\PrintCommandView.xaml.cs">
+      <DependentUpon>PrintCommandView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Views\PrintPage\PrintStatePage.xaml.cs">
+      <DependentUpon>PrintStatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Views\PrintPage\PrintStateView.xaml.cs">
+      <DependentUpon>PrintStateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Views\PrintPage\RecipeEditPage.xaml.cs">
+      <DependentUpon>RecipeEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Views\PrintPage\RecipeManagement.xaml.cs">
+      <DependentUpon>RecipeManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Views\PrintPage\RecipeModify.xaml.cs">
+      <DependentUpon>RecipeModify.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Views\PrintPage\PrintScenarioPage.xaml.cs">
+      <DependentUpon>PrintScenarioPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Views\StoredCarrierView.xaml.cs">
+      <DependentUpon>StoredCarrierView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Views\TerminalMessageView.xaml.cs">
+      <DependentUpon>TerminalMessageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Windows\ViewModels\PLCStateViewModel.cs" />
+    <Compile Include="GUI\Windows\Views\PLCStateView.xaml.cs">
+      <DependentUpon>PLCStateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LOCALIZATION\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="LOCALIZATION\Translation\ITranslationProvider.cs" />
+    <Compile Include="LOCALIZATION\Translation\LanguageChangedEventManager.cs" />
+    <Compile Include="LOCALIZATION\Translation\ResxTranslationProvider.cs" />
+    <Compile Include="LOCALIZATION\Translation\TranslateExtension.cs" />
+    <Compile Include="LOCALIZATION\Translation\TranslationData.cs" />
+    <Compile Include="LOCALIZATION\Translation\TranslationManager.cs" />
+    <Compile Include="Log\UILogData.cs" />
+    <Compile Include="Log\UILogList.cs" />
+    <Compile Include="Modules\Conveyor\CV_ManualModule.cs" />
+    <Compile Include="Modules\Conveyor\CV_PrintModule.cs" />
+    <Compile Include="GUI\ETC\AlarmPopupView.xaml.cs">
+      <DependentUpon>AlarmPopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Communication\PLCProtocol\Base\CommunicationTypeBase.cs" />
+    <Compile Include="Communication\PLCProtocol\Base\ProtocolBase.cs" />
+    <Compile Include="Communication\PLCProtocol\Base\ProtocolHelper.cs" />
+    <Compile Include="Communication\PLCProtocol\Base\TCP_ASync.cs" />
+    <Compile Include="Communication\PLCProtocol\CommunicationType\AsciiType.cs" />
+    <Compile Include="Communication\PLCProtocol\CommunicationType\BinaryType.cs" />
+    <Compile Include="Communication\PLCProtocol\DataClass\PLCConfigElement.cs" />
+    <Compile Include="Communication\PLCProtocol\DataClass\PLCConfigSection.cs" />
+    <Compile Include="Communication\PLCProtocol\DataClass\PLCDataItem.cs" />
+    <Compile Include="Communication\PLCProtocol\ProtocolManager.cs" />
+    <Compile Include="Communication\PLCProtocol\Protocol_4E.cs" />
+    <Compile Include="Communication\PLCProtocol\Protocol_MCProtocolBase.cs" />
+    <Compile Include="Communication\PLCProtocol\Protocol_MxComponent.cs" />
+    <Compile Include="Communication\PLCProtocol\DataClass\SharedEnum.cs" />
+    <Compile Include="Communication\PLCProtocol\Protocol_3E.cs" />
+    <Compile Include="Config\BoothElement.cs" />
+    <Compile Include="Config\MainConfigSection.cs" />
+    <Compile Include="Config\MainSection.cs" />
+    <Compile Include="Config\PLCElement.cs" />
+    <Compile Include="Config\PLCSection.cs" />
+    <Compile Include="Config\RMElement.cs" />
+    <Compile Include="Config\RMSection.cs" />
+    <Compile Include="Config\SafetyConfigSection.cs" />
+    <Compile Include="Config\SafetyUnitConfigElement.cs" />
+    <Compile Include="Config\SchedulerConfigElement.cs" />
+    <Compile Include="Config\BoothConfigElement.cs" />
+    <Compile Include="Config\RMConfigSection.cs" />
+    <Compile Include="Config\RMUnitConfigElement.cs" />
+    <Compile Include="Config\SchedulerElement.cs" />
+    <Compile Include="Config\WPSConfigSection.cs" />
+    <Compile Include="Config\WPSUnitConfigElement.cs" />
+    <Compile Include="DataBase\LocalDBManager.cs" />
+    <Compile Include="DataBase\OracleDBManager.cs" />
+    <Compile Include="DataList\Carrier\CarrierItem.cs" />
+    <Compile Include="DataList\Carrier\CarrierStorage.cs" />
+    <Compile Include="DataList\MCS\Job_Result.cs" />
+    <Compile Include="DataList\ObservableList.cs" />
+    <Compile Include="DataList\ParameterList _PLC.cs" />
+    <Compile Include="DataList\SafeObservableCollection.cs" />
+    <Compile Include="DataList\SafetyList.cs" />
+    <Compile Include="DataList\PortUIItemList.cs" />
+    <Compile Include="DataList\MCS\McsJobManager.cs" />
+    <Compile Include="DataList\MCS\McsJob.cs" />
+    <Compile Include="DataList\TurnTeachingList.cs" />
+    <Compile Include="GUI\ClassArray\ZoomBorder.cs" />
+    <Compile Include="GUI\ClassArray\GUIColorBase.cs" />
+    <Compile Include="GUI\ETC\CarrierInstall.xaml.cs">
+      <DependentUpon>CarrierInstall.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ETC\AlarmManagerPopupView.xaml.cs">
+      <DependentUpon>AlarmManagerPopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ETC\GroupAuthority.xaml.cs">
+      <DependentUpon>GroupAuthority.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ETC\LogInPopupView.xaml.cs">
+      <DependentUpon>LogInPopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ETC\LoginUserStatePopupView.xaml.cs">
+      <DependentUpon>LoginUserStatePopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ETC\SearchViewPopup.xaml.cs">
+      <DependentUpon>SearchViewPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ETC\MessageBoxPopupView.xaml.cs">
+      <DependentUpon>MessageBoxPopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ETC\RMParaChangePopupView.xaml.cs">
+      <DependentUpon>RMParaChangePopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ETC\BoothStateChangePopupView.xaml.cs">
+      <DependentUpon>BoothStateChangePopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ETC\RobotSpeedPopupView.xaml.cs">
+      <DependentUpon>RobotSpeedPopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ETC\ScheduleDebugInfo.xaml.cs">
+      <DependentUpon>ScheduleDebugInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ETC\PageTransition.xaml.cs">
+      <DependentUpon>PageTransition.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ETC\ucNumericUpDown.xaml.cs">
+      <DependentUpon>ucNumericUpDown.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ETC\UserCreatePopupView.xaml.cs">
+      <DependentUpon>UserCreatePopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UIControls\Slot.cs" />
+    <Compile Include="GUI\UIControls\UIControlBase.cs" />
+    <Compile Include="GUI\UIControls\UIControlCollections.cs" />
+    <Compile Include="GUI\UIControls\UIDictionaryHelper.cs" />
+    <Compile Include="GUI\UIControls\UIControlHelper.cs" />
+    <Compile Include="GUI\UserControls\CVUserControl.xaml.cs">
+      <DependentUpon>CVUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\LoadingSpinner.xaml.cs">
+      <DependentUpon>LoadingSpinner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\ShelfSetterPage.xaml.cs">
+      <DependentUpon>ShelfSetterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\ucCustomToolTip.xaml.cs">
+      <DependentUpon>ucCustomToolTip.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ViewModels\ExtensionMethods.cs" />
+    <Compile Include="GUI\ViewModels\ViewModelBase.cs" />
+    <Compile Include="GUI\ViewModels\ViewModelConfigView.cs" />
+    <Compile Include="GUI\ViewModels\ViewModelLayOutView.cs" />
+    <Compile Include="GUI\ViewModels\ViewModelSearchView.cs" />
+    <Compile Include="GUI\Views\BCRLogView.xaml.cs">
+      <DependentUpon>BCRLogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Views\ConfigView.xaml.cs">
+      <DependentUpon>ConfigView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Views\Map\MapGUIControl.cs" />
+    <Compile Include="GUI\Views\Map\SKOH_GroundFloorPlan.xaml.cs">
+      <DependentUpon>SKOH_GroundFloorPlan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Views\Map\MapPopupUserControl.xaml.cs">
+      <DependentUpon>MapPopupUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Views\AlarmManagerView.xaml.cs">
+      <DependentUpon>AlarmManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Views\IOMonitorRMView.xaml.cs">
+      <DependentUpon>IOMonitorRMView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Views\HSMSLogView.xaml.cs">
+      <DependentUpon>HSMSLogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Views\TransferLogView.xaml.cs">
+      <DependentUpon>TransferLogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Views\UserPage\GroupAccountManagementPage.xaml.cs">
+      <DependentUpon>GroupAccountManagementPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Views\UserPage\UserAccountManagementPage.xaml.cs">
+      <DependentUpon>UserAccountManagementPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Views\UserPage\UserCreateView.xaml.cs">
+      <DependentUpon>UserCreateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Views\UserPage\UserLevelAuthority.cs" />
+    <Compile Include="GUI\Views\UserView.xaml.cs">
+      <DependentUpon>UserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Views\IOMonitorView.xaml.cs">
+      <DependentUpon>IOMonitorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Views\AlarmView.xaml.cs">
+      <DependentUpon>AlarmView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Views\AlarmLogView.xaml.cs">
+      <DependentUpon>AlarmLogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Views\LogView.xaml.cs">
+      <DependentUpon>LogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Views\SplashWindow.xaml.cs">
+      <DependentUpon>SplashWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainHelper.cs" />
+    <Compile Include="INI_Helper.cs" />
+    <Compile Include="Modules\BoothBase.cs" />
+    <Compile Include="CCLink\CCLinkManager.cs" />
+    <Compile Include="CCLink\IOPointList.cs" />
+    <Compile Include="DataList\AlarmDataList.cs" />
+    <Compile Include="DataList\Extensions.cs" />
+    <Compile Include="DataList\GridDataItemTable.cs" />
+    <Compile Include="DataList\ParameterList.cs" />
+    <Compile Include="DataList\PMacDataList.cs" />
+    <Compile Include="DataList\ShelfClass.cs" />
+    <Compile Include="DataList\ShelfOffsetDataList.cs" />
+    <Compile Include="Modules\Booth_SKSCS.cs" />
+    <Compile Include="Modules\ICarrierStoreAble.cs" />
+    <Compile Include="Modules\Print\ScenarioList.cs" />
+    <Compile Include="Modules\RFID\BCR_CognexDM.cs" />
+    <Compile Include="Modules\RM\RM_TPLC.cs" />
+    <Compile Include="Modules\Shelf\ShelfItemList.cs" />
+    <Compile Include="Modules\Shelf\ShelfItem.cs" />
+    <Compile Include="DataList\SortingRecClass.cs" />
+    <Compile Include="GlobalData.cs" />
+    <Compile Include="GUI\Views\LayOutView.xaml.cs">
+      <DependentUpon>LayOutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Views\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Views\ParaView.xaml.cs">
+      <DependentUpon>ParaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Conveyor\ConveyorSub\AGV_PIOResult.cs" />
+    <Compile Include="Modules\Conveyor\ConveyorSub\CV_ActionPara.cs" />
+    <Compile Include="Modules\Conveyor\ConveyorSub\CV_ActionResult.cs" />
+    <Compile Include="Modules\Conveyor\CV_BaseModule.cs" />
+    <Compile Include="Modules\Conveyor\ConveyorSub\Inverter.cs" />
+    <Compile Include="Modules\Conveyor\ConveyorSub\IConveyorRunnable.cs" />
+    <Compile Include="Modules\RFID\BCR_SICK.cs" />
+    <Compile Include="Modules\ModuleBase.cs" />
+    <Compile Include="Modules\ShelfTagHelper.cs" />
+    <Compile Include="Modules\Shelf\ShelfManager.cs" />
+    <Compile Include="Modules\Print\INK_SQUID.cs" />
+    <Compile Include="Modules\Print\PrinterManager.cs" />
+    <Compile Include="Modules\Print\TCP_ModuleBase.cs" />
+    <Compile Include="Modules\User\AuthorityItem.cs" />
+    <Compile Include="Modules\User\AuthorityManager.cs" />
+    <Compile Include="Modules\User\User.cs" />
+    <Compile Include="Modules\User\UserManager.cs" />
+    <Compile Include="Communication\ASyncUDP.cs" />
+    <Compile Include="OpenHSMS\HSMSActionBase.cs" />
+    <Compile Include="OpenHSMS\HSMSEventArgs.cs" />
+    <Compile Include="OpenHSMS\HSMSManager.cs" />
+    <Compile Include="OpenHSMS\HSMSSVID.cs" />
+    <Compile Include="Modules\CVLine\CVLineManager.cs" />
+    <Compile Include="Modules\CVLine\CVLineModule.cs" />
+    <Compile Include="Modules\RM\RMManager.cs" />
+    <Compile Include="Modules\RM\RMModuleBase.cs" />
+    <Compile Include="Modules\RFID\RFID_CEYON.CS" />
+    <Compile Include="Modules\RFID\RFID_ModuleBase.cs" />
+    <Compile Include="Scheduler\BaseScheduler.cs" />
+    <Compile Include="Scheduler\ClientScheduler.cs" />
+    <Compile Include="Scheduler\DualRMScheduler.cs" />
+    <Compile Include="Scheduler\ReserveToken.cs" />
+    <Compile Include="Scheduler\SingleRMScheduler.cs" />
+    <Compile Include="SimulatorPLC\BaseSimulator.cs" />
+    <Compile Include="SimulatorPLC\BoothSimulator.cs" />
+    <Compile Include="SimulatorPLC\CraneSimulator.cs" />
+    <Compile Include="SimulatorPLC\PLCSimulatorManager.cs" />
+    <Compile Include="SimulatorPLC\PortSimulator.cs" />
+    <Compile Include="SingletonBase.cs" />
+    <Compile Include="SSCNet\ServoAxis_DeltaControl.cs" />
+    <Compile Include="SSCNet\mc2xxstd.cs" />
+    <Compile Include="SSCNet\ServoAxis_IOControl.cs" />
+    <Compile Include="SSCNet\ServoAxis.cs" />
+    <Compile Include="SSCNet\ServoManager.cs" />
+    <Compile Include="SSCNet\SSCInterruptDrive.cs" />
+    <Compile Include="WCF_LBS\Commands\CraneCommand.cs" />
+    <Compile Include="WCF_LBS\Commands\CraneCommandResult.cs" />
+    <Compile Include="WCF_LBS\Commands\PortCommand.cs" />
+    <Compile Include="WCF_LBS\Commands\TowerLampCommand.cs" />
+    <Page Include="GUI\ETC\AlarmPopupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ETC\CarrierKeyIn.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\ETC\CarrierInstall.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ETC\AlarmManagerPopupView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\ETC\CraneManualCommand.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\ETC\CraneOrderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ETC\DateTimePicker\DateTimePicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\ETC\InformMemoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ETC\ModeChangeInOutPopupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ETC\ModeChangeShelfTypePopupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ETC\GroupAuthority.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ETC\LanguagePopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ETC\LogInPopupView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\ETC\LoginUserStatePopupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ETC\SearchViewPopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\ETC\ShelfStatusChangePopupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ETC\MessageBoxPopupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ETC\RMParaChangePopupView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\ETC\BoothStateChangePopupView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\ETC\RobotSpeedPopupView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\ETC\ScheduleDebugInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ETC\PageTransition.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ETC\ucNumericUpDown.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ETC\CircularProgressBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ETC\UnitIODetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ETC\UserCreatePopupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ETC\LoadingPopup\LodingPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ThemeResources\ThemeColorResourcesLight.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\ThemeResources\ThemeColorResourcesDark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\UIControls\FontDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\UIControls\UIDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\UIControls\BrushesDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UIControls\UITemplates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UserControls\BoothIOView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UserControls\ControlSystemLegendView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UserControls\ConveyorDataView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UserControls\ConveyorIODetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UserControls\ConveyorIOView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UserControls\CraneDataView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UserControls\CraneIODetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UserControls\CraneIOView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UserControls\CVUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ThemeResources\ThemeColorResourcesCyan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ThemeResources\ThemeColorResourcesGreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ThemeResources\ThemeColorResourcesRemote.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ThemeResources\ThemeColorResourcesSkyblue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ThemeResources\ThemeColorResourcesYellow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UserControls\LoadingSpinner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UserControls\ShelfDataView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UserControls\ShelfSetterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UserControls\TerminalMessageControlView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UserControls\ucCustomToolTip.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UserControls\Views\DateTimePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UserControls\Views\LayOutControlView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UserControls\Views\LoadingSpinner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UserControls\Views\NumericUpDown.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Views\OperatorLogView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\Views\BCRLogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Views\ConfigView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Views\Map\MapGUIControlDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Views\Map\SKOH_GroundFloorPlan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Views\Map\MapPopupUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Views\AlarmManagerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Views\IOMonitorRMView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Views\HSMSLogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Views\PrintMainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Views\PrintPage\PrintCommandView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Views\PrintPage\PrintStatePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Views\PrintPage\PrintStateView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Views\PrintPage\RecipeEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Views\PrintPage\RecipeManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Views\PrintPage\RecipeModify.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Views\PrintPage\PrintScenarioPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Views\StoredCarrierView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\Views\TerminalMessageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Views\TransferLogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Views\UserPage\GroupAccountManagementPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Views\UserPage\UserAccountManagementPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Views\UserPage\UserCreateView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Views\UserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Views\IOMonitorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\Views\AlarmView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\Views\LayOutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Views\AlarmLogView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\Views\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Views\LogView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\Views\ParaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Views\SplashWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Windows\Views\PLCStateView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CCLink\CCLinkHelper.cs" />
+    <Compile Include="CCLink\CCIODevice.cs" />
+    <Compile Include="Enum.cs" />
+    <Compile Include="Log\LogManager.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Properties\DesignTimeResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <ContainsDesignTimeResources>true</ContainsDesignTimeResources>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="LOCALIZATION\Resource.en-US.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LOCALIZATION\Resource.hu-HU.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LOCALIZATION\Resource.ko-KR.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LOCALIZATION\Resource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LOCALIZATION\Resource.zh-CN.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Resource Include="Font\NanumSquareRoundB.ttf" />
+    <Resource Include="Font\NanumSquareRoundEB.ttf" />
+    <Resource Include="Font\NanumSquareRoundL.ttf" />
+    <Resource Include="Font\NanumSquareRoundOTFB.otf" />
+    <Resource Include="Font\NanumSquareRoundOTFEB.otf" />
+    <Resource Include="Font\NanumSquareRoundOTFL.otf" />
+    <Resource Include="Font\NanumSquareRoundOTFR.otf" />
+    <Resource Include="Font\NanumSquareRoundR.ttf" />
+    <None Include="Log.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OpenHSMS.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Add.png" />
+    <Resource Include="Image\alarm-48.png" />
+    <Resource Include="Image\AxisState.png" />
+    <Resource Include="Image\Boxicon.png" />
+    <Resource Include="Image\BuzzerStop.png" />
+    <Resource Include="Image\CalcClick.png" />
+    <Resource Include="Image\CalcNormal.png" />
+    <Resource Include="Image\Calculatoricon1.png" />
+    <Resource Include="Image\Calculatoricon2.png" />
+    <Resource Include="Image\Calculatoricon3.png" />
+    <Resource Include="Image\Chart.png" />
+    <Resource Include="Image\Checkimage.png" />
+    <Resource Include="Image\CPS TYPE LBS Port.png" />
+    <Resource Include="Image\CurPointSave.png" />
+    <Resource Include="Image\DataSheet.png" />
+    <Resource Include="Image\DeleteImage.png" />
+    <Resource Include="Image\Document-search-icon.png" />
+    <Resource Include="Image\ExcelClick.png" />
+    <Resource Include="Image\Excelicon1.png" />
+    <Resource Include="Image\Excelicon2.png" />
+    <Resource Include="Image\Excelicon3.png" />
+    <Resource Include="Image\ExcelNormal.png" />
+    <Resource Include="Image\execute.png" />
+    <Resource Include="Image\Exit.bmp" />
+    <Resource Include="Image\E_Stop.png" />
+    <Resource Include="Image\FrontTeachingF.bmp" />
+    <Resource Include="Image\FrontTeachingP.bmp" />
+    <Resource Include="Image\Gnome-Emblem-Important-64.png" />
+    <Resource Include="Image\Gnome-Emblem-Unreadable-32.png" />
+    <Resource Include="Image\Gnome-Media-Record-48.png" />
+    <Resource Include="Image\Gnome-Media-Record-Gray 사본.png" />
+    <Resource Include="Image\Gnome-Network-Wireless-32.png" />
+    <Resource Include="Image\Gnome-Preferences-Desktop-Keyboard-Shortcuts-48.png" />
+    <Resource Include="Image\Gnome-Preferences-System-Network-48.png" />
+    <Resource Include="Image\Gnome-Process-Stop-32.png" />
+    <Resource Include="Image\Gnome-View-Refresh-32.png" />
+    <Resource Include="Image\Gnome-View-Refresh-48.png" />
+    <Resource Include="Image\Gnome-X-Office-Presentation-48.png" />
+    <Resource Include="Image\Gnome-X-Office-Spreadsheet-48.png" />
+    <Resource Include="Image\GridView.png" />
+    <Resource Include="Image\Helpicon.png" />
+    <Resource Include="Image\Helpicon2.png" />
+    <Resource Include="Image\IOMonitor.png" />
+    <Resource Include="Image\JobSetting.bmp" />
+    <Resource Include="Image\JogContorl.png" />
+    <Resource Include="Image\LablePrintImage.png" />
+    <Resource Include="Image\LayOut.png" />
+    <Resource Include="Image\LBSRMBody.png" />
+    <Resource Include="Image\LBSRMbttom.png" />
+    <Resource Include="Image\Led_Black.png" />
+    <Resource Include="Image\Led_Blue.png" />
+    <Resource Include="Image\Led_Green.png" />
+    <Resource Include="Image\Led_Red.png" />
+    <Resource Include="Image\Led_White.png" />
+    <Resource Include="Image\Led_Yellow.png" />
+    <Resource Include="Image\LineIcon.png" />
+    <Resource Include="Image\LineIcon2.png" />
+    <Resource Include="Image\ListView.png" />
+    <Resource Include="Image\MainData.png" />
+    <Resource Include="Image\ManualPort.png" />
+    <Resource Include="Image\Materialicon.png" />
+    <Resource Include="Image\maximize-btn.png" />
+    <Resource Include="Image\MonitioringBg1.png" />
+    <Resource Include="Image\Monitioringicon.png" />
+    <Resource Include="Image\Monitioringicon2.png" />
+    <Resource Include="Image\Operate.png" />
+    <Resource Include="Image\PAClose.png" />
+    <Resource Include="Image\Palleticon.png" />
+    <Resource Include="Image\PAMaximize.png" />
+    <Resource Include="Image\PAMin.png" />
+    <Resource Include="Image\ParameterView.png" />
+    <Resource Include="Image\pause.ico" />
+    <Resource Include="Image\Pause.png" />
+    <Resource Include="Image\PA_left_arr.png" />
+    <Resource Include="Image\PA_right_arr.png" />
+    <Resource Include="Image\PmacLoad.png" />
+    <Resource Include="Image\RackMasterCarriage.bmp" />
+    <Resource Include="Image\RackMasterConfig.png" />
+    <Resource Include="Image\RearTeachingR.bmp" />
+    <Resource Include="Image\Recipe.png" />
+    <Resource Include="Image\Refresh.png" />
+    <Resource Include="Image\Reset.png" />
+    <Resource Include="Image\Resume.png" />
+    <Resource Include="Image\RMIO.bmp" />
+    <Resource Include="Image\Rss-reader-icon.png" />
+    <Resource Include="Image\Save.png" />
+    <Resource Include="Image\Scheduler.png" />
+    <Resource Include="Image\Sealingicon.PNG" />
+    <Resource Include="Image\SearchClick.png" />
+    <Resource Include="Image\Searchicon1.png" />
+    <Resource Include="Image\Searchicon2.png" />
+    <Resource Include="Image\Searchicon3.png" />
+    <Resource Include="Image\SearchNormal.png" />
+    <Resource Include="Image\Shipmenticon.png" />
+    <Resource Include="Image\snap.bmp" />
+    <Resource Include="Image\Stop.png" />
+    <Resource Include="Image\test.bmp" />
+    <Resource Include="Image\Toptecicon.png" />
+    <Resource Include="Image\toptec_logo.png" />
+    <Resource Include="Image\XMLSave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SampleData\SampleDataSource\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="History.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Crane.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\GridDataItem.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\AlarmList.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2%28x86 및 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Arrow_Left.png" />
+    <Resource Include="Image\Arrow_Right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\cubes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\SafetyIO.xml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Image\PowerPmacLoad.png" />
+    <Resource Include="Image\PowerPmacLoad_1.png" />
+    <Resource Include="Image\PowerPmacLoad_2.png" />
+    <Resource Include="Image\cubes.ico" />
+    <Resource Include="Image\Conveyor.png" />
+    <Resource Include="Image\Tray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\Ports\PortLayout.xml">
+      <SubType>Designer</SubType>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\Parameter_System.xml">
+      <SubType>Designer</SubType>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Arrow_Left1.png" />
+    <Resource Include="Image\Arrow_Right2.png" />
+    <Resource Include="Image\Computer.png" />
+    <Resource Include="Image\conveyor_icon.png" />
+    <Resource Include="Image\Conveyor_small.png" />
+    <Resource Include="Image\Crane1.png" />
+    <Resource Include="Image\Crane_head.png" />
+    <Resource Include="Image\crane_icon.png" />
+    <Resource Include="Image\crane_icon_small.png" />
+    <Resource Include="Image\EMS_sw.png" />
+    <Resource Include="Image\exit.png" />
+    <Resource Include="Image\exit2.png" />
+    <Resource Include="Image\exit3.png" />
+    <Resource Include="Image\Front_Teaching1.png" />
+    <Resource Include="Image\Front_Teaching2.png" />
+    <Resource Include="Image\Front_Teaching3.png" />
+    <Resource Include="Image\gear_icon.png" />
+    <Resource Include="Image\get.png" />
+    <Resource Include="Image\Globe.png" />
+    <Resource Include="Image\home.png" />
+    <Resource Include="Image\Log_icon.png" />
+    <Resource Include="Image\Main_icon.png" />
+    <Resource Include="Image\minitoring_icon.png" />
+    <Resource Include="Image\move.png" />
+    <Resource Include="Image\Port_Teaching1.png" />
+    <Resource Include="Image\Port_Teaching2.png" />
+    <Resource Include="Image\Port_Teaching3.png" />
+    <Resource Include="Image\property.ico" />
+    <Resource Include="Image\put.png" />
+    <Resource Include="Image\QAicon.png" />
+    <Resource Include="Image\Rear_Teching1.png" />
+    <Resource Include="Image\Rear_Teching2.png" />
+    <Resource Include="Image\Rear_Teching3.png" />
+    <Resource Include="Image\RotateGear.png" />
+    <Resource Include="Image\Save2.png" />
+    <Resource Include="Image\Save3.png" />
+    <Resource Include="Image\Search_manual_over.png" />
+    <Resource Include="Image\Search_manual_over2.png" />
+    <Resource Include="Image\Search_manual_over3.png" />
+    <Resource Include="Image\Search_minus_over.png" />
+    <Resource Include="Image\Search_minus_over2.png" />
+    <Resource Include="Image\Search_minus_over3.png" />
+    <Resource Include="Image\Search_plus_over.png" />
+    <Resource Include="Image\Search_plus_over2.png" />
+    <Resource Include="Image\Search_plus_over3.png" />
+    <Resource Include="Image\Search_sim_over.png" />
+    <Resource Include="Image\Search_sim_over2.png" />
+    <Resource Include="Image\Search_sim_over3.png" />
+    <Resource Include="Image\sim_bg.png" />
+    <Resource Include="Image\Toptec_logo_bg.png" />
+    <Resource Include="Image\Toptec_logo_bg2.png" />
+    <Resource Include="Image\warning_icon.png" />
+    <Resource Include="Image\zoom_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\PLC\PLCDataItems.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="OpenHSMS_Schema.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\us.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\cn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\hu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="DLL\log4net.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\skonlogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\kr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\skonlogo.jpg" />
+    <Resource Include="Image\skonlogo_wing.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\AuthorityData.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SCSIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\SCSIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\RecipeList.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\ScenarioList.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\IOPoint.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

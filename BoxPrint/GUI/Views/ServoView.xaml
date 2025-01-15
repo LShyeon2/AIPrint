@@ -1,0 +1,417 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Stockerfirmware.GUI.Views"
+      xmlns:i="http://schemas.Microsoft.com/expression/2010/interactivity"
+      xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="Stockerfirmware.GUI.Views.ServoView"
+      mc:Ignorable="d" 
+      d:DesignHeight="820" d:DesignWidth="1160"
+      Title="서보 뷰">
+
+    <Page.Resources>
+        <!--Toggle Button Template-->
+        <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
+            <Grid x:Name="gd">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="25" />
+                </Grid.ColumnDefinitions>
+                <Border x:Name="Border" SnapsToDevicePixels="True" Grid.ColumnSpan="2" Background="#FFE5E5E5" BorderBrush="{x:Null}"/>
+                <Border x:Name="Boredr1" SnapsToDevicePixels="True" Grid.Column="1"  Margin="1.1,1,1,1" Background="#FFE5E5E5" BorderBrush="{x:Null}" BorderThickness="0" />
+                <Path x:Name="Arrow" SnapsToDevicePixels="True" Grid.Column="1" Fill="White" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M 0 0 L 6 6 L 12 0 Z" Margin="6,9" Height="9.5" Stretch="Fill" Width="12.667"/>
+                <ContentPresenter Grid.Column="0" TextElement.Foreground="Orange"/>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter TargetName="Arrow" Property="Fill" Value="#FF2AA8DE"/>
+                </Trigger>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter TargetName="Arrow" Property="Data" Value="M 0 0 L 5 5 L 10 0"/>
+                    <Setter TargetName="Arrow" Property="Fill" Value="White"/>
+                    <Setter TargetName="Arrow" Property="Stroke" Value="White"/>
+                    <Setter TargetName="Arrow" Property="StrokeThickness" Value="1.5"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter TargetName="gd" Property="Visibility" Value="Visible"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <!--TextBox Template-->
+        <ControlTemplate x:Key="ComboBoxTextBox" TargetType="{x:Type TextBox}">
+            <ScrollViewer x:Name="PART_ContentHost" Focusable="False" />
+        </ControlTemplate>
+
+        <!--combobox-->
+        <Style x:Key="combobox_style" TargetType="{x:Type ComboBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate  TargetType="{x:Type ComboBox}">
+                        <Grid>
+                            <ToggleButton x:Name="ToggleButton" Foreground="Black" Template="{StaticResource ComboBoxToggleButton}" Focusable="false" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" ClickMode="Press"/>
+                            <ContentPresenter x:Name="ContentSite" IsHitTestVisible="False" Content="{TemplateBinding SelectionBoxItem}" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Margin="3,3,23,3"  VerticalAlignment="Center" HorizontalAlignment="Left" />
+                            <TextBox OverridesDefaultStyle="True" SelectionBrush="Gray" CaretBrush="Black" Margin="0,0,30,0" TextWrapping="NoWrap"   x:Name="PART_EditableTextBox" FontFamily="Segoe UI Dark"   Foreground="Black" Style="{x:Null}" Template="{StaticResource ComboBoxTextBox}" HorizontalAlignment="Left" Focusable="True"  VerticalAlignment="Center"  FontSize="15"   Visibility="Hidden" IsReadOnly="{TemplateBinding IsReadOnly}"/>
+                            <Popup x:Name="Popup"  Grid.ColumnSpan="2" Placement="Bottom"  IsOpen="{TemplateBinding IsDropDownOpen}" AllowsTransparency="True" Focusable="False" PopupAnimation="Slide" OpacityMask="{x:Null}">
+                                <Grid x:Name="DropDown"   SnapsToDevicePixels="True" MaxWidth="{TemplateBinding ActualWidth}" MinWidth="{TemplateBinding ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}" Background="White">
+                                    <Border Grid.ColumnSpan="2" Grid.RowSpan="2" x:Name="DropDownBorder" SnapsToDevicePixels="True" Background="Transparent" MaxWidth="{TemplateBinding ActualWidth}" BorderThickness="1" BorderBrush="#FFA3B2B8"/>
+                                    <ScrollViewer Grid.ColumnSpan="2" ScrollViewer.CanContentScroll="False" Grid.Row="1" SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True" Background="Transparent" Margin="1"/>
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEditable" Value="true">
+                                <Setter Property="IsTabStop" Value="false"/>
+                                <Setter  TargetName="PART_EditableTextBox" Property="Background" Value="White"/>
+                                <Setter TargetName="PART_EditableTextBox" Property="Visibility" Value="Visible"/>
+                                <Setter TargetName="PART_EditableTextBox" Property="Foreground" Value="Black"/>
+                                <Setter TargetName="ContentSite" Property="Visibility" Value="Hidden"/>
+                            </Trigger>
+                            <Trigger Property="HasItems" Value="false">
+                                <Setter TargetName="DropDownBorder" Property="MinHeight" Value="95"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="IsTabStop" Value="false"/>
+                                <Setter TargetName="PART_EditableTextBox" Property="Visibility" Value="Visible"/>
+                                <Setter TargetName="PART_EditableTextBox" Property="Foreground" Value="Black"/>
+                                <Setter  TargetName="PART_EditableTextBox" Property="IsEnabled" Value="False"/>
+                                <Setter  TargetName="PART_EditableTextBox" Property="Background" Value="White"/>
+                                <Setter TargetName="ContentSite" Property="Visibility" Value="Hidden"/>
+                            </Trigger>
+                            <Trigger Property="IsGrouping" Value="true">
+                                <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                            </Trigger>
+                            <Trigger SourceName="Popup" Property="AllowsTransparency" Value="true">
+                                <Setter TargetName="DropDownBorder" Property="Margin" Value="0,2,0,0"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <!--DataGrid Text 오른쪽 정렬-->
+        <Style x:Key="DataGridCellHorizontalAlignmentStyle" TargetType="{x:Type TextBlock}">
+
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <!--<Setter Property="Margin" Value="10,0"></Setter>-->
+
+        </Style>
+        <!--DataGrid Text 가운데 정렬-->
+        <Style x:Key="DataGridCellCenterAlignmentStyle" TargetType="{x:Type TextBlock}">
+
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment"   Value="Center"/>
+            <!--<Setter Property="Margin" Value="10,0"></Setter>-->
+        </Style>
+
+
+    </Page.Resources>
+
+    <Grid x:Name="grdMain" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="0.5*"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="46*"/>
+            <ColumnDefinition Width="99*"/>
+
+        </Grid.ColumnDefinitions>
+
+
+        <Border BorderThickness="1" CornerRadius="5" BorderBrush="#FFAE7420" Background="#FFFBEEDF" Grid.Column="0"  Grid.ColumnSpan="2">
+            <Label x:Name="Label_ServoTitle" Content="Servo Configulation"  FontSize="28" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="572" Margin="448,-3,138,8"/>
+        </Border>
+        <Grid Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" Margin="386,20,406,20"  Width="0"/>
+        <DataGrid x:Name="dataGrid_Teaching" IsReadOnly="True" Grid.Column="1" Grid.Row="2"  Margin="20,72,20,20" AutoGenerateColumns="False"  CanUserResizeColumns="False" CanUserSortColumns="False" CanUserReorderColumns="False" SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="순번" Width="2*"   Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="축번호" Width="2*"  Binding="{Binding Axis}" />
+                <DataGridTextColumn Header="태그 네임" Width="7*"  Binding="{Binding TagName}" />
+                <DataGridTextColumn Header="포지션 밸류" Width="7*"  Binding="{Binding PositionValue}" />
+            </DataGrid.Columns>
+
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="IsEnabled" Value="True"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IsSelected}" Value="False">
+                            <Setter Property="Background" Value="LightBlue"/>
+                            <Setter Property="IsEnabled" Value="False"/>
+                        </DataTrigger>
+
+
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+
+        </DataGrid>
+        <Grid Grid.Column="1"  Grid.Row="3" Background="AntiqueWhite"  ShowGridLines="True" Margin="10,10,10,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="button_Move" Content="MOVE" FontSize="22" FontWeight="Bold" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top" Width="162" Height="46" BorderThickness="3"  Click="button_Move_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.8">
+                        <GradientStop Color="White" Offset="0.148"/>
+                        <GradientStop Color="SteelBlue" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="button_Stop" Content="STOP" FontSize="22" FontWeight="Bold" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top" Width="162" Height="46" BorderThickness="3"  Grid.Column="1" Click="button_Stop_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.8">
+                        <GradientStop Color="White" Offset="0.148"/>
+                        <GradientStop Color="SteelBlue" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="button_PositionSave" Content="POSITION SAVE" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top" Width="162" Height="46" BorderThickness="3"  Grid.Column="1" Grid.Row="1" Click="button_PositionSave_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.8">
+                        <GradientStop Color="White" Offset="0.148"/>
+                        <GradientStop Color="SteelBlue" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="button_XMLSave" Content="DATA XML SAVE" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="173" Height="46" BorderThickness="3"  Grid.Column="2" Grid.Row="1" Click="button_XMLSave_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.8">
+                        <GradientStop Color="White" Offset="0.148"/>
+                        <GradientStop Color="SteelBlue" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="button_Refreash" Content="REFREASH" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top" Width="162" Height="46" BorderThickness="3"  Grid.Row="1" Click="button_Refreash_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.8">
+                        <GradientStop Color="White" Offset="0.148"/>
+                        <GradientStop Color="SteelBlue" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </Grid>
+        <GroupBox x:Name="groupBox"  FontSize="14" FontWeight="Bold"  Margin="5,61,5,20"  Background="LightSkyBlue" Grid.Row="3">
+            <GroupBox.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/image/IOMonitor.png"  Height="17" Margin="3,0" />
+                    <TextBlock FontWeight="Bold">Axis State</TextBlock>
+                </StackPanel>
+            </GroupBox.Header>
+            <WrapPanel HorizontalAlignment="Left" Height="96" VerticalAlignment="Top" Width="303">
+                <Label x:Name="label_TLC" Content="TLC" BorderThickness="1" BorderBrush="Black" Background="LightGray"/>
+                <Label x:Name="label_SAL" Content="SAL" BorderThickness="1" BorderBrush="Black" Background="LightGray"/>
+                <Label x:Name="label_RDY" Content="RDY" BorderThickness="1" BorderBrush="Black" Background="LightGray"/>
+                <Label x:Name="label_INP" Content="INP" BorderThickness="1" BorderBrush="Black" Background="LightGray"/>
+                <Label x:Name="label_ZP"  Content="ZP " BorderThickness="1" BorderBrush="Black" Background="LightGray"/>
+                <Label x:Name="label_OAL" Content="OAL" BorderThickness="1" BorderBrush="Black" Background="LightGray"/>
+                <Label x:Name="label_SWR" Content="SWR" BorderThickness="1" BorderBrush="Black" Background="LightGray"/>
+                <Label x:Name="label_OP"  Content="OP"  BorderThickness="1" BorderBrush="Black" Background="LightGray"/>
+            </WrapPanel>
+
+        </GroupBox>
+
+        <GroupBox x:Name="groupBox_JogControl"  FontSize="14" FontWeight="Bold"  Background="#FF9EC5FF" Grid.Row="2" Margin="0,0,0,85" Grid.RowSpan="2">
+            <GroupBox.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Stockerfirmware;component/Image/JogContorl.png"  Height="25" Margin="3,0" />
+                    <TextBlock FontWeight="Bold" FontSize="16"><Run Text="JogControl"/></TextBlock>
+                </StackPanel>
+            </GroupBox.Header>
+            <Grid Grid.Row="1" Background="WhiteSmoke" Grid.Column="1" Grid.RowSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="button_Jog_Plus" Content="+" FontSize="45" FontWeight="Bold" HorizontalAlignment="Left" Margin="5,15,0,0" VerticalAlignment="Top" Width="77" Height="65" BorderThickness="2" Grid.Row="1" Grid.Column="3" PreviewMouseLeftButtonDown="button_Jog_Plus_MouseDown"  PreviewMouseLeftButtonUp="button_Jog_Plus_MouseUp">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.8">
+                            <GradientStop Color="#FFFBE9B9" Offset="0.148"/>
+                            <GradientStop Color="#FFEAA2A2" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="button_Jog_Minus" Content="-" FontSize="45" FontWeight="Bold" HorizontalAlignment="Left" Margin="5,15,0,0" VerticalAlignment="Top" Width="77" Height="65" BorderThickness="2" Grid.Row="1" Grid.Column="2"   PreviewMouseLeftButtonDown="button_Jog_Minus_MouseDown" PreviewMouseLeftButtonUp="button_Jog_Minus_MouseUp">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.8">
+                            <GradientStop Color="#FFFBE9B9" Offset="0.148"/>
+                            <GradientStop Color="#FFEAA2A2" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="button_AxisServoOn" Content="Servo On" FontSize="21" FontWeight="Bold" HorizontalAlignment="Left" Margin="0,23,0,0" VerticalAlignment="Top" Width="174" Height="65" BorderThickness="3" Grid.Row="2" Grid.ColumnSpan="2" Click="button_AxisServoOn_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.8">
+                            <GradientStop Color="#FFFBE9B9" Offset="0.148"/>
+                            <GradientStop Color="#FFEAA2A2" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
+                <Button x:Name="button_AxisHome" Content="Home" FontSize="21" FontWeight="Bold" HorizontalAlignment="Left" Margin="5,23,0,0" VerticalAlignment="Top" Width="77" Height="65" BorderThickness="3" Grid.Row="2" Grid.Column="2" Click="button_AxisHome_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.8">
+                            <GradientStop Color="#FFFBE9B9" Offset="0.148"/>
+                            <GradientStop Color="#FFEAA2A2" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
+
+                <Button x:Name="button_AxisStop" Content="Stop" FontSize="21" FontWeight="Bold" HorizontalAlignment="Left" Margin="5,23,0,0" VerticalAlignment="Top" Width="77" Height="65" BorderThickness="3"  Grid.Row="2" Grid.Column="3" Click="button_AxisStop_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.8">
+                            <GradientStop Color="#FFFBE9B9" Offset="0.148"/>
+                            <GradientStop Color="#FFEAA2A2" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
+
+                <Button x:Name="button_AxisReset" Content="Error Reset" FontSize="21" FontWeight="Bold" HorizontalAlignment="Left" Margin="5,13,0,0" VerticalAlignment="Top" Width="169" Height="65" BorderThickness="3" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Click="button_AxisReset_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.8">
+                            <GradientStop Color="#FFFBE9B9" Offset="0.148"/>
+                            <GradientStop Color="#FFEAA2A2" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
+
+                <Button x:Name="button_AxisHomeSave" Content="Home Save" FontSize="21" FontWeight="Bold" HorizontalAlignment="Left" Margin="0,13,0,0" VerticalAlignment="Top" Width="174" Height="65" BorderThickness="3"  Grid.Row="3" Grid.ColumnSpan="2" Click="button_AxisHomeSave_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.8">
+                            <GradientStop Color="#FFFBE9B9" Offset="0.148"/>
+                            <GradientStop Color="#FFEAA2A2" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
+
+                <Slider x:Name="slider_JogSpeed" Value="10" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" BorderThickness="5" BorderBrush="LightBlue" Minimum="1"  Maximum="100" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="47" Margin="10,27,0,0" VerticalAlignment="Top" Width="249"/>
+                <TextBox x:Name="textBox_JogSpeed" Grid.Column="3" Height="44" Margin="10,27,7,0" TextAlignment="Center" TextWrapping="Wrap" Text="{Binding ElementName=slider_JogSpeed, Path=Value, UpdateSourceTrigger=PropertyChanged}"   FontSize="30" VerticalAlignment="Top" Background="#FFFFFFB1"/>
+                <ComboBox x:Name="comboBox_JogMode" SelectedIndex="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" FontSize="20" FontWeight="Bold" Margin="8,48,0,0" Grid.Row="1" VerticalAlignment="Top" Width="164"  Height="34">
+                    <System:String>Continuous</System:String>
+                    <System:String>1 Pulse</System:String>
+                    <System:String>10 Pulse</System:String>
+                    <System:String>50 Pulse</System:String>
+                    <System:String>100 Pulse</System:String>
+                    <System:String>500 Pulse</System:String>
+                    <System:String>1000 Pulse</System:String>
+                </ComboBox>
+                <Label Content="Select Jog Mode" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" Margin="26,20,0,0" VerticalAlignment="Top" Height="32" Width="132" Grid.Row="1" Grid.ColumnSpan="2"/>
+                <Label Content="Jog Speed" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Height="32" Width="87" Grid.Column="3" Margin="2,-5,0,0"/>
+                <Button x:Name="button_ServoReboot" Content="Servo Reboot" FontSize="21" FontWeight="Bold" HorizontalAlignment="Left" Margin="5,13,0,0" VerticalAlignment="Top" Width="169" Height="65" BorderThickness="3" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Click="button_ServoReboot_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.8">
+                            <GradientStop Color="#FFFBE9B9" Offset="0.148"/>
+                            <GradientStop Color="#FFEAA2A2" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
+            </Grid>
+
+        </GroupBox>
+        <GroupBox x:Name="groupBox_Axis"  FontSize="14" FontWeight="Bold" Margin="0,0,0,0" Background="#FFAAAAAA" Grid.Row="1">
+            <GroupBox.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Stockerfirmware;component/Image/Home.png"  Height="25" Margin="3,0" />
+                    <TextBlock FontWeight="Bold" FontSize="16" Foreground="#FF2E2E2E" ><Run Text="Axis Sensor"/></TextBlock>
+                </StackPanel>
+            </GroupBox.Header>
+            <Grid Grid.Row="1" Background="#FFF0F0F0" Grid.Column="1" Grid.RowSpan="2" Margin="1,-5,1,1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.8*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="0.8*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90*"/>
+                    <ColumnDefinition Width="88*"/>
+                    <ColumnDefinition Width="91*"/>
+                    <ColumnDefinition Width="82*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="0*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Axis" HorizontalAlignment="Center" Margin="23,9,17,0" VerticalAlignment="Top" Grid.Column="3" Height="26" Width="42"/>
+                <Label Content="HOME" Grid.Column="1" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Height="25" Width="53"/>
+                <Label Content="+ Limit" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.656,0.483" Height="25" Width="58"/>
+                <Label Content="- Limit" Grid.Column="0" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" Height="25" Width="54"/>
+                <Rectangle x:Name="Rec_HomeSensor" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="22" Margin="10,10,0,0" Stroke="#FF8F8F8F" VerticalAlignment="Top" Width="66" Grid.Column="1" Grid.Row="1"/>
+                <Rectangle x:Name="Rec_MinusLimitSensor" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="22" Margin="10,10,0,0" Stroke="#FF8F8F8F" VerticalAlignment="Top" Width="66" Grid.Column="0" Grid.Row="1"/>
+                <Rectangle x:Name="Rec_PlusLimitSensor" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="22" Margin="10,10,0,0" Stroke="#FF8F8F8F" VerticalAlignment="Top" Width="66" Grid.Column="2" Grid.Row="1"/>
+                <Label  Content="Sys Alarm" HorizontalAlignment="Left" Margin="6,0,0,0" VerticalAlignment="Top" Width="76" Grid.Row="2" Grid.Column="0" Height="35"/>
+                <Label  Content="SV Alarm"  HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="76" Grid.Row="2" Grid.Column="1" RenderTransformOrigin="-0.491,0.471" Height="35"/>
+                <Label  Content="OP Alarm" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="76" Grid.Row="2" Grid.Column="2" RenderTransformOrigin="-0.491,0.471" Height="35"/>
+
+                <TextBox x:Name="textBox_SystemAlarm"  IsReadOnly="True" Grid.Column="0" HorizontalAlignment="Left" Height="22" Margin="10,0,0,0" TextWrapping="Wrap"   FontSize="10" VerticalAlignment="Top" Width="66" Grid.Row="3" BorderBrush="#FF8F8F8F"/>
+                <TextBox x:Name="textBox_ServoAlarm" IsReadOnly="True"  Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="10,0,0,0" TextWrapping="Wrap"   FontSize="10" VerticalAlignment="Top" Width="66" Grid.Row="3" BorderBrush="#FF8F8F8F"/>
+                <TextBox x:Name="textBox_OPAlarm"  IsReadOnly="True" Grid.Column="2" HorizontalAlignment="Left" Height="22" Margin="10,0,0,0" TextWrapping="Wrap"   FontSize="10" VerticalAlignment="Top" Width="68" Grid.Row="3" BorderBrush="#FF8F8F8F"/>
+                <ComboBox x:Name="cb_Axis" HorizontalAlignment="Left" Height="22" Margin="5,10,0,0" VerticalAlignment="Top" Width="70" Grid.Column="3" Grid.Row="1" SelectionChanged="cb_Axis_SelectionChanged" />
+            </Grid>
+
+        </GroupBox>
+        <GroupBox x:Name="groupBox_Position"  FontSize="14" FontWeight="Bold" Margin="1,1,1,1" Background="#FFAAAAAA" Grid.Row="1" Grid.Column="1">
+            <GroupBox.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Stockerfirmware;component/Image/gear_icon.png"  Height="25" Margin="3,0" />
+                    <TextBlock FontWeight="Bold"><Run Text="Servo Position State"/></TextBlock>
+                </StackPanel>
+            </GroupBox.Header>
+            <DataGrid x:Name="dataGrid_ServoPosition" IsReadOnly="True" AutoGenerateColumns="False"  CanUserResizeColumns="False" CanUserSortColumns="False" CanUserReorderColumns="False" SelectionMode="Single" SelectionChanged="dataGrid_ServoPosition_SelectionChanged" Margin="1,-5,1,1">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Axis " Width="2*"  Binding="{Binding AxisNumber}" />
+                    <DataGridTextColumn Header="Servo On" Width="3*"  Binding="{Binding IsServoOn}" />
+                    <DataGridTextColumn Header="Alarm State" Width="4*"  Binding="{Binding IsAlarmState}" />
+                    <DataGridTextColumn Header="Command Position" Width="7*"  Binding="{Binding CurrentPosition}" />
+                    <DataGridTextColumn Header="Current Position" Width="7*"  Binding="{Binding CommandPosition}" />
+                </DataGrid.Columns>
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsServoOn}" Value="True">
+                                <Setter Property="Background" Value="#FFFFFFB5"></Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding IsServoOn}" Value="False">
+                                <Setter Property="Background" Value="#FFEEEEEE"></Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding IsAlarmState}" Value="True">
+                                <Setter Property="Background" Value="#FFFF782B"></Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.RowStyle>
+            </DataGrid>
+        </GroupBox>
+    </Grid>
+</Page>

@@ -1,0 +1,122 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    x:Class="BoxPrint.GUI.ETC.AlarmPopupView"
+    xmlns:ex="clr-namespace:TranslationByMarkupExtension"
+    mc:Ignorable="d" Background="#B2808080" AllowsTransparency="True" WindowStyle="None">
+
+    <Window.Resources>
+        <Style x:Key="WarningChange" TargetType="Path">
+            <Setter Property="Fill" Value="{StaticResource SK_Red}"/>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Path.Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                                    Storyboard.TargetProperty="(Path.Width)"
+                                    From="162" To="192" Duration="0:0:0.8" AutoReverse="True"
+                                    RepeatBehavior="Forever"/>
+                                <DoubleAnimation
+                                    Storyboard.TargetProperty="(Path.Height)"
+                                    From="135" To="165" Duration="0:0:0.8" AutoReverse="True"
+                                    RepeatBehavior="Forever"/>
+                                <DoubleAnimation
+                                    Storyboard.TargetProperty="(Path.Opacity)"
+                                    From="1.0" To="0.0" Duration="0:0:0.8" AutoReverse="True"
+                                    RepeatBehavior="Forever"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="PathColorChange" TargetType="Path">
+            <Setter Property="Fill" Value="White"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=Border,AncestorLevel=1}, Path=IsMouseOver}" Value="True">
+                    <Setter Property="Fill" Value="{StaticResource SK_Orange}"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="SKBorderStyle_1" TargetType="{x:Type Border}">
+            <Style.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="TextAlignment" Value="Center"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Style>
+            </Style.Resources>
+
+            <Setter Property="Background" Value="{StaticResource SK_Red}"/>
+            <Setter Property="CornerRadius" Value="10"/>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource SK_Orange}"/>
+                    <Setter Property="Cursor" Value="Hand"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="SKBorderStyle_2" TargetType="{x:Type Border}">
+            <Style.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="TextAlignment" Value="Center"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Style>
+            </Style.Resources>
+
+            <Setter Property="Background" Value="black"/>
+            <Setter Property="CornerRadius" Value="10"/>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource SK_Orange}"/>
+                    <Setter Property="Cursor" Value="Hand"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid Width="700" Height="500" HorizontalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="30*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="{StaticResource SK_Yellow}" CornerRadius="10,10,0,0">
+            <TextBlock Text="{ex:Translate WARNING!}" Foreground="{StaticResource SK_Red}" FontFamily="{StaticResource ExtraBoldFont}" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,60,0,0"/>
+        </Border>
+
+        <Path Stretch="Uniform" Data="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z" Width="30" Fill="{StaticResource SK_Red}" Margin="0,170,490,0" Grid.Row="0"/>
+        <Path Stretch="Uniform" Data="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z" Width="30" Fill="{StaticResource SK_Red}" Margin="490,170,0,0" Grid.Row="0"/>
+        <TextBlock Text="{ex:Translate 에러가 발생했습니다. 자세한 내용을 확인하시겠습니까?}" Foreground="Black" FontFamily="{StaticResource BoldFont}" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,175,0,0"/>
+
+        <Border Grid.Row="0" Background="Transparent" Tag="EXIT" Width="25" Height="25" HorizontalAlignment="Right" Margin="0,0,10,310" Padding="0" PreviewMouseDown="BorderButton_PreviewMouseDown">
+            <Path IsHitTestVisible="False" Style="{StaticResource PathColorChange}" Stretch="Fill"  Data="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z" />
+        </Border>
+
+        <Path IsHitTestVisible="False" Stretch="Fill" Style="{StaticResource WarningChange}" Width="162" Height="135" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                          Data="M193.866,145.1289 L194.52898,145.16155 C197.97908,145.50237 200.96552,148.3586 202.66322,152.50564 L202.883,153.07297 202.883,172.70621 202.66322,173.27355 C200.96552,177.42058 197.97908,180.2768 194.52898,180.61764 L193.866,180.65028 45.541,180.65191 44.845041,180.61764 C41.394921,180.2768 38.40848,177.42058 36.710788,173.27355 L36.491002,172.70621 36.491002,153.07297 36.710788,152.50564 C38.40848,148.3586 41.394921,145.50237 44.845041,145.16154 L45.465999,145.13097 z M207.08299,63.917903 L230.24899,63.917903 231.17258,63.964541 C235.72752,64.42715 239.282,68.274157 239.282,72.951403 239.282,77.628653 235.72752,81.475661 231.17258,81.938262 L230.24899,81.9849 207.08299,81.9849 206.61816,81.973151 C201.8454,81.7312 198.05,77.78456 198.05,72.951403 198.05,68.118247 201.8454,64.171603 206.61816,63.92966 z M9.0830009,63.917903 L32.249001,63.917903 33.172572,63.964541 C37.727517,64.42715 41.282,68.274157 41.282,72.951403 41.282,77.628653 37.727517,81.475661 33.172572,81.938262 L32.249001,81.9849 9.0830009,81.9849 8.6181648,81.973151 C3.8453987,81.7312 0.05,77.78456 0.05,72.951403 0.05,68.118247 3.8453987,64.171603 8.6181648,63.92966 z M119.5,30.7459 C119.39299,30.745904 118.0484,30.759465 118.0484,30.759465 95.446385,31.332093 77.300002,49.833834 77.3,72.573901 L77.3,73.112902 C77.300002,76.537066 80.075839,79.312903 83.500005,79.312903 86.924168,79.312903 89.700002,76.537066 89.700003,73.112902 L89.697247,73.139403 C89.697251,57.263003 102.46924,43.655162 118.24926,43.255372 118.24926,43.255372 119.39299,43.145903 119.5,43.145903 122.92417,43.145903 125.7,40.370068 125.7,36.945903 125.7,33.521739 122.92417,30.745904 119.5,30.7459 z M119.541,13.625903 C151.92927,13.625904 178.28096,36.308236 179.09654,64.559943 L179.11372,65.751902 179.116,132.4019 59.966,132.4019 59.966,65.909404 59.98546,64.559943 C60.801042,36.308236 87.152736,13.625904 119.541,13.625903 z M20.069505,0.2012146 C21.430402,0.21012383 22.802682,0.52645664 24.078652,1.1737049 L24.881078,1.633354 44.376386,14.1472 44.761221,14.408185 C48.647039,17.189956 49.709146,22.561453 47.098366,26.628787 44.487583,30.696122 39.161668,31.967212 35.01446,29.592658 L34.616929,29.351455 15.121617,16.837609 14.369576,16.299465 C10.786263,13.449661 9.8730743,8.2921517 12.399636,4.3560217 14.136651,1.6499308 17.075528,0.18161087 20.069505,0.2012146 z M218.939,0.052214432 C221.93231,-0.014047813 224.89372,1.4082916 226.6727,4.0869797 229.2603,7.9832566 228.4276,13.154372 224.88913,16.059677 L224.14557,16.609474 204.84766,29.425639 204.45393,29.673011 C200.34424,32.111907 194.99916,30.923978 192.3253,26.897825 189.65144,22.871675 190.62972,17.484278 194.47171,14.642288 L194.85243,14.375332 214.15035,1.5591705 214.9455,1.0870722 C216.21123,0.42001514 217.57842,0.082333374 218.939,0.052214432 z" Margin="0,0,0,150"/>
+
+        <Border Grid.Row="1" Background="White" CornerRadius="0,0,10,10"/>
+
+        <Border Grid.Row="1" Tag="YES" PreviewMouseDown="BorderButton_PreviewMouseDown" Width="125" Height="50" Style="{StaticResource SKBorderStyle_1}" Margin="0,0,150,0">
+            <TextBlock Text="{ex:Translate YES}" Foreground="White" FontSize="20" FontFamily="{StaticResource BoldFont}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
+
+        <Border Grid.Row="1" Tag="NO" PreviewMouseDown="BorderButton_PreviewMouseDown" Width="125" Height="50" Style="{StaticResource SKBorderStyle_2}" Margin="150,0,0,0">
+            <TextBlock Text="{ex:Translate NO}" Foreground="White" FontSize="20" FontFamily="{StaticResource BoldFont}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
+
+        <Border BorderBrush="{StaticResource SK_Red}" Background="White" BorderThickness="2" HorizontalAlignment="Center" Width="600" Height="50" VerticalAlignment="Center" CornerRadius="15" Margin="0,265,0,0">
+            <TextBlock x:Name="AlarmText" Foreground="{StaticResource SK_Red}" FontFamily="{StaticResource BoldFont}" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
+    </Grid>
+</Window>

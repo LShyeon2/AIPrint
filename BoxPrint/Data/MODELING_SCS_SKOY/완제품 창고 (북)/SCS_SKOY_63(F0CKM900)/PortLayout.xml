@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PortLayout AutoRecovery="False" Change="false">
+  <CVLine1 ModuleName="F0CKM9A0_PAWA0_LP" LineType="AutoOut" Bank="2" Bay="4" Level="2" LineFloor="1F" Rotate="False" CVWay="TopToBottom">
+    <Conveyor1 ModuleName="F0CKM9A0_PAWA0_LP" USE="True" CVType="WaterPool" TrackGroup="13" TrackNum="002" PortTableID="4" PortSize="Both" Direction="OUTPUT" PLCNum="0" />
+  </CVLine1>
+  <CVLine2 ModuleName="F0CKM9A0_PAOA0_LP" LineType="AutoOut" Bank="2" Bay="1" Level="2" LineFloor="1F" Rotate="False" CVWay="RightToLeft">
+    <Conveyor1 ModuleName="F0CKM9A0_PAOA0_LP" USE="True" CVType="RobotIF" TrackGroup="1" TrackNum="004" PortTableID="5" PortSize="Both" Direction="OUTPUT" PLCNum="1" />
+  </CVLine2>
+  <CVLine3 ModuleName="F0CKM9A0_PAIA0_LP" LineType="AutoIn" Bank="1" Bay="1" Level="2" LineFloor="1F" Rotate="False" CVWay="RightToLeft">
+    <Conveyor1 ModuleName="F0CKM9A0_PAIA0_LP" USE="True" CVType="RobotIF" TrackGroup="1" TrackNum="007" PortTableID="1" PortSize="Both" Direction="INPUT" PLCNum="1" />
+  </CVLine3>
+  <CVLine4 ModuleName="F0CKM9A1_PAOA1_LP" LineType="AutoOut" Bank="2" Bay="41" Level="2" LineFloor="1F" Rotate="False" CVWay="LeftToRight">
+    <Conveyor1 ModuleName="F0CKM9A1_PAOA1_LP" USE="True" CVType="RobotIF" TrackGroup="2" TrackNum="004" PortTableID="3" PortSize="Both" Direction="OUTPUT" PLCNum="2" />
+  </CVLine4>
+  <CVLine5 ModuleName="F0CKM9A1_PAIA1_LP" LineType="AutoIn" Bank="1" Bay="41" Level="2" LineFloor="1F" Rotate="False" CVWay="LeftToRight">
+    <Conveyor1 ModuleName="F0CKM9A1_PAIA1_LP" USE="True" CVType="RobotIF" TrackGroup="2" TrackNum="007" PortTableID="2" PortSize="Both" Direction="INPUT" PLCNum="2" />
+  </CVLine5>
+</PortLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<ScenarioList xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ScenarioFilePath>E:\Data\0.Work\CJ\BoxPrinter\Source\BoxPrint\BoxPrint\Data\ScenarioList.xml</ScenarioFilePath>
+  <ScenarioStep Step="1" Recipe_No="1" Recipe_Name="JungGwanJang">
+    <iStep>1</iStep>
+  </ScenarioStep>
+  <ScenarioStep Step="2" Recipe_No="2" Recipe_Name="Budweiser">
+    <iStep>2</iStep>
+  </ScenarioStep>
+  <ScenarioStep Step="3" Recipe_No="3" Recipe_Name="Oliveyoung">
+    <iStep>3</iStep>
+  </ScenarioStep>
+  <ScenarioStep Step="4" Recipe_No="5" Recipe_Name="HappyBirthday">
+    <iStep>4</iStep>
+  </ScenarioStep>
+  <ScenarioStep Step="5" Recipe_No="21" Recipe_Name="정관장_2">
+    <iStep>5</iStep>
+  </ScenarioStep>
+  <ScenarioStep Step="6" Recipe_No="10" Recipe_Name="Fragile">
+    <iStep>6</iStep>
+  </ScenarioStep>
+</ScenarioList>

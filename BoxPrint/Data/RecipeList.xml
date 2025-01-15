@@ -1,0 +1,41 @@
+<ArrayOfRecipe>
+  <Recipe Recipe_No="1" Recipe_Name="JungGwanJang" IsSelected="False" ModifyDate="2025-01-07 14:44:34" CreateDate="2024-12-21 17:50:33">
+    <RecipeData Recipe_No="1" Order="1" DataType="BASE" Name="Filename" Value="A1" />
+    <RecipeData Recipe_No="1" Order="2" DataType="BASE" Name="Speed" Value="15" />
+    <RecipeData Recipe_No="1" Order="3" DataType="BASE" Name="Delay" Value="1750" />
+    <RecipeData Recipe_No="1" Order="4" DataType="BASE" Name="Direct" Value="L-R" />
+    <RecipeData Recipe_No="1" Order="5" DataType="AUTODATA" Name="No1" Value="123" />
+    <RecipeData Recipe_No="1" Order="6" DataType="AUTODATA" Name="No2" Value="어디로" />
+    <RecipeData Recipe_No="1" Order="7" DataType="AUTODATA" Name="No3" Value="구미시" />
+  </Recipe>
+  <Recipe Recipe_No="2" Recipe_Name="Budweiser" IsSelected="False" ModifyDate="2024-12-21 17:50:33" CreateDate="2024-12-21 17:50:33">
+    <RecipeData Recipe_No="2" Order="1" DataType="Base" Name="Filename" Value="B1" />
+    <RecipeData Recipe_No="2" Order="2" DataType="Base" Name="Speed" Value="15" />
+    <RecipeData Recipe_No="2" Order="3" DataType="Base" Name="Delay" Value="10" />
+    <RecipeData Recipe_No="2" Order="4" DataType="Base" Name="Direct" Value="R-L" />
+  </Recipe>
+  <Recipe Recipe_No="3" Recipe_Name="Oliveyoung" IsSelected="False" ModifyDate="2024-12-21 17:50:33" CreateDate="2024-12-21 17:50:33">
+    <RecipeData Recipe_No="3" Order="1" DataType="Base" Name="Filename" Value="C1" />
+    <RecipeData Recipe_No="3" Order="2" DataType="Base" Name="Speed" Value="15" />
+    <RecipeData Recipe_No="3" Order="3" DataType="Base" Name="Delay" Value="5" />
+    <RecipeData Recipe_No="3" Order="4" DataType="Base" Name="Direct" Value="L-R" />
+  </Recipe>
+  <Recipe Recipe_No="5" Recipe_Name="HappyBirthday" IsSelected="False" ModifyDate="2024-12-21 17:50:33" CreateDate="2024-12-21 17:50:33">
+    <RecipeData Recipe_No="5" Order="1" DataType="Base" Name="Filename" Value="D1" />
+    <RecipeData Recipe_No="5" Order="2" DataType="Base" Name="Speed" Value="15" />
+    <RecipeData Recipe_No="5" Order="3" DataType="Base" Name="Delay" Value="5" />
+    <RecipeData Recipe_No="5" Order="4" DataType="Base" Name="Direct" Value="L-R" />
+  </Recipe>
+  <Recipe Recipe_No="10" Recipe_Name="Fragile" IsSelected="True" ModifyDate="2024-12-21 17:50:33" CreateDate="2024-12-21 17:50:33">
+    <RecipeData Recipe_No="10" Order="1" DataType="Base" Name="Filename" Value="E1" />
+    <RecipeData Recipe_No="10" Order="2" DataType="Base" Name="Speed" Value="15" />
+    <RecipeData Recipe_No="10" Order="3" DataType="Base" Name="Delay" Value="5" />
+    <RecipeData Recipe_No="10" Order="4" DataType="Base" Name="Direct" Value="L-R" />
+  </Recipe>
+  <Recipe Recipe_No="21" Recipe_Name="정관장_2" IsSelected="False" ModifyDate="2025-01-07 15:35:37" CreateDate="2025-01-07 15:35:37">
+    <RecipeData Recipe_No="21" Order="1" DataType="BASE" Name="Filename" Value="A2" />
+    <RecipeData Recipe_No="21" Order="2" DataType="BASE" Name="Speed" Value="15" />
+    <RecipeData Recipe_No="21" Order="3" DataType="BASE" Name="Delay" Value="10" />
+    <RecipeData Recipe_No="21" Order="4" DataType="BASE" Name="Direct" Value="L-R" />
+  </Recipe>
+</ArrayOfRecipe>
